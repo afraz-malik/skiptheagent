@@ -1,0 +1,231 @@
+
+.boxmodel{
+	width: 70%;
+	margin: auto;
+	margin-top: 20px;
+	border: 1px solid lightgrey;
+	overflow: hidden;
+}
+.boxmodel_topbar{
+	display: flex;
+	background-color: #f0ecec;
+}
+.boxmodel_title{
+	margin: 0;
+	background-color: var(--default-color);
+	transform: skewX(-24deg);
+	width: 300px;
+	padding: 5px 5px 5px 30px;
+	position: relative;
+	right: 12px;
+}
+
+.boxmodel_title > * { 
+	transform: skewX(24deg); 
+}
+.boxmodel_title p{
+	margin: 0;
+	margin-left: 10px;
+	font-family: 'Bebas Neue', cursive;
+	font-size: 25px;
+	color: rgba(248,248,248,255);
+}
+.extra{
+	width: 5px;
+	background-color: var(--default-color);
+	transform: skewX(-24deg);
+	position: relative;
+	right: 12px;
+	margin-left: 5px; 
+}
+.add_cards{
+	display: flex;
+	justify-content: space-around;
+	padding: 30px 50px;
+	background-color: #f8f4f4;
+}
+.cards{
+	width: 20%;
+}
+.vhr{
+	border-right: 1px solid lightgrey;
+}
+.add_img img{
+	width: 100%;
+	height: 125px;
+}
+.add_name{
+	text-align: center;
+	margin-top: 5px;
+	font-size: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	color: rgba(93,93,93,255);
+}
+.add_name a{
+	text-decoration: none;
+	color: rgba(93,93,93,255);
+}
+.add_price{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	text-align: center;
+	margin: 5px 0px;
+	color: rgba(178,2,2,255);
+	font-weight: bold;
+}
+.cards > hr{
+	border-top: 1px solid grey;
+}
+.options{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.options img{
+	width: 10px;
+	margin-right: 5px;
+}
+.class1{
+	display: flex;
+	align-items: center;
+	align-self: center;
+	font-family: 'Open Sans', sans-serif;
+	color: rgba(93,93,93,255);
+	font-size: 9px;
+	justify-content: space-between;
+}
+.class2{
+	display: flex;
+	justify-content: space-between;
+}
+.class3 p{
+	margin: 0;
+}
+.hidden{
+	display: none;
+}
+.more{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	cursor: pointer;
+}
+.more a{
+	padding: 10px 20px;
+	border: 2px solid var(--default-color);
+	text-decoration: none;
+	color: rgba(13,135,105,255);
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	border-radius: 5px;
+	align-self: center;
+}
+.more a:hover{
+	background-color: var(--default-color);
+	color : white;
+}
+.less{
+	display: none;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+	.boxmodel{
+		width: 80%;
+	}
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+ 
+	.boxmodel{
+		width: 100%;
+	}
+	
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+	.boxmodel{
+		width: 100%;
+	}
+
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  	
+	.boxmodel_title{
+		font-size: 10px;
+	}
+	.boxmodel{
+		width: 99%;
+	}
+	.add_cards{
+		padding: 5px;
+	}
+	.class1{
+		display: none;
+	}
+
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  
+	.boxmodel_title{
+		font-size: 10px;
+	}
+	.boxmodel{
+		width: 99%;
+	}
+	.add_cards{
+		padding: 5px;
+	}
+	.cards img{
+		height: 90px;
+	}
+	.class1{
+		display: none;
+	}
+	.more a{
+		font-size: 12px;
+	}
+}
