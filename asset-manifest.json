@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/skiptheagent2/static/css/main.46055411.chunk.css",
-    "main.js": "/skiptheagent2/static/js/main.1ad58e79.chunk.js",
-    "main.js.map": "/skiptheagent2/static/js/main.1ad58e79.chunk.js.map",
-    "runtime-main.js": "/skiptheagent2/static/js/runtime-main.331ec368.js",
-    "runtime-main.js.map": "/skiptheagent2/static/js/runtime-main.331ec368.js.map",
-    "static/js/2.8e58feb8.chunk.js": "/skiptheagent2/static/js/2.8e58feb8.chunk.js",
-    "static/js/2.8e58feb8.chunk.js.map": "/skiptheagent2/static/js/2.8e58feb8.chunk.js.map",
-    "static/js/3.9e4d3f0b.chunk.js": "/skiptheagent2/static/js/3.9e4d3f0b.chunk.js",
-    "static/js/3.9e4d3f0b.chunk.js.map": "/skiptheagent2/static/js/3.9e4d3f0b.chunk.js.map",
-    "index.html": "/skiptheagent2/index.html",
-    "static/css/main.46055411.chunk.css.map": "/skiptheagent2/static/css/main.46055411.chunk.css.map",
-    "static/js/2.8e58feb8.chunk.js.LICENSE.txt": "/skiptheagent2/static/js/2.8e58feb8.chunk.js.LICENSE.txt",
-    "static/media/banner.module.css": "/skiptheagent2/static/media/banner.9c124b9a.jpg",
-    "static/media/BuySellCard.module.css": "/skiptheagent2/static/media/redcar.4241de65.jpg",
-    "static/media/NewsBoxModelGen.module.css": "/skiptheagent2/static/media/engine-news.d2e53ef0.jpg",
-    "static/media/Compare.module.css": "/skiptheagent2/static/media/unsure.aa65640b.jpg"
+    "main.css": "/skiptheagent/static/css/main.2893d2bd.chunk.css",
+    "main.js": "/skiptheagent/static/js/main.671a1816.chunk.js",
+    "main.js.map": "/skiptheagent/static/js/main.671a1816.chunk.js.map",
+    "runtime-main.js": "/skiptheagent/static/js/runtime-main.6c703c32.js",
+    "runtime-main.js.map": "/skiptheagent/static/js/runtime-main.6c703c32.js.map",
+    "static/js/2.8e58feb8.chunk.js": "/skiptheagent/static/js/2.8e58feb8.chunk.js",
+    "static/js/2.8e58feb8.chunk.js.map": "/skiptheagent/static/js/2.8e58feb8.chunk.js.map",
+    "static/js/3.9e4d3f0b.chunk.js": "/skiptheagent/static/js/3.9e4d3f0b.chunk.js",
+    "static/js/3.9e4d3f0b.chunk.js.map": "/skiptheagent/static/js/3.9e4d3f0b.chunk.js.map",
+    "index.html": "/skiptheagent/index.html",
+    "static/css/main.2893d2bd.chunk.css.map": "/skiptheagent/static/css/main.2893d2bd.chunk.css.map",
+    "static/js/2.8e58feb8.chunk.js.LICENSE.txt": "/skiptheagent/static/js/2.8e58feb8.chunk.js.LICENSE.txt",
+    "static/media/banner.module.css": "/skiptheagent/static/media/banner.9c124b9a.jpg",
+    "static/media/BuySellCard.module.css": "/skiptheagent/static/media/redcar.4241de65.jpg",
+    "static/media/NewsBoxModelGen.module.css": "/skiptheagent/static/media/engine-news.d2e53ef0.jpg",
+    "static/media/Compare.module.css": "/skiptheagent/static/media/unsure.aa65640b.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.331ec368.js",
+    "static/js/runtime-main.6c703c32.js",
     "static/js/2.8e58feb8.chunk.js",
-    "static/css/main.46055411.chunk.css",
-    "static/js/main.1ad58e79.chunk.js"
+    "static/css/main.2893d2bd.chunk.css",
+    "static/js/main.671a1816.chunk.js"
   ]
 }
