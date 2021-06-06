@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/skiptheagent-react/static/css/main.ab41b1ff.chunk.css",
-    "main.js": "/skiptheagent-react/static/js/main.a8a0c88d.chunk.js",
-    "main.js.map": "/skiptheagent-react/static/js/main.a8a0c88d.chunk.js.map",
+    "main.js": "/skiptheagent-react/static/js/main.671a1816.chunk.js",
+    "main.js.map": "/skiptheagent-react/static/js/main.671a1816.chunk.js.map",
     "runtime-main.js": "/skiptheagent-react/static/js/runtime-main.c1436e61.js",
     "runtime-main.js.map": "/skiptheagent-react/static/js/runtime-main.c1436e61.js.map",
     "static/js/2.8e58feb8.chunk.js": "/skiptheagent-react/static/js/2.8e58feb8.chunk.js",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.c1436e61.js",
     "static/js/2.8e58feb8.chunk.js",
     "static/css/main.ab41b1ff.chunk.css",
-    "static/js/main.a8a0c88d.chunk.js"
+    "static/js/main.671a1816.chunk.js"
   ]
 }
