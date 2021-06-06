@@ -1,6 +1,15 @@
 import FooterCss from './Footer.module.css';
 
-const Footer = () =>{
+//Router
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
+
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+const Footer = ({url}) =>{
 	return(
 	<footer className={FooterCss.footer}>
 		<div className={FooterCss.insidefooter}>
@@ -10,18 +19,18 @@ const Footer = () =>{
 			<div className={FooterCss.links}> 
 			<div className={FooterCss.footerdata}>
 				<ul>
-				<li> <a href='#dummy'> Contact Us</a></li>
-				<li> <a href='#dummy'> About Us</a></li>
-				<li> <a href='#dummy'> Terms &amp; Conditions</a></li>
-				<li> <a href='#dummy'> Partners</a></li>
+				<li> <Link to="#dum"> Contact Us</Link></li>
+				<li> <Link to="#dum"> About Us</Link></li>
+				<li> <Link to="#dum"> Terms &amp; Conditions</Link></li>
+				<li> <Link to="#dum"> Partners</Link></li>
 				</ul>
 			</div>
 			<div className={FooterCss.footerdata}>
 				<ul>
-				<li> <a href='#dummy'> Contact Us</a></li>
-				<li> <a href='#dummy'> About Us</a></li>
-				<li> <a href='#dummy'> Terms &amp; Conditions</a></li>
-				<li> <a href='#dummy'> Partners</a></li>
+				<li> <Link to="#dum"> Contact Us</Link></li>
+				<li> <Link to="#dum"> About Us</Link></li>
+				<li> <Link to="#dum"> Terms &amp; Conditions</Link></li>
+				<li> <Link to="#dum"> Partners</Link></li>
 				</ul>
 			</div>
 			<div className={`${FooterCss.footerdata}  ${FooterCss.footerdata1} `}>
@@ -30,16 +39,16 @@ const Footer = () =>{
 				</div>
 				<div className={FooterCss.socialimg}>
 				<div className={FooterCss.socialimg1}>
-					<a href='#dummy'><img alt='' src="images/fb.png" /></a>
+					<Link to="#dum"><img alt='' src="images/fb.png" /></Link>
 				</div>
 				<div className={FooterCss.socialimg1}>
-					<a href='#dummy'><img alt='' src="images/in.png" /></a>
+					<Link to="#dum"><img alt='' src="images/in.png" /></Link>
 				</div>
 				<div className={FooterCss.socialimg1}>
-					<a href='#dummy'><img alt='' src="images/insta.png" /></a>
+					<Link to="#dum"><img alt='' src="images/insta.png" /></Link>
 				</div>
 				<div className={FooterCss.socialimg1}>
-					<a href='#dummy'><img alt='' src="images/twitter.jpg" /></a>
+					<Link to="#dum"><img alt='' src="images/twitter.jpg" /></Link>
 				</div>
 				</div>	
 				<div className={FooterCss.downloadtext}>
@@ -47,10 +56,10 @@ const Footer = () =>{
 				</div>
 				<div className={FooterCss.footerimg}>
 				<div className={FooterCss.footerimg1}>	
-					<a href='#dummy'><img alt='' src="images/playstore.png" /></a>
+					<Link to="#dum"><img alt='' src="images/playstore.png" /></Link>
 				</div>
 				<div className={FooterCss.footerimg1}>
-					<a href='#dummy'><img alt='' src="images/app_store.png" width="100px" /></a>
+					<Link to="#dum"><img alt='' src="images/app_store.png" width="100px" /></Link>
 				</div>
 				</div>
 			</div>
@@ -64,4 +73,4 @@ const Footer = () =>{
 	)
 }
 
-export default Footer;
+export default  connect(mapStateToProps)(Footer);

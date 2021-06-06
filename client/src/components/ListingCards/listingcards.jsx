@@ -1,16 +1,25 @@
 import React from 'react';
 import ListingCardsCss from './listing-cards.module.css';
 
-const ListingCards = () => {
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
+
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+
+const ListingCards = ({url}) => {
     return (
         <div className={ListingCardsCss["listingcards"]}>
             <div className={ListingCardsCss["leftcard"]}>
-                <a href="#dummy"><img alt='' src="images\listingcar.jpg" /></a>
+                <Link to={`${url}details`}><img alt='' src="images\listingcar.jpg" /></Link>
             </div>
             <div className={ListingCardsCss["rightcard"]}>
                 <div className={ListingCardsCss["cardtop"]}>
                     <div className={ListingCardsCss["cardname"]}>
-                        <a href="#dummy"><p>2019 Fiat 124 Spider</p></a>
+                        <Link to={`${url}details`}><p>2019 Fiat 124 Spider</p></Link>
                     </div>
                     <div className={ListingCardsCss["cardprice"]}>
                         <p>$22,547</p>
@@ -87,4 +96,4 @@ const ListingCards = () => {
     )
 }
 
-export default ListingCards
+export default connect(mapStateToProps)(ListingCards)

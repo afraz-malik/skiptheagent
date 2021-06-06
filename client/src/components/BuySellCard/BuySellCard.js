@@ -1,7 +1,16 @@
 import React from 'react';
 import BuySellCardCss from './BuySellCard.module.css'
 
-const BuySellCard = () =>{
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
+
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+
+const BuySellCard = ({url}) =>{
 	return(
     <div className={BuySellCardCss.buysell}>
         <div className={BuySellCardCss.buycar}>
@@ -15,7 +24,7 @@ const BuySellCard = () =>{
                 <p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autosthe Photoshop's version..</p>					
               </div>
               <div className={BuySellCardCss.learnmore}>
-                <a href="#l">LEARN MORE</a>	
+                <Link to={`${url}listing`}> LEARN MORE </Link>	
               </div>
             </div>
           </div>
@@ -31,7 +40,7 @@ const BuySellCard = () =>{
                 <p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autosthe Photoshop's version..</p>					
               </div>
               <div className={BuySellCardCss.learnmore}>
-                <a href="#dum">POST AD</a>	
+                <Link to={`${url}login`}>POST AD</Link>	
               </div>
             </div>
           </div>
@@ -40,4 +49,4 @@ const BuySellCard = () =>{
 	)
 }
 
-export default BuySellCard;
+export default connect(mapStateToProps)(BuySellCard);

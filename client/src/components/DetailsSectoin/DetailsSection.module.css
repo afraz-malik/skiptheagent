@@ -1,4 +1,3 @@
-
 .section{
 	overflow: hidden;
 	width: 65%;
@@ -159,7 +158,7 @@
 	overflow: hidden;
 	border-collapse: collapse;
 }
-td{
+.sectiontable td{
 	padding: 5px;
 	vertical-align: middle;
 	font-family: 'Open Sans', sans-serif;
@@ -167,16 +166,16 @@ td{
 	color: rgba(91,91,91,255);
 	font-size: 12px;
 }
-.td{
+.sectiontable .td{
 	display: flex;
 	flex-wrap: nowrap;
 	align-items: center;
 }
-.td p{
+.sectiontable .td p{
 	margin: 0;
 	margin-left: 3px;
 }
-.td img{
+.sectiontable .td img{
 	width: 20px;
 	height: auto;
 	margin-right: 2px;

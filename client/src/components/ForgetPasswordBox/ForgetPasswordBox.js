@@ -1,6 +1,8 @@
 import React from 'react';
 import ForgetPasswordCss from './ForgetPasswordBox.module.css'
 
+
+
 const ForgetPasswordBox = () =>{
 	return (
             <div>

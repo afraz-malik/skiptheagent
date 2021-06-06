@@ -1,18 +1,25 @@
 import React from 'react';
 import LatestAdsModelGenCss from './LatestAdsModelGen.module.css';
+//Router
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
 
-const LatestAdsModelGen = () => {
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+const LatestAdsModelGen = ({url}) => {
     return (
         <div className={LatestAdsModelGenCss.cards}>
             <div className={LatestAdsModelGenCss.add_img}>
-                <a href="#1">
+                <Link to={`${url}details`}>
                     <img alt='' src="images/honda-city-2016.jpg" />
-                </a>
+                </Link>
             </div>
             <div className={LatestAdsModelGenCss.add_name}>
-                <a href="#1">
+                <Link to={`${url}details`}>
                     Honda City 1.3 i-VTEC Prosmatec
-                </a>
+                </Link>
             </div>
             <div className={LatestAdsModelGenCss.add_price}>$76,000</div>
             <hr />
@@ -45,4 +52,4 @@ const LatestAdsModelGen = () => {
         </div>
     )
 }
-export default LatestAdsModelGen
+export default connect(mapStateToProps)(LatestAdsModelGen)

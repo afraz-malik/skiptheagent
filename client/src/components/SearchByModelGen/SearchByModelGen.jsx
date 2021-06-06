@@ -1,7 +1,14 @@
 import React from 'react'
 import SearchByModelGenCss from './SearchByModelGen.module.css'
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
 
-const SearchByModelGen = () => {
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+const SearchByModelGen = ({url}) => {
     return (
         <div className={SearchByModelGenCss["searchcar"]}>
             <div className={SearchByModelGenCss["uparrow"]}>
@@ -17,7 +24,8 @@ const SearchByModelGen = () => {
                             <p>Price Range 150k - 200k</p>
                         </div>
                         <div className={SearchByModelGenCss["card_search"]}>
-                            <a href='#dummmy'>SEARCH</a>
+                            <Link to={`${url}login`}>SEARCH</Link
+                            >
                         </div>
                     </div>
                 </div>
@@ -30,7 +38,8 @@ const SearchByModelGen = () => {
                             <p>Price Range 150k - 200k</p>
                         </div>
                         <div className={SearchByModelGenCss["card_search"]}>
-                            <a href='#dummmy'>SEARCH</a>
+                            <Link to={`${url}login`}>SEARCH</Link
+                            >
                         </div>
                     </div>
                 </div>
@@ -43,7 +52,8 @@ const SearchByModelGen = () => {
                             <p>Price Range 150k - 200k</p>
                         </div>
                         <div className={SearchByModelGenCss["card_search"]}>
-                            <a href='#dummmy'>SEARCH</a>
+                            <Link to={`${url}login`}>SEARCH</Link
+                            >
                         </div>
                     </div>
                 </div>
@@ -56,7 +66,8 @@ const SearchByModelGen = () => {
                             <p>Price Range 150k - 200k</p>
                         </div>
                         <div className={SearchByModelGenCss["card_search"]}>
-                            <a href='#dummmy'>SEARCH</a>
+                            <Link to={`${url}login`}>SEARCH</Link
+                            >
                         </div>
                     </div>
                 </div>
@@ -69,7 +80,8 @@ const SearchByModelGen = () => {
                             <p>Price Range 150k - 200k</p>
                         </div>
                         <div className={SearchByModelGenCss["card_search"]}>
-                            <a href='#dummmy'>SEARCH</a>
+                            <Link to={`${url}login`}>SEARCH</Link
+                            >
                         </div>
                     </div>
                 </div>
@@ -82,7 +94,8 @@ const SearchByModelGen = () => {
                             <p>Price Range 150k - 200k</p>
                         </div>
                         <div className={SearchByModelGenCss["card_search"]}>
-                            <a href='#dummmy'>SEARCH</a>
+                            <Link to={`${url}login`}>SEARCH</Link
+                            >
                         </div>
                     </div>
                 </div>
@@ -95,7 +108,8 @@ const SearchByModelGen = () => {
                             <p>Price Range 150k - 200k</p>
                         </div>
                         <div className={SearchByModelGenCss["card_search"]}>
-                            <a href='#dummmy'>SEARCH</a>
+                            <Link to={`${url}login`}>SEARCH</Link
+                            >
                         </div>
                     </div>
                 </div>
@@ -108,7 +122,8 @@ const SearchByModelGen = () => {
                             <p>Price Range 150k - 200k</p>
                         </div>
                         <div className={SearchByModelGenCss["card_search"]}>
-                            <a href='#dummmy'>SEARCH</a>
+                            <Link to={`${url}login`}>SEARCH</Link
+                            >
                         </div>
                     </div>
                 </div>
@@ -120,4 +135,4 @@ const SearchByModelGen = () => {
 
     )
 }
-export default SearchByModelGen
+export default connect(mapStateToProps)(SearchByModelGen)

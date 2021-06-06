@@ -1,7 +1,17 @@
 import React from 'react';
 import LoginBoxCss from './LogInBox.module.css'
 
-const LoginBox = () =>{
+//Router
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
+
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+
+const LoginBox = ({url}) =>{
 	return (
     <div className={LoginBoxCss.boxmodel}>
         <div className={LoginBoxCss.boxmodel_topbar}>
@@ -15,7 +25,7 @@ const LoginBox = () =>{
           <form className={LoginBoxCss.form}>
             <input type="email" name="email" placeholder="Email"  />
             <input type="password" name="password" placeholder="Password"/>
-            <a href="#dummy">Forget Password?</a>
+            <Link to={`${url}forget`}>Forget Password?</Link>
             <input type="submit" name="login" defaultValue="LOGIN" />
           </form>
           <div className={LoginBoxCss.afterform}>
@@ -23,11 +33,11 @@ const LoginBox = () =>{
               <p><span>Or Sign in with your social network</span></p>
             </div>
             <div className={LoginBoxCss.sociallinks}>
-              <div className={LoginBoxCss.fbsingin}><a href="#dummy"><img alt='' src="images\fbsignin.png" /></a></div>
-              <div className={LoginBoxCss.googlesingin}><a href="#dummy"><img alt='' src="images\googlesignin.png" /></a></div>
+              <div className={LoginBoxCss.fbsingin}><Link to="#dummy"><img alt='' src="images\fbsignin.png" /></Link></div>
+              <div className={LoginBoxCss.googlesingin}><Link to="#dummy"><img alt='' src="images\googlesignin.png" /></Link></div>
             </div>
             <div className={LoginBoxCss.signup}>
-              <p>Don't have an account? <a href="#dummy">SIGN UP</a></p>
+              <p>Don't have an account? <Link to={`${url}register`}>SIGN UP</Link></p>
             </div>
           </div>
         </div>
@@ -35,4 +45,4 @@ const LoginBox = () =>{
 
 	)
 }
-export default LoginBox;
+export default connect(mapStateToProps)(LoginBox);

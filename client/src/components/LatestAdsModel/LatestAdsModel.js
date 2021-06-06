@@ -20,8 +20,8 @@ const LatestAdsModel = () => {
       <div className={LatestAdsModelCss.boxmodel_body}>
         <div className={LatestAdsModelCss.add_cards}>
           {
-            [...Array(4)].map((i) =>
-              <LatestAdsModelGen key={i} />
+            [...Array(4)].map((i,j) =>
+              <LatestAdsModelGen key={j} />
             )
           }
         </div>

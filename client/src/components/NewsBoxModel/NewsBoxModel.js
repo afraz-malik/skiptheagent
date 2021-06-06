@@ -2,8 +2,14 @@ import React from 'react';
 import NewsBoxModelCss from './NewsBoxModel.module.css'
 
 import NewsBoxModelGen from '../NewsBoxModelGen/NewsBoxModelGen'
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
 
-const NewsBoxModel = () =>{
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+const NewsBoxModel = ({url}) =>{
 	return(
     <div className={NewsBoxModelCss.boxmodel}>
         <div className={NewsBoxModelCss.boxmodel_topbar}>
@@ -13,14 +19,14 @@ const NewsBoxModel = () =>{
           <div className={NewsBoxModelCss.extra} />
           <div className={NewsBoxModelCss.extra} />
           <div className={NewsBoxModelCss.boxmodel_nav}>
-            <a href='#dummy'><img alt='' src="images/leftarrow.png" /></a>
-            <a href='#dummy'><img alt='' src="images/rightarrow.png" /></a>
+            <Link to='#dummy'><img alt='' src="images/leftarrow.png" /></Link>
+            <Link to='#dummy'><img alt='' src="images/rightarrow.png" /></Link>
           </div>
         </div>
         <div className={NewsBoxModelCss.boxmodel_body}>
           {
-            [...Array(3)].map((i) =>
-              <NewsBoxModelGen key={i} />
+            [...Array(3)].map((i,j) =>
+              <NewsBoxModelGen key={j} />
             )
           }
         </div>
@@ -28,4 +34,4 @@ const NewsBoxModel = () =>{
     )
 }
 
-export default NewsBoxModel;
+export default  connect(mapStateToProps)(NewsBoxModel);

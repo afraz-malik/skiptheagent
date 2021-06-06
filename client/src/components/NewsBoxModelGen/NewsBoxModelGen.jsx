@@ -1,8 +1,17 @@
 import React from 'react';
 
 import NewsBoxModelGenCss from './NewsBoxModelGen.module.css'
+//Router
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
 
-const NewsBoxModelGen = () => {
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+
+const NewsBoxModelGen = ({url}) => {
     return (
         <div className={NewsBoxModelGenCss.newscards}>
             <div className={NewsBoxModelGenCss.newsimg}>
@@ -25,7 +34,7 @@ const NewsBoxModelGen = () => {
                 </div>
             </div>
             <div className={NewsBoxModelGenCss.newstitle}>
-                <h4><a href='#dummy'> Powerfull and flexible Machines </a></h4>
+                <h4><Link to='#dummy'> Powerfull and flexible Machines </Link></h4>
             </div>
             <div className={NewsBoxModelGenCss.newsdesp}>
                 <p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun.Proin gravida nibh vel velit auctor aliqut. Aenea solicitun.</p>
@@ -34,4 +43,4 @@ const NewsBoxModelGen = () => {
 
     )
 }
-export default NewsBoxModelGen
+export default connect(mapStateToProps)(NewsBoxModelGen)

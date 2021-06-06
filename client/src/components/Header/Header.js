@@ -1,6 +1,14 @@
 import React from 'react';
 import HeaderCss from './Header.module.css'
-const Header = () =>{
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
+
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+const Header = ({url}) =>{
 	return (
 			<div>
 				<header className={HeaderCss.header}>
@@ -13,28 +21,28 @@ const Header = () =>{
 					<div className={HeaderCss.rightheader}>
 						<div className={HeaderCss.righttext}>
 							<p className={HeaderCss.firstp}>Welcome to skiptheagent.</p>
-							<p className={HeaderCss.secondp}> Kindly <a href='#dum' >SIGN IN</a> or <a href='#dum'>SIGN UP</a></p>
+							<p className={HeaderCss.secondp}> Kindly <Link to={`${url}login`} >SIGN IN</Link> or <Link to={`${url}register`}>SIGN UP</Link></p>
 						</div>
 					</div>
 				</header>
 				<div className={HeaderCss.smallheader}>
 					<div className={HeaderCss.smalllogo}>
-						<a href='#dum' ><h3>LOGO </h3></a>
+						<Link to={`${url}`}><h3>LOGO </h3></Link>
 					</div>
 					<div className={HeaderCss.smalltext}>
 						<p >Welcome to skiptheagent.</p>
-						<p > Kindly <a href='#dummy'>SIGN IN</a> or <a href='#dum' >SIGN UP</a></p>
+						<p > Kindly <Link to={`${url}login`}>SIGN IN</Link> or <Link to={`${url}register`} >SIGN UP</Link></p>
 					</div>
 				</div>
 				<nav className={HeaderCss.nav}>
 					<div className={HeaderCss.leftnav}>
-						<div className={HeaderCss.logo}><h3><a href='#dum'>LOGO</a></h3></div>
+						<div className={HeaderCss.logo}><h3><Link to={`${url}`}>LOGO</Link></h3></div>
 					</div>
 					<div className={HeaderCss.rightnav}>
 						<ul>
-							<li><a href='#dum'>SELL MY CAR</a></li>
-							<li><a href='#dum'>SHOP FOR NEW CARS</a></li>
-							<li className={HeaderCss.consolt}><a href='#dum'>CONSULTATIONS</a></li>
+							<li><Link to={`${url}login`}>SELL MY CAR</Link></li>
+							<li><Link to={`${url}listing`}>SHOP FOR NEW CARS</Link></li>
+							<li className={HeaderCss.consolt}><Link to={`${url}login`}>CONSULTATIONS</Link></li>
 						</ul>
 					</div>
 				</nav>
@@ -42,4 +50,4 @@ const Header = () =>{
 
 	)
 }
-export default Header;
+export default connect(mapStateToProps)(Header);

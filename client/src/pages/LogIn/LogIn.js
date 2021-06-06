@@ -3,15 +3,13 @@ import Header from '../../components/Header/Header.js'
 import LogInBox from '../../components/LogInBox/LogInBox.js'
 
 
-class Login extends React.Component{
-  render(){
-    return(
-      <div>
-        <Header/>
-        <LogInBox/>
-      </div>
-    )
-  }
+const Login = ()=>{
+  return(
+    <div>
+      <Header/>
+      <LogInBox/>
+    </div>
+  )
 }
 
 

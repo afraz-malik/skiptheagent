@@ -2,8 +2,15 @@ import React from 'react';
 import ListingBoxCss from './ListingBox.module.css'
 
 import ListingCards from '../ListingCards/listingcards'
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
 
-const ListingBox = () => {
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+const ListingBox = ({url}) => {
   return (
     <div className = {ListingBoxCss.section}>
       <div className={ListingBoxCss.leftsection}>
@@ -122,13 +129,13 @@ const ListingBox = () => {
           <div className={`${ListingBoxCss.boxmodel_title} ${ListingBoxCss.boxmodel_bottombar}`}>
             <ul>
               <li>&lt;</li>
-              <li><a href='#dummy'>1</a></li>
-              <li><a href='#dummy'>2</a></li>
-              <li><a href='#dummy'>3</a></li>
-              <li><a href='#dummy'>4</a></li>
-              <li><a href='#dummy'>5</a></li>
+              <li><Link to='#dummy'>1</Link></li>
+              <li><Link to='#dummy'>2</Link></li>
+              <li><Link to='#dummy'>3</Link></li>
+              <li><Link to='#dummy'>4</Link></li>
+              <li><Link to='#dummy'>5</Link></li>
               <li>...</li>
-              <li><a href='#dummy'>45</a></li>
+              <li><Link to='#dummy'>45</Link></li>
               <li>&gt;</li>
             </ul>
           </div>
@@ -137,4 +144,4 @@ const ListingBox = () => {
     </div>
   )
 }
-export default ListingBox;
+export default connect(mapStateToProps)(ListingBox);

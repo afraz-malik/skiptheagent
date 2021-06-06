@@ -1,8 +1,15 @@
 import React from 'react';
 import SignUpBoxCss from  './SignUpBox.module.css'
 import './SignUpBox.module.css'
+import {Link} from 'react-router-dom'
+//Redux
+import {connect} from 'react-redux'
 
-const SignUpBox = () =>{
+const mapStateToProps=(state)=>({
+  url: state.URLReducer.url
+})
+
+const SignUpBox = ({url}) =>{
 	return (
     <div className={SignUpBoxCss.boxmodel}>
         <div className={SignUpBoxCss.boxmodel_topbar}>
@@ -28,16 +35,16 @@ const SignUpBox = () =>{
               <p><span>Or Sign in with your social network</span></p>
             </div>
             <div className={SignUpBoxCss.sociallinks}>
-              <div className={SignUpBoxCss.fbsingin}><a href='#dum'><img alt='' src="images\fbsignin.png" /></a></div>
-              <div className={SignUpBoxCss.googlesingin}><a href='#dum'><img alt='' src="images\googlesignin.png" /></a></div>
+              <div className={SignUpBoxCss.fbsingin}><Link to='#dum'><img alt='' src="images\fbsignin.png" /></Link></div>
+              <div className={SignUpBoxCss.googlesingin}><Link to='#dum'><img alt='' src="images\googlesignin.png" /></Link></div>
             </div>
             <div className={SignUpBoxCss.signin}>
               <p>By clicking the buttons above, you are agreeing to our Terms of Use</p>
-              <p>Don't have an account? <a href='#dum'>SIGN IN</a></p>
+              <p>Don't have an account? <Link to={`${url}login`}>SIGN IN</Link></p>
             </div>
           </div>
         </div>
       </div>
 	)
 }
-export default SignUpBox;
+export default connect(mapStateToProps)(SignUpBox);

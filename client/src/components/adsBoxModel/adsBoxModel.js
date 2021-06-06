@@ -1,3 +1,4 @@
+
 import React from 'react';
 import AdsBoxModelCss from './adsBoxModel.module.css'
 import LatestAdsModelGen from '../LatestAdsModel-gen/latest-ads-model-gen'

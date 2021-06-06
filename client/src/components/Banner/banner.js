@@ -8,7 +8,7 @@ const Banner = () =>{
                 <p>SUBSCRIBE TO OUR NEWSLETTER</p>
             </div>		
             <div className={BannerCss.bannerform}>
-                <form action="/action_page.php">
+                <form onSubmit={()=> alert("Submitted")}>
                     <input type="Email" placeholder="Enter your email"  />
                     <button type="submit">Subscribe</button>	
                 </form>
