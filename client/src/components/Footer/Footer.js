@@ -1,14 +1,14 @@
-import './Footer.css';
+import FooterCss from './Footer.module.css';
 
 const Footer = () =>{
 	return(
-	<footer>
-		<div className="insidefooter">
-			<div className="foottitle">
+	<footer className={FooterCss.footer}>
+		<div className={FooterCss.insidefooter}>
+			<div className={FooterCss.foottitle}>
 			<h3>SKIPTHEAGENT</h3>
 			</div>
-			<div className="links"> 
-			<div className="footerdata">
+			<div className={FooterCss.links}> 
+			<div className={FooterCss.footerdata}>
 				<ul>
 				<li> <a href='#dummy'> Contact Us</a></li>
 				<li> <a href='#dummy'> About Us</a></li>
@@ -16,7 +16,7 @@ const Footer = () =>{
 				<li> <a href='#dummy'> Partners</a></li>
 				</ul>
 			</div>
-			<div className="footerdata">
+			<div className={FooterCss.footerdata}>
 				<ul>
 				<li> <a href='#dummy'> Contact Us</a></li>
 				<li> <a href='#dummy'> About Us</a></li>
@@ -24,39 +24,39 @@ const Footer = () =>{
 				<li> <a href='#dummy'> Partners</a></li>
 				</ul>
 			</div>
-			<div className="footerdata footerdata1">
-				<div className="social">
+			<div className={`${FooterCss.footerdata}  ${FooterCss.footerdata1} `}>
+				<div className={FooterCss.social}>
 				<p>Follow US</p>						
 				</div>
-				<div className="socialimg">
-				<div className="socialimg1">
+				<div className={FooterCss.socialimg}>
+				<div className={FooterCss.socialimg1}>
 					<a href='#dummy'><img alt='' src="images/fb.png" /></a>
 				</div>
-				<div className="socialimg1">
+				<div className={FooterCss.socialimg1}>
 					<a href='#dummy'><img alt='' src="images/in.png" /></a>
 				</div>
-				<div className="socialimg1">
+				<div className={FooterCss.socialimg1}>
 					<a href='#dummy'><img alt='' src="images/insta.png" /></a>
 				</div>
-				<div className="socialimg1">
-					<a href='#dummy'><img alt='' src="images/twitter.png" /></a>
+				<div className={FooterCss.socialimg1}>
+					<a href='#dummy'><img alt='' src="images/twitter.jpg" /></a>
 				</div>
 				</div>	
-				<div className="downloadtext">
+				<div className={FooterCss.downloadtext}>
 				<p>Download App</p>
 				</div>
-				<div className="footerimg">
-				<div className="footerimg1">	
+				<div className={FooterCss.footerimg}>
+				<div className={FooterCss.footerimg1}>	
 					<a href='#dummy'><img alt='' src="images/playstore.png" /></a>
 				</div>
-				<div className="footerimg1">
+				<div className={FooterCss.footerimg1}>
 					<a href='#dummy'><img alt='' src="images/app_store.png" width="100px" /></a>
 				</div>
 				</div>
 			</div>
 			</div>
 		</div>
-		<div className="copyright">
+		<div className={FooterCss.copyright}>
 			<p>©2019 All rights reserved. All other trademarks are the property of their respective owners.</p>
 		</div>
 	</footer>

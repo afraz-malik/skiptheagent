@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Header from '../../components/Header/Header.js'
 import AdsBoxModel from '../../components/adsBoxModel/adsBoxModel.js'
 import Banner from '../../components/Banner/banner.js'
@@ -14,7 +15,6 @@ class Listing extends React.Component{
         <AdsBoxModel/>
         <Banner/>
         <Footer/>
-       
       </div>
     )
   }

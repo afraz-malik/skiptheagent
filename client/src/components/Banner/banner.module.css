@@ -1,0 +1,122 @@
+.banner{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40px;
+	height: 250px;
+	background : url('banner.jpg');
+	background-repeat: no-repeat;
+	background-size: cover; 
+	background-position: center;
+}
+.bannertext p{
+	font-family: 'Bebas Neue', cursive;
+	font-size: 36px;
+	color: rgba(248,248,248,255);
+}
+.bannerform  input[type=email]{
+	height: 50px;
+	width: 350px;
+	border-radius: 5px 0px 0px 5px;
+	border: none;
+	text-align: center;
+	color: grey;
+}
+
+.bannerform  input::placeholder{
+	color: lightgrey;
+	text-align: center;
+	font-size: 12px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+}
+.bannerform form{
+	display: flex;
+	justify-content: space-around;
+}
+.bannerform button{
+	background-color: var(--default-color);
+	height: 50px;
+	width: 100px;
+	font-size: 12px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: white;
+	border: none;
+	border-radius: 0px 15px 15px 0px;
+	cursor: pointer;
+}
+.bannerform input:focus, button{
+	outline: none;
+}
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+ 
+
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  	
+	
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.bannertext{
+		font-size: 14px;
+	}
+	.bannerform input[type=email]{
+		width: 180px;
+		height: 42px;
+		border-radius: 0px;
+	}
+	.bannerform button{
+		width: 88.8px;
+		height: 42px;
+	}
+}

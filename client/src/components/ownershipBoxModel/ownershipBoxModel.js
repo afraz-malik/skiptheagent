@@ -1,20 +1,20 @@
 import React from 'react';
-import './ownershipBoxModel.css'
+import OwnerShopBoxModelCss from './ownershipBoxModel.module.css'
 
-const ownershipBoxModel = () =>{
+const OwnerShipBoxModel = () =>{
 	return(
-        <div className="boxmodel">
-          <div className="boxmodel_topbar">
-            <div className="boxmodel_title">
+        <div className={OwnerShopBoxModelCss.boxmodel}>
+          <div className={OwnerShopBoxModelCss.boxmodel_topbar}>
+            <div className={OwnerShopBoxModelCss.boxmodel_title}>
               <p>CHANGE OWNERSHIP</p>
             </div>
-            <div className="extra" />
-            <div className="extra" />
+            <div className={OwnerShopBoxModelCss.extra} />
+            <div className={OwnerShopBoxModelCss.extra}/>
           </div>
-          <div className='boxmodel_body'> 
-            <div className='left'>
+          <div className={OwnerShopBoxModelCss.boxmodel_body}> 
+            <div className={OwnerShopBoxModelCss.left}>
               <p>FROM CURRENT MENTIONED CITY</p>
-              <div className="select">
+              <div className={OwnerShopBoxModelCss.select}>
                 <select name="cars" id="city">
                   <option value="volvo">City 1</option>
                   <option value="saab">Saab</option>
@@ -23,12 +23,12 @@ const ownershipBoxModel = () =>{
                 </select>
               </div>
             </div>
-            <div className="proceed">
+            <div className={OwnerShopBoxModelCss.proceed}>
                 <a href="#l">PROCEED</a>	
             </div>
-            <div className='right'>
+            <div className={OwnerShopBoxModelCss.right}>
               <p>FROM CURRENT MENTIONED CITY</p>
-              <div className='select'>
+              <div className={OwnerShopBoxModelCss.select}>
                 <select name="cars" id="city">
                   <option value="volvo">City 2</option>
                   <option value="saab">Saab</option>
@@ -46,4 +46,4 @@ const ownershipBoxModel = () =>{
 	)
 }
 
-export default ownershipBoxModel;
+export default OwnerShipBoxModel;

@@ -1,13 +1,13 @@
 import React from 'react';
-import './Compare.css';
+import CompareCss from './Compare.module.css';
 
 const Compare = () =>{
 	return(
-	<div className="compare">
-		<div className="comparetext" >
+	<div className={CompareCss.compare}>
+		<div className={CompareCss.comparetext}>
 			<h6>STILL UNSURE?</h6>
 			<p>Our comparison tool allows you to select up to 4 vehicles and compare them side by side.</p>
-			<a className="compare_a "href="#dum" >ADD TO COMPARE</a>
+			<a className={CompareCss.compare_a} href="#dum" >ADD TO COMPARE</a>
 		</div>
 	</div>
 	)

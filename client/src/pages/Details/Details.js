@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header/Header.js'
-import Section from '../../components/Section/Section.js'
+import DetailsSection from '../../components/DetailsSectoin/DetailsSection.js'
 import Compare from '../../components/Compare/Compare.js'
 import BoxModel from '../../components/adsBoxModel/adsBoxModel.js'
 import Banner from '../../components/Banner/banner.js'
@@ -38,7 +38,7 @@ class Details extends React.Component{
     return(
       <div>
         <Header/>
-        <Section 
+        <DetailsSection 
           carfeatures={this.state.carfeatures} 
           carfeaturesbg={this.state.carfeaturesbg}
           cardetails={this.state.cardetails} 

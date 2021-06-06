@@ -1,62 +1,3 @@
-
-/*============================	Main Box Model	updated	============================*/
-.boxmodel{
-	width: 70%;
-	margin: auto;
-	margin-top: 100px;
-	border: 1px solid lightgrey;
-	overflow: hidden;
-	box-shadow: 2px 2px 1px #aaaaaa;
-}
-.boxmodel_topbar{
-	display: flex;
-	background-color: #f0ecec;
-
-}
-.boxmodel_title{
-	margin: 0;
-	background-color: var(--default-color);
-	transform: skewX(-24deg);
-	width: 400px;
-	padding: 5px 5px 5px 30px;
-	position: relative;
-	right: 12px;
-}
-
-.boxmodel_title > * { 
-	transform: skewX(24deg); 
-}
-.boxmodel_title p{
-	margin: 0;
-	margin-left: 10px;
-	font-family: 'Bebas Neue', cursive;
-	font-size: 25px;
-	color: rgba(248,248,248,255);
-}
-.extra{
-	width: 5px;
-	background-color: var(--default-color);
-	transform: skewX(-24deg);
-	position: relative;
-	right: 12px;
-	margin-left: 5px; 
-}
-.boxmodel_nav{
-	display: flex;
-	align-items: center;
-	margin-left: auto;
-}
-.boxmodel_nav a{
-	margin-right: 30px;
-}
-.boxmodel_nav a img{
-	width: 8px;
-}
-.boxmodel_body{
-	padding: 30px 50px;
-	background-color: #f8f4f4;
-}
-/*============================	Main Box Model		============================*/
 .header{
 	height: 900px;
 	position: relative;
@@ -195,20 +136,22 @@
 	margin-top: 200px;
 	margin-bottom: 200px;
 }
-@font-face {
+/* @font-face {
 	font-family: 'adobe-fan-heiti-std';
 	font-style: normal;
 	font-weight: normal;
 	src: local('adobe-fan-heiti-std'), url('./adobe-fan-heiti-std-b-1.otf') format('opentype');;
-}
+} */
+
 .headtext1{
 	color: rgba(255,255,255,255);
 	font-size: 45px;
 	text-align: justify;
 	font-family: adobe-fan-heiti-std, sans-serif;
-	font-weight: 700;
+	font-weight: 400;
 	font-style: normal;
 	height: 100px;
+	line-height: 2;
 }
 .headtext2{
 	color: rgba(255,255,255,255);
@@ -246,7 +189,7 @@ background-color: white;
 
 
 }
-.search1 input, select{
+.search1 > input{
 	width: 100%;
 	height: 100%;
 	border: none;
@@ -259,11 +202,21 @@ background-color: white;
 	font-size: 12px;
 	padding: 10px 30px;
 }
-.search1 select{
+.search1 > select{
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	color: rgba(93,93,93,255);
 	appearance: none;
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	border-radius: none;
+	border-right: 1px solid grey;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	padding: 10px 30px;
+	color: rgba(93,93,93,255);
 	cursor: pointer;
 	
 }
@@ -457,7 +410,7 @@ background-color: white;
   	.search1 , .headsearch form button{
   		width: 110px;
   	}
-  	.search1 input, select{
+  	.search1 input select{
   		padding: 10px;
   	}
   	.advancesearch{
@@ -538,7 +491,7 @@ background-color: white;
   		height: 40px;
   		font-size: 10px;
   	}
-  	.search1 input, select{
+  	.search1 input, .search1 select{
   		padding: 10px;
   		color: rgba(93,93,93,255);
   		border-radius: none;
