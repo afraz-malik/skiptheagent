@@ -1,30 +1,25 @@
 import React from 'react';
 import LoginBoxCss from './LogInBox.module.css'
+import BoxModel from '../../components/boxModel/boxModel'
 
 //Router
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 //Redux
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-const mapStateToProps=(state)=>({
+const mapStateToProps = (state) => ({
   url: state.URLReducer.url
 })
 
 
-const LoginBox = ({url}) =>{
-	return (
+const LoginBox = ({ url }) => {
+  return (
     <div className={LoginBoxCss.boxmodel}>
-        <div className={LoginBoxCss.boxmodel_topbar}>
-          <div className={LoginBoxCss.boxmodel_title}>
-            <p>LOGIN</p>
-          </div>
-          <div className={LoginBoxCss.extra} />
-          <div className={LoginBoxCss.extra} />
-        </div>
+      <BoxModel title={"LOGIN"}>
         <div className={LoginBoxCss.boxmodel_body}>
           <form className={LoginBoxCss.form}>
-            <input type="email" name="email" placeholder="Email"  />
-            <input type="password" name="password" placeholder="Password"/>
+            <input type="email" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
             <Link to={`${url}forget`}>Forget Password?</Link>
             <input type="submit" name="login" defaultValue="LOGIN" />
           </form>
@@ -41,8 +36,8 @@ const LoginBox = ({url}) =>{
             </div>
           </div>
         </div>
-      </div>
-
-	)
+      </BoxModel>
+    </div>
+  )
 }
 export default connect(mapStateToProps)(LoginBox);

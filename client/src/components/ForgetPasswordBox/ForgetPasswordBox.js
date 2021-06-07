@@ -1,13 +1,14 @@
 import React from 'react';
 import ForgetPasswordCss from './ForgetPasswordBox.module.css'
 
-
+import BoxModel from '../../components/boxModel/boxModel'
 
 const ForgetPasswordBox = () =>{
 	return (
             <div>
                 <div className={ForgetPasswordCss.boxmodel}>
-                    <div className={ForgetPasswordCss.boxmodel_topbar}>
+                <BoxModel title={"FORGET PASSWORD"}>
+                    {/* <div className={ForgetPasswordCss.boxmodel_topbar}>
                         <div className={ForgetPasswordCss.boxmodel_title}>
                         <p>FORGET YOUR PASSWORD</p>
                         </div>
@@ -16,7 +17,7 @@ const ForgetPasswordBox = () =>{
                         <div className={ForgetPasswordCss.cancel}>
                         <img alt='' src="images\cancel.png" />
                         </div>
-                    </div>
+                    </div> */}
                     <div className={ForgetPasswordCss.boxmodel_body}>
                         <div className={ForgetPasswordCss.bodytext}>
                         <p>Enter your email below to reset your password</p>
@@ -26,9 +27,10 @@ const ForgetPasswordBox = () =>{
                         <input type="submit" name="login" value="CHANGE PASSWORD" />
                         </form>
                     </div>
+                </BoxModel>
                 </div>
                 <div className={ForgetPasswordCss.boxmodel}>
-                    <div className={ForgetPasswordCss.boxmodel_topbar}>
+                    {/* <div className={ForgetPasswordCss.boxmodel_topbar}>
                         <div className={ForgetPasswordCss.boxmodel_title}>
                         <p>FORGET YOUR PASSWORD</p>
                         </div>
@@ -37,15 +39,18 @@ const ForgetPasswordBox = () =>{
                         <div className={ForgetPasswordCss.cancel}>
                         <img alt='' src="images\cancel.png"  />
                         </div>
-                    </div>
+                    </div> */}
+                <BoxModel title={"FORGET PASSWORD"}>
                     <div className={`${ForgetPasswordCss.boxmodel_body} ${ForgetPasswordCss.boxmodel_body2}`}>
                         <div className={ForgetPasswordCss.bodytext}>
                         <p>We have send password reset link to your registered email address. Please click the link to comoplete the reset process</p>
                         </div>
                     </div>
+                </BoxModel>   
                 </div>
                 <div className={ForgetPasswordCss.boxmodel}>
-                    <div className={ForgetPasswordCss.boxmodel_topbar}>
+                <BoxModel title={"FORGET PASSWORD"}>
+                    {/* <div className={ForgetPasswordCss.boxmodel_topbar}>
                         <div className={ForgetPasswordCss.boxmodel_title}>
                         <p>CHANGE PASSWORD</p>
                         </div>
@@ -54,7 +59,7 @@ const ForgetPasswordBox = () =>{
                         <div className={ForgetPasswordCss.cancel}>
                         <img alt='' src="images\cancel.png"  />
                         </div>
-                    </div>
+                    </div> */}
                     <div className={`${ForgetPasswordCss.boxmodel_body} ${ForgetPasswordCss.boxmodel_body3}`}>
                         <div className={ForgetPasswordCss.bodytext}>
                         <p>For maqware21@gmail.com</p>
@@ -65,6 +70,7 @@ const ForgetPasswordBox = () =>{
                         <input type="submit" name="login" value="CHANGE PASSWORD" />
                         </form>
                     </div>
+                </BoxModel>     
                 </div>
             </div>
         

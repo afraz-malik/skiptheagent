@@ -1,5 +1,5 @@
 import React from 'react';
-import BuySellCardCss from './BuySellCard.module.css'
+import BuySellCardCss from './BuySellCard.module.scss'
 
 import {Link} from 'react-router-dom'
 //Redux

@@ -69,7 +69,7 @@
 }
 .card_search{
 	margin-left: auto;
-	display: none;
+	/* display: none; */
 }
 .card_search a{
 	text-decoration: none;

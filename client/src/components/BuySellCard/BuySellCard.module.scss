@@ -9,19 +9,8 @@
 	overflow: hidden;
 	margin-top: 50px;
 }
-.buycar{
-	position: relative;
-	right: 100px;
-	width: 70%;
-	height: 300px;
-	transform: skewX(-10deg);
-	color: black;
-	overflow: hidden;
-}
-.buycar:hover{
-	height: 350px;
-	z-index: 1;
-}
+
+
 .buycarimg{
 	/*background-color: pink;*/
 	background: url('blackcar.jpg');
@@ -95,15 +84,31 @@
 	position: absolute;
 	right: -50px;
 	/*left: 50px;*/
-/*	top: 0;
-right: 0;*/
-margin-left: auto;
-width: 60%;
-height: 350px;
-transform: skewX(-10deg);
-color: black;
-/*padding: 50px 100px;*/
-overflow: hidden;
+    /*	top: 0;
+    right: 0;*/
+    margin-left: auto;
+    width: 60%;
+    height: 350px;
+    transform: skewX(-10deg);
+    color: black;
+    /*padding: 50px 100px;*/
+    overflow: hidden;
+}
+.buycar{
+	position: relative;
+	right: 100px;
+	width: 70%;
+	height: 300px;
+	transform: skewX(-10deg);
+	color: black;
+	overflow: hidden;
+    &:hover{
+        height: 350px;
+        z-index: 1;
+    }
+}
+.buycar:hover ~ .sellcar{
+    height: 300px;
 }
 .sellcarafter{
 	height: 250px;
@@ -133,6 +138,7 @@ overflow: hidden;
 	/*filter: grayscale(20%);*/
 	/*opacity: 0.9;*/
 }
+
 .inside_sellcar{
 	top: 0;
 	left: 100px;

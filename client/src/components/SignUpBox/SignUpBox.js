@@ -1,30 +1,26 @@
 import React from 'react';
-import SignUpBoxCss from  './SignUpBox.module.css'
+import SignUpBoxCss from './SignUpBox.module.css'
 import './SignUpBox.module.css'
-import {Link} from 'react-router-dom'
-//Redux
-import {connect} from 'react-redux'
+import BoxModel from '../../components/boxModel/boxModel'
 
-const mapStateToProps=(state)=>({
+import { Link } from 'react-router-dom'
+//Redux
+import { connect } from 'react-redux'
+
+const mapStateToProps = (state) => ({
   url: state.URLReducer.url
 })
 
-const SignUpBox = ({url}) =>{
-	return (
+const SignUpBox = ({ url }) => {
+  return (
     <div className={SignUpBoxCss.boxmodel}>
-        <div className={SignUpBoxCss.boxmodel_topbar}>
-          <div className={SignUpBoxCss.boxmodel_title}>
-            <p>SIGN UP</p>
-          </div>
-          <div className={SignUpBoxCss.extra} />
-          <div className={SignUpBoxCss.extra} />
-        </div>
+      <BoxModel title={"SIGN UP"}>
         <div className={SignUpBoxCss.boxmodel_body}>
           <form className={SignUpBoxCss.signUpForm}>
-            <input type="text" name="name" placeholder="Full Name"  />
-            <input type="email" name="email" placeholder="Email"  />
+            <input type="text" name="name" placeholder="Full Name" />
+            <input type="email" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
-            <input type="password" name="password" placeholder="Confirm Password"/>
+            <input type="password" name="password" placeholder="Confirm Password" />
             <div className={SignUpBoxCss.checkbox}>
               <input type="checkbox" name="subscription" id="subscription" defaultValue="yes" /><label htmlFor="subscription"> Send me updates and Relevant News </label>
             </div>
@@ -44,7 +40,8 @@ const SignUpBox = ({url}) =>{
             </div>
           </div>
         </div>
-      </div>
-	)
+      </BoxModel>
+    </div>
+  )
 }
 export default connect(mapStateToProps)(SignUpBox);

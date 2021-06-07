@@ -6,7 +6,8 @@ import BuySellCard from '../../components/BuySellCard/BuySellCard.js'
 import SearchByModel from '../../components/SearchByModel/SearchByModel.js'
 import NewsBoxModel from '../../components/NewsBoxModel/NewsBoxModel.js'
 import BrandsBoxModel from '../../components/BrandsBoxModel/BrandsBoxModel.js'
-import LatestAdsModel from '../../components/LatestAdsModel/LatestAdsModel.js'
+import AdsBoxModel from '../../components/AdsBoxModel/AdsBoxModel'
+
 class Home extends React.Component{
   render(){
     return(
@@ -14,7 +15,7 @@ class Home extends React.Component{
         <HomeHeader/>
         <BuySellCard/>
         <SearchByModel/>
-        <LatestAdsModel/>
+        <AdsBoxModel/>
         <NewsBoxModel/>
         <BrandsBoxModel/>
         <Banner/>

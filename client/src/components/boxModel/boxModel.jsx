@@ -7,7 +7,7 @@ class BoxModel extends React.Component {
             <div className={BoxModelCss.boxmodel}>
                 <div className={BoxModelCss.boxmodel_topbar}>
                     <div className={BoxModelCss.boxmodel_title}>
-                        <p>Title</p>
+                        <p>{this.props.title}</p>
                     </div>
                     <div className={BoxModelCss.extra} />
                     <div className={BoxModelCss.extra} />

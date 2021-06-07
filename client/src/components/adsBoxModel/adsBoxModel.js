@@ -1,36 +1,56 @@
-
 import React from 'react';
-import AdsBoxModelCss from './adsBoxModel.module.css'
-import LatestAdsModelGen from '../LatestAdsModel-gen/latest-ads-model-gen'
-const adsBoxModel = () => {
-  return (
-    <div>
-      <div className={AdsBoxModelCss.boxmodel}>
-        <div className={AdsBoxModelCss.boxmodel_topbar}>
-          <div className={AdsBoxModelCss.boxmodel_title}>
-            <p>Related ADS</p>
-          </div>
-          <div className={AdsBoxModelCss.extra} />
-          <div className={AdsBoxModelCss.extra} />
+import AdsBoxModelCss from './AdsBoxModel.module.css';
+import BoxModel from '../boxModel/boxModel'
+import AdsBoxModelGen from '../AdsBoxModelGen/AdsBoxModelGen'
 
+const LatestAdsModel = ({view}) => {
+  return (
+    <div className={AdsBoxModelCss.boxmodel}>
+    <BoxModel title = {"Recent Posted Ads"}>
+      {/* <div className={AdsBoxModelCss.boxmodel_topbar}>
+        <div className={AdsBoxModelCss.boxmodel_title}>
+          <p>POSTED ADS</p>
         </div>
-        <div className={AdsBoxModelCss.boxmodel_body}>
-          <div className={AdsBoxModelCss.add_cards}>
-            {
-              [...Array(4)].map((i) =>
-                <LatestAdsModelGen key={i} />
-              )
-            }
-          </div>
+        <div className={AdsBoxModelCss.extra} />
+        <div className={AdsBoxModelCss.extra} />
+        <div className={AdsBoxModelCss.boxmodel_nav}>
+          <a href="#1"><img alt='' src="images/leftarrow.png" /></a>
+          <a href="#1"><img alt='' src="images/rightarrow.png" /></a>
         </div>
-      </div>
-      <div className={AdsBoxModelCss.more}>
-        <a href='#dumm' className={AdsBoxModelCss.viewmorea}>
-          VIEW MORE
-          </a>
-      </div>
+      </div> */}
+      {
+        view?
+        (
+          [...Array(2)].map((i,j)=>
+            <div className={AdsBoxModelCss.boxmodel_body} key={j}>
+              <div className={AdsBoxModelCss.add_cards}>
+                {
+                  [...Array(4)].map((i,j) =>
+                    <AdsBoxModelGen key={j} />
+                  )
+                }
+              </div>
+            </div>
+          )
+        )
+        :
+        (
+          <div className={AdsBoxModelCss.boxmodel_body}>
+              <div className={AdsBoxModelCss.add_cards}>
+                {
+                  [...Array(4)].map((i,j) =>
+                    <AdsBoxModelGen key={j} />
+                  )
+                }
+              </div>
+            </div>
+        )
+
+      }
+      
+    </BoxModel> 
     </div>
   )
 }
 
-export default adsBoxModel;
+export default LatestAdsModel;
