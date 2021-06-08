@@ -140,13 +140,17 @@
 	width: 150px;
 	text-align: left;
 }
+
 .skew1 p{
 	padding-left: 15px;
 	text-align: left;
 }
+
 .table tr{
 	height: 30px;
 }
+
+
 .table tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
@@ -180,9 +184,7 @@
 	height: auto;
 	margin-right: 2px;
 }
-.cardetails{
-	display: none;
-}
+
 .cardetails td:nth-child(even) {
 	opacity: 0.7;
 }
@@ -219,7 +221,6 @@
 	text-align: justify;
 	line-height: 1;
 }
-
 
 
 

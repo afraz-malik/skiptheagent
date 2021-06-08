@@ -5,7 +5,7 @@ class DetailsSection extends React.Component {
  constructor(){
   super();
   this.state={
-    carfeatures: 'flex',
+    carfeatures: 'table',
     carfeaturesbg: '#10846c',
     cardetails: 'none',
     cardetailsbg: 'grey',
@@ -17,7 +17,7 @@ class DetailsSection extends React.Component {
     value === 'carfeatuers'
     ?
     this.setState({
-      carfeatures: 'flex',
+      carfeatures: 'table',
       carfeaturesbg: '#10846c',
       cardetails: 'none',
       cardetailsbg: 'grey'
@@ -26,7 +26,7 @@ class DetailsSection extends React.Component {
     this.setState({
       carfeatures: 'none',
       carfeaturesbg: 'grey',
-      cardetails: 'flex',
+      cardetails: 'table',
       cardetailsbg: '#10846c'
     })
   }

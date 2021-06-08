@@ -261,6 +261,7 @@
         width: 70%;
         height: 300px;
     }
+
     .inside_sellcar{
         left: 70px;
         width: 60%;
@@ -320,6 +321,9 @@
     .sellcar{
         width: 70%;
         height: 260px;
+    }
+    .buycar:hover ~ .sellcar{
+        height: 200px;
     }
     .inside_sellcar{
         left: 60px;
