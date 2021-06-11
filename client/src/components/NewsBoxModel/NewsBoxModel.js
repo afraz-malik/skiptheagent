@@ -9,21 +9,21 @@ const mapStateToProps=(state)=>({
   url: state.URLReducer.url
 })
 const NewsBoxModel = ({url}) =>{
+  const scrollLeft = () => {
+    const box = document.getElementsByClassName('scroll2')[0];
+    
+    console.log(box)
+    box.scrollLeft += 500;
+  }
+  const scrollRight = () => {
+    const box = document.getElementsByClassName('scroll2')[0];
+    console.log(box)
+    box.scrollLeft -= 500;
+  }
 	return(
     <div className={NewsBoxModelCss.boxmodel}>
-    <BoxModel title={"LATEST NEWS"}>
-        {/* <div className={NewsBoxModelCss.boxmodel_topbar}>
-          <div className={NewsBoxModelCss.boxmodel_title}>
-            <p>LATEST NEWS</p>
-          </div>
-          <div className={NewsBoxModelCss.extra} />
-          <div className={NewsBoxModelCss.extra} />
-          <div className={NewsBoxModelCss.boxmodel_nav}>
-            <Link to='#dummy'><img alt='' src="images/leftarrow.png" /></Link>
-            <Link to='#dummy'><img alt='' src="images/rightarrow.png" /></Link>
-          </div>
-        </div> */}
-        <div className={NewsBoxModelCss.boxmodel_body}>
+    <BoxModel title={"LATEST NEWS"} sidebar={"arrow"} scrollLeft={scrollLeft} scrollRight={scrollRight}>
+        <div className={`${NewsBoxModelCss.boxmodel_body} scroll2`}>
           {
             [...Array(3)].map((i,j) =>
               <NewsBoxModelGen key={j} />

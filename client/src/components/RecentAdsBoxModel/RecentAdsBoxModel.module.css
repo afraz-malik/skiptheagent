@@ -183,7 +183,7 @@
         display: grid;
         grid-template-columns: 110px 110px 110px 110px;
         grid-gap: 10px;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 	.more a{
 		font-size: 12px;

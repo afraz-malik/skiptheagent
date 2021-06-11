@@ -11,7 +11,11 @@
 
 .add_cards{
 	display: flex;
+    /* flex-wrap: nowrap; */
 	justify-content: space-between;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+
 	/*padding: 30px 50px;*/
 	/*background-color: #f8f4f4;*/
 }
@@ -104,9 +108,6 @@
     }
     .add_cards{
         padding: 5px;
-        display: grid;
-        grid-template-columns: 110px 110px 110px 110px;
-        grid-gap: 10px;
-        overflow-x: scroll;
+
     }
 }

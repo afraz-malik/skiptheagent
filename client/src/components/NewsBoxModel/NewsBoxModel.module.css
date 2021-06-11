@@ -90,7 +90,7 @@
         display: grid;
         grid-template-columns: repeat(3, 170px);
         grid-gap: 20px;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
 }

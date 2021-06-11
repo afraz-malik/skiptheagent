@@ -11,6 +11,22 @@ class BoxModel extends React.Component {
                     </div>
                     <div className={BoxModelCss.extra} />
                     <div className={BoxModelCss.extra} />
+                    {
+                        this.props.sidebar === "arrow"? 
+                        <div className={BoxModelCss.boxmodel_nav}>
+                            <div className={BoxModelCss.arrow} onClick={()=>this.props.scrollRight()}><img alt="" src="images/leftarrow.png"/></div>
+                            <div className={BoxModelCss.arrow} onClick={()=>this.props.scrollLeft()}><img alt = "" src="images/rightarrow.png"/></div>
+                        </div>
+                        :
+                        null
+                    }
+                    {
+                        this.props.sidebar === 'cancel'?
+                        <div className={BoxModelCss.cancel}>
+                            <img alt= "" src="images\cancel.png" onClick={()=>this.props.closeBox()}/>
+                        </div>
+                        : null
+                    }
                 </div>
                 {this.props.children}
             </div>

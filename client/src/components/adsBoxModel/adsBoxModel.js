@@ -3,49 +3,38 @@ import AdsBoxModelCss from './AdsBoxModel.module.css';
 import BoxModel from '../boxModel/boxModel'
 import AdsBoxModelGen from '../AdsBoxModelGen/AdsBoxModelGen'
 
-const LatestAdsModel = ({view}) => {
+const LatestAdsModel = ({view, view2}) => {
+  const scrollLeft = () => {
+    const box = document.getElementsByClassName('scroll')[0];
+    
+    console.log(box)
+    box.scrollLeft += 500;
+  }
+  const scrollRight = () => {
+    const box = document.getElementsByClassName('scroll')[0];
+    console.log(box)
+    box.scrollLeft -= 500;
+  }
+  let value = 1;
+  let value2 = 10;
+  if(view) value = 2;
+  if(view2) value2 = 4;
+
   return (
-    <div className={AdsBoxModelCss.boxmodel}>
-    <BoxModel title = {"Recent Posted Ads"}>
-      {/* <div className={AdsBoxModelCss.boxmodel_topbar}>
-        <div className={AdsBoxModelCss.boxmodel_title}>
-          <p>POSTED ADS</p>
-        </div>
-        <div className={AdsBoxModelCss.extra} />
-        <div className={AdsBoxModelCss.extra} />
-        <div className={AdsBoxModelCss.boxmodel_nav}>
-          <a href="#1"><img alt='' src="images/leftarrow.png" /></a>
-          <a href="#1"><img alt='' src="images/rightarrow.png" /></a>
-        </div>
-      </div> */}
+    <div className={`${AdsBoxModelCss.boxmodel} `}>
+    <BoxModel title = {"Recent Posted Ads"} sidebar={`${view2? null : "arrow"}`} scrollLeft={scrollLeft} scrollRight={scrollRight}>
       {
-        view?
-        (
-          [...Array(2)].map((i,j)=>
+          [...Array(value)].map((i,j)=>
             <div className={AdsBoxModelCss.boxmodel_body} key={j}>
-              <div className={AdsBoxModelCss.add_cards}>
+              <div className={`${AdsBoxModelCss.add_cards} scroll`} >
                 {
-                  [...Array(4)].map((i,j) =>
+                  [...Array(value2)].map((i,j) =>
                     <AdsBoxModelGen key={j} />
                   )
                 }
               </div>
             </div>
           )
-        )
-        :
-        (
-          <div className={AdsBoxModelCss.boxmodel_body}>
-              <div className={AdsBoxModelCss.add_cards}>
-                {
-                  [...Array(4)].map((i,j) =>
-                    <AdsBoxModelGen key={j} />
-                  )
-                }
-              </div>
-            </div>
-        )
-
       }
       
     </BoxModel> 

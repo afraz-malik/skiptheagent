@@ -43,6 +43,29 @@
 	margin-left: 5px; 
 }
 
+.boxmodel_nav{
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+}
+.arrow{
+	margin-right: 30px;
+	cursor: pointer;
+}
+.arrow img{
+	width: 8px;
+}
+
+.cancel{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: 10px; 
+}
+.cancel img{
+	cursor: pointer;
+}
 
 @media (min-width: 1281px) {
 

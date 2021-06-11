@@ -5,7 +5,7 @@ import BoxModel from '../boxModel/boxModel'
 const BrandsBoxModel = () =>{
 	return(
     <div className={BrandsBoxModelCss.boxmodel}>
-    <BoxModel title={"POPULAR BRANDS"}> 
+    <BoxModel title={"POPULAR BRANDS"} sidebar={"arrow"}> 
         {/* <div className={BrandsBoxModelCss.boxmodel_topbar}>
           <div className={BrandsBoxModelCss.boxmodel_title}>
             <p>POPULAR BRANDS</p>
