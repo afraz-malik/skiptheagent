@@ -117,12 +117,12 @@
    
      
     .cards{
-        width: 100%;	
+        width: 150px;	
     }
-	.ul{
+	/* .ul{
 
 		margin-right:30px
-	}
+	} */
     .cards img{
         height: 90px;
     }
@@ -139,11 +139,12 @@
 @media (min-width: 320px) and (max-width: 480px) {
     
     .cards{
-        width: 100%;	
+        width: 100px;	
     }
 	.ul{
 
-		margin-right:30px
+		/* margin-right:10px */
+		
 	}
     .cards img{
         height: 90px;
