@@ -1,0 +1,337 @@
+.fullwrapper {
+  margin-bottom: 50px;
+}
+.fullwrapper h1 {
+  color: var(--default-color);
+  text-align: center;
+  font-family: 'Bebas Neue';
+}
+.wrapper {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  //   height: 125px;
+
+  justify-content: space-between;
+  //   overflow: hidden;
+  //   background-color: pink;
+}
+.insidewrapper {
+  transform: skewX(-20deg);
+  overflow: hidden;
+  width: 33.33%;
+}
+.insidewrapper > * {
+  transform: skewX(20deg);
+}
+.img {
+  //   transform: skewX(-24deg);
+  //   overflow: hidden;
+  //   position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 200%;
+  position: relative;
+  right: 85px;
+  height: 200px;
+  //   background-color: pink;
+  background: url('./engine-news.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  //   background-position: center;
+}
+.img > * {
+  //   margin-left: 10px;
+}
+.title {
+  position: relative;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  width: 175px;
+  height: 30px;
+  margin: 0;
+  background-color: var(--default-color);
+  transform: skewX(-24deg);
+  padding: 5px 5px 5px 25px;
+  //   position: relative;
+  right: -65px;
+}
+.title > * {
+  transform: skewX(24deg);
+}
+.title p {
+  margin: 0;
+  margin-left: 0px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: rgba(248, 248, 248, 255);
+  letter-spacing: 1px;
+  margin-left: 15px;
+}
+.subtitle {
+  //   position: absolute;
+  color: white;
+  margin-left: 10px;
+  justify-self: right;
+  margin-left: -100px;
+  margin-bottom: 20px;
+  //   font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: rgba(248, 248, 248, 255);
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  // width: 150px;
+}
+.more a {
+  padding: 10px 20px;
+  border: 2px solid var(--default-color);
+  background-color: var(--default-color);
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  border-radius: 7px;
+  align-self: center;
+  opacity: 0.9;
+  width: 150px;
+  text-align: center;
+}
+.more a:hover {
+  opacity: 1;
+}
+
+.boxmodel {
+  width: 350px;
+  margin: auto;
+  margin-top: 100px;
+  border: 1px solid lightgrey;
+  overflow: hidden;
+  box-shadow: 2px 2px 1px #aaaaaa;
+}
+.boxmodel_body {
+  padding: 30px 50px;
+}
+.boxmodel_body h3 {
+  text-align: center;
+  color: darkgrey;
+  font-family: 'bebas Neue';
+  font-size: 25px;
+  margin: 0;
+}
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+}
+.signUpForm input[type='email'],
+.signUpForm input[type='password'],
+.signUpForm input[type='text'] {
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  text-align: center;
+  padding-top: 20px;
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+.signUpForm input[type='textarea'] {
+  margin: 25px 0;
+  border: 1px solid lightgrey;
+  height: 100px;
+}
+.signUpForm input:focus {
+  outline: none;
+}
+.signUpForm input::placeholder {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+.checkbox {
+  display: flex;
+  margin: 20px 0px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.signUpForm label {
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: 5px;
+}
+/*.signUpForm input:first-child{
+	margin-bottom: 10px;
+}*/
+.signUpForm a {
+  text-align: right;
+  text-decoration: none;
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 5px 0px 20px 0px;
+}
+.signUpForm input[type='submit'] {
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  background-color: var(--default-color);
+  cursor: pointer;
+}
+
+.afterform {
+  margin-top: 30px;
+}
+.socialtext p {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+.socialtext p span {
+  background: #fff;
+  padding: 0 10px;
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+}
+.sociallinks {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  justify-content: space-between;
+}
+.sociallinks img {
+  width: 100%;
+  height: auto;
+}
+.signin {
+  text-align: center;
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+}
+.signin a {
+  text-decoration: underline;
+  color: var(--default-color);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .wrapper {
+    width: 85%;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .wrapper {
+    width: 85%;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .rulebox {
+    width: 99%;
+  }
+  .wrapper {
+    width: 85%;
+  }
+  .title {
+    width: 125px;
+  }
+  .title p {
+    margin: 0;
+  }
+  .subtitle {
+    margin-left: -55px;
+    font-size: 9px;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .rulebox {
+    width: 99%;
+    flex-direction: column;
+    .insiderulebox {
+      width: 99%;
+      margin: auto;
+    }
+  }
+  .rules {
+    width: 100%;
+  }
+  .wrapper {
+    width: 85%;
+  }
+  .title {
+    width: 95px;
+  }
+  .title p {
+    margin: 0;
+    font-size: 11px;
+  }
+  .subtitle {
+    display: none;
+  }
+  .img {
+    height: 130px;
+    right: 70px;
+  }
+}

@@ -5,13 +5,6 @@ const OwnerShipBoxModel = () =>{
 	return(
         <div className={OwnerShopBoxModelCss.boxmodel}>
         <BoxModel title={"CHANGE OWNERSHIP"}>
-          {/* <div className={OwnerShopBoxModelCss.boxmodel_topbar}>
-            <div className={OwnerShopBoxModelCss.boxmodel_title}>
-              <p>CHANGE OWNERSHIP</p>
-            </div>
-            <div className={OwnerShopBoxModelCss.extra} />
-            <div className={OwnerShopBoxModelCss.extra}/>
-          </div> */}
           <div className={OwnerShopBoxModelCss.boxmodel_body}> 
             <div className={OwnerShopBoxModelCss.left}>
               <p>FROM CURRENT MENTIONED CITY</p>
@@ -39,7 +32,7 @@ const OwnerShipBoxModel = () =>{
               </div>
             </div> 
           </div>
-          </BoxModel>
+        </BoxModel>
         </div> 
       
 	)
