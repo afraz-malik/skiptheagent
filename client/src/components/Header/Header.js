@@ -42,7 +42,7 @@ const Header = ({url}) =>{
 						<ul>
 							<li><Link to={`${url}login`}>SELL MY CAR</Link></li>
 							<li><Link to={`${url}listing`}>SHOP FOR NEW CARS</Link></li>
-							<li className={HeaderCss.consolt}><Link to={`${url}login`}>CONSULTATIONS</Link></li>
+							<li className={HeaderCss.consolt}><Link to={`${url}ownership`}>CONSULTATIONS</Link></li>
 						</ul>
 					</div>
 				</nav>

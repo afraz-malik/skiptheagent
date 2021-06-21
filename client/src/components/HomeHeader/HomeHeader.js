@@ -35,7 +35,7 @@ const HomeHeader = ({url}) =>{
             <ul>
               <li><Link to={`${url}login`} id='hehe'>SELL MY CAR</Link></li>
               <li><Link to={`${url}listing`} id='hehe'>SHOP FOR NEW CARS</Link></li>
-              <li><Link to={`${url}login`}>CONSULTATIONS</Link></li>
+              <li><Link to={`${url}ownership`}>CONSULTATIONS</Link></li>
             </ul>
           </div>
           <div  className ={HomeHeaderCss.headtext}>
