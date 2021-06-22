@@ -25,24 +25,19 @@
   transform: skewX(20deg);
 }
 .img {
-  //   transform: skewX(-24deg);
-  //   overflow: hidden;
-  //   position: relative;
   display: flex;
   align-items: flex-end;
-  width: 200%;
+  // width: 200%;
   position: relative;
   right: 85px;
   height: 200px;
-  //   background-color: pink;
-  background: url('./engine-news.jpg');
+
+  width: 450px;
   background-repeat: no-repeat;
-  background-size: cover;
-  //   background-position: center;
+  background-size: 100% 100%;
+  background-position: 44px 0px;
 }
-.img > * {
-  //   margin-left: 10px;
-}
+
 .title {
   position: relative;
   bottom: 50px;
@@ -73,6 +68,7 @@
 }
 .subtitle {
   //   position: absolute;
+  -webkit-text-stroke: 0.5px black;
   color: white;
   margin-left: 10px;
   justify-self: right;
@@ -322,6 +318,7 @@
   }
   .title {
     width: 95px;
+    bottom: 37px;
   }
   .title p {
     margin: 0;
@@ -333,5 +330,6 @@
   .img {
     height: 130px;
     right: 70px;
+    width: 296px;
   }
 }
