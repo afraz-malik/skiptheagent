@@ -89,23 +89,10 @@
   cursor: pointer;
   // width: 150px;
 }
-.more a {
+.more button {
   padding: 10px 20px;
-  border: 2px solid var(--default-color);
-  background-color: var(--default-color);
-  text-decoration: none;
-  color: white;
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  border-radius: 7px;
-  align-self: center;
-  opacity: 0.9;
   width: 150px;
-  text-align: center;
-}
-.more a:hover {
-  opacity: 1;
 }
 
 .boxmodel {

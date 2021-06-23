@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom'
 //Redux
 import {connect} from 'react-redux'
 
+import Button from '../button/button';
+
 const mapStateToProps=(state)=>({
   url: state.URLReducer.url
 })
@@ -24,7 +26,8 @@ const BuySellCard = ({url}) =>{
                 <p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autosthe Photoshop's version..</p>					
               </div>
               <div className={BuySellCardCss.learnmore}>
-                <Link to={`${url}listing`}> LEARN MORE </Link>	
+                
+                <Link to={`${url}listing`}> <Button> LEARN MORE</Button> </Link>	
               </div>
             </div>
           </div>
@@ -40,7 +43,7 @@ const BuySellCard = ({url}) =>{
                 <p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autosthe Photoshop's version..</p>					
               </div>
               <div className={BuySellCardCss.learnmore}>
-                <Link to={`${url}login`}>POST AD</Link>	
+                <Link to={`${url}login`}><Button> POST AD</Button></Link>	
               </div>
             </div>
           </div>

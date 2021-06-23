@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import AdsBoxModelCss from './RecentAdsBoxModel.module.css'
 import AdsModel from '../AdsBoxModel/AdsBoxModel'
+import Button from '../button/button';
 
 const AdsBoxModel = () => {
   const [view, setView] = useState(false);
@@ -15,9 +16,9 @@ const AdsBoxModel = () => {
     <div>
       <AdsModel view = {view} view2 = {true}/>
       <div className={AdsBoxModelCss.more}>
-        <a href='#dumm' className={AdsBoxModelCss.viewmorea} onClick={()=> channgeView()}>
+        <Button viewmore='true' onClick={()=> channgeView()}>
          {`${viewValue}`}
-          </a>
+          </Button>
       </div>
     </div>
   )

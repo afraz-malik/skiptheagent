@@ -1,6 +1,6 @@
 import React from 'react';
 import DetailsSectionCss from './DetailsSection.module.css';
-
+import Button from '../button/button';
 class DetailsSection extends React.Component {
  constructor(){
   super();
@@ -97,8 +97,10 @@ class DetailsSection extends React.Component {
                 <p>Paris</p>
               </div>
               <div className={DetailsSectionCss.buttons}>
-                <button className={DetailsSectionCss.chatbutton}>Chat</button>
-                <button className={DetailsSectionCss.showbutton}>Show Phone Number</button>
+                <Button> Chat </Button>
+                <Button> Show Phone Number </Button>
+                {/* <button className={DetailsSectionCss.chatbutton}>Chat</button> */}
+                {/* <button className={DetailsSectionCss.showbutton}>Show Phone Number</button> */}
               </div>
             </div>
             <hr className={DetailsSectionCss.sectionhr} />

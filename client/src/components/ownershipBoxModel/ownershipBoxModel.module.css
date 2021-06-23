@@ -56,17 +56,7 @@
   align-items: flex-end;
   height: 100%;
 }
-.proceed a {
-  text-decoration: none;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  font-size: 10px;
-  color: white;
-  background-color: var(--default-color);
-  padding: 10px 25px;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
+.proceed button {
   width: 150px;
   height: 35px;
 }

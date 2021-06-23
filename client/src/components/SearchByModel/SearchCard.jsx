@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 //Redux
 import {connect} from 'react-redux'
 
+import Button from '../button/button'
 
 const mapStateToProps=(state)=>({
   url: state.URLReducer.url
@@ -24,8 +25,8 @@ const SearchCard = ({url}) => {
             <div className={SearchByModelCss["card_price"]}>
                 <p>Price Range 150k - 200k</p>
             </div>
-            <div className={SearchByModelCss["card_search"]} style={hidden? {display: 'none'}: {display: 'flex'}} >
-                <Link to={`${url}listing`}>SEARCH</Link> 
+            <div className={SearchByModelCss["card_search"]}  style={hidden? {display: 'none'}: {display: 'flex'}}>
+                <Link to={`${url}listing`} ><Button  >SEARCH</Button></Link> 
             </div>
         </div>
     </div>

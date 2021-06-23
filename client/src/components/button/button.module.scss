@@ -1,0 +1,99 @@
+.button {
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: white;
+  background-color: var(--default-color);
+  padding: 8px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-align: center;
+  font-size: 12px;
+}
+.login {
+  height: 40px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 12px;
+}
+.viewmore {
+  padding: 10px 20px;
+  border: 2px solid var(--default-color);
+  background-color: white;
+  color: rgba(13, 135, 105, 255);
+  font-size: 14px;
+  &:hover {
+    background-color: var(--default-color);
+    color: white;
+  }
+}
+
+.compare {
+  padding: 10px 20px;
+  border: 1px solid white;
+  color: rgba(255, 255, 255, 255);
+  background-color: unset;
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .button {
+    font-size: 8px;
+    padding: 8px 20px;
+  }
+  .login {
+    font-size: 10px;
+  }
+  .viewmore {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .compare {
+    padding: 10px 20px;
+  }
+}

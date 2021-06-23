@@ -4,6 +4,7 @@ import ListingCardsCss from './listing-cards.module.css';
 import {Link} from 'react-router-dom'
 //Redux
 import {connect} from 'react-redux'
+import Button from '../button/button';
 
 const mapStateToProps=(state)=>({
   url: state.URLReducer.url
@@ -87,7 +88,8 @@ const ListingCards = ({url}) => {
                             <img alt='' className="likeimg" src="images\like.png" />
                         </div>
                         <div className={ListingCardsCss["showbutton"]}>
-                            <button>Show Phone Number</button>
+                            {/* <button>Show Phone Number</button> */}
+                            <Button>Show Phone Number</Button>
                         </div>
                     </div>
                 </div>

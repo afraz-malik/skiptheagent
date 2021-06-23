@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
 
+import Button from '../button/button';
+
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url
 })
@@ -21,7 +23,8 @@ const LoginBox = ({ url }) => {
             <input type="email" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
             <Link to={`${url}forget`}>Forget Password?</Link>
-            <input type="submit" name="login" defaultValue="LOGIN" />
+            <Button type="submit" name="login" login='login'> SUBMIT</Button>
+            {/* <input type="submit" name="login" defaultValue="LOGIN" /> */}
           </form>
           <div className={LoginBoxCss.afterform}>
             <div className={LoginBoxCss.socialtext}>

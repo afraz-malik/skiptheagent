@@ -3,6 +3,7 @@ import OwnershipformCss from './Ownershipform.module.scss'
 import Background1 from './1.jpg'
 import Background2 from './2.png'
 import Background3 from './3.png'
+import Button from '../button/button'
 const Ownershipform = () => {
     return (
         <div  className={OwnershipformCss.fullwrapper}>
@@ -41,9 +42,9 @@ const Ownershipform = () => {
                 
          </div>
             <div className={OwnershipformCss.more}>
-                <a href='#dumm' className={OwnershipformCss.viewmorea}>
+                <Button>
                 Show Form
-                </a>
+                </Button>
             </div>
             <div className={OwnershipformCss.boxmodel}>
                     <div className={OwnershipformCss.boxmodel_body}>
@@ -54,7 +55,7 @@ const Ownershipform = () => {
                             <input type="password" name="password" placeholder="City" />
                             <input type="password" name="password" placeholder="Zip Code" />
                             <input type="textarea" name="password" placeholder="What's the problem/Question?" />
-                            <input type="submit" name="login" value="SUBMIT FORM" />
+                            <Button type='submit' name='submit' login='login'>SUBMIT FORM</Button>
                         </form>
                     </div>
             </div>

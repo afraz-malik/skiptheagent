@@ -1,48 +1,37 @@
-.compare{
-	width: 70%;
-	margin: auto;
-	margin-top: 20px;
-	background-image: url("unsure.jpg");
-	background-repeat: no-repeat;
-	background-size: cover; 
-	background-position: center;
+.compare {
+  width: 70%;
+  margin: auto;
+  margin-top: 20px;
+  background-image: url('unsure.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
-.comparetext{
-	background-image: linear-gradient(to right, rgba(96, 92, 92, 1),rgba(96, 92, 92, 1) ,rgba(96, 92, 92, 1) ,rgba(96, 92, 92, 0));
-	padding: 30px 20px;
-	width: 45%;
+.comparetext {
+  background-image: linear-gradient(
+    to right,
+    rgba(96, 92, 92, 1),
+    rgba(96, 92, 92, 1),
+    rgba(96, 92, 92, 1),
+    rgba(96, 92, 92, 0)
+  );
+  padding: 30px 20px;
+  width: 45%;
 }
-.comparetext h6{
-	margin: 0;
-	font-size: 53px;
-	letter-spacing: 1px;
-	font-family: 'Bebas Neue', sans-serif;
-	color: rgba(248,248,248,255);
+.comparetext h6 {
+  margin: 0;
+  font-size: 53px;
+  letter-spacing: 1px;
+  font-family: 'Bebas Neue', sans-serif;
+  color: rgba(248, 248, 248, 255);
 }
-.comparetext p{
-	color: rgba(255,255,255,255);
-	margin-bottom: 30px;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-	font-size: 15px;
+.comparetext p {
+  color: rgba(255, 255, 255, 255);
+  margin-bottom: 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
 }
-.compare_a{
-	padding: 10px 20px;
-	border: 1px solid white;
-	text-decoration: none;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-	color: rgba(255,255,255,255);
-	font-size: 12px;
-	border-radius: 5px;
-}
-.compare_a:hover{
-	background-color: white;
-	color: black;
-}
-
-
-
 
 /* 
   ##Device = Desktops
@@ -50,7 +39,6 @@
 */
 
 @media (min-width: 1281px) {
-
 }
 
 /* 
@@ -59,9 +47,9 @@
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-	.compare{
-		width: 80%;
-	}
+  .compare {
+    width: 80%;
+  }
 }
 
 /* 
@@ -70,10 +58,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-
-	.compare{
-		width: 100%;
-	}
+  .compare {
+    width: 100%;
+  }
 }
 
 /* 
@@ -82,11 +69,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-	.compare{
-		width: 100%;
-	}
-
+  .compare {
+    width: 100%;
+  }
 }
 
 /* 
@@ -95,14 +80,12 @@
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-
-  
-	.compare{
-		width: 100%;
-	}
-	.comparetext{
-		width: 65%;
-	}
+  .compare {
+    width: 100%;
+  }
+  .comparetext {
+    width: 65%;
+  }
 }
 
 /* 
@@ -111,28 +94,24 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
-  	
-	.compare{
-		width: 100%;
-		height: 200px;
-		display: flex;
-	}
-	.comparetext{
-		width: 70%;
-
-	}
-	.comparetext h6{
-		font-size: 25px;
-	}
-	.comparetext p{
-		color: white;
-		font-size: 10px;
-		margin: 15px 0px;
-		margin-bottom: 30px;
-	}
-	.compare_a{
-		font-size: 10px;
-	}
-	
+  .compare {
+    width: 100%;
+    height: 200px;
+    display: flex;
+  }
+  .comparetext {
+    width: 70%;
+  }
+  .comparetext h6 {
+    font-size: 25px;
+  }
+  .comparetext p {
+    color: white;
+    font-size: 10px;
+    margin: 15px 0px;
+    margin-bottom: 30px;
+  }
+  .compare_a {
+    font-size: 10px;
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import OwnerShopBoxModelCss from './ownershipBoxModel.module.css'
 import BoxModel from '../boxModel/boxModel'
+import Button from '../button/button';
 const OwnerShipBoxModel = () =>{
 	return(
         <div className={OwnerShopBoxModelCss.boxmodel}>
@@ -18,7 +19,8 @@ const OwnerShipBoxModel = () =>{
               </div>
             </div>
             <div className={OwnerShopBoxModelCss.proceed}>
-                <a href="#l">PROCEED</a>	
+                {/* <a href="#l">PROCEED</a>	 */}
+                <Button>PROCEED</Button>
             </div>
             <div className={OwnerShopBoxModelCss.right}>
               <p>FROM CURRENT MENTIONED CITY</p>

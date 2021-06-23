@@ -1,188 +1,171 @@
-
-.buysell{
-	display: flex;
-	align-items: center;
-	position: relative;
-	width: 75%;
-	height:400px;
-	margin: auto;
-	overflow: hidden;
-	margin-top: 50px;
+.buysell {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 75%;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 50px;
 }
 
-
-.buycarimg{
-	/*background-color: pink;*/
-	background: url('blackcar.jpg');
-	background-repeat: no-repeat;
-	background-size: 100% 100%; 
-	/*background-position: center;*/
-	height: 100%;
-	width: 100%;
-	margin-left: 50px;
-	/*opacity: 0.9;*/
-	filter: grayscale(20%);
+.buycarimg {
+  /*background-color: pink;*/
+  background: url('blackcar.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /*background-position: center;*/
+  height: 100%;
+  width: 100%;
+  margin-left: 50px;
+  /*opacity: 0.9;*/
+  filter: grayscale(20%);
 }
-.buycar img{
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	margin-left: 50px;
-	/*opacity: 0.9;*/
+.buycar img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-left: 50px;
+  /*opacity: 0.9;*/
 }
-.buycar > * { 
-	transform: skewX(10deg); 
+.buycar > * {
+  transform: skewX(10deg);
 }
-.inside_buycar{
-	top: 0;
-	left: 50px;
-	margin-top: 50px;
-	position: absolute;
-	width: 50%;
-	margin-left: 40px;
+.inside_buycar {
+  top: 0;
+  left: 50px;
+  margin-top: 50px;
+  position: absolute;
+  width: 50%;
+  margin-left: 40px;
 }
-.buycar_title h1{
-	margin: 0;
-	margin-top: -15px;
-	font-family: 'Bebas Neue', 'Serif';
-	font-size: 45px;
-	color: rgba(248,248,248,255);
+.buycar_title h1 {
+  margin: 0;
+  margin-top: -15px;
+  font-family: 'Bebas Neue', 'Serif';
+  font-size: 45px;
+  color: rgba(248, 248, 248, 255);
 }
-.buycar_title h2{
-	margin: 0;
-	font-family: 'Bebas Neue', 'Serif';
-	font-size: 30px;
-	color: rgba(248,248,248,255);
+.buycar_title h2 {
+  margin: 0;
+  font-family: 'Bebas Neue', 'Serif';
+  font-size: 30px;
+  color: rgba(248, 248, 248, 255);
 }
-.buycar_desp{
-	margin: 15px 0px;
+.buycar_desp {
+  margin: 15px 0px;
 }
-.buycar_desp p{
-	margin: 0;
-	font-size: 12px;
-	color: white;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-	text-align: justify;
+.buycar_desp p {
+  margin: 0;
+  font-size: 12px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  text-align: justify;
 }
 .learnmore {
-	margin-top: 30px;
-}
-.learnmore a{
-	text-decoration: none;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-	font-size: 10px;
-	color: white;
-	background-color: var(--default-color);
-	padding: 8px 25px;
-	border-radius: 5px;
-	cursor: pointer;
+  margin-top: 30px;
 }
 
-.sellcar{
-	position: absolute;
-	right: -50px;
-	/*left: 50px;*/
-    /*	top: 0;
+.sellcar {
+  position: absolute;
+  right: -50px;
+  /*left: 50px;*/
+  /*	top: 0;
     right: 0;*/
-    margin-left: auto;
-    width: 60%;
+  margin-left: auto;
+  width: 60%;
+  height: 350px;
+  transform: skewX(-10deg);
+  color: black;
+  /*padding: 50px 100px;*/
+  overflow: hidden;
+}
+.buycar {
+  position: relative;
+  right: 100px;
+  width: 70%;
+  height: 300px;
+  transform: skewX(-10deg);
+  color: black;
+  overflow: hidden;
+  &:hover {
     height: 350px;
-    transform: skewX(-10deg);
-    color: black;
-    /*padding: 50px 100px;*/
-    overflow: hidden;
+    z-index: 1;
+  }
 }
-.buycar{
-	position: relative;
-	right: 100px;
-	width: 70%;
-	height: 300px;
-	transform: skewX(-10deg);
-	color: black;
-	overflow: hidden;
-    &:hover{
-        height: 350px;
-        z-index: 1;
-    }
+.buycar:hover ~ .sellcar {
+  height: 300px;
 }
-.buycar:hover ~ .sellcar{
-    height: 300px;
+.sellcarafter {
+  height: 250px;
+  filter: blur(5px);
 }
-.sellcarafter{
-	height: 250px;
-	filter: blur(5px);
+.sellcar img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  right: 40px;
+  /*opacity: 0.9;*/
 }
-.sellcar img{
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	position: relative;
-	right: 40px;
-	/*opacity: 0.9;*/
+.sellcar > * {
+  transform: skewX(10deg);
 }
-.sellcar > * { 
-	transform: skewX(10deg); 
-}
-.sellcarimg{
-	/*background-color: pink;*/
-	background: url(redcar.jpg);
-	background-repeat: no-repeat;
-	background-size: 100% 100%; 
-	background-position: center;
-	height: 100%;
-	width: 100%;
-	position: relative;
-	right: 50px;
-	/*filter: grayscale(20%);*/
-	/*opacity: 0.9;*/
+.sellcarimg {
+  /*background-color: pink;*/
+  background: url(redcar.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  right: 50px;
+  /*filter: grayscale(20%);*/
+  /*opacity: 0.9;*/
 }
 
-.inside_sellcar{
-	top: 0;
-	left: 100px;
-	margin-top: 50px;
-	position: absolute;
-	width: 50%;
-	margin-left: 30px;
+.inside_sellcar {
+  top: 0;
+  left: 100px;
+  margin-top: 50px;
+  position: absolute;
+  width: 50%;
+  margin-left: 30px;
 }
 
-.sellcar_title h1{
-	margin: 0;
-	margin-top: -10px;
-	font-family: 'Bebas Neue', 'Serif';
-	font-size: 45px;
-	color: rgba(248,248,248,255);
+.sellcar_title h1 {
+  margin: 0;
+  margin-top: -10px;
+  font-family: 'Bebas Neue', 'Serif';
+  font-size: 45px;
+  color: rgba(248, 248, 248, 255);
 }
-.sellcar_title h2{
-	margin: 0;
-	font-family: 'Bebas Neue', 'Serif';
-	font-size: 30px;
-	color: rgba(248,248,248,255);
+.sellcar_title h2 {
+  margin: 0;
+  font-family: 'Bebas Neue', 'Serif';
+  font-size: 30px;
+  color: rgba(248, 248, 248, 255);
 }
-.sellcar_desp{
-	margin: 15px 0px;
+.sellcar_desp {
+  margin: 15px 0px;
 }
-.sellcar_desp p{
-	margin: 0;
-	font-size: 12px;
-	color: white;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 600;
-	text-align: justify;
+.sellcar_desp p {
+  margin: 0;
+  font-size: 12px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  text-align: justify;
 }
-
-
-
 
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
   */
 
-  @media (min-width: 1281px) {
-
+@media (min-width: 1281px) {
 }
 
 /* 
@@ -191,12 +174,9 @@
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-
-
-    .buysell{
-        width: 85%;
-    }
-
+  .buysell {
+    width: 85%;
+  }
 }
 
 /* 
@@ -205,12 +185,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-   
-
-    .buysell{
-        width: 95%;
-    }
-
+  .buysell {
+    width: 95%;
+  }
 }
 
 /* 
@@ -219,11 +196,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-   
-    .buysell{
-        width: 95%;
-    }
+  .buysell {
+    width: 95%;
+  }
 }
 
 /* 
@@ -232,50 +207,51 @@
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-   
-    .buysell{
-        width: 95%;
-    }
-    .buycar{
-        width: 80%;
-        height: 250px;
-    }
-    .buycar:hover{
-        height: 300px;
-        z-index: 1;
-    }
-    .inside_buycar{
-        margin-top: 25px;
-    }
-    .buycar_title h1{
-        margin-top: -10px;
-        font-size: 35px;
-    }
-    .buycar_title h2{
-        font-size: 22px;
-    }
-    .buycar_desp p{
-        font-size: 10px;
-    }
-    .sellcar{
-        width: 70%;
-        height: 300px;
-    }
-
-    .inside_sellcar{
-        left: 70px;
-        width: 60%;
-    }
-    .sellcar_title h1{
-        font-size: 35px;
-        margin-top: -10px;
-    }
-    .sellcar_title h2{
-        font-size: 22px;
-    }
-    .sellcar_desp p{
-        font-size: 10px;
-    }
+  .buysell {
+    width: 95%;
+  }
+  .buycar {
+    width: 80%;
+    height: 250px;
+  }
+  .buycar:hover {
+    height: 300px;
+    z-index: 1;
+  }
+  .inside_buycar {
+    margin-top: 25px;
+  }
+  .buycar_title h1 {
+    margin-top: -10px;
+    font-size: 35px;
+  }
+  .buycar_title h2 {
+    font-size: 22px;
+  }
+  .buycar_desp p {
+    font-size: 10px;
+  }
+  .sellcar {
+    width: 70%;
+    height: 300px;
+  }
+  .buycar:hover ~ .sellcar {
+    height: 250px;
+  }
+  .inside_sellcar {
+    left: 70px;
+    width: 60%;
+  }
+  .sellcar_title h1 {
+    font-size: 35px;
+    margin-top: -10px;
+  }
+  .sellcar_title h2 {
+    font-size: 22px;
+  }
+  .sellcar_desp p {
+    font-size: 10px;
+  }
 }
 
 /* 
@@ -284,66 +260,65 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-   
-    .buysell{
-        width: 95%;
-        margin-top: 0;
-    }
-    .buycar{
-        width: 90%;
-        height: 220px;
-    }
-    .buycar:hover{
-        height: 260px;
-        z-index: 1;
-    }
-    .inside_buycar{
-        margin-top: 25px;
-        left: 30px;
-    }
-    .buycar_title h1{
-        margin-top: -10px;
-        font-size: 35px;
-    }
-    .buycar_title h2{
-        font-size: 22px;
-    }
-    .buycar_desp {
-        height: 2em;
-        overflow: hidden;
-        width: 60%;
-    }
-    .buycar_desp p{
-        font-size: 10px;
-        line-height: 1em;
-        text-align: left;
-    }
-    .sellcar{
-        width: 70%;
-        height: 260px;
-    }
-    .buycar:hover ~ .sellcar{
-        height: 200px;
-    }
-    .inside_sellcar{
-        left: 60px;
-        width: 80%;
-        margin-top: 35px;
-    }
-    .sellcar_title h1{
-        font-size: 25px;
-        margin-top: -7px;
-    }
-    .sellcar_title h2{
-        font-size: 22px;
-    }
-    .sellcar_desp {
-        width: 60%;
-        height: 2em;
-        overflow: hidden;
-    }
-    .sellcar_desp p{
-        font-size: 10px;
-        line-height: 1em;
-    }
+  .buysell {
+    width: 95%;
+    margin-top: 0;
+  }
+  .buycar {
+    width: 90%;
+    height: 220px;
+  }
+  .buycar:hover {
+    height: 260px;
+    z-index: 1;
+  }
+  .inside_buycar {
+    margin-top: 25px;
+    left: 30px;
+  }
+  .buycar_title h1 {
+    margin-top: -10px;
+    font-size: 35px;
+  }
+  .buycar_title h2 {
+    font-size: 22px;
+  }
+  .buycar_desp {
+    height: 2em;
+    overflow: hidden;
+    width: 60%;
+  }
+  .buycar_desp p {
+    font-size: 10px;
+    line-height: 1em;
+    text-align: left;
+  }
+  .sellcar {
+    width: 70%;
+    height: 260px;
+  }
+  .buycar:hover ~ .sellcar {
+    height: 200px;
+  }
+  .inside_sellcar {
+    left: 60px;
+    width: 80%;
+    margin-top: 35px;
+  }
+  .sellcar_title h1 {
+    font-size: 25px;
+    margin-top: -7px;
+  }
+  .sellcar_title h2 {
+    font-size: 22px;
+  }
+  .sellcar_desp {
+    width: 60%;
+    height: 2em;
+    overflow: hidden;
+  }
+  .sellcar_desp p {
+    font-size: 10px;
+    line-height: 1em;
+  }
 }
