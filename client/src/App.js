@@ -24,6 +24,7 @@ const Register = lazy(()=> import('./pages/SignUp/SignUp'));
 const ForgetPassword = lazy(()=> import('./pages/ForgetPassword/ForgetPassword'));
 const OwnerShip = lazy(()=> import('./pages/Ownership/Ownership'));
 const Details = lazy(()=> import('./pages/Details/Details'));
+const Dashboard = lazy(()=> import('./pages/Dashboard/Dashboard'));
 
 
 
@@ -56,6 +57,7 @@ class App extends React.Component{
                         <Route exact path={`${url}forget`} component={ForgetPassword}/>
                         <Route exact path={`${url}ownership`} component={OwnerShip}/>
                         <Route exact path={`${url}details`} component={Details}/>
+                        <Route exact path={`${url}dashboard`} component={Dashboard}/>
                     </Switch>                    
                 </Suspense>
             </Router>         

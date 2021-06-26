@@ -56,4 +56,23 @@ const LatestAdsModelGen = ({url}) => {
         </ul>
 )
 }
+
+export const AdsGenDashboard = ({url}) => {
+    return (
+        <div className={AdsBoxModelGenCss.cards1}>
+            <div className={AdsBoxModelGenCss.add_img1}>
+                <Link to={`${url}details`}>
+                    <img alt='' src="images/honda-city-2016.jpg" />
+                </Link>
+            </div>
+            <div className={AdsBoxModelGenCss.add_name1}>
+                <Link to={`${url}details`}>
+                    Honda City 1.3 i-VTEC Prosmatec
+                </Link>
+            </div>
+            <div className={AdsBoxModelGenCss.add_price1}>$76,000</div>
+        </div>
+
+    )
+}
 export default connect(mapStateToProps)(LatestAdsModelGen)

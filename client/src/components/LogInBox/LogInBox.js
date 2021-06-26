@@ -3,7 +3,7 @@ import LoginBoxCss from './LogInBox.module.css'
 import BoxModel from '../../components/boxModel/boxModel'
 
 //Router
-import { Link } from 'react-router-dom'
+import { Link , withRouter} from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
 
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
 })
 
 
-const LoginBox = ({ url }) => {
+const LoginBox = ({ url , history}) => {
   return (
     <div className={LoginBoxCss.boxmodel}>
       <BoxModel title={"LOGIN"}>
@@ -23,11 +23,11 @@ const LoginBox = ({ url }) => {
             <input type="email" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
             <Link to={`${url}forget`}>Forget Password?</Link>
-            <Button type="submit" name="login" login='login'> SUBMIT</Button>
+            <Button type="submit" name="login" login='login' onClick={()=> history.push('/dashboard')} > SUBMIT</Button>
             {/* <input type="submit" name="login" defaultValue="LOGIN" /> */}
           </form>
           <div className={LoginBoxCss.afterform}>
-            <div className={LoginBoxCss.socialtext}>
+            <div  className={LoginBoxCss.socialtext}>
               <p><span>Or Sign in with your social network</span></p>
             </div>
             <div className={LoginBoxCss.sociallinks}>
@@ -43,4 +43,4 @@ const LoginBox = ({ url }) => {
     </div>
   )
 }
-export default connect(mapStateToProps)(LoginBox);
+export default withRouter(connect(mapStateToProps)(LoginBox));
