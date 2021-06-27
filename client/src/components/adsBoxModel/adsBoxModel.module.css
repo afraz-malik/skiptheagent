@@ -1,31 +1,29 @@
-
-.boxmodel{
-	width: 70%;
-	margin: auto;
-	margin-top: 100px;
+.boxmodel {
+  width: 70%;
+  margin: auto;
+  margin-top: 100px;
 }
-.boxmodel_body{
-	padding: 30px 50px;
-	background-color: #f8f4f4;
+.boxmodel_body {
+  padding: 30px 50px;
+  background-color: #f8f4f4;
 }
 
-.add_cards{
-	display: flex;
-    /* flex-wrap: nowrap; */
-	justify-content: space-between;
-    overflow: hidden;
-    scroll-behavior: smooth;
+.add_cards {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  justify-content: space-between;
+  overflow: hidden;
+  scroll-behavior: smooth;
 
-	/*padding: 30px 50px;*/
-	/*background-color: #f8f4f4;*/
+  /*padding: 30px 50px;*/
+  /*background-color: #f8f4f4;*/
 }
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
   */
 
-  @media (min-width: 1281px) {
-
+@media (min-width: 1281px) {
 }
 
 /* 
@@ -34,11 +32,9 @@
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-
-    
-    .boxmodel{
-        width: 80%;
-    }
+  .boxmodel {
+    width: 80%;
+  }
 }
 
 /* 
@@ -47,12 +43,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    
-    .boxmodel{
-        width: 95%;
-    }
-
-
+  .boxmodel {
+    width: 95%;
+  }
 }
 
 /* 
@@ -61,11 +54,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-   
-    .boxmodel{
-        width: 100%;
-    }
+  .boxmodel {
+    width: 100%;
+  }
 }
 
 /* 
@@ -74,17 +65,16 @@
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-   
-    .boxmodel{
-        width: 100%;
-    }
-    .boxmodel_body {
-        padding:20px;
-    }
-    .add_cards{
-        padding: 5px;
-    }
-
+  .boxmodel {
+    width: 100%;
+  }
+  .boxmodel_body {
+    padding: 20px;
+  }
+  .add_cards {
+    padding: 5px;
+    overflow-x: auto;
+  }
 }
 
 /* 
@@ -93,21 +83,20 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-    
-    .boxmodel{
-        width: 100%;
-    }
-    .relatedads_boxmodel{
-        margin-top: 0;
-    }
-    .boxmodel_body {
-        padding:20px;
-    }
-    .vhr{
-        display: none;
-    }
-    .add_cards{
-        padding: 5px;
-
-    }
+  .boxmodel {
+    width: 100%;
+  }
+  .relatedads_boxmodel {
+    margin-top: 0;
+  }
+  .boxmodel_body {
+    padding: 20px;
+  }
+  .vhr {
+    display: none;
+  }
+  .add_cards {
+    padding: 5px;
+    overflow-x: auto;
+  }
 }
