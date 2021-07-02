@@ -4,7 +4,12 @@ import BoxModel from '../../../components/boxModel/boxModel'
 import Button from '../../../components/button/button'
 import { AdsGenDashboard } from '../../../components/AdsBoxModelGen/AdsBoxModelGen'
 import Inbox from '../../../components/inbox/Inbox'
-const DashboardOverview = () => {
+import { connect } from 'react-redux'
+
+const mapStateToProps = (state) => ({
+  url: state.URLReducer.url,
+})
+const DashboardOverview = ({ url }) => {
   return (
     <div className={DashboardOverviewCss.container}>
       <BoxModel title="Profile">
@@ -23,15 +28,15 @@ const DashboardOverview = () => {
         <div className={DashboardOverviewCss.body}>
           <div className={`${DashboardOverviewCss.top2}`}>
             <div className={`${DashboardOverviewCss.row1}`}>
-              <AdsGenDashboard />
+              <AdsGenDashboard url={url} />
               <div className={DashboardOverviewCss.middle}></div>
-              <AdsGenDashboard />
+              <AdsGenDashboard url={url} />
             </div>
             <div className={DashboardOverviewCss.bottom}></div>
             <div className={`${DashboardOverviewCss.row2}`}>
-              <AdsGenDashboard />
+              <AdsGenDashboard url={url} />
               <div className={DashboardOverviewCss.middle}></div>
-              <AdsGenDashboard />
+              <AdsGenDashboard url={url} />
             </div>
           </div>
           <hr />
@@ -53,23 +58,23 @@ const DashboardOverview = () => {
         <div className={DashboardOverviewCss.body}>
           <div className={`${DashboardOverviewCss.top2}`}>
             <div className={`${DashboardOverviewCss.row1}`}>
-              <AdsGenDashboard />
+              <AdsGenDashboard url={url} />
               <div className={DashboardOverviewCss.middle}></div>
-              <AdsGenDashboard />
+              <AdsGenDashboard url={url} />
             </div>
             <div className={DashboardOverviewCss.bottom}></div>
             <div className={`${DashboardOverviewCss.row2}`}>
-              <AdsGenDashboard />
+              <AdsGenDashboard url={url} />
               <div className={DashboardOverviewCss.middle}></div>
-              <AdsGenDashboard />
+              <AdsGenDashboard url={url} />
             </div>
           </div>
           <hr />
-          <div className={DashboardOverviewCss.link}>VIEW PROFILE</div>
+          <div className={DashboardOverviewCss.link}>SEE ALL</div>
         </div>
       </BoxModel>
     </div>
   )
 }
 
-export default DashboardOverview
+export default connect(mapStateToProps)(DashboardOverview)

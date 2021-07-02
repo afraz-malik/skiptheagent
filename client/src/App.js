@@ -35,7 +35,7 @@ class App extends React.Component {
   componentDidMount() {
     // "homepage": "https://afraz-malik.github.io/skiptheagent-react",
     const url = '/skiptheagent-react/'
-    // const url ="/";
+    // const url = '/'
     this.props.setUrl(url)
   }
   render() {

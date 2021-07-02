@@ -19,7 +19,12 @@ const LoginBox = ({ url, history }) => {
       <BoxModel title={'LOGIN'}>
         <div className={LoginBoxCss.boxmodel_body}>
           <form className={LoginBoxCss.form}>
-            <input type="email" name="email" placeholder="Email" />
+            <input
+              title="For test user Email: test@gmail.com"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
             <input type="password" name="password" placeholder="Password" />
             <Link to={`${url}forget`}>Forget Password?</Link>
             <Button
