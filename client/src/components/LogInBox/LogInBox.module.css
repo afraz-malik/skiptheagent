@@ -1,102 +1,103 @@
-.boxmodel{
-	width: 400px;
-	margin: auto;
-	margin-top: 100px;	
+.boxmodel {
+  width: 400px;
+  margin: auto;
+  margin-top: 100px;
+  position: relative;
 }
-.boxmodel_body{
-	padding: 30px 50px;
+.boxmodel_body {
+  padding: 30px 50px;
 }
-.form{
-	display: flex;
-	flex-direction: column;
+.form {
+  display: flex;
+  flex-direction: column;
 }
-.form input[type=email],input[type=password] {
-	height: 50px;
-	border: none;
-	border-bottom: 1px solid grey;
-	text-align: center;
-	padding-top: 20px; 
-	color: rgba(91,91,91,255);
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
+
+.form input[type='email'],
+input[type='password'] {
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  padding-top: 20px;
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
 }
-.form input:focus{
-	outline: none;
+.form input:focus {
+  outline: none;
 }
-.form input::placeholder{
-	text-align: center;
-	font-size: 12px;
-	font-weight: 400;
+.form input::placeholder {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
 }
-.form input:first-child{
-	margin-bottom: 10px;
+.form input:first-child {
+  margin-bottom: 10px;
 }
-.form a{
-	text-align: right;
-	text-decoration: none;
-	color: rgba(91,91,91,255);
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	font-size: 12px;
-	margin: 5px 0px 20px 0px;
+.form a {
+  text-align: right;
+  text-decoration: none;
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 5px 0px 20px 0px;
 }
-.form input[type=submit]{
-	height: 40px;
-	border: none;
-	border-radius: 10px;
-	text-align: center;
-	color: white;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
-	background-color: var(--default-color);
-	cursor: pointer;
+.form input[type='submit'] {
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  background-color: var(--default-color);
+  cursor: pointer;
 }
 
 .afterform {
-	margin-top: 30px;
+  margin-top: 30px;
 }
-.socialtext p{
-   width: 100%; 
-   text-align: center; 
-   border-bottom: 1px solid grey; 
-   line-height: 0.1em;
-   margin: 10px 0 20px; 
+.socialtext p {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
 }
-.socialtext p span{
-	background:#fff; 
-    padding:0 10px; 
-    color: rgba(91,91,91,255);
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	font-size: 10px;
+.socialtext p span {
+  background: #fff;
+  padding: 0 10px;
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
 }
-.sociallinks{
-	display: grid;
-	grid-template-columns: 48% 48%;
-	justify-content: space-between;
+.sociallinks {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  justify-content: space-between;
 }
-.sociallinks img{
-	width: 100%;
-	height: auto;
+.sociallinks img {
+  width: 100%;
+  height: auto;
 }
-.signup{
-	text-align: center;
-	color: rgba(91,91,91,255);
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	font-size: 10px;
+.signup {
+  text-align: center;
+  color: rgba(91, 91, 91, 255);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
 }
-.signup a{
-	text-decoration: underline;
-	color: var(--default-color);
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 700;
-	font-size: 10px;
+.signup a {
+  text-decoration: underline;
+  color: var(--default-color);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
 }
-
 
 @media (min-width: 1281px) {
-
 }
 
 /* 
@@ -113,8 +114,6 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
- 
-
 }
 
 /* 
@@ -123,7 +122,6 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
 }
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
@@ -131,11 +129,9 @@
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-
-  
-	.boxmodel{
-		margin-top: 50px;
-	}
+  .boxmodel {
+    margin-top: 50px;
+  }
 }
 
 /* 
@@ -144,15 +140,11 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
-  
-	.boxmodel{
-		margin-top: 50px;
-		width: 300px;
-
-	}
-	.boxmodel_body{
-		padding: 10px 20px;
-	}
-
+  .boxmodel {
+    margin-top: 50px;
+    width: 300px;
+  }
+  .boxmodel_body {
+    padding: 10px 20px;
+  }
 }

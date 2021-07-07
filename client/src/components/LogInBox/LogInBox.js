@@ -24,8 +24,14 @@ const LoginBox = ({ url, history }) => {
               type="email"
               name="email"
               placeholder="Email"
+              onClick={() => alert('Just Press Submit We are in Test Mode')}
             />
-            <input type="password" name="password" placeholder="Password" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onClick={() => alert('Just Press Submit We are in Test Mode')}
+            />
             <Link to={`${url}forget`}>Forget Password?</Link>
             <Button
               type="submit"
@@ -36,7 +42,6 @@ const LoginBox = ({ url, history }) => {
               {' '}
               SUBMIT
             </Button>
-            {/* <input type="submit" name="login" defaultValue="LOGIN" /> */}
           </form>
           <div className={LoginBoxCss.afterform}>
             <div className={LoginBoxCss.socialtext}>
@@ -47,12 +52,12 @@ const LoginBox = ({ url, history }) => {
             <div className={LoginBoxCss.sociallinks}>
               <div className={LoginBoxCss.fbsingin}>
                 <Link to="#dummy">
-                  <img alt="" src="images\fbsignin.png" />
+                  <img alt="" src="\images\fbsignin.png" />
                 </Link>
               </div>
               <div className={LoginBoxCss.googlesingin}>
                 <Link to="#dummy">
-                  <img alt="" src="images\googlesignin.png" />
+                  <img alt="" src="\images\googlesignin.png" />
                 </Link>
               </div>
             </div>

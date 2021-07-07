@@ -4,15 +4,34 @@ import Button from '../button/button'
 import DashboardHeaderCss from './DashboardHeader.module.scss'
 import { withRouter } from 'react-router'
 
-const DashboardHeader = ({ location }) => {
+const DashboardHeader = ({ match }) => {
+  let overview = false
+  let profile = false
+  let listing = false
+  let savedads = false
+  let alert = false
+  let postad = false
+  if (window.location.href.indexOf('profile') > -1) {
+    profile = true
+  } else if (window.location.href.indexOf('listing') > -1) {
+    listing = true
+  } else if (window.location.href.indexOf('saved') > -1) {
+    savedads = true
+  } else if (window.location.href.indexOf('alert') > -1) {
+    alert = true
+  } else if (window.location.href.indexOf('postad') > -1) {
+    postad = true
+  } else if (window.location.href.indexOf('dashboard') > -1) {
+    overview = true
+  }
   return (
     <div className={DashboardHeaderCss.dashboardHeader}>
       <ul>
         <li>
           <Link
-            to=""
+            to={`${match.path}`}
             style={
-              location.pathname === '/dashboard'
+              overview
                 ? {
                     color: 'var(--default-color)',
                     borderBottom: '5px solid var(--default-color)',
@@ -25,9 +44,9 @@ const DashboardHeader = ({ location }) => {
         </li>
         <li>
           <Link
-            to=""
+            to={`${match.path}/profile`}
             style={
-              location.pathname === '/dashboard/profile'
+              profile
                 ? {
                     color: 'var(--default-color)',
                     borderBottom: '5px solid var(--default-color)',
@@ -40,9 +59,9 @@ const DashboardHeader = ({ location }) => {
         </li>
         <li>
           <Link
-            to=""
+            to={`${match.path}/listing`}
             style={
-              location.pathname === '/dashboard/listing'
+              listing
                 ? {
                     color: 'var(--default-color)',
                     borderBottom: '5px solid var(--default-color)',
@@ -55,9 +74,9 @@ const DashboardHeader = ({ location }) => {
         </li>
         <li>
           <Link
-            to=""
+            to={`${match.path}/saved`}
             style={
-              location.pathname === '/dashboard/saved-ads'
+              savedads
                 ? {
                     color: 'var(--default-color)',
                     borderBottom: '5px solid var(--default-color)',
@@ -70,9 +89,9 @@ const DashboardHeader = ({ location }) => {
         </li>
         <li>
           <Link
-            to=""
+            to={`${match.path}/alerts`}
             style={
-              location.pathname === '/dashboard/alert'
+              alert
                 ? {
                     color: 'var(--default-color)',
                     borderBottom: '5px solid var(--default-color)',
@@ -85,9 +104,9 @@ const DashboardHeader = ({ location }) => {
         </li>
         <li>
           <Link
-            to=""
+            to={`${match.path}/postad`}
             style={
-              location.pathname === '/dashboard'
+              postad
                 ? {
                     color: 'var(--default-color)',
                     borderBottom: '5px solid var(--default-color)',

@@ -1,27 +1,34 @@
 import React from 'react'
 import DashboardOverviewCss from './DashboardOverview.module.scss'
-import BoxModel from '../../../components/boxModel/boxModel'
-import Button from '../../../components/button/button'
-import { AdsGenDashboard } from '../../../components/AdsBoxModelGen/AdsBoxModelGen'
-import Inbox from '../../../components/inbox/Inbox'
+import BoxModel from '../boxModel/boxModel'
+import Button from '../button/button'
+import { AdsGenDashboard } from '../AdsBoxModelGen/AdsBoxModelGen'
+import Inbox from '../inbox/Inbox'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
 })
-const DashboardOverview = ({ url }) => {
+const DashboardOverview = ({ url, match, history }) => {
   return (
     <div className={DashboardOverviewCss.container}>
       <BoxModel title="Profile">
         <div className={DashboardOverviewCss.body}>
           <div className={DashboardOverviewCss.top}>
-            <img alt="" src="images\john.png" />
+            <img alt="" src="\images\john.png" />
             <h4>Welcome</h4>
             <h2>John Wick!</h2>
-            <Button>LOG OUT</Button>
+            <Button onClick={() => history.push(`${url}`)}>LOG OUT</Button>
           </div>
           <hr />
-          <div className={DashboardOverviewCss.link}>VIEW PROFILE</div>
+          <Link
+            to={`${match.path}/profile`}
+            className={DashboardOverviewCss.link}
+          >
+            VIEW PROFILE
+          </Link>
         </div>
       </BoxModel>
       <BoxModel title="MY RECENT ADS">
@@ -40,7 +47,12 @@ const DashboardOverview = ({ url }) => {
             </div>
           </div>
           <hr />
-          <div className={DashboardOverviewCss.link}>SEE ALL</div>
+          <Link
+            to={`${match.path}/listing`}
+            className={DashboardOverviewCss.link}
+          >
+            SEE ALL
+          </Link>
         </div>
       </BoxModel>
       <BoxModel title="INBOX">
@@ -70,11 +82,16 @@ const DashboardOverview = ({ url }) => {
             </div>
           </div>
           <hr />
-          <div className={DashboardOverviewCss.link}>SEE ALL</div>
+          <Link
+            to={`${match.path}/saved`}
+            className={DashboardOverviewCss.link}
+          >
+            SEE ALL
+          </Link>
         </div>
       </BoxModel>
     </div>
   )
 }
 
-export default connect(mapStateToProps)(DashboardOverview)
+export default withRouter(connect(mapStateToProps)(DashboardOverview))

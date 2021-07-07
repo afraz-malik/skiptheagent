@@ -23,6 +23,8 @@
           color: var(--default-color);
           border-bottom: 5px solid var(--default-color);
         }
+        &:active {
+        }
       }
     }
   }

@@ -34,8 +34,8 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends React.Component {
   componentDidMount() {
     // "homepage": "https://afraz-malik.github.io/skiptheagent-react",
-    const url = '/skiptheagent-react/'
-    // const url = '/'
+    // const url = '/skiptheagent-react/'
+    const url = '/'
     this.props.setUrl(url)
   }
   render() {
@@ -51,7 +51,7 @@ class App extends React.Component {
             <Route exact path={`${url}forget`} component={ForgetPassword} />
             <Route exact path={`${url}ownership`} component={OwnerShip} />
             <Route exact path={`${url}details`} component={Details} />
-            <Route exact path={`${url}dashboard`} component={Dashboard} />
+            <Route path={`${url}dashboard`} component={Dashboard} />
           </Switch>
         </Suspense>
       </Router>

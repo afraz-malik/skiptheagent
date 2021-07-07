@@ -6,7 +6,7 @@ const Inbox = () => {
     <div className={inboxCss.inboxrow}>
       <div className={inboxCss.inboxrow2}>
         <div className={inboxCss.inboximg}>
-          <img alt="" src="images/man.jpg" />
+          <img alt="" src="\images\man.jpg" />
         </div>
         <div className={inboxCss.inboxmessage}>
           <div className={inboxCss.inboxnametime}>

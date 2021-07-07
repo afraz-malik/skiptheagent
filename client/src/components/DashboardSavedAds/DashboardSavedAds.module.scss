@@ -1,13 +1,13 @@
-/*============================	Main Box Model		============================*/
-
-.section {
-  width: 70%;
+.body > * {
+  width: 50%;
+  // height: 100vw;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: center;
 }
+
 @media (min-width: 1281px) {
 }
 
@@ -17,9 +17,6 @@
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  .section {
-    width: 90%;
-  }
 }
 
 /* 
@@ -28,8 +25,8 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .section {
-    width: 99%;
+  .body > * {
+    width: 74%;
   }
 }
 
@@ -39,6 +36,9 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .body > * {
+    width: 74%;
+  }
 }
 
 /* 
@@ -47,10 +47,8 @@
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-  .section {
-    width: 99%;
-    flex-direction: column;
-    margin-top: 20px;
+  .body > * {
+    width: 100%;
   }
 }
 
@@ -60,9 +58,7 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .section {
-    width: 99%;
-    flex-direction: column;
-    margin-top: 20px;
+  .body > * {
+    width: 100%;
   }
 }
