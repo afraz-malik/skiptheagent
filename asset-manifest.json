@@ -4,13 +4,13 @@
     "static/js/0.555a7709.chunk.js": "/skiptheagent-react/static/js/0.555a7709.chunk.js",
     "static/js/0.555a7709.chunk.js.map": "/skiptheagent-react/static/js/0.555a7709.chunk.js.map",
     "static/css/1.a17a32af.chunk.css": "/skiptheagent-react/static/css/1.a17a32af.chunk.css",
-    "static/js/1.ea87d4fb.chunk.js": "/skiptheagent-react/static/js/1.ea87d4fb.chunk.js",
-    "static/js/1.ea87d4fb.chunk.js.map": "/skiptheagent-react/static/js/1.ea87d4fb.chunk.js.map",
+    "static/js/1.252ee88d.chunk.js": "/skiptheagent-react/static/js/1.252ee88d.chunk.js",
+    "static/js/1.252ee88d.chunk.js.map": "/skiptheagent-react/static/js/1.252ee88d.chunk.js.map",
     "main.css": "/skiptheagent-react/static/css/main.2d2d06de.chunk.css",
     "main.js": "/skiptheagent-react/static/js/main.66a8e68e.chunk.js",
     "main.js.map": "/skiptheagent-react/static/js/main.66a8e68e.chunk.js.map",
-    "runtime-main.js": "/skiptheagent-react/static/js/runtime-main.d769b23c.js",
-    "runtime-main.js.map": "/skiptheagent-react/static/js/runtime-main.d769b23c.js.map",
+    "runtime-main.js": "/skiptheagent-react/static/js/runtime-main.a2eb4df1.js",
+    "runtime-main.js.map": "/skiptheagent-react/static/js/runtime-main.a2eb4df1.js.map",
     "static/css/4.e4692e04.chunk.css": "/skiptheagent-react/static/css/4.e4692e04.chunk.css",
     "static/js/4.6e57f4e1.chunk.js": "/skiptheagent-react/static/js/4.6e57f4e1.chunk.js",
     "static/js/4.6e57f4e1.chunk.js.map": "/skiptheagent-react/static/js/4.6e57f4e1.chunk.js.map",
@@ -61,7 +61,7 @@
     "static/media/Compare.module.css": "/skiptheagent-react/static/media/unsure.aa65640b.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d769b23c.js",
+    "static/js/runtime-main.a2eb4df1.js",
     "static/js/5.5fd3ca26.chunk.js",
     "static/css/main.2d2d06de.chunk.css",
     "static/js/main.66a8e68e.chunk.js"
