@@ -44,7 +44,7 @@ const SideMenu = () => {
         <img
           alt=""
           className={`${SideMenuCss.firstarrow} mainArrow`}
-          src="\images\downarrow.png"
+          src="images\downarrow.png"
         />
       </div>
       <div className={`${SideMenuCss.outside_leftsectioncard} mainSearch`}>
@@ -56,7 +56,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -79,7 +79,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -102,7 +102,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -125,7 +125,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -148,7 +148,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -159,7 +159,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -170,7 +170,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -181,7 +181,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -192,7 +192,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -203,7 +203,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -214,7 +214,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -225,7 +225,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
         <div
@@ -236,7 +236,7 @@ const SideMenu = () => {
           <img
             alt=""
             className={`${SideMenuCss.arrow} fuckingarrow`}
-            src="\images\downarrow.png"
+            src="images\downarrow.png"
           />
         </div>
       </div>

@@ -15,7 +15,7 @@ const LatestAdsModelGen = ({ url }) => {
         <div className={AdsBoxModelGenCss.cards}>
           <div className={AdsBoxModelGenCss.add_img}>
             <Link to={`${url}details`}>
-              <img alt="" src="\images\honda-city-2016.jpg" />
+              <img alt="" src="images\honda-city-2016.jpg" />
             </Link>
           </div>
           <div className={AdsBoxModelGenCss.add_name}>
@@ -26,7 +26,7 @@ const LatestAdsModelGen = ({ url }) => {
           <div className={AdsBoxModelGenCss.options}>
             <div className={AdsBoxModelGenCss.class1}>
               <div className={AdsBoxModelGenCss.class2}>
-                <img alt="" src="\images\placeholder.png" />
+                <img alt="" src="images\placeholder.png" />
               </div>
               <div className={AdsBoxModelGenCss.class3}>
                 <p>City</p>
@@ -34,7 +34,7 @@ const LatestAdsModelGen = ({ url }) => {
             </div>
             <div className={AdsBoxModelGenCss.class1}>
               <div className={AdsBoxModelGenCss.class2}>
-                <img alt="" src="\images\meter.png" />
+                <img alt="" src="images\meter.png" />
               </div>
               <div className={AdsBoxModelGenCss.class3}>
                 <p>45,000</p>
@@ -42,7 +42,7 @@ const LatestAdsModelGen = ({ url }) => {
             </div>
             <div className={AdsBoxModelGenCss.class1}>
               <div className={AdsBoxModelGenCss.class2}>
-                <img alt="" src="\images\calendar.png" />
+                <img alt="" src="images\calendar.png" />
               </div>
               <div className={AdsBoxModelGenCss.class3}>
                 <p>2016</p>
@@ -60,7 +60,7 @@ export const AdsGenDashboard = ({ url }) => {
     <div className={AdsBoxModelGenCss.cards1}>
       <div className={AdsBoxModelGenCss.add_img1}>
         <Link to={`${url}details`}>
-          <img alt="" src="\images\honda-city-2016.jpg" />
+          <img alt="" src="images\honda-city-2016.jpg" />
         </Link>
       </div>
       <div className={AdsBoxModelGenCss.add_name1}>

@@ -64,22 +64,22 @@ const Footer = ({ url }) => {
             <div className={FooterCss.socialimg}>
               <div className={FooterCss.socialimg1}>
                 <Link to="#dum">
-                  <img alt="" src="\images\fb.png" />
+                  <img alt="" src="images\fb.png" />
                 </Link>
               </div>
               <div className={FooterCss.socialimg1}>
                 <Link to="#dum">
-                  <img alt="" src="\images\in.png" />
+                  <img alt="" src="images\in.png" />
                 </Link>
               </div>
               <div className={FooterCss.socialimg1}>
                 <Link to="#dum">
-                  <img alt="" src="\images\insta.png" />
+                  <img alt="" src="images\insta.png" />
                 </Link>
               </div>
               <div className={FooterCss.socialimg1}>
                 <Link to="#dum">
-                  <img alt="" src="\images\twitter.jpg" />
+                  <img alt="" src="images\twitter.jpg" />
                 </Link>
               </div>
             </div>
@@ -89,12 +89,12 @@ const Footer = ({ url }) => {
             <div className={FooterCss.footerimg}>
               <div className={FooterCss.footerimg1}>
                 <Link to="#dum">
-                  <img alt="" src="\images\playstore.png" />
+                  <img alt="" src="images\playstore.png" />
                 </Link>
               </div>
               <div className={FooterCss.footerimg1}>
                 <Link to="#dum">
-                  <img alt="" src="\images\app_store.png" width="100px" />
+                  <img alt="" src="images\app_store.png" width="100px" />
                 </Link>
               </div>
             </div>

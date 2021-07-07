@@ -52,12 +52,12 @@ const LoginBox = ({ url, history }) => {
             <div className={LoginBoxCss.sociallinks}>
               <div className={LoginBoxCss.fbsingin}>
                 <Link to="#dummy">
-                  <img alt="" src="\images\fbsignin.png" />
+                  <img alt="" src="images\fbsignin.png" />
                 </Link>
               </div>
               <div className={LoginBoxCss.googlesingin}>
                 <Link to="#dummy">
-                  <img alt="" src="\images\googlesignin.png" />
+                  <img alt="" src="images\googlesignin.png" />
                 </Link>
               </div>
             </div>

@@ -2,7 +2,7 @@
   height: 900px;
   position: relative;
   overflow: hidden;
-  /*background-image: url(\images\header.jpg);*/
+  /*background-image: url(images\header.jpg);*/
   /*background-size: cover;*/
   /*filter: grayscale(50%);*/
 }

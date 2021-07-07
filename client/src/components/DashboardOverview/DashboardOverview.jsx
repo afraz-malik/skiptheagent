@@ -17,7 +17,7 @@ const DashboardOverview = ({ url, match, history }) => {
       <BoxModel title="Profile">
         <div className={DashboardOverviewCss.body}>
           <div className={DashboardOverviewCss.top}>
-            <img alt="" src="\images\john.png" />
+            <img alt="" src="images\john.png" />
             <h4>Welcome</h4>
             <h2>John Wick!</h2>
             <Button onClick={() => history.push(`${url}`)}>LOG OUT</Button>

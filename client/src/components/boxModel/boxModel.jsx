@@ -17,13 +17,13 @@ class BoxModel extends React.Component {
                 className={BoxModelCss.arrow}
                 onClick={() => this.props.scrollRight()}
               >
-                <img alt="" src="\images\leftarrow.png" />
+                <img alt="" src="images\leftarrow.png" />
               </div>
               <div
                 className={BoxModelCss.arrow}
                 onClick={() => this.props.scrollLeft()}
               >
-                <img alt="" src="\images\rightarrow.png" />
+                <img alt="" src="images\rightarrow.png" />
               </div>
             </div>
           ) : null}
@@ -31,7 +31,7 @@ class BoxModel extends React.Component {
             <div className={BoxModelCss.cancel}>
               <img
                 alt=""
-                src="\images\cancel.png"
+                src="images\cancel.png"
                 onClick={() => this.props.closeBox()}
               />
             </div>

@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
 const HomeHeader = ({ url }) => {
   return (
     <header className={HomeHeaderCss.header}>
-      <img alt="" className={HomeHeaderCss.headimg} src="\images\header.jpg" />
+      <img alt="" className={HomeHeaderCss.headimg} src="images\header.jpg" />
       <div className={HomeHeaderCss.insidehead}>
         <div className={HomeHeaderCss.tophead}>
           <div id="hehe" className={HomeHeaderCss.extra1} />

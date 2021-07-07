@@ -54,12 +54,12 @@ const SignUpBox = ({ url }) => {
             <div className={SignUpBoxCss.sociallinks}>
               <div className={SignUpBoxCss.fbsingin}>
                 <Link to="#dum">
-                  <img alt="" src="\images\fbsignin.png" />
+                  <img alt="" src="images\fbsignin.png" />
                 </Link>
               </div>
               <div className={SignUpBoxCss.googlesingin}>
                 <Link to="#dum">
-                  <img alt="" src="\images\googlesignin.png" />
+                  <img alt="" src="images\googlesignin.png" />
                 </Link>
               </div>
             </div>

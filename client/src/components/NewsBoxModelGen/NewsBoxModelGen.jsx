@@ -21,13 +21,13 @@ const NewsBoxModelGen = ({ url }) => {
       <div className={NewsBoxModelGenCss.namecomment}>
         <div className={NewsBoxModelGenCss.name}>
           <div className={NewsBoxModelGenCss.userlogo}>
-            <img alt="" src="\images\user.png" />
+            <img alt="" src="images\user.png" />
           </div>
           <div className={NewsBoxModelGenCss.username}>Malik Anees</div>
         </div>
         <div className={NewsBoxModelGenCss.comment}>
           <div className={NewsBoxModelGenCss.commentlogo}>
-            <img alt="" src="\images\comments.png" />
+            <img alt="" src="images\comments.png" />
           </div>
           <div className={NewsBoxModelGenCss.username}>Comments (2)</div>
         </div>

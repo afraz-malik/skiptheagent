@@ -21,7 +21,7 @@ const DashboardProfile = ({ url }) => {
       <BoxModel title="Profile">
         <div className={DashboardProfileCss.body}>
           <div className={DashboardProfileCss.top}>
-            <img alt="" src="\images\john.png" />
+            <img alt="" src="images\john.png" />
             <h3>PROFILE PICTURE</h3>
             <form>
               <div className={DashboardProfileCss.row}>

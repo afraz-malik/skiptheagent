@@ -23,7 +23,7 @@ const ListingCards = ({ url, logged }) => {
     <div className={ListingCardsCss['listingcards']}>
       <div className={ListingCardsCss['leftcard']}>
         <Link to={`${url}details`}>
-          <img alt="" src="\images\listingcar.jpg" />
+          <img alt="" src="images\listingcar.jpg" />
         </Link>
       </div>
       <div className={ListingCardsCss['rightcard']}>
@@ -48,7 +48,7 @@ const ListingCards = ({ url, logged }) => {
         <div className={ListingCardsCss['cardpoints']}>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\placeholder.png" />
+              <img alt="" src="images\placeholder.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>Paris</p>
@@ -56,7 +56,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\calendar.png" />
+              <img alt="" src="images\calendar.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>2019</p>
@@ -64,7 +64,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\meter.png" />
+              <img alt="" src="images\meter.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>3,200 KM</p>
@@ -72,7 +72,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\fuel.png" />
+              <img alt="" src="images\fuel.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>Hybrid</p>
@@ -80,7 +80,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\lightning.png" />
+              <img alt="" src="images\lightning.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>2000CC</p>
@@ -88,7 +88,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\transmission.png" />
+              <img alt="" src="images\transmission.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>Automatic</p>
