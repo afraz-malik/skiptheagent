@@ -13,13 +13,13 @@ const BrandsBoxModel = () => {
           <div className={BrandsBoxModelCss.extra} />
           <div className={BrandsBoxModelCss.extra} />
           <div className={BrandsBoxModelCss.boxmodel_nav}>
-            <a href='#dummy'><img alt='' src="\images\leftarrow.png" /></a>
-            <a href='#dummy'><img alt='' src="\images\rightarrow.png" /></a>
+            <a href='#dummy'><img alt='' src="images\leftarrow.png" /></a>
+            <a href='#dummy'><img alt='' src="images\rightarrow.png" /></a>
           </div>
         </div> */}
         <div className={BrandsBoxModelCss.boxmodel_body}>
           <div className={BrandsBoxModelCss.brandslogo}>
-            <img alt="" src="\images\brands.png" />
+            <img alt="" src="images\brands.png" />
           </div>
         </div>
       </BoxModel>

@@ -4,23 +4,19 @@ import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { AdsGenDashboard } from '../AdsBoxModelGen/AdsBoxModelGen'
 import Inbox from '../inbox/Inbox'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
 const DashboardOverview = ({ url, match, history }) => {
   return (
     <div className={DashboardOverviewCss.container}>
       <BoxModel title="Profile">
         <div className={DashboardOverviewCss.body}>
           <div className={DashboardOverviewCss.top}>
-            <img alt="" src="\images\john.png" />
+            <img alt="" src="images\john.png" />
             <h4>Welcome</h4>
             <h2>John Wick!</h2>
-            <Button onClick={() => history.push(`${url}`)}>LOG OUT</Button>
+            <Button onClick={() => history.push(``)}>LOG OUT</Button>
           </div>
           <hr />
           <Link
@@ -94,4 +90,4 @@ const DashboardOverview = ({ url, match, history }) => {
   )
 }
 
-export default withRouter(connect(mapStateToProps)(DashboardOverview))
+export default withRouter(DashboardOverview)

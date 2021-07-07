@@ -3,16 +3,11 @@ import HomeHeaderCss from './HomeHeader.module.css'
 //Router
 import { Link } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
-
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
 
 const HomeHeader = ({ url }) => {
   return (
     <header className={HomeHeaderCss.header}>
-      <img alt="" className={HomeHeaderCss.headimg} src="\images\header.jpg" />
+      <img alt="" className={HomeHeaderCss.headimg} src="images\header.jpg" />
       <div className={HomeHeaderCss.insidehead}>
         <div className={HomeHeaderCss.tophead}>
           <div id="hehe" className={HomeHeaderCss.extra1} />
@@ -26,8 +21,8 @@ const HomeHeader = ({ url }) => {
               <p className={HomeHeaderCss.firstp}>Welcome to skiptheagent.</p>
               <p className={HomeHeaderCss.secondp}>
                 {' '}
-                Kindly <Link to={`${url}login`}> SIGN IN </Link> or{' '}
-                <Link to={`${url}register`}>SIGN UP</Link>
+                Kindly <Link to={`login`}> SIGN IN </Link> or{' '}
+                <Link to={`register`}>SIGN UP</Link>
               </p>
             </div>
           </div>
@@ -38,17 +33,17 @@ const HomeHeader = ({ url }) => {
         <div className={HomeHeaderCss.headnav}>
           <ul>
             <li>
-              <Link to={`${url}login`} id="hehe">
+              <Link to={`login`} id="hehe">
                 SELL MY CAR
               </Link>
             </li>
             <li>
-              <Link to={`${url}listing`} id="hehe">
+              <Link to={`listing`} id="hehe">
                 SHOP FOR NEW CARS
               </Link>
             </li>
             <li>
-              <Link to={`${url}ownership`}>CONSULTATIONS</Link>
+              <Link to={`ownership`}>CONSULTATIONS</Link>
             </li>
           </ul>
         </div>
@@ -113,4 +108,4 @@ const HomeHeader = ({ url }) => {
     </header>
   )
 }
-export default connect(mapStateToProps)(HomeHeader)
+export default HomeHeader

@@ -3,33 +3,28 @@ import ListingCardsCss from './listing-cards.module.css'
 
 import { Link } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
 import Button from '../button/button'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
-
 const ListingCards = ({ url, logged }) => {
-  const [src, setSrc] = useState('/images/like.png')
+  const [src, setSrc] = useState('imageslike.png')
   const manageLike = () => {
-    if (src === '/images/liked.png') {
-      setSrc('/images/like.png')
+    if (src === 'imagesliked.png') {
+      setSrc('imageslike.png')
     } else {
-      setSrc('/images/liked.png')
+      setSrc('imagesliked.png')
     }
   }
   return (
     <div className={ListingCardsCss['listingcards']}>
       <div className={ListingCardsCss['leftcard']}>
-        <Link to={`${url}details`}>
-          <img alt="" src="\images\listingcar.jpg" />
+        <Link to={`details`}>
+          <img alt="" src="images\listingcar.jpg" />
         </Link>
       </div>
       <div className={ListingCardsCss['rightcard']}>
         <div className={ListingCardsCss['cardtop']}>
           <div className={ListingCardsCss['cardname']}>
-            <Link to={`${url}details`}>
+            <Link to={`details`}>
               <p>2019 Fiat 124 Spider</p>
             </Link>
           </div>
@@ -48,7 +43,7 @@ const ListingCards = ({ url, logged }) => {
         <div className={ListingCardsCss['cardpoints']}>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\placeholder.png" />
+              <img alt="" src="images\placeholder.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>Paris</p>
@@ -56,7 +51,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\calendar.png" />
+              <img alt="" src="images\calendar.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>2019</p>
@@ -64,7 +59,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\meter.png" />
+              <img alt="" src="images\meter.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>3,200 KM</p>
@@ -72,7 +67,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\fuel.png" />
+              <img alt="" src="images\fuel.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>Hybrid</p>
@@ -80,7 +75,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\lightning.png" />
+              <img alt="" src="images\lightning.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>2000CC</p>
@@ -88,7 +83,7 @@ const ListingCards = ({ url, logged }) => {
           </div>
           <div className={ListingCardsCss['cardpickups']}>
             <div className={ListingCardsCss['cardpickup1']}>
-              <img alt="" src="\images\transmission.png" />
+              <img alt="" src="images\transmission.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
               <p>Automatic</p>
@@ -128,4 +123,4 @@ const ListingCards = ({ url, logged }) => {
   )
 }
 
-export default connect(mapStateToProps)(ListingCards)
+export default ListingCards

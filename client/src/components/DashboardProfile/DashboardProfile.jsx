@@ -2,12 +2,8 @@ import React, { useState } from 'react'
 import DashboardProfileCss from './DashboardProfile.module.scss'
 import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
-import { connect } from 'react-redux'
 import { SingleForgetBox } from '../ForgetPasswordBox/ForgetPasswordBox'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
 const DashboardProfile = ({ url }) => {
   const [showBox, manageBox] = useState(false)
   const showBoxFunction = () => {
@@ -16,12 +12,13 @@ const DashboardProfile = ({ url }) => {
   const hideBoxFunction = () => {
     manageBox(false)
   }
+  console.log(process.env.PUBLIC_URL)
   return (
     <div className={DashboardProfileCss.container}>
       <BoxModel title="Profile">
         <div className={DashboardProfileCss.body}>
           <div className={DashboardProfileCss.top}>
-            <img alt="" src="\images\john.png" />
+            <img alt="" src="images/john.png" />
             <h3>PROFILE PICTURE</h3>
             <form>
               <div className={DashboardProfileCss.row}>
@@ -95,4 +92,4 @@ const DashboardProfile = ({ url }) => {
   )
 }
 
-export default connect(mapStateToProps)(DashboardProfile)
+export default DashboardProfile

@@ -20,7 +20,7 @@ const SearchByModel = () => {
             <div className={SearchByModelCss.searchcar}>
               <div className={SearchByModelCss.uparrow}>
                 <div onClick={() => scrollUp()}>
-                  <img alt="" src="\images\rightarrow.png" />
+                  <img alt="" src="images\rightarrow.png" />
                 </div>
               </div>
               <div
@@ -32,12 +32,12 @@ const SearchByModel = () => {
               </div>
               <div className={SearchByModelCss.downarrow}>
                 <div onClick={() => scrollDown()}>
-                  <img alt="" src="\images\leftarrow.png" />
+                  <img alt="" src="images\leftarrow.png" />
                 </div>
               </div>
             </div>
             <div className={SearchByModelCss.imgresult}>
-              <img alt="" src="\images\vector_car.png" />
+              <img alt="" src="images\vector_car.png" />
             </div>
           </div>
         </BoxModel>

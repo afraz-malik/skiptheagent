@@ -10,7 +10,7 @@ class DetailsSection extends React.Component {
       cardetails: 'none',
       cardetailsbg: 'grey',
       // eslint-disable-next-line
-      source: '/images/cover.jpg',
+      source: 'images/cover.jpg',
     }
   }
   clicked = (value) => {
@@ -53,14 +53,14 @@ class DetailsSection extends React.Component {
               <ul>
                 {/* <li>
                   <div className={DetailsSectionCss.subimg1}>
-                    <img alt="" src="\images\cover.jpg" onClick={(e)=>this.changeImage(e.target.src)}/>
+                    <img alt="" src="images\cover.jpg" onClick={(e)=>this.changeImage(e.target.src)}/>
                   </div>
                 </li> */}
                 <li>
                   <div className={DetailsSectionCss.subimg1}>
                     <img
                       alt=""
-                      src="\images\cover.jpg"
+                      src="images\cover.jpg"
                       onClick={(e) => this.changeImage(e.target.src)}
                     />
                   </div>
@@ -69,7 +69,7 @@ class DetailsSection extends React.Component {
                   <div className={DetailsSectionCss.subimg1}>
                     <img
                       alt=""
-                      src="\images\subimg1.jpg"
+                      src="images\subimg1.jpg"
                       onClick={(e) => this.changeImage(e.target.src)}
                     />
                   </div>
@@ -78,7 +78,7 @@ class DetailsSection extends React.Component {
                   <div className={DetailsSectionCss.subimg1}>
                     <img
                       alt=""
-                      src="\images\subimg2.jpg"
+                      src="images\subimg2.jpg"
                       onClick={(e) => this.changeImage(e.target.src)}
                     />
                   </div>
@@ -87,7 +87,7 @@ class DetailsSection extends React.Component {
                   <div className={DetailsSectionCss.subimg1}>
                     <img
                       alt=""
-                      src="\images\subimg3.jpg"
+                      src="images\subimg3.jpg"
                       onClick={(e) => this.changeImage(e.target.src)}
                     />
                   </div>
@@ -96,7 +96,7 @@ class DetailsSection extends React.Component {
                   <div className={DetailsSectionCss.subimg1}>
                     <img
                       alt=""
-                      src="\images\subimg4.jpg"
+                      src="images\subimg4.jpg"
                       onClick={(e) => this.changeImage(e.target.src)}
                     />
                   </div>
@@ -105,7 +105,7 @@ class DetailsSection extends React.Component {
                   <div className={DetailsSectionCss.subimg1}>
                     <img
                       alt=""
-                      src="\images\subimg5.jpg"
+                      src="images\subimg5.jpg"
                       onClick={(e) => this.changeImage(e.target.src)}
                     />
                   </div>
@@ -120,7 +120,7 @@ class DetailsSection extends React.Component {
             </div>
             <div className={DetailsSectionCss.belowname}>
               <div className={DetailsSectionCss.pin}>
-                <img alt="" src="\images\pin.png" width="100%" height="auto" />
+                <img alt="" src="images\pin.png" width="100%" height="auto" />
               </div>
               <div className={DetailsSectionCss.model}>
                 <p>Paris</p>
@@ -158,19 +158,19 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\brake.png" />
+                        <img alt="" src="images\brake.png" />
                         <p>ABS</p>
                       </div>
                     </td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\airbag.png" />
+                        <img alt="" src="images\airbag.png" />
                         <p>Airbags</p>
                       </div>
                     </td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\radio.png" />
+                        <img alt="" src="images\radio.png" />
                         <p>AM/FM</p>
                       </div>
                     </td>
@@ -178,19 +178,19 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\ac.png" />
+                        <img alt="" src="images\ac.png" />
                         <p>Air Conditioned</p>
                       </div>
                     </td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\power.png" />
+                        <img alt="" src="images\power.png" />
                         <p>Power Mirrors</p>
                       </div>
                     </td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\steering.png" />
+                        <img alt="" src="images\steering.png" />
                         <p>Power Steering</p>
                       </div>
                     </td>
@@ -198,19 +198,19 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\cd.png" />
+                        <img alt="" src="images\cd.png" />
                         <p>CD Player</p>
                       </div>
                     </td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\cassette.png" />
+                        <img alt="" src="images\cassette.png" />
                         <p>Cassette</p>
                       </div>
                     </td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\car_key.png" />
+                        <img alt="" src="images\car_key.png" />
                         <p>Immobilizer Key</p>
                       </div>
                     </td>
@@ -218,13 +218,13 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\door.png" />
+                        <img alt="" src="images\door.png" />
                         <p>Power Locks</p>
                       </div>
                     </td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\cardinal.png" />
+                        <img alt="" src="images\cardinal.png" />
                         <p>Navigation System</p>
                       </div>
                     </td>
@@ -245,14 +245,14 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\calendar.png" />
+                        <img alt="" src="images\calendar.png" />
                         <p>MODEL</p>
                       </div>
                     </td>
                     <td>:2019</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\meter.png" />
+                        <img alt="" src="images\meter.png" />
                         <p>MILEAGE</p>
                       </div>
                     </td>
@@ -261,14 +261,14 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\fuel.png" />
+                        <img alt="" src="images\fuel.png" />
                         <p>FUEL TYPE</p>
                       </div>
                     </td>
                     <td>:Hybrid</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\lightning.png" />
+                        <img alt="" src="images\lightning.png" />
                         <p>ENGINE CAPACITY</p>
                       </div>
                     </td>
@@ -277,14 +277,14 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\transmission.png" />
+                        <img alt="" src="images\transmission.png" />
                         <p>TRANSMISSION</p>
                       </div>
                     </td>
                     <td>:Automatic</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\exterior.png" />
+                        <img alt="" src="images\exterior.png" />
                         <p>EXTERIOR COLOR</p>
                       </div>
                     </td>
@@ -293,14 +293,14 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\body.png" />
+                        <img alt="" src="images\body.png" />
                         <p>BODY TYPE</p>
                       </div>
                     </td>
                     <td>:Coupe</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\assembly.png" />
+                        <img alt="" src="images\assembly.png" />
                         <p>ASSEMBLY</p>
                       </div>
                     </td>
@@ -309,14 +309,14 @@ class DetailsSection extends React.Component {
                   <tr>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\make.png" />
+                        <img alt="" src="images\make.png" />
                         <p>MAKE</p>
                       </div>
                     </td>
                     <td>:Flat</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
-                        <img alt="" src="\images\city.png" />
+                        <img alt="" src="images\city.png" />
                         <p>REGISTERED CITY</p>
                       </div>
                     </td>

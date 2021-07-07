@@ -5,13 +5,8 @@ import BoxModel from '../../components/boxModel/boxModel'
 
 import { Link } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
 
 import Button from '../button/button'
-
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
 
 const SignUpBox = ({ url }) => {
   return (
@@ -54,12 +49,12 @@ const SignUpBox = ({ url }) => {
             <div className={SignUpBoxCss.sociallinks}>
               <div className={SignUpBoxCss.fbsingin}>
                 <Link to="#dum">
-                  <img alt="" src="\images\fbsignin.png" />
+                  <img alt="" src="images\fbsignin.png" />
                 </Link>
               </div>
               <div className={SignUpBoxCss.googlesingin}>
                 <Link to="#dum">
-                  <img alt="" src="\images\googlesignin.png" />
+                  <img alt="" src="images\googlesignin.png" />
                 </Link>
               </div>
             </div>
@@ -69,7 +64,7 @@ const SignUpBox = ({ url }) => {
                 Use
               </p>
               <p>
-                Don't have an account? <Link to={`${url}login`}>SIGN IN</Link>
+                Don't have an account? <Link to={`login`}>SIGN IN</Link>
               </p>
             </div>
           </div>
@@ -78,4 +73,4 @@ const SignUpBox = ({ url }) => {
     </div>
   )
 }
-export default connect(mapStateToProps)(SignUpBox)
+export default SignUpBox

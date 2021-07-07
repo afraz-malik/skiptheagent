@@ -100,7 +100,7 @@ const DashboardPostAd = () => {
                 <div className={DashboardPostAdCss.upload}>
                   <div className={DashboardPostAdCss.uploadphoto}>
                     <label for="file-input">
-                      <img alt="" src="/images/addphoto.png" />
+                      <img alt="" src="images\addphoto.png" />
                     </label>
                     <input id="file-input" type="file" />
                     <span> (Max Limit 5MB Per Image)</span>
@@ -109,17 +109,17 @@ const DashboardPostAd = () => {
                     <ul>
                       <li>
                         <div className={DashboardPostAdCss.subimg1}>
-                          <img alt="" src="\images\subimg1.jpg" />
+                          <img alt="" src="images\subimg1.jpg" />
                         </div>
                       </li>
                       <li>
                         <div className={DashboardPostAdCss.subimg1}>
-                          <img alt="" src="\images\subimg2.jpg" />
+                          <img alt="" src="images\subimg2.jpg" />
                         </div>
                       </li>
                       <li>
                         <div className={DashboardPostAdCss.subimg1}>
-                          <img alt="" src="\images\subimg3.jpg" />
+                          <img alt="" src="images\subimg3.jpg" />
                         </div>
                       </li>
                     </ul>

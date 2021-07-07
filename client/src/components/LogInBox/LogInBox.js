@@ -5,13 +5,8 @@ import BoxModel from '../../components/boxModel/boxModel'
 //Router
 import { Link, withRouter } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
 
 import Button from '../button/button'
-
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
 
 const LoginBox = ({ url, history }) => {
   return (
@@ -32,12 +27,12 @@ const LoginBox = ({ url, history }) => {
               placeholder="Password"
               onClick={() => alert('Just Press Submit We are in Test Mode')}
             />
-            <Link to={`${url}forget`}>Forget Password?</Link>
+            <Link to={`forget`}>Forget Password?</Link>
             <Button
               type="submit"
               name="login"
               login="login"
-              onClick={() => history.push(`${url}dashboard`)}
+              onClick={() => history.push(`dashboard`)}
             >
               {' '}
               SUBMIT
@@ -52,19 +47,18 @@ const LoginBox = ({ url, history }) => {
             <div className={LoginBoxCss.sociallinks}>
               <div className={LoginBoxCss.fbsingin}>
                 <Link to="#dummy">
-                  <img alt="" src="\images\fbsignin.png" />
+                  <img alt="" src="images\fbsignin.png" />
                 </Link>
               </div>
               <div className={LoginBoxCss.googlesingin}>
                 <Link to="#dummy">
-                  <img alt="" src="\images\googlesignin.png" />
+                  <img alt="" src="images\googlesignin.png" />
                 </Link>
               </div>
             </div>
             <div className={LoginBoxCss.signup}>
               <p>
-                Don't have an account?{' '}
-                <Link to={`${url}register`}>SIGN UP</Link>
+                Don't have an account? <Link to={`register`}>SIGN UP</Link>
               </p>
             </div>
           </div>
@@ -73,4 +67,4 @@ const LoginBox = ({ url, history }) => {
     </div>
   )
 }
-export default withRouter(connect(mapStateToProps)(LoginBox))
+export default withRouter(LoginBox)
