@@ -14,7 +14,7 @@ const ListingCards = ({ url, logged }) => {
   const [src, setSrc] = useState('images/like.png')
   const manageLike = () => {
     if (src === 'images/liked.png') {
-      setSrc('/images/like.png')
+      setSrc('images/like.png')
     } else {
       setSrc('images/liked.png')
     }
