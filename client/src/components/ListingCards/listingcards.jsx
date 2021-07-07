@@ -11,12 +11,12 @@ const mapStateToProps = (state) => ({
 })
 
 const ListingCards = ({ url, logged }) => {
-  const [src, setSrc] = useState('/images/like.png')
+  const [src, setSrc] = useState('images/like.png')
   const manageLike = () => {
-    if (src === '/images/liked.png') {
+    if (src === 'images/liked.png') {
       setSrc('/images/like.png')
     } else {
-      setSrc('/images/liked.png')
+      setSrc('images/liked.png')
     }
   }
   return (
