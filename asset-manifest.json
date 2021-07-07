@@ -7,8 +7,8 @@
     "static/js/1.28daf0f3.chunk.js": "/skiptheagent-react/static/js/1.28daf0f3.chunk.js",
     "static/js/1.28daf0f3.chunk.js.map": "/skiptheagent-react/static/js/1.28daf0f3.chunk.js.map",
     "main.css": "/skiptheagent-react/static/css/main.2d2d06de.chunk.css",
-    "main.js": "/skiptheagent-react/static/js/main.66a8e68e.chunk.js",
-    "main.js.map": "/skiptheagent-react/static/js/main.66a8e68e.chunk.js.map",
+    "main.js": "/skiptheagent-react/static/js/main.462bcb99.chunk.js",
+    "main.js.map": "/skiptheagent-react/static/js/main.462bcb99.chunk.js.map",
     "runtime-main.js": "/skiptheagent-react/static/js/runtime-main.295e49ca.js",
     "runtime-main.js.map": "/skiptheagent-react/static/js/runtime-main.295e49ca.js.map",
     "static/css/4.e4692e04.chunk.css": "/skiptheagent-react/static/css/4.e4692e04.chunk.css",
@@ -64,6 +64,6 @@
     "static/js/runtime-main.295e49ca.js",
     "static/js/5.5fd3ca26.chunk.js",
     "static/css/main.2d2d06de.chunk.css",
-    "static/js/main.66a8e68e.chunk.js"
+    "static/js/main.462bcb99.chunk.js"
   ]
 }
