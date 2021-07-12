@@ -1,7 +1,18 @@
 import React, { lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
 import { setUrl } from './redux/actions'
 import { connect } from 'react-redux'
+
+import {
+  auth,
+  //   createUserInFirebase,
+  //   signInFirebase,
+} from './firebase/firebase.config'
 
 import { Spinner } from './components/spinner/spinner'
 //Pages
@@ -26,6 +37,7 @@ const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'))
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
+  user: state.SignUpReducer.user,
 })
 const mapDispatchToProps = (dispatch) => ({
   setUrl: (url) => dispatch(setUrl(url)),
@@ -34,11 +46,15 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends React.Component {
   componentDidMount() {
     // "homepage": "https://afraz-malik.github.io/skiptheagent-react",
+
     const url = '/skiptheagent-react/'
     // const url = '/'
+
+    console.log(auth.currentUser)
     this.props.setUrl(url)
   }
   render() {
+    let user = auth.currentUser
     const { url } = this.props
     return (
       <Router>
@@ -46,8 +62,20 @@ class App extends React.Component {
           <Switch>
             <Route exact path={`${url}`} component={Home} />
             <Route exact path={`${url}listing`} component={Listing} />
-            <Route exact path={`${url}login`} component={Login} />
-            <Route exact path={`${url}register`} component={Register} />
+            <Route
+              exact
+              path={`${url}login`}
+              render={() =>
+                user ? <Redirect to={`${url}dashboard`} /> : <Login />
+              }
+            />
+            <Route
+              exact
+              path={`${url}register`}
+              render={() =>
+                user ? <Redirect to={`${url}dashboard`} /> : <Register />
+              }
+            />
             <Route exact path={`${url}forget`} component={ForgetPassword} />
             <Route exact path={`${url}ownership`} component={OwnerShip} />
             <Route exact path={`${url}details`} component={Details} />

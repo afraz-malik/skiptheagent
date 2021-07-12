@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeHeaderCss from './HomeHeader.module.css'
+import HomeHeaderCss from './HomeHeader.module.scss'
 //Router
 import { Link } from 'react-router-dom'
 //Redux
@@ -7,9 +7,10 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
+  user: state.SignUpReducer.user,
 })
 
-const HomeHeader = ({ url }) => {
+const HomeHeader = ({ url, user }) => {
   return (
     <header className={HomeHeaderCss.header}>
       <img alt="" className={HomeHeaderCss.headimg} src="images\header.jpg" />
@@ -22,14 +23,30 @@ const HomeHeader = ({ url }) => {
               <p>Call Us Now: +01 123 456 78</p>
               <p>Email: info@skiptheagent.com</p>
             </div>
-            <div className={HomeHeaderCss.righttop}>
-              <p className={HomeHeaderCss.firstp}>Welcome to skiptheagent.</p>
-              <p className={HomeHeaderCss.secondp}>
-                {' '}
-                Kindly <Link to={`${url}login`}> SIGN IN </Link> or{' '}
-                <Link to={`${url}register`}>SIGN UP</Link>
-              </p>
-            </div>
+            {!user ? (
+              <div className={HomeHeaderCss.righttop}>
+                <p className={HomeHeaderCss.firstp}>Welcome to skiptheagent.</p>
+                <p className={HomeHeaderCss.secondp}>
+                  {' '}
+                  Kindly <Link to={`${url}login`}> SIGN IN </Link> or{' '}
+                  <Link to={`${url}register`}>SIGN UP</Link>
+                </p>
+              </div>
+            ) : (
+              <div className={HomeHeaderCss.righttop}>
+                <p className={HomeHeaderCss.firstp}>Welcome to skiptheagent.</p>
+                <p
+                  className={HomeHeaderCss.secondp}
+                  //
+                >
+                  <Link
+                    to={`${url}dashboard`}
+                    style={{ marginLeft: '10px' }}
+                  >{`${user.name}`}</Link>
+                  !
+                </p>
+              </div>
+            )}
           </div>
           <div className={HomeHeaderCss.extra1} />
           <div className={HomeHeaderCss.extra1} />

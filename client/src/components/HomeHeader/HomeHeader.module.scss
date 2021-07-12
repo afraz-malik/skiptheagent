@@ -1,10 +1,12 @@
 .header {
   height: 900px;
-  position: relative;
-  overflow: hidden;
+  // position: relative;
+  // overflow: hidden;
   /*background-image: url(images\header.jpg);*/
   /*background-size: cover;*/
   /*filter: grayscale(50%);*/
+}
+.loggedinheader {
 }
 .headimg {
   width: 100%;
@@ -15,6 +17,7 @@
 .insidehead {
   /*filter: grayscale(0%);*/
   position: absolute;
+  z-index: 1;
   top: 0;
   right: 0;
   left: 0;
@@ -66,6 +69,39 @@
 .righttop {
   margin-left: auto;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  .dropdown {
+    // position: relative;
+    // display: inline-block;
+    // display: flex;
+    cursor: pointer;
+    img {
+      margin-top: 3px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .dropdown_content {
+      display: none;
+      position: absolute;
+      left: 50;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 5;
+      a {
+        color: rgba(91, 91, 91, 255);
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+  }
 }
 .righttop a {
   text-decoration: underline;

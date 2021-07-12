@@ -1,44 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LoginBoxCss from './LogInBox.module.css'
 import BoxModel from '../../components/boxModel/boxModel'
-
 //Router
 import { Link, withRouter } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
+import { signInStart } from '../../redux/actions'
 
 import Button from '../button/button'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
 })
+const maptDispatchToProps = (dispatch) => ({
+  setUser: (userCrendential) => dispatch(signInStart(userCrendential)),
+})
+const LoginBox = ({ url, history, setUser }) => {
+  const [userCrendential, setUserCrendential] = useState({
+    email: null,
+    password: null,
+  })
 
-const LoginBox = ({ url, history }) => {
+  const onSubmitHandler = (event) => {
+    event.preventDefault()
+    const { email, password } = userCrendential
+    setUser({ email, password })
+  }
+  const handleChange = (event) => {
+    setUserCrendential({
+      ...userCrendential,
+      [event.target.name]: event.target.value,
+    })
+  }
   return (
     <div className={LoginBoxCss.boxmodel}>
       <BoxModel title={'LOGIN'}>
         <div className={LoginBoxCss.boxmodel_body}>
-          <form className={LoginBoxCss.form}>
+          <form className={LoginBoxCss.form} onSubmit={onSubmitHandler}>
             <input
               title="For test user Email: test@gmail.com"
               type="email"
               name="email"
               placeholder="Email"
-              onClick={() => alert('Just Press Submit We are in Test Mode')}
+              onChange={handleChange}
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
-              onClick={() => alert('Just Press Submit We are in Test Mode')}
+              onChange={handleChange}
             />
             <Link to={`${url}forget`}>Forget Password?</Link>
-            <Button
-              type="submit"
-              name="login"
-              login="login"
-              onClick={() => history.push(`${url}dashboard`)}
-            >
+            <Button type="submit" name="login" login="login">
               {' '}
               SUBMIT
             </Button>
@@ -73,4 +86,6 @@ const LoginBox = ({ url, history }) => {
     </div>
   )
 }
-export default withRouter(connect(mapStateToProps)(LoginBox))
+export default withRouter(
+  connect(mapStateToProps, maptDispatchToProps)(LoginBox)
+)
