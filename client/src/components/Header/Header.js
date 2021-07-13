@@ -3,13 +3,16 @@ import HeaderCss from './Header.module.scss'
 import { Link, withRouter } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
+import { signOutStart } from '../../redux/actions'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
-  user: state.SignUpReducer.user,
+  user: state.setUser.user,
 })
-
-const Header = ({ url, user }) => {
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutStart()),
+})
+const Header = ({ url, user, signOut }) => {
   const [hidden, sethidden] = useState(true)
   const toggleHidden = () => {
     sethidden(!hidden)
@@ -53,7 +56,7 @@ const Header = ({ url, user }) => {
                     <Link to={`${url}dashboard`} href="#">
                       Dashboard
                     </Link>
-                    <Link to={`${url}`} href="#">
+                    <Link to={`${url}`} href="#" onClick={() => signOut()}>
                       Log out
                     </Link>
                   </div>
@@ -106,7 +109,7 @@ const Header = ({ url, user }) => {
                   <Link to={`${url}dashboard`} href="#">
                     Dashboard
                   </Link>
-                  <Link to={`${url}`} href="#">
+                  <Link to={`${url}`} href="#" onClick={() => signOut()}>
                     Log out
                   </Link>
                 </div>
@@ -148,4 +151,4 @@ const Header = ({ url, user }) => {
     </div>
   )
 }
-export default withRouter(connect(mapStateToProps)(Header))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))

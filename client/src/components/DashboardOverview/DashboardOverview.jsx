@@ -7,11 +7,16 @@ import Inbox from '../inbox/Inbox'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
+import { signOutStart } from '../../redux/actions'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
+  user: state.setUser.user,
 })
-const DashboardOverview = ({ url, match, history }) => {
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutStart()),
+})
+const DashboardOverview = ({ url, match, signOut, user }) => {
   return (
     <div className={DashboardOverviewCss.container}>
       <BoxModel title="Profile">
@@ -19,8 +24,8 @@ const DashboardOverview = ({ url, match, history }) => {
           <div className={DashboardOverviewCss.top}>
             <img alt="" src="images\john.png" />
             <h4>Welcome</h4>
-            <h2>John Wick!</h2>
-            <Button onClick={() => history.push(`${url}`)}>LOG OUT</Button>
+            <h2>{`${user.name}`}!</h2>
+            <Button onClick={() => signOut()}>LOG OUT</Button>
           </div>
           <hr />
           <Link
@@ -94,4 +99,6 @@ const DashboardOverview = ({ url, match, history }) => {
   )
 }
 
-export default withRouter(connect(mapStateToProps)(DashboardOverview))
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(DashboardOverview)
+)

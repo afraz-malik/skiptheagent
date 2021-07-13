@@ -12,11 +12,31 @@ export const URLReducer = (state = initialState, action) => {
 
 const initialSignUpState = {
   user: null,
+  loading: false,
+  error: null,
 }
-export const SignUpReducer = (state = initialSignUpState, action) => {
+export const setUser = (state = initialSignUpState, action) => {
   switch (action.type) {
+    case 'SIGN_UP_START':
+    case 'SIGN_IN_START':
+    case 'SIGN_OUT_START':
+      return Object.assign({}, state, { loading: true })
     case 'SIGN_IN_SUCCESS':
-      return Object.assign({}, state, { user: action.payload })
+      return Object.assign({}, state, {
+        loading: false,
+        user: action.payload,
+        error: null,
+      })
+    case 'SIGN_OUT_SUCCESS':
+      return Object.assign({}, state, {
+        loading: null,
+        user: null,
+        error: null,
+      })
+
+    case 'SIGN_IN_FAILED':
+    case 'SIGN_OUT_FAILED':
+      return Object.assign({}, state, { loading: false, error: action.payload })
     default:
       return state
   }

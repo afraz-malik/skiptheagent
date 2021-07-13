@@ -6,16 +6,18 @@ import { Link, withRouter } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
 import { signInStart } from '../../redux/actions'
+import { Spinner } from '../spinner/spinner'
 
 import Button from '../button/button'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
+  isLoading: state.setUser.loading,
 })
 const maptDispatchToProps = (dispatch) => ({
   setUser: (userCrendential) => dispatch(signInStart(userCrendential)),
 })
-const LoginBox = ({ url, history, setUser }) => {
+const LoginBox = ({ url, isLoading, user, setUser }) => {
   const [userCrendential, setUserCrendential] = useState({
     email: null,
     password: null,
@@ -83,6 +85,7 @@ const LoginBox = ({ url, history, setUser }) => {
           </div>
         </div>
       </BoxModel>
+      {isLoading ? <Spinner /> : null}
     </div>
   )
 }

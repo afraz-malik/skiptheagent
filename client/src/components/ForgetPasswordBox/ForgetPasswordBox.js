@@ -77,7 +77,7 @@ const ForgetPasswordBox = () => {
   )
 }
 
-export const SingleForgetBox = ({ close }) => {
+export const SingleForgetBox = ({ close, email }) => {
   return (
     <div className={`${ForgetPasswordCss.forgetPassword}  forgetPassword_Box`}>
       <div className={ForgetPasswordCss.box}>
@@ -91,7 +91,7 @@ export const SingleForgetBox = ({ close }) => {
               className={`${ForgetPasswordCss.boxmodel_body} ${ForgetPasswordCss.boxmodel_body3}`}
             >
               <div className={ForgetPasswordCss.bodytext}>
-                <p>For johnwick@gmail.com</p>
+                <p>For {`${email}`}</p>
               </div>
               <form>
                 <input

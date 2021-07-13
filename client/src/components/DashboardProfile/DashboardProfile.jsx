@@ -6,9 +6,9 @@ import { connect } from 'react-redux'
 import { SingleForgetBox } from '../ForgetPasswordBox/ForgetPasswordBox'
 
 const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
+  user: state.setUser.user,
 })
-const DashboardProfile = ({ url }) => {
+const DashboardProfile = ({ user }) => {
   const [showBox, manageBox] = useState(false)
   const showBoxFunction = () => {
     manageBox(true)
@@ -27,11 +27,11 @@ const DashboardProfile = ({ url }) => {
               <div className={DashboardProfileCss.row}>
                 <div className={DashboardProfileCss.column}>
                   <label>FULL NAME</label>
-                  <input type="text" value="John Wick" />
+                  <input type="text" value={`${user.name}`} />
                 </div>
                 <div className={DashboardProfileCss.column}>
                   <label>EMAIL</label>
-                  <input type="text" value="johnwick@gmail.com" />
+                  <input type="text" value={`${user.email}`} />
                 </div>
               </div>
               <div className={DashboardProfileCss.row}>
@@ -90,7 +90,9 @@ const DashboardProfile = ({ url }) => {
           </div>
         </div>
       </BoxModel>
-      {showBox ? <SingleForgetBox close={hideBoxFunction} /> : null}
+      {showBox ? (
+        <SingleForgetBox close={hideBoxFunction} email={user.email} />
+      ) : null}
     </div>
   )
 }

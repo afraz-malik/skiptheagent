@@ -1,6 +1,16 @@
 import { all, call } from 'redux-saga/effects'
-import { signUpWithEmailStart, signInWithEmailStart } from './saga'
+import {
+  signUpWithEmailStart,
+  signInWithEmailStart,
+  settingUserPersistenceStart,
+  signOutStart,
+} from './saga'
 
 export default function* rootSaga() {
-  yield all([call(signUpWithEmailStart), call(signInWithEmailStart)])
+  yield all([
+    call(signUpWithEmailStart),
+    call(signInWithEmailStart),
+    call(settingUserPersistenceStart),
+    call(signOutStart),
+  ])
 }

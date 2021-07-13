@@ -7,15 +7,17 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signUpStart } from '../../redux/actions'
 import Button from '../button/button'
+import { Spinner } from '../spinner/spinner'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
+  isLoading: state.setUser.loading,
 })
 const maptDispatchToProps = (dispatch) => ({
   setUser: (userCrendential) => dispatch(signUpStart(userCrendential)),
 })
 
-const SignUpBox = ({ url, setUser, history }) => {
+const SignUpBox = ({ url, setUser, isLoading }) => {
   const [userCrendential, setUserCrendential] = useState({
     name: null,
     email: null,
@@ -47,24 +49,28 @@ const SignUpBox = ({ url, setUser, history }) => {
               name="name"
               placeholder="Full Name"
               onChange={handleChange}
+              required
             />
             <input
               type="email"
               name="email"
               placeholder="Email"
               onChange={handleChange}
+              required
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
               onChange={handleChange}
+              required
             />
             <input
               type="password"
               name="confirmpassword"
               placeholder="Confirm Password"
               onChange={handleChange}
+              required
             />
             <div className={SignUpBoxCss.checkbox}>
               <input
@@ -114,6 +120,7 @@ const SignUpBox = ({ url, setUser, history }) => {
           </div>
         </div>
       </BoxModel>
+      {isLoading ? <Spinner /> : null}
     </div>
   )
 }

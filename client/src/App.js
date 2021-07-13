@@ -5,7 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom'
-import { setUrl } from './redux/actions'
+import { setUrl, isUserAuthenticated } from './redux/actions'
 import { connect } from 'react-redux'
 
 import {
@@ -37,10 +37,11 @@ const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'))
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
-  user: state.SignUpReducer.user,
+  user: state.setUser.user,
 })
 const mapDispatchToProps = (dispatch) => ({
   setUrl: (url) => dispatch(setUrl(url)),
+  isUserAuthenticated: () => dispatch(isUserAuthenticated()),
 })
 
 class App extends React.Component {
@@ -49,9 +50,8 @@ class App extends React.Component {
 
     const url = '/skiptheagent-react/'
     // const url = '/'
-
-    console.log(auth.currentUser)
     this.props.setUrl(url)
+    this.props.isUserAuthenticated()
   }
   render() {
     let user = auth.currentUser
@@ -79,7 +79,12 @@ class App extends React.Component {
             <Route exact path={`${url}forget`} component={ForgetPassword} />
             <Route exact path={`${url}ownership`} component={OwnerShip} />
             <Route exact path={`${url}details`} component={Details} />
-            <Route path={`${url}dashboard`} component={Dashboard} />
+            <Route
+              path={`${url}dashboard`}
+              render={() =>
+                !user ? <Redirect to={`${url}login`} /> : <Dashboard />
+              }
+            />
           </Switch>
         </Suspense>
       </Router>

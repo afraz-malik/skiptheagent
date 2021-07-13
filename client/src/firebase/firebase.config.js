@@ -25,13 +25,38 @@ firebase.analytics()
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
+export const isUserAuthenticated = () => {
+  return new Promise((res, rej) => {
+    const unsub = auth.onAuthStateChanged((user) => {
+      unsub()
+      res(user)
+    }, rej)
+  })
+}
+
 export const createUserInFirebase = async (user, name) => {
+  if (!user) {
+    console.log('No user found')
+    return
+  }
   const userRef = firestore.doc(`users/${user.uid}`)
   const snapshot = await userRef.get()
+  let displayName
   if (!snapshot.exists) {
+    if (user.displayName) {
+      displayName = user.displayName
+    } else {
+      displayName = name
+      user
+        .updateProfile({
+          displayName: displayName,
+        })
+        .then((e) => console.log('displayname set'))
+        .catch((err) => console.log(err))
+    }
     userRef
       .set({
-        displayName: name,
+        displayName: displayName,
         email: user.email,
         createdAt: new Date(),
       })
@@ -41,13 +66,6 @@ export const createUserInFirebase = async (user, name) => {
       .catch((err) => {
         alert(err.message)
       })
-    user
-      .updateProfile({
-        displayName: name,
-      })
-      .then((e) => console.log('displayname set'))
-      .catch((err) => console.log(err))
-    return userRef
   } else {
     console.log('not overwrited')
   }

@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
-  user: state.SignUpReducer.user,
+  user: state.setUser.user,
 })
 
 const HomeHeader = ({ url, user }) => {
