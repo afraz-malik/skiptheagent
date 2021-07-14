@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import BoxModel from '../boxModel/boxModel'
 import DashboardAlertCss from './DashboardAlert.module.scss'
+
+// Components
+import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 
 const DashboardAlert = () => {
@@ -8,7 +10,6 @@ const DashboardAlert = () => {
   const manageBox = () => {
     setcreateAlert(!createAlert)
   }
-
   return createAlert ? (
     <CreateAlert manageBox={manageBox} />
   ) : (

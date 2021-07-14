@@ -27,8 +27,7 @@ const HomeHeader = ({ url, user }) => {
               <div className={HomeHeaderCss.righttop}>
                 <p className={HomeHeaderCss.firstp}>Welcome to skiptheagent.</p>
                 <p className={HomeHeaderCss.secondp}>
-                  {' '}
-                  Kindly <Link to={`${url}login`}> SIGN IN </Link> or{' '}
+                  Kindly <Link to={`${url}login`}> SIGN IN </Link> or
                   <Link to={`${url}register`}>SIGN UP</Link>
                 </p>
               </div>

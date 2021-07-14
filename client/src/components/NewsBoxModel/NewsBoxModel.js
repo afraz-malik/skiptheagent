@@ -1,38 +1,43 @@
-import React from 'react';
-import NewsBoxModelCss from './NewsBoxModel.module.css'
+import React from 'react'
+import NewsBoxModelCss from './NewsBoxModel.module.scss'
 
-import NewsBoxModelGen from '../NewsBoxModelGen/NewsBoxModelGen'
 //Redux
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+// Components
+import NewsBoxModelGen from '../NewsBoxModelGen/NewsBoxModelGen'
 import BoxModel from '../boxModel/boxModel'
-const mapStateToProps=(state)=>({
-  url: state.URLReducer.url
+
+const mapStateToProps = (state) => ({
+  url: state.URLReducer.url,
 })
-const NewsBoxModel = ({url}) =>{
+const NewsBoxModel = ({ url }) => {
   const scrollLeft = () => {
-    const box = document.getElementsByClassName('scroll2')[0];
-    
+    const box = document.getElementsByClassName('scroll2')[0]
+
     console.log(box)
-    box.scrollLeft += 500;
+    box.scrollLeft += 500
   }
   const scrollRight = () => {
-    const box = document.getElementsByClassName('scroll2')[0];
+    const box = document.getElementsByClassName('scroll2')[0]
     console.log(box)
-    box.scrollLeft -= 500;
+    box.scrollLeft -= 500
   }
-	return(
+  return (
     <div className={NewsBoxModelCss.boxmodel}>
-    <BoxModel title={"LATEST NEWS"} sidebar={"arrow"} scrollLeft={scrollLeft} scrollRight={scrollRight}>
+      <BoxModel
+        title={'LATEST NEWS'}
+        sidebar={'arrow'}
+        scrollLeft={scrollLeft}
+        scrollRight={scrollRight}
+      >
         <div className={`${NewsBoxModelCss.boxmodel_body} scroll2`}>
-          {
-            [...Array(3)].map((i,j) =>
-              <NewsBoxModelGen key={j} />
-            )
-          }
+          {[...Array(3)].map((i, j) => (
+            <NewsBoxModelGen key={j} />
+          ))}
         </div>
-      </BoxModel> 
+      </BoxModel>
     </div>
-    )
+  )
 }
 
-export default  connect(mapStateToProps)(NewsBoxModel);
+export default connect(mapStateToProps)(NewsBoxModel)

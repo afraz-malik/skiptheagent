@@ -1,17 +1,18 @@
-import React from 'react';
+import React from 'react'
+
+// Components
 import Header from '../../components/Header/Header.js'
 import ForgetPasswordBox from '../../components/ForgetPasswordBox/ForgetPasswordBox.js'
 
-class ForgetPassword extends React.Component{
-  render(){
-    return(
+class ForgetPassword extends React.Component {
+  render() {
+    return (
       <div>
-        <Header/>
-        <ForgetPasswordBox/>
+        <Header />
+        <ForgetPasswordBox />
       </div>
     )
   }
 }
 
-
-export default ForgetPassword;
+export default ForgetPassword

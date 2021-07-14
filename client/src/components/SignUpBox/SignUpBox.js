@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import SignUpBoxCss from './SignUpBox.module.css'
-import './SignUpBox.module.css'
-import BoxModel from '../../components/boxModel/boxModel'
+import SignUpBoxCss from './SignUpBox.module.scss'
+//Router
 import { Link, withRouter } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
-import { signUpStart } from '../../redux/actions'
+import { signUpStart } from '../../redux/user/user.actions'
+// Components
+import BoxModel from '../../components/boxModel/boxModel'
 import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
 
@@ -80,12 +81,10 @@ const SignUpBox = ({ url, setUser, isLoading }) => {
                 defaultValue="yes"
               />
               <label htmlFor="subscription">
-                {' '}
-                Send me updates and Relevant News{' '}
+                Send me updates and Relevant News
               </label>
             </div>
             <Button type="submit" name="login" login="true">
-              {' '}
               CREATE ACCOUNT
             </Button>
             {/* <input type="submit" name="login" value="CREATE ACCOUNT" /> */}

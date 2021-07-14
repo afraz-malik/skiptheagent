@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import OwnershipformCss from './Ownershipform.module.scss'
+// Images
 import Background1 from './1.jpg'
 import Background2 from './2.png'
 import Background3 from './3.png'
+// Components
 import Button from '../button/button'
+
 const Ownershipform = () => {
   const [display, setDisplay] = useState('none')
   const toggleForm = () => {

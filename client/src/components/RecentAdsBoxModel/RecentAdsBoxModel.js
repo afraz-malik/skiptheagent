@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import AdsBoxModelCss from './RecentAdsBoxModel.module.css'
+import AdsBoxModelCss from './RecentAdsBoxModel.module.scss'
+// Components
 import AdsModel from '../AdsBoxModel/AdsBoxModel'
 import Button from '../button/button'
 

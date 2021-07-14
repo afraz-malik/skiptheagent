@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+//Router
+import { withRouter, Route } from 'react-router-dom'
+
+//Components
 import Header from '../../components/Header/Header'
 import DashboardHeader from '../../components/DashboardHeader/DashboardHeader'
 import DashboardOverview from '../../components/DashboardOverview/DashboardOverview'
-import Footer from '../../components/Footer/Footer'
-import { withRouter, Route } from 'react-router-dom'
 import DashboardProfile from '../../components/DashboardProfile/DashboardProfile'
 import DashboardListing from '../../components/DashboardListing/DashboardListing'
 import DashboardSavedAds from '../../components/DashboardSavedAds/DashboardSavedAds'
 import DashboardAlert from '../../components/DashboardAlert/DashboardAlert'
 import DashboardPostAd from '../../components/DashboardPostAd/DashboardPostAd'
+import Footer from '../../components/Footer/Footer'
+
 class Dashboard extends Component {
   render() {
     const { match } = this.props

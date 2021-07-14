@@ -1,15 +1,17 @@
-import React from 'react';
+import React from 'react'
+
+// Components
+
 import Header from '../../components/Header/Header.js'
 import LogInBox from '../../components/LogInBox/LogInBox.js'
 
-const Login = ()=>{
-  return(
+const Login = () => {
+  return (
     <div>
-      <Header/>
-      <LogInBox/>
+      <Header />
+      <LogInBox />
     </div>
   )
 }
 
-
-export default Login;
+export default Login

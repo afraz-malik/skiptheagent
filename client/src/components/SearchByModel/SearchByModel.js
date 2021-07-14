@@ -1,5 +1,6 @@
 import React from 'react'
-import SearchByModelCss from './SearchByModel.module.css'
+import SearchByModelCss from './SearchByModel.module.scss'
+// Components
 import BoxModel from '../boxModel/boxModel'
 import SearchCard from './SearchCard'
 

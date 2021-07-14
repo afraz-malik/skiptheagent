@@ -1,3 +1,4 @@
+import React from 'react'
 import FooterCss from './Footer.module.css'
 
 //Router
@@ -20,19 +21,15 @@ const Footer = ({ url }) => {
           <div className={FooterCss.footerdata}>
             <ul>
               <li>
-                {' '}
                 <Link to="#dum"> Contact Us</Link>
               </li>
               <li>
-                {' '}
                 <Link to="#dum"> About Us</Link>
               </li>
               <li>
-                {' '}
                 <Link to="#dum"> Terms &amp; Conditions</Link>
               </li>
               <li>
-                {' '}
                 <Link to="#dum"> Partners</Link>
               </li>
             </ul>
@@ -40,19 +37,15 @@ const Footer = ({ url }) => {
           <div className={FooterCss.footerdata}>
             <ul>
               <li>
-                {' '}
                 <Link to="#dum"> Contact Us</Link>
               </li>
               <li>
-                {' '}
                 <Link to="#dum"> About Us</Link>
               </li>
               <li>
-                {' '}
                 <Link to="#dum"> Terms &amp; Conditions</Link>
               </li>
               <li>
-                {' '}
                 <Link to="#dum"> Partners</Link>
               </li>
             </ul>

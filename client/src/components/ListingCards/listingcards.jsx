@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import ListingCardsCss from './listing-cards.module.css'
+import ListingCardsCss from './listingcards.module.scss'
 
+//Router
 import { Link } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
+// Components
 import Button from '../button/button'
 
 const mapStateToProps = (state) => ({

@@ -1,7 +1,10 @@
 import React from 'react'
 import ListingBoxModelCss from './ListingBoxModel.module.css'
-import ListingCards from '../ListingCards/listingcards'
+// Router
 import { Link } from 'react-router-dom'
+
+// Components
+import ListingCards from '../ListingCards/listingcards'
 
 const ListingBox = ({ logged, rows }) => {
   return (

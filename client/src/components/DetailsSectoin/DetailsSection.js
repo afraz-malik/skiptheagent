@@ -1,6 +1,9 @@
 import React from 'react'
-import DetailsSectionCss from './DetailsSection.module.css'
+import DetailsSectionCss from './DetailsSection.module.scss'
+
+// Components
 import Button from '../button/button'
+
 class DetailsSection extends React.Component {
   constructor() {
     super()

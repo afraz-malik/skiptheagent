@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import HeaderCss from './Header.module.scss'
+
+// Router
 import { Link, withRouter } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
-import { signOutStart } from '../../redux/actions'
+import { signOutStart } from '../../redux/user/user.actions'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,
@@ -31,8 +33,7 @@ const Header = ({ url, user, signOut }) => {
             <div className={HeaderCss.righttext}>
               <p className={HeaderCss.firstp}>Welcome to skiptheagent.</p>
               <p className={HeaderCss.secondp}>
-                {' '}
-                Kindly <Link to={`${url}login`}>SIGN IN</Link> or{' '}
+                Kindly <Link to={`${url}login`}>SIGN IN</Link> or
                 <Link to={`${url}register`}>SIGN UP</Link>
               </p>
             </div>
@@ -84,8 +85,7 @@ const Header = ({ url, user, signOut }) => {
           <div className={HeaderCss.smalltext}>
             <p>Welcome to skiptheagent.</p>
             <p>
-              {' '}
-              Kindly <Link to={`${url}login`}>SIGN IN</Link> or{' '}
+              Kindly <Link to={`${url}login`}>SIGN IN</Link> or
               <Link to={`${url}register`}>SIGN UP</Link>
             </p>
           </div>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import DashboardProfileCss from './DashboardProfile.module.scss'
+// Redux
+import { connect } from 'react-redux'
+// Components
 import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
-import { connect } from 'react-redux'
 import { SingleForgetBox } from '../ForgetPasswordBox/ForgetPasswordBox'
 
 const mapStateToProps = (state) => ({

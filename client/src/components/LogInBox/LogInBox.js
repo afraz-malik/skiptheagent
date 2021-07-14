@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import LoginBoxCss from './LogInBox.module.css'
-import BoxModel from '../../components/boxModel/boxModel'
+import LoginBoxCss from './LogInBox.module.scss'
 //Router
 import { Link, withRouter } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
-import { signInStart } from '../../redux/actions'
+import { signInStart } from '../../redux/user/user.actions'
+
+// Components
+
 import { Spinner } from '../spinner/spinner'
+import BoxModel from '../../components/boxModel/boxModel'
 
 import Button from '../button/button'
 
@@ -54,7 +57,6 @@ const LoginBox = ({ url, isLoading, user, setUser }) => {
             />
             <Link to={`${url}forget`}>Forget Password?</Link>
             <Button type="submit" name="login" login="login">
-              {' '}
               SUBMIT
             </Button>
           </form>
@@ -78,7 +80,7 @@ const LoginBox = ({ url, isLoading, user, setUser }) => {
             </div>
             <div className={LoginBoxCss.signup}>
               <p>
-                Don't have an account?{' '}
+                Don't have an account?
                 <Link to={`${url}register`}>SIGN UP</Link>
               </p>
             </div>

@@ -1,7 +1,9 @@
 import React from 'react'
-import BoxModel from '../boxModel/boxModel'
 import DashboardPostAdCss from './DashboardPostAd.module.scss'
+// Components
+import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
+
 const DashboardPostAd = () => {
   return (
     <div className={DashboardPostAdCss.boxmodel}>

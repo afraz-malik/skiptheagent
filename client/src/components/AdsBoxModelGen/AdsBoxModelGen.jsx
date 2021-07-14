@@ -1,5 +1,6 @@
 import React from 'react'
-import AdsBoxModelGenCss from './AdsBoxModelGen.module.css'
+import AdsBoxModelGenCss from './AdsBoxModelGen.module.scss'
+
 //Router
 import { Link } from 'react-router-dom'
 //Redux
@@ -70,4 +71,5 @@ export const AdsGenDashboard = ({ url }) => {
     </div>
   )
 }
+
 export default connect(mapStateToProps)(LatestAdsModelGen)

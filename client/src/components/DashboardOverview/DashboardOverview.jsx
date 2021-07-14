@@ -1,13 +1,16 @@
 import React from 'react'
 import DashboardOverviewCss from './DashboardOverview.module.scss'
+// Router
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
+// Redux
+import { connect } from 'react-redux'
+import { signOutStart } from '../../redux/user/user.actions'
+// Components
 import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { AdsGenDashboard } from '../AdsBoxModelGen/AdsBoxModelGen'
 import Inbox from '../inbox/Inbox'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router'
-import { signOutStart } from '../../redux/actions'
 
 const mapStateToProps = (state) => ({
   url: state.URLReducer.url,

@@ -4,12 +4,12 @@ import {
   signInSuccess,
   signOutSuccess,
   signOutFailed,
-} from './actions'
+} from './user.actions'
 import {
   auth,
   isUserAuthenticated,
   createUserInFirebase,
-} from '../firebase/firebase.config'
+} from '../../firebase/firebase.config'
 
 export function* settingUserPersistence() {
   const user = yield isUserAuthenticated()

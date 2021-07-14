@@ -1,7 +1,9 @@
 import React from 'react'
-import ForgetPasswordCss from './ForgetPasswordBox.module.css'
+import ForgetPasswordCss from './ForgetPasswordBox.module.scss'
 
+// Components
 import BoxModel from '../../components/boxModel/boxModel'
+import Button from '../button/button'
 
 const ForgetPasswordBox = () => {
   const closeBox = (index2) => () => {
@@ -21,8 +23,15 @@ const ForgetPasswordBox = () => {
               <p>Enter your email below to reset your password</p>
             </div>
             <form>
-              <input type="email" name="email" placeholder="Enter email here" />
-              <input type="submit" name="login" value="CHANGE PASSWORD" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter email here"
+                required
+              />
+              <Button type="submit" name="login" login="login">
+                CHANGE PASSWORD
+              </Button>
             </form>
           </div>
         </BoxModel>
@@ -68,7 +77,9 @@ const ForgetPasswordBox = () => {
                 name="password"
                 placeholder="Confirm New Password"
               />
-              <input type="submit" name="login" value="CHANGE PASSWORD" />
+              <Button type="submit" name="login" login="login">
+                CHANGE PASSWORD
+              </Button>
             </form>
           </div>
         </BoxModel>
@@ -104,7 +115,9 @@ export const SingleForgetBox = ({ close, email }) => {
                   name="password"
                   placeholder="Confirm New Password"
                 />
-                <input type="submit" name="login" value="CHANGE PASSWORD" />
+                <Button type="submit" name="login" login="login">
+                  CHANGE PASSWORD
+                </Button>
               </form>
             </div>
           </BoxModel>

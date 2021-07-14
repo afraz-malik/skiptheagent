@@ -1,7 +1,7 @@
-const initialState = {
+const initialURLState = {
   url: null,
 }
-export const URLReducer = (state = initialState, action) => {
+export const URLReducer = (state = initialURLState, action) => {
   switch (action.type) {
     case 'SET_URL':
       return Object.assign({}, state, { url: action.payload })

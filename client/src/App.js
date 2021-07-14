@@ -1,20 +1,19 @@
 import React, { lazy, Suspense } from 'react'
+//React Router
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from 'react-router-dom'
-import { setUrl, isUserAuthenticated } from './redux/actions'
+
+//Redux
 import { connect } from 'react-redux'
+import { setUrl, isUserAuthenticated } from './redux/user/user.actions'
 
-import {
-  auth,
-  //   createUserInFirebase,
-  //   signInFirebase,
-} from './firebase/firebase.config'
-
+//Components
 import { Spinner } from './components/spinner/spinner'
+
 //Pages
 // import Home from './pages/Home/Home'
 // import Listing from './pages/Listing/Listing'
@@ -23,6 +22,7 @@ import { Spinner } from './components/spinner/spinner'
 // import ForgetPassword from './pages/ForgetPassword/ForgetPassword'
 // import OwnerShip from './pages/Ownership/Ownership'
 // import Details from './pages/Details/Details'
+
 //Pages with React Lazy
 const Home = lazy(() => import('./pages/Home/Home'))
 const Listing = lazy(() => import('./pages/Listing/Listing'))
@@ -47,15 +47,13 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends React.Component {
   componentDidMount() {
     // "homepage": "https://afraz-malik.github.io/skiptheagent-react",
-
     const url = '/skiptheagent-react/'
     // const url = '/'
     this.props.setUrl(url)
     this.props.isUserAuthenticated()
   }
   render() {
-    let user = auth.currentUser
-    const { url } = this.props
+    const { url, user } = this.props
     return (
       <Router>
         <Suspense fallback={<Spinner />}>

@@ -1,5 +1,7 @@
 import React from 'react'
 import ListingBoxCss from './ListingBox.module.css'
+
+// Components
 import SideMenu from '../SideMenu/SideMenu'
 import ListingBoxModel from '../ListingBoxModel/ListingBoxModel'
 

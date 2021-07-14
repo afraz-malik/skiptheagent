@@ -1,5 +1,5 @@
 import React from 'react'
-import SideMenuCss from './SideMenu.module.css'
+import SideMenuCss from './SideMenu.module.scss'
 
 const SideMenu = () => {
   const showResults = (index1) => {
