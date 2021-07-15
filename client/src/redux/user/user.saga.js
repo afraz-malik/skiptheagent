@@ -9,6 +9,7 @@ import {
   auth,
   isUserAuthenticated,
   createUserInFirebase,
+  signInWithGoogle,
 } from '../../firebase/firebase.config'
 
 export function* settingUserPersistence() {
@@ -70,7 +71,19 @@ export function* signInWithEmail({ payload }) {
 export function* signInWithEmailStart() {
   yield takeLatest('SIGN_IN_START', signInWithEmail)
 }
-
+export function* signInWithGoogleSaga() {
+  try {
+    yield console.log('reacted')
+    const { user } = yield signInWithGoogle()
+    yield createUserInFirebase(user)
+    yield put(signInSuccess({ name: user.displayName, email: user.email }))
+  } catch (err) {
+    yield put(signInFailed(err.message))
+  }
+}
+export function* signInWithGoogleStart() {
+  yield takeLatest('SIGN_IN_WITH_GOOGLE_START', signInWithGoogleSaga)
+}
 export function* signOut() {
   // let user
   // let error = null

@@ -4,6 +4,7 @@ import {
   signInWithEmailStart,
   settingUserPersistenceStart,
   signOutStart,
+  signInWithGoogleStart,
 } from './user/user.saga'
 
 export default function* rootSaga() {
@@ -12,5 +13,6 @@ export default function* rootSaga() {
     call(signInWithEmailStart),
     call(settingUserPersistenceStart),
     call(signOutStart),
+    call(signInWithGoogleStart),
   ])
 }

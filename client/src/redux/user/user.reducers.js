@@ -20,6 +20,7 @@ export const setUser = (state = initialSignUpState, action) => {
     case 'SIGN_UP_START':
     case 'SIGN_IN_START':
     case 'SIGN_OUT_START':
+    case 'SIGN_IN_WITH_GOOGLE_START':
       return Object.assign({}, state, { loading: true })
     case 'SIGN_IN_SUCCESS':
       return Object.assign({}, state, {

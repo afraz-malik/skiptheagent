@@ -13,11 +13,13 @@ export const signInStart = (userCredential) => ({
   type: 'SIGN_IN_START',
   payload: userCredential,
 })
+export const signInWithGoogleStart = () => ({
+  type: 'SIGN_IN_WITH_GOOGLE_START',
+})
 export const signInSuccess = (userCredential) => ({
   type: 'SIGN_IN_SUCCESS',
   payload: userCredential,
 })
-
 export const signInFailed = (error) => ({
   type: 'SIGN_IN_FAILED',
   payload: error,

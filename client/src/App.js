@@ -49,6 +49,7 @@ class App extends React.Component {
     // "homepage": "https://afraz-malik.github.io/skiptheagent-react",
     const url = '/skiptheagent-react/'
     // const url = '/'
+
     this.props.setUrl(url)
     this.props.isUserAuthenticated()
   }

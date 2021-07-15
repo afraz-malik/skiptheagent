@@ -16,6 +16,9 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 firebase.analytics()
 
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider)
+
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
@@ -54,9 +57,7 @@ export const createUserInFirebase = async (user, name) => {
         email: user.email,
         createdAt: new Date(),
       })
-      .then((data) => {
-        alert('Success')
-      })
+
       .catch((err) => {
         alert(err.message)
       })
@@ -64,19 +65,4 @@ export const createUserInFirebase = async (user, name) => {
     console.log('not overwrited')
   }
   return userRef
-}
-
-export const signInFirebase = (email, password) => {
-  auth
-    .signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      var user = userCredential.user
-      console.log(user)
-      // ...
-    })
-    .catch((error) => {
-      console.log(error.code)
-      console.log(error.message)
-    })
 }

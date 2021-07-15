@@ -4,7 +4,10 @@ import LoginBoxCss from './LogInBox.module.scss'
 import { Link, withRouter } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
-import { signInStart } from '../../redux/user/user.actions'
+import {
+  signInStart,
+  signInWithGoogleStart,
+} from '../../redux/user/user.actions'
 
 // Components
 
@@ -19,8 +22,9 @@ const mapStateToProps = (state) => ({
 })
 const maptDispatchToProps = (dispatch) => ({
   setUser: (userCrendential) => dispatch(signInStart(userCrendential)),
+  googleSignIn: () => dispatch(signInWithGoogleStart()),
 })
-const LoginBox = ({ url, isLoading, user, setUser }) => {
+const LoginBox = ({ url, isLoading, googleSignIn, setUser }) => {
   const [userCrendential, setUserCrendential] = useState({
     email: null,
     password: null,
@@ -74,7 +78,11 @@ const LoginBox = ({ url, isLoading, user, setUser }) => {
               </div>
               <div className={LoginBoxCss.googlesingin}>
                 <Link to="#dummy">
-                  <img alt="" src="images\googlesignin.png" />
+                  <img
+                    alt=""
+                    src="images\googlesignin.png"
+                    onClick={() => googleSignIn()}
+                  />
                 </Link>
               </div>
             </div>
