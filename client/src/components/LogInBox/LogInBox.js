@@ -73,7 +73,11 @@ const LoginBox = ({ url, isLoading, googleSignIn, setUser }) => {
             <div className={LoginBoxCss.sociallinks}>
               <div className={LoginBoxCss.fbsingin}>
                 <Link to="#dummy">
-                  <img alt="" src="images\fbsignin.png" />
+                  <img
+                    alt=""
+                    src="images\fbsignin.png"
+                    onClick={() => alert('Lazy to make this fuction working')}
+                  />
                 </Link>
               </div>
               <div className={LoginBoxCss.googlesingin}>

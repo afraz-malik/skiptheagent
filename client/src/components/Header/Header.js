@@ -34,7 +34,7 @@ const Header = ({ url, user, signOut }) => {
               <p className={HeaderCss.firstp}>Welcome to skiptheagent.</p>
               <p className={HeaderCss.secondp}>
                 Kindly <Link to={`${url}login`}>SIGN IN</Link> or
-                <Link to={`${url}register`}>SIGN UP</Link>
+                <Link to={`${url}register`}> SIGN UP</Link>
               </p>
             </div>
           ) : (
@@ -86,7 +86,7 @@ const Header = ({ url, user, signOut }) => {
             <p>Welcome to skiptheagent.</p>
             <p>
               Kindly <Link to={`${url}login`}>SIGN IN</Link> or
-              <Link to={`${url}register`}>SIGN UP</Link>
+              <Link to={`${url}register`}> SIGN UP</Link>
             </p>
           </div>
         ) : (

@@ -73,12 +73,12 @@ export function* signInWithEmailStart() {
 }
 export function* signInWithGoogleSaga() {
   try {
-    yield console.log('reacted')
     const { user } = yield signInWithGoogle()
     yield createUserInFirebase(user)
     yield put(signInSuccess({ name: user.displayName, email: user.email }))
   } catch (err) {
     yield put(signInFailed(err.message))
+    yield alert(err.message)
   }
 }
 export function* signInWithGoogleStart() {
