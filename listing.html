@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cars</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="listing.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/	css2?family=Alegreya+Sans:wght@500&family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+	<script src="details.js"></script>
+</head>
+<body>
+	<header>
+		<div class="leftheader">
+			<div class="lefttext">
+				<p>Call Us Now: +01 123 456 78 </p>
+				<p>Email: info@skiptheagent.com</p>	
+			</div>
+		</div>
+		<div class="rightheader">
+			<div class="righttext">
+				<p class="firstp">Welcome to skiptheagent.</p>
+				<p class="secondp"> Kindly <a href="login.html">SIGN IN</a> or <a href="signup.html">SIGN UP</a></p>
+			</div>
+		</div>
+	</header>
+	<div class="smallheader">
+		<div class="smalllogo">
+			<a href="index.html"><h3>LOGO </h3></a>
+		</div>
+		<div class="smalltext">
+			<p >Welcome to skiptheagent.</p>
+			<p > Kindly <a href="login.html">SIGN IN</a> or <a href="signup.html">SIGN UP</a></p>
+		</div>
+	</div>
+	<nav>
+		<div class="leftnav">
+			<div class="logo"><h3><a href="index.html">LOGO</a></h3></div>
+		</div>
+		<div class="rightnav">
+			<ul>
+				<li><a href="login.html	">SELL MY CAR</a></li>
+				<li><a href="listing.html">SHOP FOR NEW CARS</a></li>
+				<li class="consolt"><a href="">CONSULTATIONS</a></li>
+			</ul>
+		</div>
+	</nav>
+	<section>
+		<div class="leftsection">
+			<div class="leftsectioncard first" onclick="showMainResults()">
+				<p>SHOW RESULTS BY:</p>
+				<img alt='' class="firstarrow" src="images\downarrow.png">
+			</div>
+			<div class="outside_leftsectioncard ">
+				<div class="leftsectioncard"  onclick="showResults(0)">
+					<p>SHOW BY KEYWORDS:</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard insidesecond" >
+					<form>
+						<input type="text" name="search" placeholder="Keywords... e.g Honda" onfocus="this.placeholder=''" onblur="this.placeholder='Keywords... e.g Honoda'">
+						<button type="submit">GO</button>
+					</form>
+				</div>
+				<div class="leftsectioncard"  onclick="showResults(1)">
+					<p>YEAR</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard insidesecond">
+					<form>
+						<input type="text" name="search" placeholder="Keywords... e.g Honda" onfocus="this.placeholder=''" onblur="this.placeholder='Keywords... e.g Honoda'">
+						<button type="submit">GO</button>
+					</form>
+				</div>
+				<div class="leftsectioncard" onclick="showResults(2)">
+					<p>MAKE</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard insidesecond">
+					<form>
+						<input type="text" name="search" placeholder="Keywords... e.g Honda" onfocus="this.placeholder=''" onblur="this.placeholder='Keywords... e.g Honoda'">
+						<button type="submit">GO</button>
+					</form>
+				</div>
+				<div class="leftsectioncard" onclick="showResults(3)">
+					<p>MODEL</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard insidesecond">
+					<form>
+						<input type="text" name="search" placeholder="Keywords... e.g Honda" onfocus="this.placeholder=''" onblur="this.placeholder='Keywords... e.g Honoda'">
+						<button type="submit">GO</button>
+					</form>
+				</div>
+				<div class="leftsectioncard">
+					<p>ZIP CODE</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard">
+					<p>PRICE</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard">
+					<p>BODY TYPE</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard">
+					<p>MILEAGE</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard">
+					<p>FUEL TYPE</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard">
+					<p>ENGINE TYPE</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard">
+					<p>EXTERIOR COLOR</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard">
+					<p>TRANSMISSION TYPE</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+				<div class="leftsectioncard">
+					<p>CAPACITY</p>
+					<img alt='' class="arrow" src="images\downarrow.png">
+				</div>
+			</div>
+		</div>
+		<div class="boxmodel listingmodel rightsection">
+			<div class="boxmodel_topbar listingmodel_topbar">
+				<div class="boxmodel_title listingboxmodel_title">
+					<p>USED CARS FOR SALE [48631]</p>
+				</div>
+				<div class="extra"></div>
+				<div class="extra"></div>
+				<div class="sortby">
+					<div class="sortby_text">
+						<p>SORT BY:</p>
+					</div>
+					<div class="sortby_box">
+						<!-- <div class="boxtext">
+							<p><span>Updated Date:</span> Recent first</p>
+						</div>
+						<div class="boximg">
+							<img alt='' src="images\downarrow.png">
+						</div> -->
+						<select name="cars" id="city">
+							<option value="volvo">Updated Date: Recent first</option>
+							<option value="saab">Saab</option>
+							<option value="opel">Opel</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><a href="details.html"><p>2019 Fiat 124 Spider</p></a></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' class="likeimg" src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><p>2019 Fiat 124 Spider</p></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><p>2019 Fiat 124 Spider</p></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><p>2019 Fiat 124 Spider</p></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><p>2019 Fiat 124 Spider</p></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><p>2019 Fiat 124 Spider</p></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><p>2019 Fiat 124 Spider</p></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><p>2019 Fiat 124 Spider</p></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="listingcards">
+				<div class="leftcard">
+					<a href="details.html"><img alt='' src="images\listingcar.jpg"></a>
+				</div>
+				<div class="rightcard">
+					<div class="cardtop">
+						<div class="cardname">
+							<a href="details.html"><p>2019 Fiat 124 Spider</p></a>
+						</div>
+						<div class="cardprice">
+							<p>$22,547</p>
+						</div>			
+					</div>
+					<div class="carddetails">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut.</p>
+					</div>
+					<div class="cardpoints">
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\placeholder.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Paris</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\calendar.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2019</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\meter.png">
+							</div>
+							<div class="cardpickup2">
+								<p>3,200 KM</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\fuel.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Hybrid</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\lightning.png">
+							</div>
+							<div class="cardpickup2">
+								<p>2000CC</p>
+							</div>
+						</div>
+						<div class="cardpickups">
+							<div class="cardpickup1">
+								<img alt='' src="images\transmission.png">
+							</div>
+							<div class="cardpickup2">
+								<p>Automatic</p>
+							</div>
+						</div>
+					</div>
+					<div class="cardbottom">
+						<div class="lastupdate">
+							<p>Last updated: 24 min ago</p>
+						</div>
+						<div class="likenumber">
+							<div class="likeimage">
+								<img alt='' src="images\like.png">
+							</div>
+							<div class="showbutton">
+								<button>Show Phone Number</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="boxmodel_topbar listingmodel_topbar">
+				<div class="boxmodel_title listingboxmodel_bottomtitle">
+					<ul>
+						<li><</li>
+						<li><a href="">1</a></li>
+						<li><a href="">2</a></li>
+						<li><a href="">3</a></li>
+						<li><a href="">4</a></li>
+						<li><a href="">5</a></li>
+						<li>...</li>
+						<li><a href="">45</a></li>
+						<li>></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="boxmodel related_ads">
+		<div class="boxmodel_topbar">
+			<div class="boxmodel_title">
+				<p>RELATED ADS</p>
+			</div>
+			<div class="extra"></div>
+			<div class="extra"></div>
+		</div>
+		<div class="add_cards">
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img alt='' src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>				
+				<div class="add_price">$76,000</div>
+				<hr >
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img alt='' src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img alt='' src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img alt='' src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>		
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="add_cards hidden">
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img alt='' src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>		
+				<div class="add_price">$76,000</div>
+				<hr >
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img alt='' src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>		
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img alt='' src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img alt='' src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img alt='' src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="more">	
+		<a class= "viewmorea"onclick="ViewMore();">
+			VIEW MORE
+		</a>
+	</div>
+	<div class="more less">	
+		<a class= "vielessa" onclick="ViewLess();">
+			VIEW LESS
+		</a>
+	</div>
+	<div class="banner">
+		<div class="bannertext">
+			<p>SUBSCRIBE TO OUR NEWSLETTER</p>
+		</div>		
+		<div class="bannerform">
+			<form action="/action_page.php">
+				<input type="Email" placeholder="Enter your email" onfocus="this.placeholder = ''"
+				onblur="this.placeholder = 'Enter your email'">
+				<button type="submit">Subscribe</button>	
+			</form>
+		</div>
+	</div>
+	<footer>
+		<div class="insidefooter">
+			<div class="foottitle">
+				<h3>SKIPTHEAGENT</h3>
+			</div>
+			<div class="links"> 
+				<div class="footerdata">
+					<ul>
+						<li> <a href=""> Contact Us</a></li>
+						<li> <a href=""> About Us</a></li>
+						<li> <a href=""> Terms & Conditions</a></li>
+						<li> <a href=""> Partners</a></li>
+					</ul>
+				</div>
+				<div class="footerdata">
+					<ul>
+						<li> <a href=""> Contact Us</a></li>
+						<li> <a href=""> About Us</a></li>
+						<li> <a href=""> Terms & Conditions</a></li>
+						<li> <a href=""> Partners</a></li>
+					</ul>
+				</div>
+				<div class="footerdata footerdata1">
+					<div class="social">
+						<p>Follow US</p>						
+					</div>
+					<div class="socialimg">
+						<div class="socialimg1">
+							<a href=""><img alt='' src="images/fb.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img alt='' src="images/in.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img alt='' src="images/insta.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img alt='' src="images/twitter.png"></a>
+						</div>
+					</div>	
+					<div class="downloadtext">
+						<p>Download App</p>
+					</div>
+					<div class="footerimg">
+						<div class="footerimg1">	
+							<a href=""><img alt='' src="images/playstore.png"></a>
+						</div>
+						<div class="footerimg1">
+							<a href=""><img alt='' src="images/app_store.png" width="100px"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<p>&#169;2019 All rights reserved. All other trademarks are the property of their respective owners.</p>
+		</div>
+	</footer>
+</body>	
+</html>

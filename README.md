@@ -1,2 +1,1 @@
-# skiptheagent-react
-Master Project - Under Construction
+# skiptheagent

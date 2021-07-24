@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cars</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="details.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/	css2?family=Alegreya+Sans:wght@500&family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+	<script src="details.js"></script>
+</head>
+<body>
+	<header>
+		<div class="leftheader">
+			<div class="lefttext">
+				<p>Call Us Now: +01 123 456 78 </p>
+				<p>Email: info@skiptheagent.com</p>	
+			</div>
+		</div>
+		<div class="rightheader">
+			<div class="righttext">
+				<p class="firstp">Welcome to skiptheagent.</p>
+				<p class="secondp"> Kindly <a href="login.html">SIGN IN</a> or <a href="signup.html">SIGN UP</a></p>
+			</div>
+		</div>
+	</header>
+	<div class="smallheader">
+		<div class="smalllogo">
+			<a href="index.html"><h3>LOGO </h3></a>
+		</div>
+		<div class="smalltext">
+			<p >Welcome to skiptheagent.</p>
+			<p > Kindly <a href="login.html">SIGN IN</a> or <a href="signup.html">SIGN UP</a></p>
+		</div>
+	</div>
+	<nav>
+		<div class="leftnav">
+			<div class="logo"><h3><a href="details.html">LOGO</a></h3></div>
+		</div>
+		<div class="rightnav">
+			<ul>
+				<li><a href="login.html">SELL MY CAR</a></li>
+				<li><a href="listing.html">SHOP FOR NEW CARS</a></li>
+				<li class="consolt"><a href="">CONSULTATIONS</a></li>
+			</ul>
+		</div>
+	</nav>
+	<section>
+		<div class="uppersection">
+			<div class="leftsec">
+				<div class="coverimg">
+					<img class ="cover" src="images\cover.jpg"  width="100px" height="100%;">
+				</div>
+				<div class="subimg">
+					<ul>
+						<li>
+							<div class="subimg1">
+								<img src="images\cover.jpg"  onclick="displayImage(this);" >
+							</div>
+						</li>
+						<li>
+							<div class="subimg1">
+								<img src="images\cover.jpg"  onclick="displayImage(this);" >
+							</div>
+						</li>
+						<li>
+							<div class="subimg1">
+								<img src="images\subimg1.jpg"  onclick="displayImage(this);" >
+							</div>
+						</li>
+						<li>
+							<div class="subimg1">
+								<img src="images\subimg2.jpg"  onclick="displayImage(this);" >
+							</div>
+						</li>
+						<li>
+							<div class="subimg1">
+								<img src="images\subimg3.jpg"  onclick="displayImage(this);" >
+							</div>
+						</li>
+						<li>
+							<div class="subimg1">
+								<img src="images\subimg4.jpg"  onclick="displayImage(this);" >
+							</div>
+						</li>
+						<li>
+							<div class="subimg1">
+								<img src="images\subimg5.jpg"  onclick="displayImage(this);" >
+							</div>
+						</li>
+					</ul>
+
+					<!-- <div class="subimg1">
+						<img src="img1.jpg"  onclick="displayImage(this);" >
+					</div>
+					<div class="subimg1">
+						<img src="img2.jpg"  onclick="displayImage(this);">
+					</div>
+					<div class="subimg1">
+						<img src="img3.jpg"  onclick="displayImage(this);">
+					</div>
+					<div class="subimg1">
+						<img src="img4.jpg"  onclick="displayImage(this);">
+					</div> -->
+				</div>
+			</div>
+			<div class="rightsection">
+				<div class="nameprice">
+					<h2 style="margin-bottom: 5px;">2019 Fiat 124 Spider</h2>
+					<h3 style="margin-top: 0px; margin-bottom: 0; ">$22,547</h3>
+				</div>	
+				<div class="belowname">
+					<div class="pin">
+						<img src="images/pin.png" width="100%" height="auto">
+					</div>
+					<div class="model">
+						<p>Paris</p>
+					</div>
+					<div class="buttons">
+						<button class="chatbutton">Chat</button>
+						<button class="showbutton">Show Phone Number</button>
+					</div>
+				</div>
+				<hr  class="sectionhr">
+				<div class="table">
+					<div class="tableheader">
+						<div class="skew skew1" onclick="CarDetails();">
+							<p>CAR DETAILS</p>
+						</div>
+						<div class="skew skew2" onclick="CarFeatures();">
+							<p>CAR FEATURES</p>
+						</div>
+					</div>	
+					<table class="sectiontable carfeatures">
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/brake.png"> 
+									<p>ABS</p>
+								</div> 
+							</td>
+							<td>
+								<div class="td">
+									<img src="images/airbag.png"> 
+									<p>Airbags</p>
+								</div> 
+							</td>
+							<td>
+								<div class="td">
+									<img src="images/radio.png"> 
+									<p>AM/FM</p>
+								</div> 
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/ac.png"> 
+									<p>Air Conditioned</p>
+								</div> 
+							</td>
+							<td>
+								<div class="td">
+									<img src="images/power.png"> 
+									<p>Power Mirrors</p>
+								</div> 
+							</td>
+							<td>
+								<div class="td">
+									<img src="images/steering.png"> 
+									<p>Power Steering</p>
+								</div> 
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/cd.png"> 
+									<p>CD Player</p>
+								</div> 
+							</td>
+							<td> 
+								<div class="td">
+									<img src="images/cassette.png"> 
+									<p>Cassette</p>
+								</div> 	
+							</td>
+							<td>
+								<div class="td">
+									<img src="images/car_key.png"> 
+									<p>Immobilizer Key</p>
+								</div> 
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/door.png"> 
+									<p>Power Locks</p>
+								</div> 
+							</td>
+							<td>
+								<div class="td">
+									<img src="images/cardinal.png"> 
+									<p>Navigation System</p>
+								</div> 
+							</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					<table class=" sectiontable cardetails">
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/calendar.png"> 
+									<p>MODEL</p>
+								</div>
+							</td>
+							<td>:2019</td>
+							<td>
+								<div class="td">
+									<img src="images/meter.png"> 
+									<p>MILEAGE</p>
+								</div>
+							</td>
+							<td>:3,200 KM</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/fuel.png"> 
+									<p>FUEL TYPE</p>
+								</div>
+							</td>
+							<td>:Hybrid</td>
+							<td>
+								<div class="td">
+									<img src="images/lightning.png"> 
+									<p>ENGINE CAPACITY</p>
+								</div>
+							</td>
+							<td>:2000CC</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/transmission.png"> 
+									<p>TRANSMISSION</p>
+								</div>
+							</td>
+							<td>:Automatic</td>
+							<td>
+								<div class="td">
+									<img src="images/exterior.png"> 
+									<p>EXTERIOR COLOR</p>
+								</div>
+							</td>
+							<td>:Blue</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/body.png"> 
+									<p>BODY TYPE</p>
+								</div>
+							</td>
+							<td>:Coupe</td>
+							<td>
+								<div class="td">
+									<img src="images/assembly.png"> 
+									<p>ASSEMBLY</p>
+								</div>
+							</td>
+							<td>:Local</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td">
+									<img src="images/make.png"> 
+									<p>MAKE</p>
+								</div>
+							</td>
+							<td>:Flat</td>
+							<td>
+								<div class="td">
+									<img src="images/city.png"> 
+									<p>REGISTERED CITY</p>
+								</div>
+							</td>
+							<td>:Un-Registered</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="lowersection">
+			<div class="desp">
+				<p>DESCRIPTION</p>
+			</div>
+			<div class="details">
+				<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum .Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum .Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum .Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum  </p>
+			</div>
+		</div>
+	</section>
+	<div class="compare">
+		<div class="comparetext" >
+			<h6>STILL UNSURE?</h6>
+			<p>Our comparison tool allows you to select up to 4 vehicles and compare them side by side.</p>
+			<a class = "compare_a"href="">ADD TO COMPARE</a>
+		</div>
+	</div>
+	<div class="boxmodel">
+		<div class="boxmodel_topbar">
+			<div class="boxmodel_title">
+				<p>RELATED ADS</p>
+			</div>
+			<div class="extra"></div>
+			<div class="extra"></div>
+		</div>
+		<div class="add_cards">
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr >
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="add_cards hidden">
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr >
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="vhr"></div>
+			<div class="cards">
+				<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>			
+				<div class="add_price">$76,000</div>
+				<hr>
+				<div class="options">
+					<div class="class1">
+						<div class="class2">
+							<img src="images/placeholder.png">
+						</div>
+						<div class="class3">
+							<p>City</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/meter.png">
+						</div>
+						<div class="class3">
+							<p>45,000</p>
+						</div>
+					</div>
+					<div class="class1">
+						<div class="class2">
+							<img src="images/calendar.png">
+						</div>
+						<div class="class3">
+							<p>2016</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="more">	
+		<a class= "viewmorea"onclick="ViewMore();">
+			VIEW MORE
+		</a>
+	</div>
+	<div class="more less">	
+		<a class= "vielessa" onclick="ViewLess();">
+			VIEW LESS
+		</a>
+	</div>
+	<div class="banner">
+		<div class="bannertext">
+			<p>SUBSCRIBE TO OUR NEWSLETTER</p>
+		</div>		
+		<div class="bannerform">
+			<form action="/action_page.php">
+				<input type="Email" placeholder="Enter your email" onfocus="this.placeholder = ''"
+				onblur="this.placeholder = 'Enter your email'">
+				<button type="submit">Subscribe</button>	
+			</form>
+		</div>
+	</div>
+	<footer>
+		<div class="insidefooter">
+			<div class="foottitle">
+				<h3>SKIPTHEAGENT</h3>
+			</div>
+			<div class="links"> 
+				<div class="footerdata">
+					<ul>
+						<li> <a href=""> Contact Us</a></li>
+						<li> <a href=""> About Us</a></li>
+						<li> <a href=""> Terms & Conditions</a></li>
+						<li> <a href=""> Partners</a></li>
+					</ul>
+				</div>
+				<div class="footerdata">
+					<ul>
+						<li> <a href=""> Contact Us</a></li>
+						<li> <a href=""> About Us</a></li>
+						<li> <a href=""> Terms & Conditions</a></li>
+						<li> <a href=""> Partners</a></li>
+					</ul>
+				</div>
+				<div class="footerdata footerdata1">
+					<div class="social">
+						<p>Follow US</p>						
+					</div>
+					<div class="socialimg">
+						<div class="socialimg1">
+							<a href=""><img src="images/fb.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img src="images/in.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img src="images/insta.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img src="images/twitter.png"></a>
+						</div>
+					</div>	
+					<div class="downloadtext">
+						<p>Download App</p>
+					</div>
+					<div class="footerimg">
+						<div class="footerimg1">	
+							<a href=""><img src="images/playstore.png"></a>
+						</div>
+						<div class="footerimg1">
+							<a href=""><img src="images/app_store.png" width="100px"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<p>&#169;2019 All rights reserved. All other trademarks are the property of their respective owners.</p>
+		</div>
+	</footer>
+</body>	
+</html>

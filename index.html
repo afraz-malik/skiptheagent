@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SkipTheAgent</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/	css2?family=Alegreya+Sans:wght@500&family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+	<script src="details.js"></script>
+</head>
+<body>
+	<header>
+		<img class="headimg" src="images\header.jpg">
+		<div class="insidehead">
+			<div class="tophead">
+				<div class="extra1"></div>
+				<div class="extra1"></div>
+				<div class="insidetop">
+					<div class="lefttop">
+						<p>Call Us Now: +01 123 456 78</p>
+						<p>Email: info@skiptheagent.com</p>
+					</div>
+					<div class="righttop">
+						<p class="firstp">Welcome to skiptheagent.</p>
+						<p class="secondp"> Kindly <a href="login.html">SIGN IN</a> or <a href="signup.html">SIGN UP</a></p>
+					</div>
+				</div>
+				<div class="extra1"></div>
+				<div class="extra1"></div>
+				<div class="headlogo"></div>
+			</div>
+			<div class="headnav">
+				<ul>
+					<li><a href="login.html">SELL MY CAR</a></li>
+					<li><a href="listing.html">SHOP FOR NEW CARS</a></li>
+					<li><a href="">CONSULTATIONS</a></li>
+				</ul>
+			</div>
+			<div class="headtext">
+				<div class="headtext1">
+					FIND USED CARS AROUND YOU
+					<span> </span>
+				</div>
+				<div class="headtext2">
+					With thousands of cars, we have just the right one for you
+					<span> </span>
+				</div>
+			</div>
+			<div class="headsearch">
+				<form>
+					<div class="textsearch search1">
+						<input type="text" name="model" placeholder="Car/Make/Model">
+					</div>
+					<div class="citysearch search1">
+						<select name="cars" id="city">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="opel">Opel</option>
+							<option value="audi">Audi</option>
+						</select>
+					</div>
+					<div class="pricesearch search1">
+						<select name="cars" id="price">
+							<option value="volvo">Volvo</option>
+							<option value="saab">Saab</option>
+							<option value="opel">Opel</option>
+							<option value="audi">Audi</option>
+						</select>
+						<div class="checkboxes">
+							<input type="checkbox" id="checkbox1" name="new" value="new">
+							<label for="new" class="label1">NEW</label>
+							<input type="checkbox" id="checkbox1" name="new" value="new">
+							<label for="used" class="label2">USED</label>
+						</div>
+					</div>
+					<button type="submit">SEARCH</button>
+				</form>
+				<div class="advancesearch">
+					<p>ADVANCE SEARCH</p>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="buysell">
+		<div class="buycar" onmouseover="sellCarAfter();" onmouseout="sellCarNormal();">
+			<div class="buycarimg">
+				<!-- <img src="images\blackcar.jpg"> -->
+				<div class="inside_buycar">
+					<div class="buycar_title">
+						<h2>DO YOU WANT TO</h2>
+						<h1>BUY A CAR?</h1>						 
+					</div>
+					<div class="buycar_desp">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autosthe Photoshop's version..</p>					
+					</div>
+					<div class="learnmore">
+						<a href="listing.html">LEARN MORE</a>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="sellcar">
+			<!-- <img src="images\redcar.jpg"> -->
+			<div class="sellcarimg">
+				<div class="inside_sellcar">
+					<div class="sellcar_title">
+						<h2>DO YOU WANT TO</h2>
+						<h1>SELL YOUR CAR?</h1>						 
+					</div>
+					<div class="sellcar_desp">
+						<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autosthe Photoshop's version..</p>					
+					</div>
+					<div class="learnmore">
+						<a href="login.html">POST AD</a>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div  class="outside_searchcar_boxmodel">
+		<div class="boxmodel searchcar_boxmodel">
+			<div class="boxmodel_topbar">
+				<div class="boxmodel_title">
+					<p>SEARCH BY CAR MODEL</p>
+				</div>
+				<div class="extra"></div>
+				<div class="extra"></div>
+			</div>
+			<div class="boxmodel_body searchcar_boxmodel_body">
+				<div class="searchcar">
+					<div class="uparrow">
+						<a href="#next"><img src="images\rightarrow.png"></a>
+					</div>
+					<div class="search_card_col">
+						<div class="search_card" onmouseover="showSearch(0);" onmouseout="hideSearch(0);">
+							<div class="card_title">
+								<h2>Coupe</h2>
+							</div>
+							<div class="card_price_search">
+								<div class="card_price">
+									<p>Price Range 150k - 200k</p>
+								</div>
+								<div class="card_search">
+									<a href="listing.html">SEARCH</a>
+								</div>
+							</div>
+						</div>
+						<div class="search_card" onmouseover="showSearch(1);" onmouseout="hideSearch(1);">
+							<div class="card_title">
+								<h2>SUV</h2>
+							</div>
+							<div class="card_price_search">
+								<div class="card_price">
+									<p>Price Range 150k - 200k</p>
+								</div>
+								<div class="card_search">
+									<a href="listing.html">SEARCH</a>
+								</div>
+							</div>
+						</div>
+						<div class="search_card" onmouseover="showSearch(2);" onmouseout="hideSearch(2);">
+							<div class="card_title">
+								<h2>Convertible</h2>
+							</div>
+							<div class="card_price_search">
+								<div class="card_price">
+									<p>Price Range 150k - 200k</p>
+								</div>
+								<div class="card_search">
+									<a href="listing.html">SEARCH</a>
+								</div>
+							</div>
+						</div>
+						<div class="search_card" onmouseover="showSearch(3);" onmouseout="hideSearch(3);">
+							<div class="card_title">
+								<h2>Sedan</h2>
+							</div>
+							<div class="card_price_search">
+								<div class="card_price">
+									<p>Price Range 150k - 200k</p>
+								</div>
+								<div class="card_search">
+									<a href="listing.html">SEARCH</a>
+								</div>
+							</div>
+						</div>	
+						<div class="search_card" onmouseover="showSearch(4);" onmouseout="hideSearch(4);">
+							<div class="card_title">
+								<h2>Coupe</h2>
+							</div>
+							<div class="card_price_search">
+								<div class="card_price">
+									<p>Price Range 150k - 200k</p>
+								</div>
+								<div class="card_search">
+									<a href="listing.html">SEARCH</a>
+								</div>
+							</div>
+						</div>
+						<div class="search_card" onmouseover="showSearch(5);" onmouseout="hideSearch(5);">
+							<div class="card_title">
+								<h2>SUV</h2>
+							</div>
+							<div class="card_price_search">
+								<div class="card_price">
+									<p>Price Range 150k - 200k</p>
+								</div>
+								<div class="card_search">
+									<a href="listing.html">SEARCH</a>
+								</div>
+							</div>
+						</div>
+						<div class="search_card" onmouseover="showSearch(6);" onmouseout="hideSearch(6);">
+							<div class="card_title">
+								<h2>Convertible</h2>
+							</div>
+							<div class="card_price_search">
+								<div class="card_price">
+									<p>Price Range 150k - 200k</p>
+								</div>
+								<div class="card_search">
+									<a href="listing.html">SEARCH</a>
+								</div>
+							</div>
+						</div>
+						<div class="search_card" onmouseover="showSearch(7);" onmouseout="hideSearch(7);">
+							<div class="card_title">
+								<h2>Sedan</h2>
+							</div>
+							<div class="card_price_search">
+								<div class="card_price">
+									<p>Price Range 150k - 200k</p>
+								</div>
+								<div class="card_search">
+									<a href="listing.html">SEARCH</a>
+								</div>
+							</div>
+						</div>					
+					</div>
+
+					<div class="downarrow">
+						<img src="images\leftarrow.png">
+					</div>
+				</div>
+				<div class="imgresult">
+					<img src="images\vector_car.png">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="boxmodel relatedads_boxmodel">
+		<div class="boxmodel_topbar">
+			<div class="boxmodel_title">
+				<p>LATEST POSTED ADS</p>
+			</div>
+			<div class="extra"></div>
+			<div class="extra"></div>
+			<div class="boxmodel_nav">
+				<a href=""><img src="images/leftarrow.png"></a>
+				<a href=""><img src="images/rightarrow.png"></a>
+			</div>
+		</div>
+		<div class="boxmodel_body">
+			<div class="add_cards">
+				<div class="cards">
+					<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>		
+					<div class="add_price">$76,000</div>
+					<hr >
+					<div class="options">
+						<div class="class1">
+							<div class="class2">
+								<img src="images/placeholder.png">
+							</div>
+							<div class="class3">
+								<p>City</p>
+							</div>
+						</div>
+						<div class="class1">
+							<div class="class2">
+								<img src="images/meter.png">
+							</div>
+							<div class="class3">
+								<p>45,000</p>
+							</div>
+						</div>
+						<div class="class1">
+							<div class="class2">
+								<img src="images/calendar.png">
+							</div>
+							<div class="class3">
+								<p>2016</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="vhr"></div> -->
+				<div class="cards">
+					<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>	
+					<div class="add_price">$76,000</div>
+					<hr>
+					<div class="options">
+						<div class="class1">
+							<div class="class2">
+								<img src="images/placeholder.png">
+							</div>
+							<div class="class3">
+								<p>City</p>
+							</div>
+						</div>
+						<div class="class1">
+							<div class="class2">
+								<img src="images/meter.png">
+							</div>
+							<div class="class3">
+								<p>45,000</p>
+							</div>
+						</div>
+						<div class="class1">
+							<div class="class2">
+								<img src="images/calendar.png">
+							</div>
+							<div class="class3">
+								<p>2016</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="vhr"></div> -->
+				<div class="cards">
+					<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>		
+					<div class="add_price">$76,000</div>
+					<hr>
+					<div class="options">
+						<div class="class1">
+							<div class="class2">
+								<img src="images/placeholder.png">
+							</div>
+							<div class="class3">
+								<p>City</p>
+							</div>
+						</div>
+						<div class="class1">
+							<div class="class2">
+								<img src="images/meter.png">
+							</div>
+							<div class="class3">
+								<p>45,000</p>
+							</div>
+						</div>
+						<div class="class1">
+							<div class="class2">
+								<img src="images/calendar.png">
+							</div>
+							<div class="class3">
+								<p>2016</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="vhr"></div> -->
+				<div class="cards">
+					<div class="add_img"> <a href="details.html"><img src="images/honda-city-2016.jpg"></a></div>
+					<div class="add_name"><a href="details.html">Honda City 1.3 i-VTEC Prosmatec</a></div>		
+					<div class="add_price">$76,000</div>
+					<hr>
+					<div class="options">
+						<div class="class1">
+							<div class="class2">
+								<img src="images/placeholder.png">
+							</div>
+							<div class="class3">
+								<p>City</p>
+							</div>
+						</div>
+						<div class="class1">
+							<div class="class2">
+								<img src="images/meter.png">
+							</div>
+							<div class="class3">
+								<p>45,000</p>
+							</div>
+						</div>
+						<div class="class1">
+							<div class="class2">
+								<img src="images/calendar.png">
+							</div>
+							<div class="class3">
+								<p>2016</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="boxmodel news_boxmodel">
+		<div class="boxmodel_topbar">
+			<div class="boxmodel_title">
+				<p>LATEST NEWS</p>
+			</div>
+			<div class="extra"></div>
+			<div class="extra"></div>
+			<div class="boxmodel_nav">
+				<a href=""><img src="images/leftarrow.png"></a>
+				<a href=""><img src="images/rightarrow.png"></a>
+			</div>
+		</div>
+		<div class="boxmodel_body news_boxmodel_body">
+			<div class="newscards">
+				<div class="newsimg">
+					<!-- <img src="images\engine-news.jpg"> -->
+					<div class="newsdate">
+						<p>19 November 2019</p>
+					</div>
+				</div>
+				<div class="namecomment">
+					<div class="name">
+						<div class="userlogo">
+							<img src="images\user.png">
+						</div>
+						<div class="username">Malik Anees</div>
+					</div>
+					<div class="comment">
+						<div class="commentlogo">
+							<img src="images\comments.png">
+						</div>
+						<div class="username">Comments (2)</div>
+					</div>
+				</div>
+				<div class="newstitle">
+					<h4><a href=""> Powerfull and flexible Machines </a></h4>
+				</div>
+				<div class="newsdesp">
+					<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun.Proin gravida nibh vel velit auctor aliqut. Aenea solicitun.</p>
+				</div>
+			</div>
+			<div class="newscards">
+				<div class="newsimg">
+					<!-- <img src="images\engine-news.jpg"> -->
+					<div class="newsdate">
+						<p>19 November 2019</p>
+					</div>
+				</div>
+				<div class="namecomment">
+					<div class="name">
+						<div class="userlogo">
+							<img src="images\user.png">
+						</div>
+						<div class="username">Malik Anees</div>
+					</div>
+					<div class="comment">
+						<div class="commentlogo">
+							<img src="images\comments.png">
+						</div>
+						<div class="username">Comments (2)</div>
+					</div>
+				</div>
+				<div class="newstitle">
+					<h4><a href=""> Powerfull and flexible Machines </a></h4>
+				</div>
+				<div class="newsdesp">
+					<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun.Proin gravida nibh vel velit auctor aliqut. Aenea solicitun.</p>
+				</div>
+			</div>
+			<div class="newscards">
+				<div class="newsimg">
+					<!-- <img src="images\engine-news.jpg"> -->
+					<div class="newsdate">
+						<p>19 November 2019</p>
+					</div>
+				</div>
+				<div class="namecomment">
+					<div class="name">
+						<div class="userlogo">
+							<img src="images\user.png">
+						</div>
+						<div class="username">Malik Anees</div>
+					</div>
+					<div class="comment">
+						<div class="commentlogo">
+							<img src="images\comments.png">
+						</div>
+						<div class="username">Comments (2)</div>
+					</div>
+				</div>
+				<div class="newstitle">
+					<h4><a href=""> Powerfull and flexible Machines </a></h4>
+				</div>
+				<div class="newsdesp">
+					<p>This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun.Proin gravida nibh vel velit auctor aliqut. Aenea solicitun.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="boxmodel brands_boxmodel">
+		<div class="boxmodel_topbar">
+			<div class="boxmodel_title">
+				<p>POPULAR BRANDS</p>
+			</div>
+			<div class="extra"></div>
+			<div class="extra"></div>
+			<div class="boxmodel_nav">
+				<a href=""><img src="images/leftarrow.png"></a>
+				<a href=""><img src="images/rightarrow.png"></a>
+			</div>
+		</div>
+		<div class="boxmodel_body">
+			<div class="brandslogo">
+				<img src="images/brands.png">
+			</div>
+		</div>
+	</div>
+	<div class="banner">
+		<div class="bannertext">
+			<p>SUBSCRIBE TO OUR NEWSLETTER</p>
+		</div>		
+		<div class="bannerform">
+			<form action="/action_page.php">
+				<input type="Email" placeholder="Enter your email" onfocus="this.placeholder = ''"
+				onblur="this.placeholder = 'Enter your email'">
+				<button type="submit">Subscribe</button>	
+			</form>
+		</div>
+	</div>
+	<footer>
+		<div class="insidefooter">
+			<div class="foottitle">
+				<h3>SKIPTHEAGENT</h3>
+			</div>
+			<div class="links"> 
+				<div class="footerdata">
+					<ul>
+						<li> <a href=""> Contact Us</a></li>
+						<li> <a href=""> About Us</a></li>
+						<li> <a href=""> Terms & Conditions</a></li>
+						<li> <a href=""> Partners</a></li>
+					</ul>
+				</div>
+				<div class="footerdata">
+					<ul>
+						<li> <a href=""> Contact Us</a></li>
+						<li> <a href=""> About Us</a></li>
+						<li> <a href=""> Terms & Conditions</a></li>
+						<li> <a href=""> Partners</a></li>
+					</ul>
+				</div>
+				<div class="footerdata footerdata1">
+					<div class="social">
+						<p>Follow US</p>						
+					</div>
+					<div class="socialimg">
+						<div class="socialimg1">
+							<a href=""><img src="images/fb.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img src="images/in.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img src="images/insta.png"></a>
+						</div>
+						<div class="socialimg1">
+							<a href=""><img src="images/twitter.png"></a>
+						</div>
+					</div>	
+					<div class="downloadtext">
+						<p>Download App</p>
+					</div>
+					<div class="footerimg">
+						<div class="footerimg1">	
+							<a href=""><img src="images/playstore.png"></a>
+						</div>
+						<div class="footerimg1">
+							<a href=""><img src="images/app_store.png" width="100px"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="copyright">
+			<p>&#169;2019 All rights reserved. All other trademarks are the property of their respective owners.</p>
+		</div>
+	</footer>
+</body>
+<script>
+	(function(d) {
+		var config = {
+			kitId: 'flh4qvj',
+			scriptTimeout: 3000,
+			async: true
+		},
+		h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+	})(document);
+</script>
+</html>
