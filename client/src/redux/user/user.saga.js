@@ -4,6 +4,8 @@ import {
   signInSuccess,
   signOutSuccess,
   signOutFailed,
+  passwordResetSuccess,
+  passwordResetFailed,
 } from './user.actions'
 import {
   auth,
@@ -97,4 +99,16 @@ export function* signOut() {
 }
 export function* signOutStart() {
   yield takeLatest('SIGN_OUT_START', signOut)
+}
+export function* passwordResetStart({ payload }) {
+  try {
+    yield auth.sendPasswordResetEmail(payload.email)
+    yield put(passwordResetSuccess())
+  } catch (err) {
+    yield put(passwordResetFailed(err))
+    alert(err.message)
+  }
+}
+export function* passwordReset() {
+  yield takeLatest('PASSWORD_RESET_START', passwordResetStart)
 }

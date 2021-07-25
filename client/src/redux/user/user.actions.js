@@ -34,3 +34,15 @@ export const signOutSuccess = () => ({
 export const signOutFailed = () => ({
   type: 'SIGN_OUT_FAILED',
 })
+
+export const passwordResetAction = (email) => ({
+  type: 'PASSWORD_RESET_START',
+  payload: email,
+})
+export const passwordResetSuccess = () => ({
+  type: 'PASSWORD_RESET_SUCCESS',
+})
+export const passwordResetFailed = (err) => ({
+  type: 'PASSWORD_RESET_FAILED',
+  payload: err,
+})

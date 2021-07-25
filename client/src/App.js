@@ -1,6 +1,11 @@
 import React, { lazy, Suspense } from 'react'
 //React Router
-import { Switch, Route, Redirect, HashRouter } from 'react-router-dom'
+import {
+  Switch,
+  Route,
+  Redirect,
+  BrowserRouter as Router,
+} from 'react-router-dom'
 
 //Redux
 import { connect } from 'react-redux'
@@ -42,8 +47,8 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends React.Component {
   componentDidMount() {
     // "homepage": "https://afraz-malik.github.io/skiptheagent-react",
-    // const url = '/skiptheagent-react/'
-    const url = '/'
+    const url = '/skiptheagent-react/'
+    // const url = '/'
 
     this.props.setUrl(url)
     this.props.isUserAuthenticated()
@@ -51,7 +56,7 @@ class App extends React.Component {
   render() {
     const { url, user } = this.props
     return (
-      <HashRouter>
+      <Router>
         <Suspense fallback={<Spinner />}>
           <Switch>
             <Route exact path={`${url}`} component={Home} />
@@ -81,7 +86,7 @@ class App extends React.Component {
             />
           </Switch>
         </Suspense>
-      </HashRouter>
+      </Router>
     )
   }
 }

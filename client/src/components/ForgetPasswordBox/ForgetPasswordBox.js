@@ -1,33 +1,70 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ForgetPasswordCss from './ForgetPasswordBox.module.scss'
-
+// Redux
+import { connect, useDispatch } from 'react-redux'
+import { passwordResetAction } from '../../redux/user/user.actions'
 // Components
 import BoxModel from '../../components/boxModel/boxModel'
 import Button from '../button/button'
+import { Spinner } from '../spinner/spinner'
 
-const ForgetPasswordBox = () => {
+const mapStateToProps = (state) => ({
+  isLoading: state.setUser.loading,
+  success: state.setUser.success,
+})
+const ForgetPasswordBox = ({ isLoading, success }) => {
+  useEffect(() => {
+    if (success === 1) {
+      setBox({ input: false, info: true, password: false })
+    }
+  }, [success])
+  const [email, setEmail] = useState('')
+  const [box, setBox] = useState({ input: true, info: false, password: false })
+  const dispatch = useDispatch()
   const closeBox = (index2) => () => {
-    const box = document.getElementsByClassName('forgetPassword_Box')[index2]
-    box.style.display = 'none'
+    if (index2 === 0) {
+      setBox({ ...box, input: false })
+    }
+    if (index2 === 1) {
+      setBox({ ...box, info: false })
+    }
+    if (index2 === 2) {
+      setBox({ ...box, password: false })
+    }
   }
+  const handleChange = (event) => {
+    setEmail({ ...email, [event.target.name]: event.target.value })
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    dispatch(passwordResetAction(email))
+  }
+  if (box.input === false && box.info === false && box.password === false) {
+    setBox({ ...box, input: true })
+  }
+
   return (
     <div>
-      <div className={`${ForgetPasswordCss.boxmodel} forgetPassword_Box`}>
+      <div
+        className={`${ForgetPasswordCss.boxmodel} forgetPassword_Box`}
+        style={box.input ? { display: 'flex' } : { display: 'none' }}
+      >
         <BoxModel
           title={'FORGET PASSWORD'}
-          sidebar={'cancel'}
+          // sidebar={'cancel'}
           closeBox={closeBox(0)}
         >
           <div className={ForgetPasswordCss.boxmodel_body}>
             <div className={ForgetPasswordCss.bodytext}>
               <p>Enter your email below to reset your password</p>
             </div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <input
                 type="email"
                 name="email"
                 placeholder="Enter email here"
                 required
+                onChange={handleChange}
               />
               <Button type="submit" name="login" login="login">
                 CHANGE PASSWORD
@@ -36,7 +73,10 @@ const ForgetPasswordBox = () => {
           </div>
         </BoxModel>
       </div>
-      <div className={`${ForgetPasswordCss.boxmodel} forgetPassword_Box`}>
+      <div
+        className={`${ForgetPasswordCss.boxmodel} forgetPassword_Box`}
+        style={box.info ? { display: 'flex' } : { display: 'none' }}
+      >
         <BoxModel
           title={'FORGET PASSWORD'}
           sidebar={'cancel'}
@@ -48,13 +88,16 @@ const ForgetPasswordBox = () => {
             <div className={ForgetPasswordCss.bodytext}>
               <p>
                 We have send password reset link to your registered email
-                address. Please click the link to comoplete the reset process
+                address. Please click the link to complete the reset process
               </p>
             </div>
           </div>
         </BoxModel>
       </div>
-      <div className={`${ForgetPasswordCss.boxmodel} forgetPassword_Box`}>
+      <div
+        className={`${ForgetPasswordCss.boxmodel} forgetPassword_Box`}
+        style={box.password ? { display: 'flex' } : { display: 'none' }}
+      >
         <BoxModel
           title={'FORGET PASSWORD'}
           sidebar={'cancel'}
@@ -84,6 +127,7 @@ const ForgetPasswordBox = () => {
           </div>
         </BoxModel>
       </div>
+      {isLoading ? <Spinner /> : null}
     </div>
   )
 }
@@ -126,4 +170,4 @@ export const SingleForgetBox = ({ close, email }) => {
     </div>
   )
 }
-export default ForgetPasswordBox
+export default connect(mapStateToProps, null)(ForgetPasswordBox)
