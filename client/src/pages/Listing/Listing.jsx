@@ -1,11 +1,11 @@
 import React from 'react'
 
 // Components
-import Header from '../../components/Header/Header.js'
-import ListingBox from '../../components/ListingBox/ListingBox.js'
+import Header from '../../components/Header/Header'
+import ListingBox from '../../components/ListingBox/ListingBox'
 import RecentAdsBoxModel from '../../components/RecentAdsBoxModel/RecentAdsBoxModel'
-import Banner from '../../components/Banner/banner.js'
-import Footer from '../../components/Footer/Footer.js'
+import Banner from '../../components/Banner/banner'
+import Footer from '../../components/Footer/Footer'
 
 class Listing extends React.Component {
   render() {

@@ -2,8 +2,8 @@ import React from 'react'
 
 // Components
 
-import Header from '../../components/Header/Header.js'
-import LogInBox from '../../components/LogInBox/LogInBox.js'
+import Header from '../../components/Header/Header'
+import LogInBox from '../../components/LogInBox/LogInBox'
 
 const Login = () => {
   return (

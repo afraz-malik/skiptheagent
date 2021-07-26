@@ -1,8 +1,8 @@
 import React from 'react'
 
 // Components
-import Header from '../../components/Header/Header.js'
-import SignUpBox from '../../components/SignUpBox/SignUpBox.js'
+import Header from '../../components/Header/Header'
+import SignUpBox from '../../components/SignUpBox/SignUpBox'
 
 class SignUp extends React.Component {
   render() {
