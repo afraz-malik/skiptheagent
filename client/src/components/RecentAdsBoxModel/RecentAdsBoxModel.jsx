@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import AdsBoxModelCss from './RecentAdsBoxModel.module.scss'
+import RecentAdsBoxModelCss from './RecentAdsBoxModel.module.scss'
 // Components
-import AdsBoxModel from '../AdsBoxModel/AdsBoxModel'
+// import AdsBoxModel from '../AdsBoxModel/AdsBoxModel'
 import Button from '../button/button'
 
 const RecenAdsBoxModel = () => {
@@ -15,8 +15,8 @@ const RecenAdsBoxModel = () => {
   }
   return (
     <div>
-      <AdsBoxModel view={view} view2={true} />
-      <div className={AdsBoxModelCss.more}>
+      {/* <AdsBoxModel view={view} view2={true} /> */}
+      <div className={RecentAdsBoxModelCss.more}>
         <Button viewmore="true" onClick={() => channgeView()}>
           {`${viewValue}`}
         </Button>
