@@ -45,7 +45,9 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends React.Component {
   componentDidMount() {
     // "homepage": "https://afraz-malik.github.io/skiptheagent",
-
+    if (process.env.PUBLIC_URL === '/skiptheagent') {
+      console.log('yes')
+    }
     this.props.isUserAuthenticated()
   }
   render() {
