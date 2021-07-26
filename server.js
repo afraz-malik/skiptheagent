@@ -16,13 +16,13 @@ app.use((req, res, next) => {
 app.use(bodyParser.json())
 app.use(cors())
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')))
+// if (process.env.NODE_ENV !=== 'production') {
+app.use(express.static(path.join(__dirname, 'client/build')))
 
-  app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-  })
-}
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
+// }
 
 app.listen(process.env.PORT || 3002, () => {
   console.log(`App is Running on Port ${process.env.PORT} or 3002`)
