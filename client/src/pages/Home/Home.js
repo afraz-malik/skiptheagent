@@ -4,7 +4,7 @@ import React from 'react'
 import HomeHeader from '../../components/HomeHeader/HomeHeader.js'
 import BuySellCard from '../../components/BuySellCard/BuySellCard.js'
 import SearchByModel from '../../components/SearchByModel/SearchByModel.js'
-import AdsBoxModel from '../../components/AdsBoxModel/AdsBoxModel'
+// import AdsBoxModel from '../../components/AdsBoxModel/AdsBoxModel'
 import NewsBoxModel from '../../components/NewsBoxModel/NewsBoxModel.js'
 import BrandsBoxModel from '../../components/BrandsBoxModel/BrandsBoxModel.js'
 import Banner from '../../components/Banner/banner.js'
@@ -17,7 +17,7 @@ class Home extends React.Component {
         <HomeHeader />
         <BuySellCard />
         <SearchByModel />
-        <AdsBoxModel />
+        {/* <AdsBoxModel /> */}
         <NewsBoxModel />
         <BrandsBoxModel />
         <Banner />
