@@ -5,7 +5,7 @@ import AdsBoxModelCss from './AdsBoxModel.module.scss'
 import BoxModel from '../boxModel/boxModel'
 import AdsBoxModelGen from '../AdsBoxModelGen/AdsBoxModelGen'
 
-const LatestAdsModel = ({ view, view2 }) => {
+const AdsBoxModel = ({ view, view2 }) => {
   const scrollLeft = () => {
     const box = document.getElementsByClassName('scroll')[0]
     box.scrollLeft += 500
@@ -42,4 +42,4 @@ const LatestAdsModel = ({ view, view2 }) => {
   )
 }
 
-export default LatestAdsModel
+export default AdsBoxModel

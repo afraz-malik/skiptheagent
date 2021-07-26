@@ -5,7 +5,7 @@ import AdsBoxModelGenCss from './AdsBoxModelGen.module.scss'
 import { Link } from 'react-router-dom'
 //Redux
 
-const LatestAdsModelGen = () => {
+const AdsBoxModelGen = () => {
   return (
     <ul className={AdsBoxModelGenCss.ul}>
       <li>
@@ -68,4 +68,4 @@ export const AdsGenDashboard = () => {
   )
 }
 
-export default LatestAdsModelGen
+export default AdsBoxModelGen
