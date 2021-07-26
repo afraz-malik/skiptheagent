@@ -1,11 +1,29 @@
-const express = require('express');
-const path = require('path');
-const app = express();
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const path = require('path')
 
-app.use(express.static(path.join(__dirname, 'client/', 'build')));
+const app = express()
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'client/' , 'index.html'));
-});
+  next()
+})
+app.use(bodyParser.json())
+app.use(cors())
 
-app.listen(9000);
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')))
+
+  app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  })
+}
+
+app.listen(process.env.PORT || 3002, () => {
+  console.log(`App is Running on Port ${process.env.PORT} or 3002`)
+})
