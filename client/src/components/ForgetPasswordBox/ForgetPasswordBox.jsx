@@ -4,7 +4,7 @@ import ForgetPasswordCss from './ForgetPasswordBox.module.scss'
 import { connect, useDispatch } from 'react-redux'
 import { passwordResetAction } from '../../redux/user/user.actions'
 // Components
-import BoxModel from '../../components/boxModel/boxModel'
+import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
 

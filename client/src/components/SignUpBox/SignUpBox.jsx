@@ -6,7 +6,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { signUpStart } from '../../redux/user/user.actions'
 import { connect } from 'react-redux'
 // Components
-import BoxModel from '../../components/boxModel/boxModel'
+import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
 

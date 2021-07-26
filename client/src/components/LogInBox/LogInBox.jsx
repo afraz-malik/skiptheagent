@@ -12,7 +12,7 @@ import {
 // Components
 
 import { Spinner } from '../spinner/spinner'
-import BoxModel from '../../components/boxModel/boxModel'
+import BoxModel from '../boxModel/boxModel'
 
 import Button from '../button/button'
 
