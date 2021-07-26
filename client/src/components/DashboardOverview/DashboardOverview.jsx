@@ -4,8 +4,8 @@ import DashboardOverviewCss from './DashboardOverview.module.scss'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 // Redux
-import { connect } from 'react-redux'
 import { signOutStart } from '../../redux/user/user.actions'
+import { connect } from 'react-redux'
 // Components
 import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
@@ -13,13 +13,12 @@ import { AdsGenDashboard } from '../AdsBoxModelGen/AdsBoxModelGen'
 import Inbox from '../inbox/Inbox'
 
 const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
   user: state.setUser.user,
 })
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOutStart()),
 })
-const DashboardOverview = ({ url, match, signOut, user }) => {
+const DashboardOverview = ({ match, signOut, user }) => {
   return (
     <div className={DashboardOverviewCss.container}>
       <BoxModel title="Profile">
@@ -43,15 +42,15 @@ const DashboardOverview = ({ url, match, signOut, user }) => {
         <div className={DashboardOverviewCss.body}>
           <div className={`${DashboardOverviewCss.top2}`}>
             <div className={`${DashboardOverviewCss.row1}`}>
-              <AdsGenDashboard url={url} />
+              <AdsGenDashboard />
               <div className={DashboardOverviewCss.middle}></div>
-              <AdsGenDashboard url={url} />
+              <AdsGenDashboard />
             </div>
             <div className={DashboardOverviewCss.bottom}></div>
             <div className={`${DashboardOverviewCss.row2}`}>
-              <AdsGenDashboard url={url} />
+              <AdsGenDashboard />
               <div className={DashboardOverviewCss.middle}></div>
-              <AdsGenDashboard url={url} />
+              <AdsGenDashboard />
             </div>
           </div>
           <hr />
@@ -78,15 +77,15 @@ const DashboardOverview = ({ url, match, signOut, user }) => {
         <div className={DashboardOverviewCss.body}>
           <div className={`${DashboardOverviewCss.top2}`}>
             <div className={`${DashboardOverviewCss.row1}`}>
-              <AdsGenDashboard url={url} />
+              <AdsGenDashboard />
               <div className={DashboardOverviewCss.middle}></div>
-              <AdsGenDashboard url={url} />
+              <AdsGenDashboard />
             </div>
             <div className={DashboardOverviewCss.bottom}></div>
             <div className={`${DashboardOverviewCss.row2}`}>
-              <AdsGenDashboard url={url} />
+              <AdsGenDashboard />
               <div className={DashboardOverviewCss.middle}></div>
-              <AdsGenDashboard url={url} />
+              <AdsGenDashboard />
             </div>
           </div>
           <hr />

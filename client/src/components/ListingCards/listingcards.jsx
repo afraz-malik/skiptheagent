@@ -4,13 +4,8 @@ import ListingCardsCss from './listingcards.module.scss'
 //Router
 import { Link } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
 // Components
 import Button from '../button/button'
-
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
 
 const ListingCards = ({ url, logged }) => {
   const [src, setSrc] = useState('images/like.png')
@@ -24,14 +19,14 @@ const ListingCards = ({ url, logged }) => {
   return (
     <div className={ListingCardsCss['listingcards']}>
       <div className={ListingCardsCss['leftcard']}>
-        <Link to={`${url}details`}>
+        <Link to={`/details`}>
           <img alt="" src="images\listingcar.jpg" />
         </Link>
       </div>
       <div className={ListingCardsCss['rightcard']}>
         <div className={ListingCardsCss['cardtop']}>
           <div className={ListingCardsCss['cardname']}>
-            <Link to={`${url}details`}>
+            <Link to={`/details`}>
               <p>2019 Fiat 124 Spider</p>
             </Link>
           </div>
@@ -130,4 +125,4 @@ const ListingCards = ({ url, logged }) => {
   )
 }
 
-export default connect(mapStateToProps)(ListingCards)
+export default ListingCards

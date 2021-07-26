@@ -17,7 +17,6 @@ import BoxModel from '../../components/boxModel/boxModel'
 import Button from '../button/button'
 
 const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
   isLoading: state.setUser.loading,
 })
 const maptDispatchToProps = (dispatch) => ({
@@ -59,7 +58,7 @@ const LoginBox = ({ url, isLoading, googleSignIn, setUser }) => {
               placeholder="Password"
               onChange={handleChange}
             />
-            <Link to={`${url}forget`}>Forget Password?</Link>
+            <Link to={`/forget`}>Forget Password?</Link>
             <Button type="submit" name="login" login="login">
               SUBMIT
             </Button>
@@ -93,7 +92,7 @@ const LoginBox = ({ url, isLoading, googleSignIn, setUser }) => {
             <div className={LoginBoxCss.signup}>
               <p>
                 Don't have an account?
-                <Link to={`${url}register`}>SIGN UP</Link>
+                <Link to={`/register`}>SIGN UP</Link>
               </p>
             </div>
           </div>

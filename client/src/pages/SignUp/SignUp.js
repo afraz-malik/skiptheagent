@@ -6,6 +6,7 @@ import SignUpBox from '../../components/SignUpBox/SignUpBox.js'
 
 class SignUp extends React.Component {
   render() {
+    console.log(process.env.PUBLIC_URL)
     return (
       <div>
         <Header />

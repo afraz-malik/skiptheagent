@@ -3,15 +3,10 @@ import SearchByModelCss from './SearchByModel.module.scss'
 //Router
 import { Link } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
 // Components
 import Button from '../button/button'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
-
-const SearchCard = ({ url }) => {
+const SearchCard = () => {
   const [hidden, setHidden] = useState('true')
   const toggleHidden = () => {
     setHidden(!hidden)
@@ -33,7 +28,7 @@ const SearchCard = ({ url }) => {
           className={SearchByModelCss['card_search']}
           style={hidden ? { display: 'none' } : { display: 'flex' }}
         >
-          <Link to={`${url}listing`}>
+          <Link to={`/listing`}>
             <Button>SEARCH</Button>
           </Link>
         </div>
@@ -42,4 +37,4 @@ const SearchCard = ({ url }) => {
   )
 }
 
-export default connect(mapStateToProps)(SearchCard)
+export default SearchCard

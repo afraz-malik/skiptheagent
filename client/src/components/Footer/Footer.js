@@ -4,13 +4,8 @@ import FooterCss from './Footer.module.css'
 //Router
 import { Link } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
-
-const Footer = ({ url }) => {
+const Footer = () => {
   return (
     <footer className={FooterCss.footer}>
       <div className={FooterCss.insidefooter}>
@@ -104,4 +99,4 @@ const Footer = ({ url }) => {
   )
 }
 
-export default connect(mapStateToProps)(Footer)
+export default Footer

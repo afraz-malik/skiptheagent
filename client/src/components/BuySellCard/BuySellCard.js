@@ -2,16 +2,10 @@ import React from 'react'
 import BuySellCardCss from './BuySellCard.module.scss'
 // Router
 import { Link } from 'react-router-dom'
-// Redux
-import { connect } from 'react-redux'
 // Components
 import Button from '../button/button'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
-
-const BuySellCard = ({ url }) => {
+const BuySellCard = () => {
   return (
     <div className={BuySellCardCss.buysell}>
       <div className={BuySellCardCss.buycar}>
@@ -29,7 +23,7 @@ const BuySellCard = ({ url }) => {
               </p>
             </div>
             <div className={BuySellCardCss.learnmore}>
-              <Link to={`${url}listing`}>
+              <Link to={`/listing`}>
                 <Button> LEARN MORE</Button>
               </Link>
             </div>
@@ -51,7 +45,7 @@ const BuySellCard = ({ url }) => {
               </p>
             </div>
             <div className={BuySellCardCss.learnmore}>
-              <Link to={`${url}login`}>
+              <Link to={`/login`}>
                 <Button> POST AD</Button>
               </Link>
             </div>
@@ -62,4 +56,4 @@ const BuySellCard = ({ url }) => {
   )
 }
 
-export default connect(mapStateToProps)(BuySellCard)
+export default BuySellCard

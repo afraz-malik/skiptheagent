@@ -1,17 +1,4 @@
-const initialURLState = {
-  url: null,
-}
-export const URLReducer = (state = initialURLState, action) => {
-  switch (action.type) {
-    case 'SET_URL':
-      return Object.assign({}, state, { url: action.payload })
-    default:
-      return state
-  }
-}
-
 const initialSignUpState = {
-  user: null,
   loading: false,
   error: null,
   success: 0,

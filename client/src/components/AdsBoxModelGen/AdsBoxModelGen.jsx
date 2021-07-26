@@ -4,23 +4,19 @@ import AdsBoxModelGenCss from './AdsBoxModelGen.module.scss'
 //Router
 import { Link } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
-const LatestAdsModelGen = ({ url }) => {
+const LatestAdsModelGen = () => {
   return (
     <ul className={AdsBoxModelGenCss.ul}>
       <li>
         <div className={AdsBoxModelGenCss.cards}>
           <div className={AdsBoxModelGenCss.add_img}>
-            <Link to={`${url}details`}>
+            <Link to={`/details`}>
               <img alt="" src="images\honda-city-2016.jpg" />
             </Link>
           </div>
           <div className={AdsBoxModelGenCss.add_name}>
-            <Link to={`${url}details`}>Honda City 1.3 i-VTEC Prosmatec</Link>
+            <Link to={`/details`}>Honda City 1.3 i-VTEC Prosmatec</Link>
           </div>
           <div className={AdsBoxModelGenCss.add_price}>$76,000</div>
           <hr />
@@ -56,20 +52,20 @@ const LatestAdsModelGen = ({ url }) => {
   )
 }
 
-export const AdsGenDashboard = ({ url }) => {
+export const AdsGenDashboard = () => {
   return (
     <div className={AdsBoxModelGenCss.cards1}>
       <div className={AdsBoxModelGenCss.add_img1}>
-        <Link to={`${url}details`}>
+        <Link to={`/details`}>
           <img alt="" src="images\honda-city-2016.jpg" />
         </Link>
       </div>
       <div className={AdsBoxModelGenCss.add_name1}>
-        <Link to={`${url}details`}>Honda City 1.3 i-VTEC Prosmatec</Link>
+        <Link to={`/details`}>Honda City 1.3 i-VTEC Prosmatec</Link>
       </div>
       <div className={AdsBoxModelGenCss.add_price1}>$76,000</div>
     </div>
   )
 }
 
-export default connect(mapStateToProps)(LatestAdsModelGen)
+export default LatestAdsModelGen

@@ -8,8 +8,8 @@ import {
 } from 'react-router-dom'
 
 //Redux
+import { isUserAuthenticated } from './redux/user/user.actions'
 import { connect } from 'react-redux'
-import { setUrl, isUserAuthenticated } from './redux/user/user.actions'
 
 //Components
 import { Spinner } from './components/spinner/spinner'
@@ -36,52 +36,45 @@ const Details = lazy(() => import('./pages/Details/Details'))
 const Dashboard = lazy(() => import('./pages/Dashboard/Dashboard'))
 
 const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
   user: state.setUser.user,
 })
 const mapDispatchToProps = (dispatch) => ({
-  setUrl: (url) => dispatch(setUrl(url)),
   isUserAuthenticated: () => dispatch(isUserAuthenticated()),
 })
 
 class App extends React.Component {
   componentDidMount() {
-    // "homepage": "https://afraz-malik.github.io/skiptheagent-react",
-    const url = '/skiptheagent-react/'
-    // const url = '/'
+    // "homepage": "https://afraz-malik.github.io/skiptheagent",
 
-    this.props.setUrl(url)
     this.props.isUserAuthenticated()
   }
   render() {
-    const { url, user } = this.props
+    const { user } = this.props
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Suspense fallback={<Spinner />}>
           <Switch>
-            <Route exact path={`${url}`} component={Home} />
-            <Route exact path={`${url}listing`} component={Listing} />
+            <Route exact path={`/`} component={Home} />
+            <Route exact path={`/listing`} component={Listing} />
             <Route
               exact
-              path={`${url}login`}
-              render={() =>
-                user ? <Redirect to={`${url}dashboard`} /> : <Login />
-              }
+              path={`/login`}
+              render={() => (user ? <Redirect to={`/dashboard`} /> : <Login />)}
             />
             <Route
               exact
-              path={`${url}register`}
+              path={`/register`}
               render={() =>
-                user ? <Redirect to={`${url}dashboard`} /> : <Register />
+                user ? <Redirect to={`/dashboard`} /> : <Register />
               }
             />
-            <Route exact path={`${url}forget`} component={ForgetPassword} />
-            <Route exact path={`${url}ownership`} component={OwnerShip} />
-            <Route exact path={`${url}details`} component={Details} />
+            <Route exact path={`/forget`} component={ForgetPassword} />
+            <Route exact path={`/ownership`} component={OwnerShip} />
+            <Route exact path={`/details`} component={Details} />
             <Route
-              path={`${url}dashboard`}
+              path={`/dashboard`}
               render={() =>
-                !user ? <Redirect to={`${url}login`} /> : <Dashboard />
+                !user ? <Redirect to={`/login`} /> : <Dashboard />
               }
             />
           </Switch>

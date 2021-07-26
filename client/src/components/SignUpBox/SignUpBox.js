@@ -3,15 +3,14 @@ import SignUpBoxCss from './SignUpBox.module.scss'
 //Router
 import { Link, withRouter } from 'react-router-dom'
 //Redux
-import { connect } from 'react-redux'
 import { signUpStart } from '../../redux/user/user.actions'
+import { connect } from 'react-redux'
 // Components
 import BoxModel from '../../components/boxModel/boxModel'
 import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
 
 const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
   isLoading: state.setUser.loading,
 })
 const maptDispatchToProps = (dispatch) => ({
@@ -113,7 +112,7 @@ const SignUpBox = ({ url, setUser, isLoading }) => {
                 Use
               </p>
               <p>
-                Don't have an account? <Link to={`${url}login`}>SIGN IN</Link>
+                Don't have an account? <Link to={`/login`}>SIGN IN</Link>
               </p>
             </div>
           </div>

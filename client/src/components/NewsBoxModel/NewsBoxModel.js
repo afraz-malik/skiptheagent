@@ -2,15 +2,11 @@ import React from 'react'
 import NewsBoxModelCss from './NewsBoxModel.module.scss'
 
 //Redux
-import { connect } from 'react-redux'
 // Components
 import NewsBoxModelGen from '../NewsBoxModelGen/NewsBoxModelGen'
 import BoxModel from '../boxModel/boxModel'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
-const NewsBoxModel = ({ url }) => {
+const NewsBoxModel = () => {
   const scrollLeft = () => {
     const box = document.getElementsByClassName('scroll2')[0]
 
@@ -40,4 +36,4 @@ const NewsBoxModel = ({ url }) => {
   )
 }
 
-export default connect(mapStateToProps)(NewsBoxModel)
+export default NewsBoxModel

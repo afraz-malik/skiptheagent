@@ -1,15 +1,9 @@
 import React from 'react'
 import CompareCss from './Compare.module.css'
-//Redux
-import { connect } from 'react-redux'
 // Components
 import Button from '../button/button'
 
-const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
-})
-
-const Compare = ({ url }) => {
+const Compare = () => {
   return (
     <div className={CompareCss.compare}>
       <div className={CompareCss.comparetext}>
@@ -24,4 +18,4 @@ const Compare = ({ url }) => {
   )
 }
 
-export default connect(mapStateToProps)(Compare)
+export default Compare

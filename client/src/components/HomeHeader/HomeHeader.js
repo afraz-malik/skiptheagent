@@ -4,9 +4,7 @@ import HomeHeaderCss from './HomeHeader.module.scss'
 import { Link } from 'react-router-dom'
 //Redux
 import { connect } from 'react-redux'
-
 const mapStateToProps = (state) => ({
-  url: state.URLReducer.url,
   user: state.setUser.user,
 })
 
@@ -27,8 +25,8 @@ const HomeHeader = ({ url, user }) => {
               <div className={HomeHeaderCss.righttop}>
                 <p className={HomeHeaderCss.firstp}>Welcome to skiptheagent.</p>
                 <p className={HomeHeaderCss.secondp}>
-                  Kindly <Link to={`${url}login`}> SIGN IN </Link> or
-                  <Link to={`${url}register`}> SIGN UP</Link>
+                  Kindly <Link to={`/login`}> SIGN IN </Link> or
+                  <Link to={`/register`}> SIGN UP</Link>
                 </p>
               </div>
             ) : (
@@ -39,7 +37,7 @@ const HomeHeader = ({ url, user }) => {
                   //
                 >
                   <Link
-                    to={`${url}dashboard`}
+                    to={`/dashboard`}
                     style={{ marginLeft: '10px' }}
                   >{`${user.name}`}</Link>
                   !
@@ -54,17 +52,17 @@ const HomeHeader = ({ url, user }) => {
         <div className={HomeHeaderCss.headnav}>
           <ul>
             <li>
-              <Link to={`${url}login`} id="hehe">
+              <Link to={`/login`} id="hehe">
                 SELL MY CAR
               </Link>
             </li>
             <li>
-              <Link to={`${url}listing`} id="hehe">
+              <Link to={`/listing`} id="hehe">
                 SHOP FOR NEW CARS
               </Link>
             </li>
             <li>
-              <Link to={`${url}ownership`}>CONSULTATIONS</Link>
+              <Link to={`/ownership`}>CONSULTATIONS</Link>
             </li>
           </ul>
         </div>
