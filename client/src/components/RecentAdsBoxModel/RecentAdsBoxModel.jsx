@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import AdsBoxModelCss from './RecentAdsBoxModel.module.scss'
 // Components
-import AdsModel from '../AdsBoxModel/AdsBoxModel'
+import AdsBoxModel from '../AdsBoxModel/AdsBoxModel'
 import Button from '../button/button'
 
-const AdsBoxModel = () => {
+const RecenAdsBoxModel = () => {
   const [view, setView] = useState(false)
   const [viewValue, setViewValue] = useState('VIEW MORE')
 
@@ -15,7 +15,7 @@ const AdsBoxModel = () => {
   }
   return (
     <div>
-      <AdsModel view={view} view2={true} />
+      <AdsBoxModel view={view} view2={true} />
       <div className={AdsBoxModelCss.more}>
         <Button viewmore="true" onClick={() => channgeView()}>
           {`${viewValue}`}
@@ -25,4 +25,4 @@ const AdsBoxModel = () => {
   )
 }
 
-export default AdsBoxModel
+export default RecenAdsBoxModel
