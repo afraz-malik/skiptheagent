@@ -38,8 +38,8 @@ export const createUserInFirebase = async (user, name) => {
   }
   const userRef = firestore.doc(`users/${user.uid}`)
   const snapshot = await userRef.get()
-  let displayName
   if (!snapshot.exists) {
+    let displayName
     if (user.displayName) {
       displayName = user.displayName
     } else {
@@ -56,6 +56,12 @@ export const createUserInFirebase = async (user, name) => {
         displayName: displayName,
         email: user.email,
         createdAt: new Date(),
+        username: user.email,
+        mobile: '',
+        zip: '',
+        gender: '',
+        country: '',
+        city: '',
       })
 
       .catch((err) => {
@@ -65,4 +71,18 @@ export const createUserInFirebase = async (user, name) => {
     console.log('not overwrited')
   }
   return userRef
+}
+export const updateUserinFirebase = async (user, { payload }) => {
+  if (!user) {
+    console.log('No user found')
+    return
+  }
+  const userRef = firestore.doc(`users/${user.uid}`)
+  const snapshot = await userRef.get()
+  if (snapshot.exists) {
+    userRef
+      .update(payload)
+      .then(() => alert('update success'))
+      .catch((error) => console.log(error))
+  }
 }

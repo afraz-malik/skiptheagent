@@ -39,7 +39,7 @@ const HomeHeader = ({ url, user }) => {
                   <Link
                     to={`/dashboard`}
                     style={{ marginLeft: '10px' }}
-                  >{`${user.name}`}</Link>
+                  >{`${user.displayName}`}</Link>
                   !
                 </p>
               </div>

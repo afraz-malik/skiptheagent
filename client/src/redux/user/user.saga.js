@@ -6,12 +6,15 @@ import {
   signOutFailed,
   passwordResetSuccess,
   passwordResetFailed,
+  updateSuccess,
+  updateFailed,
 } from './user.actions'
 import {
   auth,
   isUserAuthenticated,
   createUserInFirebase,
   signInWithGoogle,
+  updateUserinFirebase,
 } from '../../firebase/firebase.config'
 
 export function* settingUserPersistence() {
@@ -19,8 +22,8 @@ export function* settingUserPersistence() {
   const userRef = yield createUserInFirebase(user)
   if (userRef) {
     const snapshot = yield userRef.get()
-    const user = snapshot.data()
-    yield put(signInSuccess({ email: user.email, name: user.displayName }))
+    const firebaseUser = snapshot.data()
+    yield put(signInSuccess(firebaseUser))
   }
 }
 export function* settingUserPersistenceStart() {
@@ -28,45 +31,40 @@ export function* settingUserPersistenceStart() {
 }
 
 export function* signUpWithEmail({ payload }) {
-  let user
-  let error
-  yield auth
-    .createUserWithEmailAndPassword(payload.email, payload.password)
-    .then((userCrendential) => {
-      user = userCrendential.user
-    })
-    .catch((err) => {
-      alert(err.message)
-      error = err
-    })
-  if (error) {
+  try {
+    const { user } = yield auth.createUserWithEmailAndPassword(
+      payload.email,
+      payload.password
+    )
+    const userRef = yield createUserInFirebase(user, payload.name)
+    if (userRef) {
+      const snapshot = yield userRef.get()
+      const firebaseUser = snapshot.data()
+      yield put(signInSuccess(firebaseUser))
+    }
+  } catch (error) {
+    alert(error)
     yield put(signInFailed({ error }))
-  }
-  if (user) {
-    yield createUserInFirebase(user, payload.name)
-    yield put(signInSuccess({ name: payload.name, email: payload.email }))
   }
 }
 export function* signUpWithEmailStart() {
   yield takeLatest('SIGN_UP_START', signUpWithEmail)
 }
 export function* signInWithEmail({ payload }) {
-  let user
-  let error = null
-  yield auth
-    .signInWithEmailAndPassword(payload.email, payload.password)
-    .then((userCrendential) => {
-      user = userCrendential.user
-    })
-    .catch((err) => {
-      alert(err.message)
-      error = err
-    })
-  if (error) {
+  try {
+    const { user } = yield auth.signInWithEmailAndPassword(
+      payload.email,
+      payload.password
+    )
+    const userRef = yield createUserInFirebase(user)
+    if (userRef) {
+      const snapshot = yield userRef.get()
+      const firebaseUser = snapshot.data()
+      yield put(signInSuccess(firebaseUser))
+    }
+  } catch (error) {
     yield put(signInFailed({ error }))
-  }
-  if (user) {
-    yield put(signInSuccess({ name: user.displayName, email: user.email }))
+    alert(error)
   }
 }
 
@@ -76,8 +74,12 @@ export function* signInWithEmailStart() {
 export function* signInWithGoogleSaga() {
   try {
     const { user } = yield signInWithGoogle()
-    yield createUserInFirebase(user)
-    yield put(signInSuccess({ name: user.displayName, email: user.email }))
+    const userRef = yield createUserInFirebase(user)
+    if (userRef) {
+      const snapshot = yield userRef.get()
+      const firebaseUser = snapshot.data()
+      yield put(signInSuccess(firebaseUser))
+    }
   } catch (err) {
     yield put(signInFailed(err.message))
     yield alert(err.message)
@@ -111,4 +113,42 @@ export function* passwordResetStart({ payload }) {
 }
 export function* passwordReset() {
   yield takeLatest('PASSWORD_RESET_START', passwordResetStart)
+}
+
+export function* updateUser(payload) {
+  try {
+    const user = yield auth.currentUser
+    yield updateUserinFirebase(user, payload)
+    yield put(updateSuccess())
+    yield settingUserPersistence()
+  } catch (err) {
+    alert(err.message)
+    yield put(updateFailed(err))
+  }
+}
+export function* updateUserStart() {
+  yield takeLatest('UPDATE_USER_START', updateUser)
+}
+export function* passwordChange({ payload }) {
+  const user = yield auth.currentUser
+  if (user) {
+    user
+      .updatePassword(payload)
+      .then(() => {
+        alert('Password Update')
+      })
+      .catch((error) => {
+        console.log(error)
+        alert(error)
+        if (error.code === 'auth/requires-recent-login') {
+          alert('Login Again')
+          signOut()
+        }
+        // An error ocurred
+        // ...
+      })
+  }
+}
+export function* passwordchangeStart() {
+  yield takeLatest('PASSWORD_CHANGE_START', passwordChange)
 }

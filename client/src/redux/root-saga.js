@@ -6,6 +6,8 @@ import {
   signOutStart,
   signInWithGoogleStart,
   passwordReset,
+  updateUserStart,
+  passwordchangeStart,
 } from './user/user.saga'
 
 export default function* rootSaga() {
@@ -16,5 +18,7 @@ export default function* rootSaga() {
     call(signOutStart),
     call(signInWithGoogleStart),
     call(passwordReset),
+    call(updateUserStart),
+    call(passwordchangeStart),
   ])
 }

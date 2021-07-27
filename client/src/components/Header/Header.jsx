@@ -39,7 +39,7 @@ const Header = ({ url, user, signOut }) => {
           ) : (
             <div className={HeaderCss.loggedinheader}>
               <div className={HeaderCss.loggedinheaderleft}>
-                {`Welcome ${user.name}!.`}
+                {`Welcome ${user.displayName}!.`}
                 <div
                   className={HeaderCss.dropdown}
                   onClick={() => toggleHidden()}
@@ -91,7 +91,7 @@ const Header = ({ url, user, signOut }) => {
         ) : (
           <div className={HeaderCss.loggedinheader}>
             <div className={HeaderCss.loggedinheaderleft}>
-              Welcome {`${user.name}!`}.
+              Welcome {`${user.displayName}!`}.
               <div
                 className={HeaderCss.dropdown}
                 onClick={() => toggleHidden()}

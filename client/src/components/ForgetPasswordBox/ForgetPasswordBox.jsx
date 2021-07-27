@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react'
 import ForgetPasswordCss from './ForgetPasswordBox.module.scss'
 // Redux
 import { connect, useDispatch } from 'react-redux'
-import { passwordResetAction } from '../../redux/user/user.actions'
+import {
+  passwordResetAction,
+  passwordChange,
+} from '../../redux/user/user.actions'
 // Components
 import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
@@ -13,6 +16,7 @@ const mapStateToProps = (state) => ({
   success: state.setUser.success,
 })
 const ForgetPasswordBox = ({ isLoading, success }) => {
+  const dispatch = useDispatch()
   useEffect(() => {
     if (success === 1) {
       setBox({ input: false, info: true, password: false })
@@ -20,7 +24,6 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
   }, [success])
   const [email, setEmail] = useState('')
   const [box, setBox] = useState({ input: true, info: false, password: false })
-  const dispatch = useDispatch()
   const closeBox = (index2) => () => {
     if (index2 === 0) {
       setBox({ ...box, input: false })
@@ -133,6 +136,30 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
 }
 
 export const SingleForgetBox = ({ close, email }) => {
+  const dispatch = useDispatch()
+  const [password, setPassword] = useState({
+    password: '',
+    confirmpassword: '',
+    error: '',
+  })
+  const handleChange = (event) => {
+    setPassword({
+      ...password,
+      [event.target.name]: event.target.value,
+      error: null,
+    })
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    if (password.password === '' || password.confirmpassword === '') {
+      setPassword({ ...password, error: 'Field Cannot be empty' })
+    } else if (password.password === password.confirmpassword) {
+      dispatch(passwordChange(password.password))
+      close()
+    } else {
+      setPassword({ ...password, error: 'Password Not Matched' })
+    }
+  }
   return (
     <div className={`${ForgetPasswordCss.forgetPassword}  forgetPassword_Box`}>
       <div className={ForgetPasswordCss.box}>
@@ -148,18 +175,38 @@ export const SingleForgetBox = ({ close, email }) => {
               <div className={ForgetPasswordCss.bodytext}>
                 <p>For {`${email}`}</p>
               </div>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <input
                   type="password"
                   name="password"
+                  value={password.password}
+                  onChange={handleChange}
                   placeholder="New Password"
                 />
                 <input
                   type="password"
-                  name="password"
+                  name="confirmpassword"
                   placeholder="Confirm New Password"
+                  value={password.confirmpassword}
+                  onChange={handleChange}
                 />
-                <Button type="submit" name="login" login="login">
+                {password.error ? (
+                  <span
+                    style={{
+                      color: 'red',
+                      fontSize: '14px',
+                      textAlign: 'right',
+                    }}
+                  >
+                    {password.error}
+                  </span>
+                ) : null}
+                <Button
+                  type="submit"
+                  name="login"
+                  login="login"
+                  style={{ marginTop: '25px' }}
+                >
                   CHANGE PASSWORD
                 </Button>
               </form>

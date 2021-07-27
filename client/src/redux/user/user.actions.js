@@ -42,3 +42,25 @@ export const passwordResetFailed = (err) => ({
   type: 'PASSWORD_RESET_FAILED',
   payload: err,
 })
+export const passwordChange = (payload) => ({
+  type: 'PASSWORD_CHANGE_START',
+  payload: payload,
+})
+export const passwordChangeSuccess = () => ({
+  type: 'PASSWORD_CHANGE_SUCCESS',
+})
+export const passwordChangeFailed = (err) => ({
+  type: 'PASSWORD_CHANGE_FAILED',
+  payload: err,
+})
+export const updateUser = (payload) => ({
+  type: 'UPDATE_USER_START',
+  payload: payload,
+})
+export const updateSuccess = () => ({
+  type: 'UPDATE_USER_SUCCESS',
+})
+export const updateFailed = (err) => ({
+  type: 'UPDATE_USER_FAILED',
+  payload: err,
+})

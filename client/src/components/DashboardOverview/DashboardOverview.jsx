@@ -26,7 +26,7 @@ const DashboardOverview = ({ match, signOut, user }) => {
           <div className={DashboardOverviewCss.top}>
             <img alt="" src="images\john.png" />
             <h4>Welcome</h4>
-            <h2>{`${user.name}`}!</h2>
+            <h2>{`${user.displayName}`}!</h2>
             <Button onClick={() => signOut()}>LOG OUT</Button>
           </div>
           <hr />
