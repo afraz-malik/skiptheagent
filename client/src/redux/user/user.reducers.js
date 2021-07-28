@@ -26,6 +26,7 @@ export const setUser = (state = initialSignUpState, action) => {
         error: null,
         success: 1,
       })
+
     case 'UPDATE_USER_SUCCESS':
     case 'PASSWORD_RESET_SUCCESS':
       return Object.assign({}, state, {

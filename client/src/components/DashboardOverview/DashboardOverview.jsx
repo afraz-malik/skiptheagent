@@ -24,7 +24,7 @@ const DashboardOverview = ({ match, signOut, user }) => {
       <BoxModel title="Profile">
         <div className={DashboardOverviewCss.body}>
           <div className={DashboardOverviewCss.top}>
-            <img alt="" src="images\john.png" />
+            <img alt="" src={user.imgurl} />
             <h4>Welcome</h4>
             <h2>{`${user.displayName}`}!</h2>
             <Button onClick={() => signOut()}>LOG OUT</Button>

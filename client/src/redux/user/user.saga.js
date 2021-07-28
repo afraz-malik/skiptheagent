@@ -15,6 +15,7 @@ import {
   createUserInFirebase,
   signInWithGoogle,
   updateUserinFirebase,
+  storage,
 } from '../../firebase/firebase.config'
 
 export function* settingUserPersistence() {
@@ -115,10 +116,23 @@ export function* passwordReset() {
   yield takeLatest('PASSWORD_RESET_START', passwordResetStart)
 }
 
-export function* updateUser(payload) {
+export function* updateUser({ payload }) {
   try {
+    console.log(payload)
+    let newPayload = payload.usercredentials
     const user = yield auth.currentUser
-    yield updateUserinFirebase(user, payload)
+
+    if (payload.images.images) {
+      var storageRef = yield storage.ref(`/images/${user.uid}/profile.jpg`)
+      const snapshot = yield storageRef.put(payload.images.images)
+      if (snapshot.state === 'success') {
+        const url = yield storageRef.getDownloadURL()
+        if (url) {
+          newPayload = { ...payload.usercredentials, imgurl: url }
+        }
+      }
+    }
+    yield updateUserinFirebase(user, newPayload)
     yield put(updateSuccess())
     yield settingUserPersistence()
   } catch (err) {

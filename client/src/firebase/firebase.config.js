@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/analytics'
 import 'firebase/auth'
 import 'firebase/firestore'
+import 'firebase/storage' // <----
 
 var firebaseConfig = {
   apiKey: 'AIzaSyBu1x4tu6iZPxhkANVuOxzJtjcLBzKW5lc',
@@ -15,10 +16,10 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 firebase.analytics()
-
 export const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const signInWithGoogle = () => auth.signInWithPopup(googleProvider)
 
+export const storage = firebase.storage()
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
@@ -62,6 +63,9 @@ export const createUserInFirebase = async (user, name) => {
         gender: '',
         country: '',
         city: '',
+        uid: user.uid,
+        imgurl:
+          'https://firebasestorage.googleapis.com/v0/b/skiptheagent-react.appspot.com/o/images%2Fjohn.png?alt=media&token=0d3308e7-6b4f-4f4b-95f0-a2ba97595945',
       })
 
       .catch((err) => {
@@ -72,7 +76,7 @@ export const createUserInFirebase = async (user, name) => {
   }
   return userRef
 }
-export const updateUserinFirebase = async (user, { payload }) => {
+export const updateUserinFirebase = async (user, newPayload) => {
   if (!user) {
     console.log('No user found')
     return
@@ -81,7 +85,7 @@ export const updateUserinFirebase = async (user, { payload }) => {
   const snapshot = await userRef.get()
   if (snapshot.exists) {
     userRef
-      .update(payload)
+      .update(newPayload)
       .then(() => alert('update success'))
       .catch((error) => console.log(error))
   }

@@ -17,6 +17,7 @@ const DashboardProfile = ({ user, isLoading }) => {
   const dispatch = useDispatch()
   const [showBox, manageBox] = useState(false)
   const [usercredentials, setUsercredentials] = useState({
+    uid: user.uid,
     displayName: user.displayName,
     email: user.email,
     zip: user.zip,
@@ -25,7 +26,9 @@ const DashboardProfile = ({ user, isLoading }) => {
     gender: user.gender,
     country: user.country,
     city: user.city,
+    imgurl: user.imgurl,
   })
+  const [images, setimages] = useState([])
   const showBoxFunction = () => {
     manageBox(true)
   }
@@ -38,17 +41,31 @@ const DashboardProfile = ({ user, isLoading }) => {
       [event.target.name]: event.target.value,
     })
   }
+  const handleImage = (event) => {
+    setUsercredentials({
+      ...usercredentials,
+      imgurl: URL.createObjectURL(event.target.files[0]),
+    })
+    setimages({
+      images: event.target.files[0],
+    })
+  }
   const handleSubmit = (event) => {
     event.preventDefault()
     // console.log(usercredentials)
-    dispatch(updateUser(usercredentials))
+    dispatch(updateUser({ images, usercredentials }))
+    // if (images == null) return
+    // dispatch(imageUpload(images))
   }
+
   return (
     <div className={DashboardProfileCss.container}>
       <BoxModel title="Profile">
         <div className={DashboardProfileCss.body}>
           <div className={DashboardProfileCss.top}>
-            <img alt="" src="images\john.png" />
+            {/* <img alt="" src="images\john.png" /> */}
+            <img alt="" src={usercredentials.imgurl} />
+            <input type="file" name="img" onChange={handleImage} />
             <h3>PROFILE PICTURE</h3>
             <form onSubmit={handleSubmit}>
               <div className={DashboardProfileCss.row}>
