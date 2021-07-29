@@ -133,8 +133,9 @@ export function* updateUser({ payload }) {
       }
     }
     yield updateUserinFirebase(user, newPayload)
-    yield put(updateSuccess())
-    yield settingUserPersistence()
+    yield put(updateSuccess(payload.usercredentials))
+    // yield put(signInSuccess(payload))
+    // yield settingUserPersistence()`
   } catch (err) {
     alert(err.message)
     yield put(updateFailed(err))

@@ -52,6 +52,7 @@ class App extends React.Component {
           : null
       })
     }
+
     this.props.isUserAuthenticated()
   }
   render() {

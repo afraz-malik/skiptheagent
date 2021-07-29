@@ -13,6 +13,7 @@ export const setUser = (state = initialSignUpState, action) => {
     case 'UPDATE_USER_START':
       return Object.assign({}, state, { loading: true, success: 0 })
     case 'SIGN_IN_SUCCESS':
+    case 'UPDATE_USER_SUCCESS':
       return Object.assign({}, state, {
         loading: false,
         user: action.payload,
@@ -27,7 +28,6 @@ export const setUser = (state = initialSignUpState, action) => {
         success: 1,
       })
 
-    case 'UPDATE_USER_SUCCESS':
     case 'PASSWORD_RESET_SUCCESS':
       return Object.assign({}, state, {
         loading: false,
