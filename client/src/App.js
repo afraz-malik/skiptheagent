@@ -1,11 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 //React Router
-import {
-  Switch,
-  Route,
-  Redirect,
-  BrowserRouter as Router,
-} from 'react-router-dom'
+import { Switch, Route, Redirect, HashRouter as Router } from 'react-router-dom'
 
 //Redux
 import { isUserAuthenticated } from './redux/user/user.actions'
@@ -45,20 +40,20 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends React.Component {
   componentDidMount() {
     // "homepage": "https://afraz-malik.github.io/skiptheagent",
-    if (process.env.PUBLIC_URL === '/skiptheagent') {
-      fetch('https://skiptheagent.herokuapp.com/').then((res) => {
-        return res.status === 200
-          ? (window.location.href = 'https://skiptheagent.herokuapp.com/')
-          : null
-      })
-    }
+    // if (process.env.PUBLIC_URL === '/skiptheagent') {
+    //   fetch('https://skiptheagent.herokuapp.com/').then((res) => {
+    //     return res.status === 200
+    //       ? (window.location.href = 'https://skiptheagent.herokuapp.com/')
+    //       : null
+    //   })
+    // }
 
     this.props.isUserAuthenticated()
   }
   render() {
     const { user } = this.props
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Suspense fallback={<Spinner />}>
           <Switch>
             <Route exact path={`/`} component={Home} />
