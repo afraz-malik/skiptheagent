@@ -11,10 +11,10 @@ const registerUser = asyncHandler(async (req, res) => {
         success: 'ok',
       })
     } else {
-      throw new Error('User Already Exists. Try Logging in')
+      throw new Error('User Already Exists. Try different email')
     }
   } catch (error) {
-    res.status(404)
+    res.status(400)
     throw new Error(error.message)
   }
 })
