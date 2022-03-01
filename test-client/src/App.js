@@ -8,10 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const App = () => {
   const [isLoading, setisLoading] = useState(false)
   const [state, setstate] = useState({
-    name: null,
-    email: null,
-    password: null,
-    confirmpassword: null,
+    name: '',
+    email: '',
+    password: '',
+    confirmpassword: '',
   })
 
   const onSubmitHandler = (event) => {
@@ -38,17 +38,28 @@ const App = () => {
         body: raw,
         redirect: 'follow',
       }
-
+      setisLoading(true)
       fetch('http://localhost:5000/api/user/register/', requestOptions)
         .then((response) => response.json())
         .then((result) => {
           if (result.success) {
             toast.success('User Registered Successfully')
+            setstate({
+              name: '',
+              email: '',
+              password: '',
+              confirmpassword: '',
+            })
+            setisLoading(false)
           } else {
             throw new Error(result.message)
           }
         })
-        .catch((error) => toast.error(error.message))
+        .catch((error) => {
+          setisLoading(false)
+
+          toast.error(error.message)
+        })
     } else {
       toast.error('Password and confirm does not match')
     }
