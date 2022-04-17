@@ -29,15 +29,15 @@ const DashboardPostAd = () => {
                 <label>
                   CAR INFO<span>*</span>
                 </label>
-                <input type="text" placeholder="Make/Model/Version" />
+                <input type="text" placeholder="Make/Version/Title" />
               </div>
               <div className={DashboardPostAdCss.row}>
                 <label>
-                  REGISTRATION CITY<span>*</span>
+                  MODEL <span>*</span>
                 </label>
                 <select name="cars" id="city">
-                  <option value="volvo">Registration City</option>
-                  <option value="saab">Female</option>
+                  <option value="volvo">2022</option>
+                  <option value="saab">2019</option>
                   <option value="opel">Other</option>
                 </select>
               </div>
@@ -51,16 +51,7 @@ const DashboardPostAd = () => {
                   <option value="opel">Other</option>
                 </select>
               </div>
-              <div className={DashboardPostAdCss.row}>
-                <label>
-                  EXTERIOR COLOR<span>*</span>
-                </label>
-                <select name="cars" id="city">
-                  <option value="volvo">White</option>
-                  <option value="saab">Female</option>
-                  <option value="opel">Other</option>
-                </select>
-              </div>
+
               <div className={DashboardPostAdCss.row}>
                 <label>
                   DESCRIPTION<span>*</span>
@@ -147,6 +138,26 @@ const DashboardPostAd = () => {
             <div className={DashboardPostAdCss.form}>
               <div className={DashboardPostAdCss.row}>
                 <label>
+                  EXTERIOR COLOR<span>*</span>
+                </label>
+                <select name="cars" id="city">
+                  <option value="volvo">White</option>
+                  <option value="saab">Female</option>
+                  <option value="opel">Other</option>
+                </select>
+              </div>
+              <div className={DashboardPostAdCss.row}>
+                <label>
+                  REGISTRATION CITY<span>*</span>
+                </label>
+                <select name="cars" id="city">
+                  <option value="volvo">Registration City</option>
+                  <option value="saab">Female</option>
+                  <option value="opel">Other</option>
+                </select>
+              </div>
+              <div className={DashboardPostAdCss.row}>
+                <label>
                   ENGINE TYPE<span>*</span>
                 </label>
                 <select name="cars" id="city">
@@ -177,6 +188,26 @@ const DashboardPostAd = () => {
                 </label>
                 <select name="cars" id="city">
                   <option value="volvo">Mileage km</option>
+                  <option value="saab">Female</option>
+                  <option value="opel">Other</option>
+                </select>
+              </div>
+              <div className={DashboardPostAdCss.row}>
+                <label>
+                  Bodo Type<span>*</span>
+                </label>
+                <select name="cars" id="city">
+                  <option value="volvo">Cube</option>
+                  <option value="saab">Female</option>
+                  <option value="opel">Other</option>
+                </select>
+              </div>
+              <div className={DashboardPostAdCss.row}>
+                <label>
+                  Make<span>*</span>
+                </label>
+                <select name="cars" id="city">
+                  <option value="volvo">Fiat</option>
                   <option value="saab">Female</option>
                   <option value="opel">Other</option>
                 </select>

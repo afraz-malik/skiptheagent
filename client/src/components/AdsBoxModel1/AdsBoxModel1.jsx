@@ -4,6 +4,7 @@ import AdsBoxModelCss from './AdsBoxModel.module.scss'
 // Components
 import BoxModel from '../boxModel/boxModel'
 import AdsBoxModelGen from '../AdsBoxModelGen/AdsBoxModelGen'
+import { products } from '../../services/products'
 
 const AdsBoxModel = ({ view, view2 }) => {
   const scrollLeft = () => {
@@ -31,8 +32,8 @@ const AdsBoxModel = ({ view, view2 }) => {
         {[...Array(value)].map((i, j) => (
           <div className={AdsBoxModelCss.boxmodel_body} key={j}>
             <div className={`${AdsBoxModelCss.add_cards} scroll`}>
-              {[...Array(value2)].map((i, j) => (
-                <AdsBoxModelGen key={j} />
+              {products.map((product, j) => (
+                <AdsBoxModelGen key={j} product={product} />
               ))}
             </div>
           </div>

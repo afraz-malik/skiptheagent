@@ -3,11 +3,12 @@ import DashboardSavedAdsCss from './DashboardSavedAds.module.scss'
 
 // Components
 import ListingBoxModel from '../ListingBoxModel/ListingBoxModel'
+import { products } from '../../services/products'
 
 const DashboardSavedAds = () => {
   return (
     <div className={DashboardSavedAdsCss.body}>
-      <ListingBoxModel rows={3} />
+      <ListingBoxModel products={products} />
     </div>
   )
 }

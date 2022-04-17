@@ -6,8 +6,10 @@ import { Switch, Route, Redirect, HashRouter as Router } from 'react-router-dom'
 import { isUserAuthenticated } from './redux/user/user.actions'
 import { connect } from 'react-redux'
 
+import { ToastContainer } from 'react-toastify'
 //Components
 import { Spinner } from './components/spinner/spinner'
+import 'react-toastify/dist/ReactToastify.css'
 
 //Pages
 // import Home from './pages/Home/Home'
@@ -53,35 +55,50 @@ class App extends React.Component {
   render() {
     const { user } = this.props
     return (
-      <Router>
-        <Suspense fallback={<Spinner />}>
-          <Switch>
-            <Route exact path={`/`} component={Home} />
-            <Route exact path={`/listing`} component={Listing} />
-            <Route
-              exact
-              path={`/login`}
-              render={() => (user ? <Redirect to={`/dashboard`} /> : <Login />)}
-            />
-            <Route
-              exact
-              path={`/register`}
-              render={() =>
-                user ? <Redirect to={`/dashboard`} /> : <Register />
-              }
-            />
-            <Route exact path={`/forget`} component={ForgetPassword} />
-            <Route exact path={`/ownership`} component={OwnerShip} />
-            <Route exact path={`/details`} component={Details} />
-            <Route
-              path={`/dashboard`}
-              render={() =>
-                !user ? <Redirect to={`/login`} /> : <Dashboard />
-              }
-            />
-          </Switch>
-        </Suspense>
-      </Router>
+      <>
+        <Router>
+          <Suspense fallback={<Spinner />}>
+            <Switch>
+              <Route exact path={`/`} component={Home} />
+              <Route exact path={`/listing`} component={Listing} />
+              <Route
+                exact
+                path={`/login`}
+                render={() =>
+                  user ? <Redirect to={`/dashboard`} /> : <Login />
+                }
+              />
+              <Route
+                exact
+                path={`/register`}
+                render={() =>
+                  user ? <Redirect to={`/dashboard`} /> : <Register />
+                }
+              />
+              <Route exact path={`/forget`} component={ForgetPassword} />
+              <Route exact path={`/ownership`} component={OwnerShip} />
+              <Route exact path={`/details`} component={Details} />
+              <Route
+                path={`/dashboard`}
+                render={() =>
+                  !user ? <Redirect to={`/login`} /> : <Dashboard />
+                }
+              />
+            </Switch>
+          </Suspense>
+        </Router>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          // hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </>
     )
   }
 }

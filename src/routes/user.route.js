@@ -4,12 +4,14 @@ const {
   registerUser,
   loginUser,
   updateUser,
+  googleLoginController,
 } = require('../controllers/user.controller')
 const { validateToken } = require('../services/jwt')
 
 const userRouter = express.Router()
 userRouter.post('/register', registerUser)
 userRouter.post('/login', loginUser)
+userRouter.post('/login/google', googleLoginController)
 //  Private Routes
 userRouter.use(
   expressAsyncHandler(async (req, res, next) => {

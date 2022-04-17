@@ -4,6 +4,7 @@ import DetailsSectionCss from './DetailsSection.module.scss'
 // Components
 import Button from '../button/button'
 
+import { products } from '../../services/products'
 class DetailsSection extends React.Component {
   constructor() {
     super()
@@ -14,6 +15,7 @@ class DetailsSection extends React.Component {
       cardetailsbg: 'grey',
       // eslint-disable-next-line
       source: 'images/cover.jpg',
+      product: products[0],
     }
   }
   clicked = (value) => {
@@ -37,8 +39,14 @@ class DetailsSection extends React.Component {
     })
   }
   render() {
-    const { carfeatures, cardetails, carfeaturesbg, cardetailsbg, source } =
-      this.state
+    const {
+      carfeatures,
+      cardetails,
+      carfeaturesbg,
+      cardetailsbg,
+      source,
+      product,
+    } = this.state
     return (
       <div className={DetailsSectionCss.section}>
         <div className={DetailsSectionCss.uppersection}>
@@ -118,15 +126,15 @@ class DetailsSection extends React.Component {
           </div>
           <div className={DetailsSectionCss.rightsection}>
             <div className={DetailsSectionCss.nameprice}>
-              <h2>2019 Fiat 124 Spider</h2>
-              <h3>$22,547</h3>
+              <h2>{product.car_info}</h2>
+              <h3>${product.selling.price}</h3>
             </div>
             <div className={DetailsSectionCss.belowname}>
               <div className={DetailsSectionCss.pin}>
                 <img alt="" src="images\pin.png" width="100%" height="auto" />
               </div>
               <div className={DetailsSectionCss.model}>
-                <p>Paris</p>
+                <p>{product.city}</p>
               </div>
               <div className={DetailsSectionCss.buttons}>
                 <Button> Chat </Button>
@@ -159,78 +167,100 @@ class DetailsSection extends React.Component {
               >
                 <tbody>
                   <tr>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\brake.png" />
-                        <p>ABS</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\airbag.png" />
-                        <p>Airbags</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\radio.png" />
-                        <p>AM/FM</p>
-                      </div>
-                    </td>
+                    {product.features.abs && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\brake.png" />
+                          <p> ABS</p>
+                        </div>
+                      </td>
+                    )}
+                    {product.features.airbags && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\airbag.png" />
+                          <p>Airbags</p>
+                        </div>
+                      </td>
+                    )}
+                    {product.features.am_fm && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\radio.png" />
+                          <p>AM/FM</p>
+                        </div>
+                      </td>
+                    )}
                   </tr>
                   <tr>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\ac.png" />
-                        <p>Air Conditioned</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\power.png" />
-                        <p>Power Mirrors</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\steering.png" />
-                        <p>Power Steering</p>
-                      </div>
-                    </td>
+                    {product.features.ac && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\ac.png" />
+                          <p>Air Conditioned</p>
+                        </div>
+                      </td>
+                    )}
+                    {product.features.power_mirrors && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\power.png" />
+                          <p>Power Mirrors</p>
+                        </div>
+                      </td>
+                    )}
+                    {product.features.power_steering && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\steering.png" />
+                          <p>Power Steering</p>
+                        </div>
+                      </td>
+                    )}
                   </tr>
                   <tr>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\cd.png" />
-                        <p>CD Player</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\cassette.png" />
-                        <p>Cassette</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\car_key.png" />
-                        <p>Immobilizer Key</p>
-                      </div>
-                    </td>
+                    {product.features.cd_player && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\cd.png" />
+                          <p>CD Player</p>
+                        </div>
+                      </td>
+                    )}
+                    {product.features.cassete && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\cassette.png" />
+                          <p>Cassette</p>
+                        </div>
+                      </td>
+                    )}
+                    {product.features.immobilizer && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\car_key.png" />
+                          <p>Immobilizer Key</p>
+                        </div>
+                      </td>
+                    )}
                   </tr>
                   <tr>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\door.png" />
-                        <p>Power Locks</p>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={DetailsSectionCss.td}>
-                        <img alt="" src="images\cardinal.png" />
-                        <p>Navigation System</p>
-                      </div>
-                    </td>
+                    {product.features.power_locks && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\door.png" />
+                          <p>Power Locks</p>
+                        </div>
+                      </td>
+                    )}
+                    {product.features.nav_system && (
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\cardinal.png" />
+                          <p>Navigation System</p>
+                        </div>
+                      </td>
+                    )}
                     <td></td>
                   </tr>
                   <tr>
@@ -252,14 +282,14 @@ class DetailsSection extends React.Component {
                         <p>MODEL</p>
                       </div>
                     </td>
-                    <td>:2019</td>
+                    <td>:{product.model}</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
                         <img alt="" src="images\meter.png" />
                         <p>MILEAGE</p>
                       </div>
                     </td>
-                    <td>:3,200 KM</td>
+                    <td>:{product.mileage_km} KM</td>
                   </tr>
                   <tr>
                     <td>
@@ -268,14 +298,14 @@ class DetailsSection extends React.Component {
                         <p>FUEL TYPE</p>
                       </div>
                     </td>
-                    <td>:Hybrid</td>
+                    <td>:{product.details.engine_type}</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
                         <img alt="" src="images\lightning.png" />
                         <p>ENGINE CAPACITY</p>
                       </div>
                     </td>
-                    <td>:2000CC</td>
+                    <td>:{product.details.engine_capacity}CC</td>
                   </tr>
                   <tr>
                     <td>
@@ -284,14 +314,14 @@ class DetailsSection extends React.Component {
                         <p>TRANSMISSION</p>
                       </div>
                     </td>
-                    <td>:Automatic</td>
+                    <td>:{product.details.transmission}</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
                         <img alt="" src="images\exterior.png" />
                         <p>EXTERIOR COLOR</p>
                       </div>
                     </td>
-                    <td>:Blue</td>
+                    <td>:{product.details.exterior_color}</td>
                   </tr>
                   <tr>
                     <td>
@@ -300,14 +330,14 @@ class DetailsSection extends React.Component {
                         <p>BODY TYPE</p>
                       </div>
                     </td>
-                    <td>:Coupe</td>
+                    <td>:{product.details.body_type}</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
                         <img alt="" src="images\assembly.png" />
                         <p>ASSEMBLY</p>
                       </div>
                     </td>
-                    <td>:Local</td>
+                    <td>:{product.details.assembly}</td>
                   </tr>
                   <tr>
                     <td>
@@ -316,14 +346,14 @@ class DetailsSection extends React.Component {
                         <p>MAKE</p>
                       </div>
                     </td>
-                    <td>:Flat</td>
+                    <td>:{product.details.make}</td>
                     <td>
                       <div className={DetailsSectionCss.td}>
                         <img alt="" src="images\city.png" />
                         <p>REGISTERED CITY</p>
                       </div>
                     </td>
-                    <td>:Un-Registered</td>
+                    <td>:{product.details.reg_city || 'Un-Registered'}</td>
                   </tr>
                 </tbody>
               </table>
@@ -335,18 +365,7 @@ class DetailsSection extends React.Component {
             <p>DESCRIPTION</p>
           </div>
           <div className={DetailsSectionCss.details}>
-            <p>
-              This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh
-              vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum
-              autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit
-              auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi
-              elit consquatl ipsum .Proin gravida nibh vel velit auctor aliqut.
-              Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl
-              ipsum .Proin gravida nibh vel velit auctor aliqut. Aenea
-              solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum
-              .Proin gravida nibh vel velit auctor aliqut. Aenea solicitun,
-              lorem qus bibendum autos, nisi elit consquatl ipsum
-            </p>
+            <p>{product.description}</p>
           </div>
         </div>
       </div>

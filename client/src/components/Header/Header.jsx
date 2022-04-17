@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import HeaderCss from './Header.module.scss'
-
 // Router
 import { Link, withRouter } from 'react-router-dom'
 //Redux
@@ -13,6 +12,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOutStart()),
 })
+
+// export const signingOut = signo
 const Header = ({ url, user, signOut }) => {
   const [hidden, sethidden] = useState(true)
   const toggleHidden = () => {

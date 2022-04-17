@@ -3,7 +3,6 @@ import RecentAdsBoxModelCss from './RecentAdsBoxModel.module.scss'
 // Components
 import AdsBoxModel from '../AdsBoxModel1/AdsBoxModel1'
 import Button from '../button/button'
-
 const RecenAdsBoxModel = () => {
   const [view, setView] = useState(false)
   const [viewValue, setViewValue] = useState('VIEW MORE')

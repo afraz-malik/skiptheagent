@@ -12,58 +12,76 @@ const App = () => {
     email: '',
     password: '',
     confirmpassword: '',
+    checkbox: false,
   })
 
   const onSubmitHandler = (event) => {
-    event.preventDefault()
-    if (state.confirmpassword === state.password) {
-      if (state.password.lenght || state.confirmpassword.length < 6) {
-        toast.error('Password Length Must be at least 6 character Long')
+    // event.preventDefault()
+    toast.dismiss()
+    Object.keys(state).map((st) => {
+      if (!state[st]) {
+        toast.error(`Please enter ${st}`)
         return
       }
-      // setUser(state)
-      var myHeaders = new Headers()
-      myHeaders.append('Content-Type', 'application/json')
+    })
 
-      var raw = JSON.stringify({
-        name: state.name,
-        email: state.email,
-        password: state.password,
-        phone: '032482304923',
-      })
-
-      var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow',
-      }
-      setisLoading(true)
-      fetch('http://localhost:5000/api/user/register/', requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-          if (result.success) {
-            toast.success('User Registered Successfully')
-            setstate({
-              name: '',
-              email: '',
-              password: '',
-              confirmpassword: '',
-            })
-            setisLoading(false)
-          } else {
-            throw new Error(result.message)
-          }
-        })
-        .catch((error) => {
-          setisLoading(false)
-
-          toast.error(error.message)
-        })
-    } else {
-      toast.error('Password and confirm does not match')
+    if (!/^[A-Za-z ]+$/.test(state.name)) {
+      toast.error('Name is invalid - Only use alphabets')
+      return
     }
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(state.email)) {
+      toast.error('Email is invalid')
+      return
+    }
+    if (state.confirmpassword !== state.password) {
+      toast.error('Password and confirm password does not match')
+      return
+    }
+    if (state.password.length < 6 || state.confirmpassword.length < 6) {
+      toast.error('Password Length Must be at least 6 character Long')
+      return
+    }
+
+    // setUser(state)
+    var myHeaders = new Headers()
+    myHeaders.append('Content-Type', 'application/json')
+
+    var raw = JSON.stringify({
+      name: state.name,
+      email: state.email,
+      password: state.password,
+      phone: '032482304923',
+    })
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    }
+    setisLoading(true)
+    fetch('http://localhost:5000/api/user/register/', requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.success) {
+          toast.success('User Registered Successfully')
+          setstate({
+            name: '',
+            email: '',
+            password: '',
+            confirmpassword: '',
+          })
+          setisLoading(false)
+        } else {
+          throw new Error(result.message)
+        }
+      })
+      .catch((error) => {
+        setisLoading(false)
+        toast.error(error.message)
+      })
   }
+  // console.log(state)
   const handleChange = (event) => {
     setstate({
       ...state,
@@ -82,7 +100,7 @@ const App = () => {
                     <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                       Sign up
                     </p>
-                    <form className="mx-1 mx-md-4" onSubmit={onSubmitHandler}>
+                    <form className="mx-1 mx-md-4">
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-user fa-lg me-3 fa-fw" />
                         <div className="form-outline flex-fill mb-0">
@@ -93,7 +111,7 @@ const App = () => {
                             Your Name
                           </label>
                           <input
-                            required
+                            // required
                             type="text"
                             id="form3Example1c"
                             name="name"
@@ -113,7 +131,7 @@ const App = () => {
                             Your Email
                           </label>
                           <input
-                            required
+                            // required
                             type="email"
                             id="form3Example3c"
                             className="form-control"
@@ -133,7 +151,7 @@ const App = () => {
                             Password
                           </label>
                           <input
-                            required
+                            // required
                             type="password"
                             id="form3Example4c"
                             className="form-control"
@@ -150,10 +168,10 @@ const App = () => {
                             className="form-label"
                             htmlFor="form3Example4cd"
                           >
-                            Repeat your password
+                            Confirm your password
                           </label>
                           <input
-                            required
+                            // required
                             type="password"
                             id="form3Example4cd"
                             className="form-control"
@@ -165,10 +183,14 @@ const App = () => {
                       </div>
                       <div className="form-check d-flex justify-content-center mb-5">
                         <input
-                          required
+                          // required
                           className="form-check-input me-2"
                           type="checkbox"
-                          defaultValue
+                          // defaultValue
+                          value={state.checkbox}
+                          onClick={() =>
+                            setstate({ ...state, checkbox: !state.checkbox })
+                          }
                           id="form2Example3c"
                         />
                         <label
@@ -181,8 +203,9 @@ const App = () => {
                       </div>
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button
-                          type="submit"
+                          type="button"
                           className="btn btn-primary btn-lg"
+                          onClick={() => onSubmitHandler()}
                         >
                           Register
                         </button>
@@ -205,7 +228,7 @@ const App = () => {
       {isLoading ? <Spinner /> : null}
       <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={false}
         hideProgressBar
         newestOnTop={false}
         closeOnClick

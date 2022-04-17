@@ -19,7 +19,7 @@ const maptDispatchToProps = (dispatch) => ({
 
 const SignUpBox = ({ url, setUser, isLoading }) => {
   const [userCrendential, setUserCrendential] = useState({
-    name: null,
+    displayName: null,
     email: null,
     password: null,
     confirmpassword: null,
@@ -46,7 +46,7 @@ const SignUpBox = ({ url, setUser, isLoading }) => {
           <form className={SignUpBoxCss.signUpForm} onSubmit={onSubmitHandler}>
             <input
               type="text"
-              name="name"
+              name="displayName"
               placeholder="Full Name"
               onChange={handleChange}
               required
@@ -89,7 +89,7 @@ const SignUpBox = ({ url, setUser, isLoading }) => {
             {/* <input type="submit" name="login" value="CREATE ACCOUNT" /> */}
           </form>
           <div className={SignUpBoxCss.afterform}>
-            <div className={SignUpBoxCss.socialtext}>
+            {/* <div className={SignUpBoxCss.socialtext}>
               <p>
                 <span>Or Sign in with your social network</span>
               </p>
@@ -105,7 +105,7 @@ const SignUpBox = ({ url, setUser, isLoading }) => {
                   <img alt="" src="images\googlesignin.png" />
                 </Link>
               </div>
-            </div>
+            </div> */}
             <div className={SignUpBoxCss.signin}>
               <p>
                 By clicking the buttons above, you are agreeing to our Terms of

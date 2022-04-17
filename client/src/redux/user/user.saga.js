@@ -1,4 +1,4 @@
-import { put, takeLatest } from 'redux-saga/effects'
+import { put, takeLatest, select } from 'redux-saga/effects'
 import {
   signInFailed,
   signInSuccess,
@@ -17,14 +17,20 @@ import {
   updateUserinFirebase,
   storage,
 } from '../../firebase/firebase.config'
-
+import { fetchPost } from '../../services/config'
+import { toast } from 'react-toastify'
 export function* settingUserPersistence() {
-  const user = yield isUserAuthenticated()
-  const userRef = yield createUserInFirebase(user)
-  if (userRef) {
-    const snapshot = yield userRef.get()
-    const firebaseUser = snapshot.data()
-    yield put(signInSuccess(firebaseUser))
+  // const user = yield isUserAuthenticated()
+  // const userRef = yield createUserInFirebase(user)
+  // if (userRef) {
+  //   const snapshot = yield userRef.get()
+  //   const firebaseUser = snapshot.data()
+  //   yield put(signInSuccess(firebaseUser))
+  // }
+  const user = yield localStorage.getItem('user')
+  if (user) {
+    // console.lo
+    yield put(signInSuccess(JSON.parse(user)))
   }
 }
 export function* settingUserPersistenceStart() {
@@ -33,18 +39,26 @@ export function* settingUserPersistenceStart() {
 
 export function* signUpWithEmail({ payload }) {
   try {
-    const { user } = yield auth.createUserWithEmailAndPassword(
-      payload.email,
-      payload.password
-    )
-    const userRef = yield createUserInFirebase(user, payload.name)
-    if (userRef) {
-      const snapshot = yield userRef.get()
-      const firebaseUser = snapshot.data()
-      yield put(signInSuccess(firebaseUser))
+    // const { user } = yield auth.createUserWithEmailAndPassword(
+    //   payload.email,
+    //   payload.password
+    // )
+    // const userRef = yield createUserInFirebase(user, payload.name)
+    // if (userRef) {
+    //   const snapshot = yield userRef.get()
+    //   const firebaseUser = snapshot.data()
+    //   yield put(signInSuccess(firebaseUser))
+    // }
+    let response = yield fetchPost('user/register/', null, payload)
+    if (response.success && response.user) {
+      yield put(signInSuccess(response.user))
+    } else {
+      throw new Error(response.message)
     }
   } catch (error) {
-    alert(error)
+    yield toast.error(error.message, {
+      // autoClose: false,
+    })
     yield put(signInFailed({ error }))
   }
 }
@@ -53,34 +67,46 @@ export function* signUpWithEmailStart() {
 }
 export function* signInWithEmail({ payload }) {
   try {
-    const { user } = yield auth.signInWithEmailAndPassword(
-      payload.email,
-      payload.password
-    )
-    const userRef = yield createUserInFirebase(user)
-    if (userRef) {
-      const snapshot = yield userRef.get()
-      const firebaseUser = snapshot.data()
-      yield put(signInSuccess(firebaseUser))
+    // const { user } = yield auth.signInWithEmailAndPassword(
+    //   payload.email,
+    //   payload.password
+    // )
+    // const userRef = yield createUserInFirebase(user)
+    // if (userRef) {
+    //   const snapshot = yield userRef.get()
+    //   const firebaseUser = snapshot.data()
+    //   yield put(signInSuccess(firebaseUser))
+    // }
+    let response = yield fetchPost('user/login/', null, payload)
+    if (response.success && response.user) {
+      localStorage.setItem('user', JSON.stringify(response.user))
+      yield put(signInSuccess(response.user))
+    } else {
+      throw new Error(response.message)
     }
   } catch (error) {
     yield put(signInFailed({ error }))
-    alert(error)
+    yield toast.error(error.message, {
+      // autoClose: false,
+    })
   }
 }
 
 export function* signInWithEmailStart() {
   yield takeLatest('SIGN_IN_START', signInWithEmail)
 }
+
 export function* signInWithGoogleSaga() {
   try {
     const { user } = yield signInWithGoogle()
-    const userRef = yield createUserInFirebase(user)
-    if (userRef) {
-      const snapshot = yield userRef.get()
-      const firebaseUser = snapshot.data()
-      yield put(signInSuccess(firebaseUser))
-    }
+    // const userRef = yield createUserInFirebase(user)
+    // if (userRef) {
+    // const snapshot = yield userRef.get()
+    // const firebaseUser = snapshot.data()
+    // yield put(signInSuccess(firebaseUser))
+    let response = yield fetchPost('user/login/google', null, user)
+    console.log(response)
+    // }
   } catch (err) {
     yield put(signInFailed(err.message))
     yield alert(err.message)
@@ -89,11 +115,13 @@ export function* signInWithGoogleSaga() {
 export function* signInWithGoogleStart() {
   yield takeLatest('SIGN_IN_WITH_GOOGLE_START', signInWithGoogleSaga)
 }
+
 export function* signOut() {
   // let user
   // let error = null
   try {
-    yield auth.signOut()
+    // yield auth.signOut()
+    yield localStorage.removeItem('user')
     yield put(signOutSuccess())
   } catch (err) {
     yield alert(err)
@@ -103,6 +131,7 @@ export function* signOut() {
 export function* signOutStart() {
   yield takeLatest('SIGN_OUT_START', signOut)
 }
+
 export function* passwordResetStart({ payload }) {
   try {
     yield auth.sendPasswordResetEmail(payload.email)
@@ -118,26 +147,34 @@ export function* passwordReset() {
 
 export function* updateUser({ payload }) {
   try {
-    console.log(payload)
-    let newPayload = payload.usercredentials
-    const user = yield auth.currentUser
-
-    if (payload.images.images) {
-      var storageRef = yield storage.ref(`/images/${user.uid}/profile.jpg`)
-      const snapshot = yield storageRef.put(payload.images.images)
-      if (snapshot.state === 'success') {
-        const url = yield storageRef.getDownloadURL()
-        if (url) {
-          newPayload = { ...payload.usercredentials, imgurl: url }
-        }
-      }
+    // let newPayload = payload.usercredentials
+    // const user = yield auth.currentUser
+    // if (payload.images.images) {
+    //   var storageRef = yield storage.ref(`/images/${user.uid}/profile.jpg`)
+    //   const snapshot = yield storageRef.put(payload.images.images)
+    //   if (snapshot.state === 'success') {
+    //     const url = yield storageRef.getDownloadURL()
+    //     if (url) {
+    //       newPayload = { ...payload.usercredentials, imgurl: url }
+    //     }
+    //   }
+    // }
+    // yield updateUserinFirebase(user, newPayload)
+    // yield put(updateSuccess(payload.usercredentials))
+    const state = yield select()
+    const token = state.setUser.token
+    let response = yield fetchPost(
+      'user/update',
+      token,
+      payload.usercredentials
+    )
+    if (response.success) {
+      yield put(updateSuccess(payload.usercredentials))
+    } else {
+      throw new Error(response.message)
     }
-    yield updateUserinFirebase(user, newPayload)
-    yield put(updateSuccess(payload.usercredentials))
-    // yield put(signInSuccess(payload))
-    // yield settingUserPersistence()`
   } catch (err) {
-    alert(err.message)
+    yield toast.error(err.message)
     yield put(updateFailed(err))
   }
 }

@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 function getToken(id) {
   return jwt.sign({ data: id }, process.env.JWT_PRIVATE_KEY, {
-    expiresIn: 60,
+    expiresIn: '365d',
   })
 }
 function validateToken(headers) {

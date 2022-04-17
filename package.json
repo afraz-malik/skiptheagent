@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "cd test-client && npm start",
+    "client": "cd client && npm start",
+    "client:test": "cd test-client && npm start",
     "server": "nodemon src/server.js",
     "build": "cd client && npm run build",
+    "start:test": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client:test\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },

@@ -57,7 +57,6 @@ const DashboardProfile = ({ user, isLoading }) => {
     // if (images == null) return
     // dispatch(imageUpload(images))
   }
-  console.log(user)
   return (
     <div className={DashboardProfileCss.container}>
       <BoxModel title="Profile">

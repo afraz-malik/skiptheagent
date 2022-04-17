@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 // Components
 import ListingCards from '../ListingCards/listingcards'
 
-const ListingBox = ({ logged, rows }) => {
+const ListingBox = ({ logged, products }) => {
   return (
     <div className={ListingBoxModelCss.boxmodel}>
       <div className={ListingBoxModelCss.boxmodel_topbar}>
@@ -30,8 +30,8 @@ const ListingBox = ({ logged, rows }) => {
         </div>
       </div>
       <div className={ListingBoxModelCss.boxmodel_body}>
-        {[...Array(rows)].map((i, j) => (
-          <ListingCards key={j} logged={logged} />
+        {products.map((product, j) => (
+          <ListingCards key={j} product={product} logged={logged} />
         ))}
       </div>
       <div className={ListingBoxModelCss.boxmodel_topbar}>

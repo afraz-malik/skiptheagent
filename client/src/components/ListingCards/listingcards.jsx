@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 // Components
 import Button from '../button/button'
 
-const ListingCards = ({ url, logged }) => {
+const ListingCards = ({ product, url, logged }) => {
   const [src, setSrc] = useState('images/like.png')
   const manageLike = () => {
     if (src === 'images/liked.png') {
@@ -27,20 +27,15 @@ const ListingCards = ({ url, logged }) => {
         <div className={ListingCardsCss['cardtop']}>
           <div className={ListingCardsCss['cardname']}>
             <Link to={`/details`}>
-              <p>2019 Fiat 124 Spider</p>
+              <p>{product.car_info}</p>
             </Link>
           </div>
           <div className={ListingCardsCss['cardprice']}>
-            <p>$22,547</p>
+            <p>${product.selling.price}</p>
           </div>
         </div>
         <div className={ListingCardsCss['carddetails']}>
-          <p>
-            This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh
-            vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos,
-            nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor
-            aliqut.
-          </p>
+          <p>{product.description}</p>
         </div>
         <div className={ListingCardsCss['cardpoints']}>
           <div className={ListingCardsCss['cardpickups']}>
@@ -48,7 +43,7 @@ const ListingCards = ({ url, logged }) => {
               <img alt="" src="images\placeholder.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
-              <p>Paris</p>
+              <p>{product.city}</p>
             </div>
           </div>
           <div className={ListingCardsCss['cardpickups']}>
@@ -56,7 +51,7 @@ const ListingCards = ({ url, logged }) => {
               <img alt="" src="images\calendar.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
-              <p>2019</p>
+              <p>{product.model}</p>
             </div>
           </div>
           <div className={ListingCardsCss['cardpickups']}>
@@ -64,7 +59,7 @@ const ListingCards = ({ url, logged }) => {
               <img alt="" src="images\meter.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
-              <p>3,200 KM</p>
+              <p>{product.mileage_km} KM</p>
             </div>
           </div>
           <div className={ListingCardsCss['cardpickups']}>
@@ -72,7 +67,7 @@ const ListingCards = ({ url, logged }) => {
               <img alt="" src="images\fuel.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
-              <p>Hybrid</p>
+              <p>{product.details.engine_type}</p>
             </div>
           </div>
           <div className={ListingCardsCss['cardpickups']}>
@@ -80,7 +75,7 @@ const ListingCards = ({ url, logged }) => {
               <img alt="" src="images\lightning.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
-              <p>2000CC</p>
+              <p>{product.details.engine_capacity} CC</p>
             </div>
           </div>
           <div className={ListingCardsCss['cardpickups']}>
@@ -88,13 +83,13 @@ const ListingCards = ({ url, logged }) => {
               <img alt="" src="images\transmission.png" />
             </div>
             <div className={ListingCardsCss['cardpickup2']}>
-              <p>Automatic</p>
+              <p>{product.details.transmission}</p>
             </div>
           </div>
         </div>
         <div className={ListingCardsCss['cardbottom']}>
           <div className={ListingCardsCss['lastupdate']}>
-            <p>Last updated: 24 min ago</p>
+            <p>Last updated:{product.last_updated} min ago</p>
           </div>
           {logged ? (
             <div className={ListingCardsCss['deleteEdit']}>

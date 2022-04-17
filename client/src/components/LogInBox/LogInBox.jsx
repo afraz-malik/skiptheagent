@@ -64,12 +64,12 @@ const LoginBox = ({ url, isLoading, googleSignIn, setUser }) => {
             </Button>
           </form>
           <div className={LoginBoxCss.afterform}>
-            <div className={LoginBoxCss.socialtext}>
+            {/*<div className={LoginBoxCss.socialtext}>
               <p>
                 <span>Or Sign in with your social network</span>
               </p>
             </div>
-            <div className={LoginBoxCss.sociallinks}>
+             <div className={LoginBoxCss.sociallinks}>
               <div className={LoginBoxCss.fbsingin}>
                 <Link to="#dummy">
                   <img
@@ -88,7 +88,7 @@ const LoginBox = ({ url, isLoading, googleSignIn, setUser }) => {
                   />
                 </Link>
               </div>
-            </div>
+            </div> */}
             <div className={LoginBoxCss.signup}>
               <p>
                 Don't have an account?

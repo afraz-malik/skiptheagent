@@ -4,7 +4,16 @@ const notFound = (req, res, next) => {
   next(error)
 }
 const errorHandler = (err, req, res, next) => {
-  const statusCode = res.statusCode === 200 ? 500 : res.statusCode
+  var statusCode = res.statusCode === 200 ? 500 : res.statusCode
+  if (err.message === 'jwt expired') {
+    res.status(401)
+    res.json({
+      message: err.message,
+      stack: err.stack,
+    })
+    res.redirect('/login')
+    return
+  }
   res.status(statusCode)
   res.json({
     message: err.message,
