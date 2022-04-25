@@ -8,6 +8,9 @@ import Ownershipform from '../../components/Ownershipform/Ownershipform'
 import Footer from '../../components/Footer/Footer'
 
 class Details extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   render() {
     return (
       <div>

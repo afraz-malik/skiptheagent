@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdsBoxModelCss from './AdsBoxModel.module.scss'
 
 // Components
 import BoxModel from '../boxModel/boxModel'
 import AdsBoxModelGen from '../AdsBoxModelGen/AdsBoxModelGen'
-import { products } from '../../services/products'
+// import { products as pd } from '../../services/products'
+import { API, fetchGet } from '../../services/config.js'
 
 const AdsBoxModel = ({ view, view2 }) => {
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    fetchGet(API.getRecentAds).then((res) => {
+      console.log(res)
+      setProducts(res)
+    })
+  }, [])
+
   const scrollLeft = () => {
     const box = document.getElementsByClassName('scroll')[0]
     box.scrollLeft += 500
@@ -29,15 +38,15 @@ const AdsBoxModel = ({ view, view2 }) => {
         scrollLeft={scrollLeft}
         scrollRight={scrollRight}
       >
-        {[...Array(value)].map((i, j) => (
-          <div className={AdsBoxModelCss.boxmodel_body} key={j}>
-            <div className={`${AdsBoxModelCss.add_cards} scroll`}>
-              {products.map((product, j) => (
-                <AdsBoxModelGen key={j} product={product} />
-              ))}
-            </div>
+        {/* {[...Array(value)].map((i, j) => ( */}
+        <div className={AdsBoxModelCss.boxmodel_body}>
+          <div className={`${AdsBoxModelCss.add_cards} scroll`}>
+            {products.map((product, j) => (
+              <AdsBoxModelGen key={j} product={product} />
+            ))}
           </div>
-        ))}
+        </div>
+        {/* // ))} */}
       </BoxModel>
     </div>
   )

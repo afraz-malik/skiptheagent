@@ -14,6 +14,9 @@ import DashboardPostAd from '../../components/DashboardPostAd/DashboardPostAd'
 import Footer from '../../components/Footer/Footer'
 
 class Dashboard extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   render() {
     const { match } = this.props
     return (

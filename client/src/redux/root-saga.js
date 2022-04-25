@@ -8,6 +8,7 @@ import {
   passwordReset,
   updateUserStart,
   passwordchangeStart,
+  passwordForgot,
 } from './user/user.saga'
 
 export default function* rootSaga() {
@@ -20,5 +21,6 @@ export default function* rootSaga() {
     call(passwordReset),
     call(updateUserStart),
     call(passwordchangeStart),
+    call(passwordForgot),
   ])
 }

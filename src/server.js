@@ -1,6 +1,6 @@
-const http = require('http')
-const app = require('./app')
-const { mongoConnect } = require('./services/mongo.js')
+import http from 'http'
+import app from './app.js'
+import { mongoConnect } from './services/mongo.js'
 
 const server = http.createServer(app)
 async function startServer() {

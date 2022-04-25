@@ -1,12 +1,11 @@
-const express = require('express')
-const { errorHandler, notFound } = require('./middlewares/errorMiddleware')
-const userRouter = require('./routes/user.route')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const path = require('path')
-const dotenv = require('dotenv')
+import express from 'express'
+import { errorHandler, notFound } from './middlewares/errorMiddleware.js'
+import bodyParser from 'body-parser'
+import cors from 'cors'
+import path from 'path'
+import dotenv from 'dotenv'
+import router from './routes/router.js'
 dotenv.config()
-// console.log(require('dotenv').config())
 
 const app = express()
 
@@ -24,15 +23,18 @@ app.use((req, res, next) => {
 })
 
 // if (process.env.NODE_ENV !=== 'production') {
-app.use(express.static(path.join(__dirname, 'client/build')))
+// app.use(express.static(path.join(__dirname, 'client/build')))
 
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-})
+// app.get('*', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+// })
 // }
 app.get('/', (req, res) => res.send('Server is running'))
-app.use('/api/user', userRouter)
+app.use('/api', router)
+// app.use('/api/user', userRouter)
+
+// app.use('/api/ads', adsRouter)
 app.use(notFound)
 app.use(errorHandler)
 
-module.exports = app
+export default app

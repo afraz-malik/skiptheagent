@@ -2,11 +2,11 @@ import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
 const Schema = mongoose.Schema
 
-const userSchema = new Schema(
+const adminSchema = new Schema(
   {
     loginId: {
       type: Schema.Types.ObjectId,
-      ref: 'admins',
+      ref: 'logins',
       required: [true, 'loginId. id is a required field'],
     },
     displayName: {
@@ -39,4 +39,4 @@ const userSchema = new Schema(
   }
 )
 
-export default mongoose.model('users', userSchema)
+export default mongoose.model('admins', adminSchema)

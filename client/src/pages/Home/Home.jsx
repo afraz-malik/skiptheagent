@@ -11,6 +11,9 @@ import Banner from '../../components/Banner/banner'
 import Footer from '../../components/Footer/Footer'
 
 class Home extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   render() {
     return (
       <div>

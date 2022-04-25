@@ -42,6 +42,18 @@ export const passwordResetFailed = (err) => ({
   type: 'PASSWORD_RESET_FAILED',
   payload: err,
 })
+export const passwordForgotAction = (payload) => ({
+  type: 'PASSWORD_FORGOT_START',
+  payload: payload,
+})
+export const passwordForgotSuccess = () => ({
+  type: 'PASSWORD_FORGOT_SUCCESS',
+})
+export const passwordForgotFailed = (err) => ({
+  type: 'PASSWORD_FORGOT_FAILED',
+  payload: err,
+})
+
 export const passwordChange = (payload) => ({
   type: 'PASSWORD_CHANGE_START',
   payload: payload,

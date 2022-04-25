@@ -11,7 +11,7 @@ const AdsBoxModelGen = ({ product }) => {
       <li>
         <div className={AdsBoxModelGenCss.cards}>
           <div className={AdsBoxModelGenCss.add_img}>
-            <Link to={`/details?productId=${product.id}`}>
+            <Link to={`/details?productId=${product._id}`}>
               <img alt="" src="images\honda-city-2016.jpg" />
             </Link>
           </div>

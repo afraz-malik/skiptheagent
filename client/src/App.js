@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 //React Router
-import { Switch, Route, Redirect, HashRouter as Router } from 'react-router-dom'
+import { Switch, Route, Redirect, Router } from 'react-router-dom'
 
 //Redux
 import { isUserAuthenticated } from './redux/user/user.actions'
@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify'
 //Components
 import { Spinner } from './components/spinner/spinner'
 import 'react-toastify/dist/ReactToastify.css'
+import createBrowserHistory from 'history/createBrowserHistory'
 
 //Pages
 // import Home from './pages/Home/Home'
@@ -38,6 +39,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   isUserAuthenticated: () => dispatch(isUserAuthenticated()),
 })
+export const history = createBrowserHistory()
 
 class App extends React.Component {
   componentDidMount() {
@@ -56,7 +58,7 @@ class App extends React.Component {
     const { user } = this.props
     return (
       <>
-        <Router>
+        <Router history={history}>
           <Suspense fallback={<Spinner />}>
             <Switch>
               <Route exact path={`/`} component={Home} />

@@ -14,12 +14,12 @@ const RecenAdsBoxModel = () => {
   }
   return (
     <div>
-      <AdsBoxModel view={view} view2={true} />
-      <div className={RecentAdsBoxModelCss.more}>
+      <AdsBoxModel view={view} view2={false} />
+      {/* <div className={RecentAdsBoxModelCss.more}>
         <Button viewmore="true" onClick={() => channgeView()}>
           {`${viewValue}`}
         </Button>
-      </div>
+      </div> */}
     </div>
   )
 }

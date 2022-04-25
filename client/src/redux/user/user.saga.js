@@ -1,4 +1,5 @@
 import { put, takeLatest, select } from 'redux-saga/effects'
+import { history } from '../../App.js'
 import {
   signInFailed,
   signInSuccess,
@@ -8,6 +9,8 @@ import {
   passwordResetFailed,
   updateSuccess,
   updateFailed,
+  passwordForgotFailed,
+  passwordForgotSuccess,
 } from './user.actions'
 import {
   auth,
@@ -17,7 +20,7 @@ import {
   updateUserinFirebase,
   storage,
 } from '../../firebase/firebase.config'
-import { fetchPost } from '../../services/config'
+import { API, fetchPost } from '../../services/config'
 import { toast } from 'react-toastify'
 export function* settingUserPersistence() {
   // const user = yield isUserAuthenticated()
@@ -49,7 +52,7 @@ export function* signUpWithEmail({ payload }) {
     //   const firebaseUser = snapshot.data()
     //   yield put(signInSuccess(firebaseUser))
     // }
-    let response = yield fetchPost('user/register/', null, payload)
+    let response = yield fetchPost(API.register, null, payload)
     if (response.success && response.user) {
       yield put(signInSuccess(response.user))
     } else {
@@ -77,7 +80,7 @@ export function* signInWithEmail({ payload }) {
     //   const firebaseUser = snapshot.data()
     //   yield put(signInSuccess(firebaseUser))
     // }
-    let response = yield fetchPost('user/login/', null, payload)
+    let response = yield fetchPost(API.login, null, payload)
     if (response.success && response.user) {
       localStorage.setItem('user', JSON.stringify(response.user))
       yield put(signInSuccess(response.user))
@@ -104,7 +107,7 @@ export function* signInWithGoogleSaga() {
     // const snapshot = yield userRef.get()
     // const firebaseUser = snapshot.data()
     // yield put(signInSuccess(firebaseUser))
-    let response = yield fetchPost('user/login/google', null, user)
+    let response = yield fetchPost(API.googleLogin, null, user)
     console.log(response)
     // }
   } catch (err) {
@@ -134,15 +137,37 @@ export function* signOutStart() {
 
 export function* passwordResetStart({ payload }) {
   try {
-    yield auth.sendPasswordResetEmail(payload.email)
-    yield put(passwordResetSuccess())
+    // yield auth.sendPasswordResetEmail(payload.email)
+    let response = yield fetchPost(API.passwordForgot, null, {
+      email: payload.email,
+    })
+    if (response) yield put(passwordResetSuccess())
   } catch (err) {
     yield put(passwordResetFailed(err))
-    alert(err.message)
+    toast.error(err.message)
   }
 }
 export function* passwordReset() {
   yield takeLatest('PASSWORD_RESET_START', passwordResetStart)
+}
+
+export function* passwordForgotStart({ payload }) {
+  try {
+    // yield auth.sendpasswordForgotEmail(payload.email)
+    let response = yield fetchPost(API.passwordReset, null, payload)
+
+    if (response) {
+      yield put(passwordForgotSuccess())
+      toast.success('Password Changed Successfully')
+      history.push('/login')
+    }
+  } catch (err) {
+    yield put(passwordForgotFailed(err))
+    toast.error(err.message)
+  }
+}
+export function* passwordForgot() {
+  yield takeLatest('PASSWORD_FORGOT_START', passwordForgotStart)
 }
 
 export function* updateUser({ payload }) {
@@ -164,7 +189,7 @@ export function* updateUser({ payload }) {
     const state = yield select()
     const token = state.setUser.token
     let response = yield fetchPost(
-      'user/update',
+      API.updateUser,
       token,
       payload.usercredentials
     )

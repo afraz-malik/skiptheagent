@@ -19,14 +19,14 @@ const ListingCards = ({ product, url, logged }) => {
   return (
     <div className={ListingCardsCss['listingcards']}>
       <div className={ListingCardsCss['leftcard']}>
-        <Link to={`/details`}>
+        <Link to={`/details?productId=${product._id}`}>
           <img alt="" src="images\listingcar.jpg" />
         </Link>
       </div>
       <div className={ListingCardsCss['rightcard']}>
         <div className={ListingCardsCss['cardtop']}>
           <div className={ListingCardsCss['cardname']}>
-            <Link to={`/details`}>
+            <Link to={`/details?productId=${product._id}`}>
               <p>{product.car_info}</p>
             </Link>
           </div>

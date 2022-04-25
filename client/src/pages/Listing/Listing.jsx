@@ -8,6 +8,9 @@ import Banner from '../../components/Banner/banner'
 import Footer from '../../components/Footer/Footer'
 
 class Listing extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
   render() {
     return (
       <div>

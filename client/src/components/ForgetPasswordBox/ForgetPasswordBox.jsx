@@ -5,6 +5,7 @@ import { connect, useDispatch } from 'react-redux'
 import {
   passwordResetAction,
   passwordChange,
+  passwordForgotAction,
 } from '../../redux/user/user.actions'
 // Components
 import BoxModel from '../boxModel/boxModel'
@@ -19,10 +20,14 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
   const dispatch = useDispatch()
   useEffect(() => {
     if (success === 1) {
-      setBox({ input: false, info: true, password: false })
+      setBox({ input: false, info: false, password: true })
     }
   }, [success])
   const [email, setEmail] = useState('')
+  const [passwordReset, setPasswordReset] = useState({
+    password: '',
+    confirmPassword: '',
+  })
   const [box, setBox] = useState({ input: true, info: false, password: false })
   const closeBox = (index2) => () => {
     if (index2 === 0) {
@@ -45,7 +50,16 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
   if (box.input === false && box.info === false && box.password === false) {
     setBox({ ...box, input: true })
   }
-
+  const handleResetPasswordSubmit = (event) => {
+    event.preventDefault()
+    dispatch(
+      passwordForgotAction({
+        email: email.email,
+        password: passwordReset.password,
+        confirmPassword: passwordReset.confirmPassword,
+      })
+    )
+  }
   return (
     <div>
       <div
@@ -110,17 +124,31 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
             className={`${ForgetPasswordCss.boxmodel_body} ${ForgetPasswordCss.boxmodel_body3}`}
           >
             <div className={ForgetPasswordCss.bodytext}>
-              <p>For maqware21@gmail.com</p>
+              <p>For {email.email || ''} </p>
             </div>
-            <form>
+            <form onSubmit={handleResetPasswordSubmit}>
               <input
                 type="password"
                 name="password"
                 placeholder="New Password"
+                onChange={(event) =>
+                  setPasswordReset({
+                    ...passwordReset,
+                    password: event.target.value,
+                  })
+                }
+                value={passwordReset.password}
               />
               <input
                 type="password"
                 name="password"
+                onChange={(event) =>
+                  setPasswordReset({
+                    ...passwordReset,
+                    confirmPassword: event.target.value,
+                  })
+                }
+                value={passwordReset.confirmPassword}
                 placeholder="Confirm New Password"
               />
               <Button type="submit" name="login" login="login">
@@ -139,7 +167,7 @@ export const SingleForgetBox = ({ close, email }) => {
   const dispatch = useDispatch()
   const [password, setPassword] = useState({
     password: '',
-    confirmpassword: '',
+    confirmPassword: '',
     error: '',
   })
   const handleChange = (event) => {
@@ -151,9 +179,9 @@ export const SingleForgetBox = ({ close, email }) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (password.password === '' || password.confirmpassword === '') {
+    if (password.password === '' || password.confirmPassword === '') {
       setPassword({ ...password, error: 'Field Cannot be empty' })
-    } else if (password.password === password.confirmpassword) {
+    } else if (password.password === password.confirmPassword) {
       dispatch(passwordChange(password.password))
       close()
     } else {
@@ -185,9 +213,9 @@ export const SingleForgetBox = ({ close, email }) => {
                 />
                 <input
                   type="password"
-                  name="confirmpassword"
+                  name="confirmPassword"
                   placeholder="Confirm New Password"
-                  value={password.confirmpassword}
+                  value={password.confirmPassword}
                   onChange={handleChange}
                 />
                 {password.error ? (

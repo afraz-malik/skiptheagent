@@ -117,6 +117,9 @@
 .boxmodel_bottombar a:hover {
   text-decoration: underline;
 }
+.boxmodel_body h5 {
+  text-align: center;
+}
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops

@@ -1,9 +1,9 @@
-const notFound = (req, res, next) => {
+export const notFound = (req, res, next) => {
   const error = new Error(`Not Found - ${req.originalUrl}`)
   res.status(404)
   next(error)
 }
-const errorHandler = (err, req, res, next) => {
+export const errorHandler = (err, req, res, next) => {
   var statusCode = res.statusCode === 200 ? 500 : res.statusCode
   if (err.message === 'jwt expired') {
     res.status(401)
@@ -20,5 +20,3 @@ const errorHandler = (err, req, res, next) => {
     stack: err.stack,
   })
 }
-
-module.exports = { notFound, errorHandler }

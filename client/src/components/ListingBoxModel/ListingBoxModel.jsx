@@ -30,6 +30,11 @@ const ListingBox = ({ logged, products }) => {
         </div>
       </div>
       <div className={ListingBoxModelCss.boxmodel_body}>
+        {products.length === 0 && (
+          <h5>
+            <i>No Ads Found</i>
+          </h5>
+        )}
         {products.map((product, j) => (
           <ListingCards key={j} product={product} logged={logged} />
         ))}
