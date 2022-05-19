@@ -27,11 +27,16 @@ export const setUser = (state = initialSignUpState, action) => {
         error: null,
         success: 1,
       })
+    case 'CLEAR_SUCCESS':
+      return Object.assign({}, state, {
+        success: 0,
+      })
     case 'SIGN_OUT_SUCCESS':
       return Object.assign({}, state, {
         loading: false,
         user: null,
         error: null,
+        token: null,
         success: 1,
       })
 

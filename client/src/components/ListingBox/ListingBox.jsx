@@ -4,18 +4,61 @@ import ListingBoxCss from './ListingBox.module.css'
 // Components
 import SideMenu from '../SideMenu/SideMenu'
 import ListingBoxModel from '../ListingBoxModel/ListingBoxModel'
-import { products } from '../../services/products'
-import { API, fetchGet } from '../../services/config.js'
+// import { products } from '../../services/products'
+import { API, fetchBackend } from '../../services/config.js'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchListing } from '../../redux/data/data.actions.js'
 
 const ListingBox = ({ logged, rows }) => {
   const [products, setProducts] = useState([])
+  const [filters, setFilters] = useState({
+    sortBy: 'recent',
+    keywords: '',
+    year: '',
+    make: '',
+    model: '',
+    zip: '',
+    price: '',
+    body_type: '',
+    mileage: '',
+    fuel_type: '',
+    engine_type: '',
+    exterior_color: '',
+    transmission_type: '',
+    capacity: '',
+  })
+  let fetching = useSelector((state) => state.dataReducer.fetchListing)
+  const handleFilters = (key, val) => {
+    setFilters({
+      ...filters,
+      [key]: val,
+    })
+  }
+  const dispatch = useDispatch()
   useEffect(() => {
-    fetchGet(API.getAds).then((res) => setProducts(res))
-  }, [])
+    fetchBackend('GET', API.getAds, null, filters).then((res) =>
+      setProducts(res)
+    )
+  }, [filters])
+  useEffect(() => {
+    // console.log(fetching)
+    if (fetching) {
+      fetchBackend('GET', API.getAds, null, filters).then((res) =>
+        setProducts(res)
+      )
+      dispatch(fetchListing(false))
+    }
+    // eslint-disable-next-line
+  }, [fetching])
   return (
     <div className={ListingBoxCss.section} id="img">
-      <SideMenu />
-      <ListingBoxModel products={products} />
+      <SideMenu filters={filters} handleFilters={handleFilters} />
+      <ListingBoxModel
+        products={products}
+        title="USED CARS FOR SALE"
+        filters={filters}
+        handleFilters={handleFilters}
+      />
     </div>
   )
 }

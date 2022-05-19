@@ -15,6 +15,7 @@
   height: 50px;
   align-items: center;
   padding: 10px;
+  width: 100%;
   cursor: pointer;
 }
 .arrow {
@@ -50,9 +51,10 @@
 .insidesecond form {
   display: flex;
   border: 1px solid lightgrey;
+  width: 100%;
 }
 .insidesecond form input[type='text'] {
-  width: 200px;
+  width: 100%;
   border: 0;
   height: 35px;
   font-size: 10px;
@@ -74,7 +76,10 @@
   color: white;
   cursor: pointer;
 }
-
+.current {
+  font-weight: bold;
+  text-decoration: underline;
+}
 @media (min-width: 1281px) {
 }
 

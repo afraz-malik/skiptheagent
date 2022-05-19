@@ -1,4 +1,4 @@
-import { put, takeLatest, select } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 import { history } from '../../App.js'
 import {
   signInFailed,
@@ -14,15 +14,15 @@ import {
 } from './user.actions'
 import {
   auth,
-  isUserAuthenticated,
-  createUserInFirebase,
+  // isUserAuthenticated,
+  // createUserInFirebase,
   signInWithGoogle,
-  updateUserinFirebase,
-  storage,
+  // updateUserinFirebase,
+  // storage,
 } from '../../firebase/firebase.config'
-import { API, fetchPost } from '../../services/config'
+import { API, fetchBackend } from '../../services/config'
 import { toast } from 'react-toastify'
-export function* settingUserPersistence() {
+export function* checkingUserPersistence() {
   // const user = yield isUserAuthenticated()
   // const userRef = yield createUserInFirebase(user)
   // if (userRef) {
@@ -31,13 +31,17 @@ export function* settingUserPersistence() {
   //   yield put(signInSuccess(firebaseUser))
   // }
   const user = yield localStorage.getItem('user')
+  const skipToken = yield localStorage.getItem('skipToken')
   if (user) {
-    // console.lo
-    yield put(signInSuccess(JSON.parse(user)))
+    let tUser = {
+      ...JSON.parse(user),
+      token: skipToken,
+    }
+    yield put(signInSuccess(tUser))
   }
 }
-export function* settingUserPersistenceStart() {
-  yield takeLatest('CHECKING_USER', settingUserPersistence)
+export function* checkingUserPersistenceStart() {
+  yield takeLatest('CHECKING_USER', checkingUserPersistence)
 }
 
 export function* signUpWithEmail({ payload }) {
@@ -52,13 +56,16 @@ export function* signUpWithEmail({ payload }) {
     //   const firebaseUser = snapshot.data()
     //   yield put(signInSuccess(firebaseUser))
     // }
-    let response = yield fetchPost(API.register, null, payload)
+    let response = yield fetchBackend('POST', API.register, payload)
     if (response.success && response.user) {
+      localStorage.setItem('user', JSON.stringify(response.user))
+      localStorage.setItem('skipToken', response.user.token)
       yield put(signInSuccess(response.user))
     } else {
       throw new Error(response.message)
     }
   } catch (error) {
+    yield toast.dismiss()
     yield toast.error(error.message, {
       // autoClose: false,
     })
@@ -80,15 +87,20 @@ export function* signInWithEmail({ payload }) {
     //   const firebaseUser = snapshot.data()
     //   yield put(signInSuccess(firebaseUser))
     // }
-    let response = yield fetchPost(API.login, null, payload)
+    let response = yield fetchBackend('POST', API.login, payload)
+    // console.log(response)
     if (response.success && response.user) {
       localStorage.setItem('user', JSON.stringify(response.user))
+      localStorage.setItem('skipToken', response.user.token)
+
       yield put(signInSuccess(response.user))
     } else {
       throw new Error(response.message)
     }
   } catch (error) {
+    // console.log(error)
     yield put(signInFailed({ error }))
+    yield toast.dismiss()
     yield toast.error(error.message, {
       // autoClose: false,
     })
@@ -107,8 +119,8 @@ export function* signInWithGoogleSaga() {
     // const snapshot = yield userRef.get()
     // const firebaseUser = snapshot.data()
     // yield put(signInSuccess(firebaseUser))
-    let response = yield fetchPost(API.googleLogin, null, user)
-    console.log(response)
+    let response = yield fetchBackend('POST', API.googleLogin, user)
+    // console.log(response)
     // }
   } catch (err) {
     yield put(signInFailed(err.message))
@@ -138,13 +150,15 @@ export function* signOutStart() {
 export function* passwordResetStart({ payload }) {
   try {
     // yield auth.sendPasswordResetEmail(payload.email)
-    let response = yield fetchPost(API.passwordForgot, null, {
-      email: payload.email,
-    })
-    if (response) yield put(passwordResetSuccess())
+    let response = yield fetchBackend('POST', API.passwordForgot, payload)
+    if (response) {
+      yield put(passwordResetSuccess())
+      // console.log(response.url)
+    }
   } catch (err) {
     yield put(passwordResetFailed(err))
-    toast.error(err.message)
+    yield toast.dismiss()
+    yield toast.error(err.message)
   }
 }
 export function* passwordReset() {
@@ -154,16 +168,19 @@ export function* passwordReset() {
 export function* passwordForgotStart({ payload }) {
   try {
     // yield auth.sendpasswordForgotEmail(payload.email)
-    let response = yield fetchPost(API.passwordReset, null, payload)
+    let response = yield fetchBackend('POST', API.passwordReset, payload)
 
     if (response) {
       yield put(passwordForgotSuccess())
+      toast.dismiss()
       toast.success('Password Changed Successfully')
       history.push('/login')
+    } else {
+      throw new Error('Failed')
     }
   } catch (err) {
-    yield put(passwordForgotFailed(err))
-    toast.error(err.message)
+    yield toast.error(err.message)
+    yield put(passwordForgotFailed(err.message))
   }
 }
 export function* passwordForgot() {
@@ -186,19 +203,44 @@ export function* updateUser({ payload }) {
     // }
     // yield updateUserinFirebase(user, newPayload)
     // yield put(updateSuccess(payload.usercredentials))
-    const state = yield select()
-    const token = state.setUser.token
-    let response = yield fetchPost(
-      API.updateUser,
-      token,
-      payload.usercredentials
-    )
-    if (response.success) {
-      yield put(updateSuccess(payload.usercredentials))
+    // const state = yield select()
+    // const token = state.setUser.token
+    if (payload.usercredentials.photo) {
+      const fd = new FormData()
+      Object.keys(payload.usercredentials).forEach((key) => {
+        fd.append(key, payload.usercredentials[key])
+      })
+      // fd.append('photo', payload.usercredentials.img)
+      let response = yield fetchBackend('POST', API.updateUser, fd)
+
+      if (response.success) {
+        yield put(updateSuccess(response.user))
+        localStorage.setItem('user', JSON.stringify(response.user))
+        toast.dismiss()
+
+        toast.success('User Updated Successfully', { autoClose: false })
+      } else {
+        throw new Error(response.message)
+      }
     } else {
-      throw new Error(response.message)
+      let response = yield fetchBackend(
+        'POST',
+        API.updateUser,
+        payload.usercredentials
+      )
+
+      if (response.success) {
+        yield put(updateSuccess(response.user))
+        localStorage.setItem('user', JSON.stringify(response.user))
+        toast.dismiss()
+        // console.log(response)
+        toast.success('User Updated Successfully')
+      } else {
+        throw new Error(response.message)
+      }
     }
   } catch (err) {
+    yield toast.dismiss()
     yield toast.error(err.message)
     yield put(updateFailed(err))
   }

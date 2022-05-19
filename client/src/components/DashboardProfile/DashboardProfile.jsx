@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import DashboardProfileCss from './DashboardProfile.module.scss'
 // Redux
 import { connect, useDispatch } from 'react-redux'
-import { updateUser } from '../../redux/user/user.actions'
+import { updateUser, uploadImages } from '../../redux/user/user.actions'
 // Components
 import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
 import { SingleForgetBox } from '../ForgetPasswordBox/ForgetPasswordBox'
+import { db_url } from '../../services/config.js'
 
 const mapStateToProps = (state) => ({
   user: state.setUser.user,
@@ -17,16 +18,16 @@ const DashboardProfile = ({ user, isLoading }) => {
   const dispatch = useDispatch()
   const [showBox, manageBox] = useState(false)
   const [usercredentials, setUsercredentials] = useState({
-    uid: user.uid,
+    uid: user._id,
     displayName: user.displayName,
     email: user.email,
     zip: user.zip,
-    mobile: user.mobile,
+    phone: user.phone,
     username: user.username,
     gender: user.gender,
     country: user.country,
     city: user.city,
-    imgurl: user.imgurl,
+    blob: user.imgUrl,
   })
   const [images, setimages] = useState([])
   const showBoxFunction = () => {
@@ -44,16 +45,36 @@ const DashboardProfile = ({ user, isLoading }) => {
   const handleImage = (event) => {
     setUsercredentials({
       ...usercredentials,
-      imgurl: URL.createObjectURL(event.target.files[0]),
+      blob: URL.createObjectURL(event.target.files[0]),
     })
-    setimages({
-      images: event.target.files[0],
-    })
+    setimages([event.target.files[0]])
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    // console.log(usercredentials)
-    dispatch(updateUser({ images, usercredentials }))
+    console.log(images)
+    if (images.length > 0) {
+      uploadImages({ payload: images }).then((data) => {
+        dispatch(
+          updateUser({
+            images,
+            usercredentials: {
+              ...usercredentials,
+              imgUrl: data[0],
+            },
+          })
+        )
+      })
+    } else {
+      dispatch(
+        updateUser({
+          images,
+          usercredentials: {
+            ...usercredentials,
+            imgUrl: usercredentials.blob,
+          },
+        })
+      )
+    }
     // if (images == null) return
     // dispatch(imageUpload(images))
   }
@@ -63,7 +84,7 @@ const DashboardProfile = ({ user, isLoading }) => {
         <div className={DashboardProfileCss.body}>
           <div className={DashboardProfileCss.top}>
             {/* <img alt="" src="images\john.png" /> */}
-            <img alt="" src={usercredentials.imgurl} />
+            <img alt="" src={usercredentials.blob} />
             <input type="file" name="img" onChange={handleImage} />
             <h3>PROFILE PICTURE</h3>
             <form onSubmit={handleSubmit}>
@@ -95,10 +116,11 @@ const DashboardProfile = ({ user, isLoading }) => {
                     id="city"
                     value={usercredentials.gender}
                     onChange={handleChange}
+                    defaultValue="Male"
                   >
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <div className={DashboardProfileCss.column}>
@@ -108,20 +130,26 @@ const DashboardProfile = ({ user, isLoading }) => {
                     id="city"
                     value={usercredentials.country}
                     onChange={handleChange}
+                    defaultValue="Canada"
                   >
-                    <option value="1">Canada</option>
-                    <option value="2">Italy</option>
-                    <option value="3">Switzerland</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Switzerland3">Switzerland</option>
                   </select>
                 </div>
               </div>
               <div className={DashboardProfileCss.row}>
                 <div className={DashboardProfileCss.column}>
                   <label>CITY </label>
-                  <select name="city" id="city" onChange={handleChange}>
-                    <option value="1">Alashka</option>
-                    <option value="2">New York</option>
-                    <option value="3">Maldives</option>
+                  <select
+                    name="city"
+                    id="city"
+                    onChange={handleChange}
+                    defaultValue="Alaslka"
+                  >
+                    <option value="Alaska">Alaska</option>
+                    <option value="New York">New York</option>
+                    <option value="Maldives">Maldives</option>
                   </select>
                 </div>
                 <div className={DashboardProfileCss.column}>
@@ -146,15 +174,15 @@ const DashboardProfile = ({ user, isLoading }) => {
                 </div>
                 <div className={DashboardProfileCss.column}>
                   <span>
-                    <label>Mobile Number</label>
+                    <label>phone Number</label>
                     <span className={DashboardProfileCss.error}>
                       &#9888; Not Verified
                     </span>
                   </span>
                   <input
                     type="text"
-                    value={usercredentials.mobile}
-                    name="mobile"
+                    value={usercredentials.phone}
+                    name="phone"
                     onChange={handleChange}
                   />
                 </div>

@@ -1,29 +1,45 @@
 import React, { useState, useEffect } from 'react'
 import ForgetPasswordCss from './ForgetPasswordBox.module.scss'
 // Redux
-import { connect, useDispatch } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import {
   passwordResetAction,
   passwordChange,
   passwordForgotAction,
+  clearSuccess,
 } from '../../redux/user/user.actions'
 // Components
 import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
+import { Link, withRouter } from 'react-router-dom'
 
 const mapStateToProps = (state) => ({
   isLoading: state.setUser.loading,
   success: state.setUser.success,
 })
-const ForgetPasswordBox = ({ isLoading, success }) => {
+const ForgetPasswordBox = ({ isLoading, success, history }) => {
   const dispatch = useDispatch()
   useEffect(() => {
     if (success === 1) {
-      setBox({ input: false, info: false, password: true })
+      setBox({ input: false, info: true, password: false })
     }
   }, [success])
+  useEffect(() => {
+    var url = new URL(window.location.href)
+    // console.log(url)
+    var token = url.searchParams.get('token')
+    var email = url.searchParams.get('email')
+    if (email && token) {
+      setBox({ input: false, info: false, password: true })
+      setEmail(email)
+      settoken(token)
+    }
+    return () => dispatch(clearSuccess())
+  }, [])
+
   const [email, setEmail] = useState('')
+  const [token, settoken] = useState(null)
   const [passwordReset, setPasswordReset] = useState({
     password: '',
     confirmPassword: '',
@@ -41,11 +57,13 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
     }
   }
   const handleChange = (event) => {
-    setEmail({ ...email, [event.target.name]: event.target.value })
+    setEmail(event.target.value)
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(passwordResetAction(email))
+    dispatch(
+      passwordResetAction({ email, path: window.location.origin + '/forget' })
+    )
   }
   if (box.input === false && box.info === false && box.password === false) {
     setBox({ ...box, input: true })
@@ -54,7 +72,8 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
     event.preventDefault()
     dispatch(
       passwordForgotAction({
-        email: email.email,
+        email,
+        token,
         password: passwordReset.password,
         confirmPassword: passwordReset.confirmPassword,
       })
@@ -68,8 +87,8 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
       >
         <BoxModel
           title={'FORGET PASSWORD'}
-          // sidebar={'cancel'}
-          closeBox={closeBox(0)}
+          sidebar={'cancel'}
+          closeBox={() => history.push('/login')}
         >
           <div className={ForgetPasswordCss.boxmodel_body}>
             <div className={ForgetPasswordCss.bodytext}>
@@ -86,6 +105,7 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
               <Button type="submit" name="login" login="login">
                 CHANGE PASSWORD
               </Button>
+              {/* <Link to={'/login'}>Go Back</Link> */}
             </form>
           </div>
         </BoxModel>
@@ -97,7 +117,9 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
         <BoxModel
           title={'FORGET PASSWORD'}
           sidebar={'cancel'}
-          closeBox={closeBox(1)}
+          closeBox={() => {
+            history.push('/login')
+          }}
         >
           <div
             className={`${ForgetPasswordCss.boxmodel_body} ${ForgetPasswordCss.boxmodel_body2}`}
@@ -124,7 +146,7 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
             className={`${ForgetPasswordCss.boxmodel_body} ${ForgetPasswordCss.boxmodel_body3}`}
           >
             <div className={ForgetPasswordCss.bodytext}>
-              <p>For {email.email || ''} </p>
+              <p>For {email || ''} </p>
             </div>
             <form onSubmit={handleResetPasswordSubmit}>
               <input
@@ -165,6 +187,7 @@ const ForgetPasswordBox = ({ isLoading, success }) => {
 
 export const SingleForgetBox = ({ close, email }) => {
   const dispatch = useDispatch()
+  let token = useSelector((state) => state.setUser.token)
   const [password, setPassword] = useState({
     password: '',
     confirmPassword: '',
@@ -182,8 +205,17 @@ export const SingleForgetBox = ({ close, email }) => {
     if (password.password === '' || password.confirmPassword === '') {
       setPassword({ ...password, error: 'Field Cannot be empty' })
     } else if (password.password === password.confirmPassword) {
-      dispatch(passwordChange(password.password))
-      close()
+      // dispatch(passwordChange(password.password))
+
+      dispatch(
+        passwordForgotAction({
+          token,
+          password: password.password,
+          confirmPassword: password.confirmPassword,
+        })
+      )
+
+      // close()
     } else {
       setPassword({ ...password, error: 'Password Not Matched' })
     }
@@ -245,4 +277,4 @@ export const SingleForgetBox = ({ close, email }) => {
     </div>
   )
 }
-export default connect(mapStateToProps, null)(ForgetPasswordBox)
+export default withRouter(connect(mapStateToProps, null)(ForgetPasswordBox))

@@ -1,3 +1,5 @@
+import { API, db_url, fetchBackend } from '../../services/config.js'
+
 export const isUserAuthenticated = () => ({
   type: 'CHECKING_USER',
 })
@@ -31,9 +33,9 @@ export const signOutFailed = () => ({
   type: 'SIGN_OUT_FAILED',
 })
 
-export const passwordResetAction = (email) => ({
+export const passwordResetAction = (payload) => ({
   type: 'PASSWORD_RESET_START',
-  payload: email,
+  payload: payload,
 })
 export const passwordResetSuccess = () => ({
   type: 'PASSWORD_RESET_SUCCESS',
@@ -77,3 +79,47 @@ export const updateFailed = (err) => ({
   type: 'UPDATE_USER_FAILED',
   payload: err,
 })
+
+export const clearSuccess = () => ({
+  type: 'CLEAR_SUCCESS',
+})
+
+export const uploadImages = async ({ payload }) => {
+  // console.log(payload)
+  // Object.keys(payload).forEach((key, i) => {
+  //   fd.append(key, payload[key])
+  // })
+  // fd.append('pho')\
+  // let urls = []
+  // await payload.forEach(async (file) => {
+  //   const fd = new FormData()
+  //   fd.append('photo', file)
+  //   let res = await fetchBackend('Post', API.upload, fd)
+  //   console.log(db_url + '/images/' + res)
+  //   urls.push(`${db_url + '/images/' + res}`)
+  // })
+
+  let allData = payload.map((file) => {
+    const fd = new FormData()
+    fd.append('photo', file)
+    return fetchBackend('Post', API.upload, fd).then(
+      (res) => `${db_url + '/images/' + res}`
+    )
+  })
+  return Promise.all(allData)
+  // Promise.all(requests).then((res) => console.log(res))
+  // console.log(userProfileData)
+  // return urls
+}
+// export const setAddLike = (payload) => ({
+//   type: 'ADD_LIKE_START',
+//   payload: payload,
+// })
+// export const setAddLikeSuccess = (payload) => ({
+//   type: 'ADD_LIKE_SUCCESS',
+//   payload,
+// })
+// export const setAddLikeFailed = (err) => ({
+//   type: 'ADD_LIKE_FAILED',
+//   payload: err,
+// })

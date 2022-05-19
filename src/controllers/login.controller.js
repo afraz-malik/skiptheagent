@@ -4,19 +4,6 @@ import loginModel from '../models/login.model.js'
 import userModel from '../models/user.model.js'
 import { getToken, validateToken } from '../services/jwt.js'
 
-// const getUser = async (loginId) => {
-//   const user = await loginModel.findById(id)
-//   if (!user) {
-//     return false
-//   }
-//   return {
-//     id: user.id,
-//     displayName: user.displayName,
-//     email: user.email,
-//     phone: user.phone,
-//   }
-// }
-
 export const registerAdmin = asyncHandler(async (req, res) => {
   try {
     const user = await loginModel.findOne({ email: req.body.email })
@@ -34,7 +21,7 @@ export const registerAdmin = asyncHandler(async (req, res) => {
         success: 'ok',
         user: {
           ...userModelEntry._doc,
-          token: getToken(userModelEntry.id),
+          token: getToken(loginModelEntery.id),
         },
       })
     } else {
@@ -64,7 +51,7 @@ export const registerUser = asyncHandler(async (req, res) => {
         success: 'ok',
         user: {
           ...userModelEntry._doc,
-          token: getToken(userModelEntry.id),
+          token: getToken(loginModelEntery.id),
         },
       })
     } else {
@@ -91,7 +78,7 @@ export const loginUser = asyncHandler(async (req, res) => {
           message: 'Welcome Admin',
           user: {
             ...userInfo._doc,
-            token: getToken(userInfo.id),
+            token: getToken(loginEntry.id),
           },
         })
       } else {
@@ -104,7 +91,7 @@ export const loginUser = asyncHandler(async (req, res) => {
           message: 'Welcome User',
           user: {
             ...userInfo._doc,
-            token: getToken(userInfo.id),
+            token: getToken(loginEntry.id),
             email: loginEntry.email,
           },
         })
@@ -118,33 +105,39 @@ export const loginUser = asyncHandler(async (req, res) => {
   }
 })
 export const forgetPassword = asyncHandler(async (req, res) => {
-  const { email } = req.body
+  const { email, path } = req.body
 
-  let user = await loginModel.findOne({ email })
-  if (user) {
-    res.json({ success: true })
+  let loginUser = await loginModel.findOne({ email })
+  if (loginUser) {
+    let token = getToken(loginUser.id)
+    res.json({
+      success: true,
+      url: path + '?email=' + email + '&token=' + token,
+    })
   } else {
     res.status(403)
     throw Error('Email not found')
   }
 })
 export const resetPassword = asyncHandler(async (req, res) => {
-  const { email, password, confirmPassword } = req.body
+  const { password, confirmPassword, token } = req.body
   try {
-    let doc = await loginModel.findOne({ email })
-    if (!doc) {
+    let id = validateToken('Bearer ' + token)
+
+    let loginUser = await loginModel.findById(id)
+    if (!loginUser) {
       res.status(403)
       throw new Error('Email not Found')
     }
     if (password !== confirmPassword) {
       throw new Error('Password and confirm password does not matched')
     }
-
-    doc.password = password
-    await doc.save()
+    loginUser.password = password
+    await loginUser.save()
     res.json('success')
   } catch (error) {
-    throw new Error(error.message)
+    // console.log(error.message)
+    throw new Error('Invalid token try requesting again')
   }
 })
 
@@ -153,25 +146,34 @@ export const googleLoginController = asyncHandler(async (req, res) => {
 })
 
 export const updateUser = asyncHandler(async (req, res) => {
+  // console.log(req.body)
   try {
     const id = validateToken(req.headers.authorization)
-    const user = await loginModel.findById(id)
+    const user = await userModel.findOne({ loginId: id })
+    let payload = req.body
     if (user) {
-      await loginModel
-        .updateOne(user, req.body, {
+      await userModel
+        .updateOne(user, payload, {
           upsert: true,
         })
         .then((response) => {
-          response.modifiedCount === 1
-            ? res.status(200).json({ success: 'ok', user: getUser(id) })
-            : res.status(400).json({ error: 'Bad Request' })
+          userModel
+            .findOne({ loginId: id })
+            .then((newUser) => {
+              response.modifiedCount === 1
+                ? res.status(200).json({ success: 'ok', user: newUser })
+                : res.status(400).json({ error: 'Bad Request' })
+            })
+            .catch((err) => new Error(err))
         })
         .catch((err) => new Error(err))
+      // res.status(200).json({ success: 'ok' })
     } else {
       res.status(400)
       throw new Error('User not Found')
     }
   } catch (error) {
+    console.log(error.message)
     throw new Error(error.message)
   }
 })

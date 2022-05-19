@@ -5,7 +5,7 @@ import DetailsSectionCss from './DetailsSection.module.scss'
 import Button from '../button/button'
 
 // import { products } from '../../services/products'
-import { API, fetchGet } from '../../services/config.js'
+import { API, fetchBackend } from '../../services/config.js'
 import { withRouter } from 'react-router-dom'
 import { Spinner } from '../spinner/spinner.jsx'
 const DetailsSection = ({ location }) => {
@@ -22,16 +22,18 @@ const DetailsSection = ({ location }) => {
 
   useEffect(() => {
     getProduct()
+    // eslint-disable-next-line
   }, [])
   useEffect(() => {
     window.scrollTo(0, 0)
     getProduct()
+    // eslint-disable-next-line
   }, [location.search])
 
   const getProduct = () => {
     setState({ ...state, loading: true })
-    fetchGet(API.getAd + location.search.substr(11)).then((res) =>
-      setState({ ...state, product: res })
+    fetchBackend('GET', API.getAd + location.search.substr(11)).then((res) =>
+      setState({ ...state, product: res, source: res.photos[0] })
     )
   }
   const clicked = (value) => {
@@ -82,65 +84,17 @@ const DetailsSection = ({ location }) => {
               </div>
               <div className={DetailsSectionCss.subimg}>
                 <ul>
-                  {/* <li>
-                  <div className={DetailsSectionCss.subimg1}>
-                    <img alt="" src="images\cover.jpg" onClick={(e)=>changeImage(e.target.src)}/>
-                  </div>
-                </li> */}
-                  <li>
-                    <div className={DetailsSectionCss.subimg1}>
-                      <img
-                        alt=""
-                        src="images\cover.jpg"
-                        onClick={(e) => changeImage(e.target.src)}
-                      />
-                    </div>
-                  </li>
-                  <li>
-                    <div className={DetailsSectionCss.subimg1}>
-                      <img
-                        alt=""
-                        src="images\subimg1.jpg"
-                        onClick={(e) => changeImage(e.target.src)}
-                      />
-                    </div>
-                  </li>
-                  <li>
-                    <div className={DetailsSectionCss.subimg1}>
-                      <img
-                        alt=""
-                        src="images\subimg2.jpg"
-                        onClick={(e) => changeImage(e.target.src)}
-                      />
-                    </div>
-                  </li>
-                  <li>
-                    <div className={DetailsSectionCss.subimg1}>
-                      <img
-                        alt=""
-                        src="images\subimg3.jpg"
-                        onClick={(e) => changeImage(e.target.src)}
-                      />
-                    </div>
-                  </li>
-                  <li>
-                    <div className={DetailsSectionCss.subimg1}>
-                      <img
-                        alt=""
-                        src="images\subimg4.jpg"
-                        onClick={(e) => changeImage(e.target.src)}
-                      />
-                    </div>
-                  </li>
-                  <li>
-                    <div className={DetailsSectionCss.subimg1}>
-                      <img
-                        alt=""
-                        src="images\subimg5.jpg"
-                        onClick={(e) => changeImage(e.target.src)}
-                      />
-                    </div>
-                  </li>
+                  {product.photos.map((photo) => (
+                    <li>
+                      <div className={DetailsSectionCss.subimg1}>
+                        <img
+                          alt=""
+                          src={photo}
+                          onClick={(e) => changeImage(e.target.src)}
+                        />
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -187,100 +141,181 @@ const DetailsSection = ({ location }) => {
                 >
                   <tbody>
                     <tr>
-                      {product.features.abs && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\brake.png" />
-                            <p> ABS</p>
-                          </div>
-                        </td>
-                      )}
-                      {product.features.airbags && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\airbag.png" />
-                            <p>Airbags</p>
-                          </div>
-                        </td>
-                      )}
-                      {product.features.am_fm && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\radio.png" />
-                            <p>AM/FM</p>
-                          </div>
-                        </td>
-                      )}
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\brake.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.abs === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            {' '}
+                            ABS
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\airbag.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.airbags === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            Airbags
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\radio.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.am_fm === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            AM/FM
+                          </p>
+                        </div>
+                      </td>
                     </tr>
                     <tr>
-                      {product.features.ac && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\ac.png" />
-                            <p>Air Conditioned</p>
-                          </div>
-                        </td>
-                      )}
-                      {product.features.power_mirrors && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\power.png" />
-                            <p>Power Mirrors</p>
-                          </div>
-                        </td>
-                      )}
-                      {product.features.power_steering && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\steering.png" />
-                            <p>Power Steering</p>
-                          </div>
-                        </td>
-                      )}
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\ac.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.ac === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            Air Conditioned
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\power.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.power_mirrors === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            Power Mirrors
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\steering.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.power_steering === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            Power Steering
+                          </p>
+                        </div>
+                      </td>
                     </tr>
                     <tr>
-                      {product.features.cd_player && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\cd.png" />
-                            <p>CD Player</p>
-                          </div>
-                        </td>
-                      )}
-                      {product.features.cassete && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\cassette.png" />
-                            <p>Cassette</p>
-                          </div>
-                        </td>
-                      )}
-                      {product.features.immobilizer && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\car_key.png" />
-                            <p>Immobilizer Key</p>
-                          </div>
-                        </td>
-                      )}
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\cd.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.cd_player === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            CD Player
+                          </p>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\cassette.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.cassete === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            Cassette
+                          </p>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\car_key.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.immobilizer === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            Immobilizer Key
+                          </p>
+                        </div>
+                      </td>
                     </tr>
                     <tr>
-                      {product.features.power_locks && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\door.png" />
-                            <p>Power Locks</p>
-                          </div>
-                        </td>
-                      )}
-                      {product.features.nav_system && (
-                        <td>
-                          <div className={DetailsSectionCss.td}>
-                            <img alt="" src="images\cardinal.png" />
-                            <p>Navigation System</p>
-                          </div>
-                        </td>
-                      )}
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\door.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.power_locks === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            Power Locks
+                          </p>
+                        </div>
+                      </td>
+                      <td>
+                        <div className={DetailsSectionCss.td}>
+                          <img alt="" src="images\cardinal.png" />
+                          <p
+                            style={{
+                              textDecoration:
+                                product.features.nav_system === false
+                                  ? 'line-through'
+                                  : '',
+                            }}
+                          >
+                            Navigation System
+                          </p>
+                        </div>
+                      </td>
+
                       <td></td>
                     </tr>
                     <tr>

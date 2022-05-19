@@ -1,51 +1,72 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ListingBoxModelCss from './ListingBoxModel.module.css'
 // Router
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 // Components
 import ListingCards from '../ListingCards/listingcards'
+import BoxModel from '../boxModel/boxModel.jsx'
 
-const ListingBox = ({ logged, products }) => {
+const ListingBox = ({ filters, handleFilters, logged, products, title }) => {
+  console.log(products)
+  const [currentPage, setcurrentPage] = useState(1)
+  const paginate = (array, page_size, page_number) => {
+    return array.slice((page_number - 1) * page_size, page_number * page_size)
+  }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [currentPage])
+  const paginateArray = paginate(products, 5, currentPage)
+
+  const pageNumbers = []
+  for (let i = 1; i <= Math.ceil(paginateArray / 5); i++) {
+    pageNumbers.push(i)
+  }
+  let totalPages
+  if (products.length === 0) {
+    totalPages = 1
+  } else {
+    totalPages = Math.ceil(products.length / 5)
+  }
+
+  if (currentPage > totalPages) {
+    setcurrentPage(totalPages)
+  }
+  if (currentPage <= 0) setcurrentPage(1)
   return (
     <div className={ListingBoxModelCss.boxmodel}>
-      <div className={ListingBoxModelCss.boxmodel_topbar}>
-        <div className={ListingBoxModelCss.boxmodel_title}>
-          <p>USED CARS FOR SALE [48631]</p>
+      <BoxModel
+        title={`${title} [${products.length}]`}
+        sortBox
+        borderOff
+        filters={filters}
+        handleFilters={handleFilters}
+      >
+        <div className={ListingBoxModelCss.boxmodel_body}>
+          {products.length === 0 && (
+            <h5>
+              <i>No Ads Found</i>
+            </h5>
+          )}
+          {paginateArray.map((product, j) => (
+            <ListingCards key={j} product={product} logged={logged} />
+          ))}
         </div>
-        <div className={ListingBoxModelCss.extra} />
-        <div className={ListingBoxModelCss.extra} />
-        <div className={ListingBoxModelCss.sortby}>
-          <div className={ListingBoxModelCss.sortby_text}>
-            <p>SORT BY:</p>
-          </div>
-          <div className={ListingBoxModelCss.sortby_box}>
-            <select name="cars" id="city">
-              <option value="volvo">Updated Date: Recent first</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div className={ListingBoxModelCss.boxmodel_body}>
-        {products.length === 0 && (
-          <h5>
-            <i>No Ads Found</i>
-          </h5>
-        )}
-        {products.map((product, j) => (
-          <ListingCards key={j} product={product} logged={logged} />
-        ))}
-      </div>
-      <div className={ListingBoxModelCss.boxmodel_topbar}>
-        <div
-          className={`${ListingBoxModelCss.boxmodel_title} ${ListingBoxModelCss.boxmodel_bottombar}`}
-        >
-          <ul>
-            <li>&lt;</li>
-            <li>
+        <div className={ListingBoxModelCss.boxmodel_topbar}>
+          <div
+            className={`${ListingBoxModelCss.boxmodel_title} ${ListingBoxModelCss.boxmodel_bottombar}`}
+          >
+            <ul>
+              <li onClick={() => setcurrentPage(currentPage - 1)}>&lt;</li>
+              {[...Array(totalPages)].map((i, j) => (
+                <NumberGen
+                  key={j + 1}
+                  counter={j + 1}
+                  setcurrentPage={setcurrentPage}
+                  currentPage={currentPage}
+                />
+              ))}
+              {/* <li>
               <Link to="#dummy">1</Link>
             </li>
             <li>
@@ -63,12 +84,33 @@ const ListingBox = ({ logged, products }) => {
             <li>...</li>
             <li>
               <Link to="#dummy">45</Link>
-            </li>
-            <li>&gt;</li>
-          </ul>
+            </li> */}
+              <li onClick={() => setcurrentPage(currentPage + 1)}>&gt;</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </BoxModel>
     </div>
+  )
+}
+const NumberGen = ({ counter, currentPage, setcurrentPage }) => {
+  return (
+    <li
+      // className={COrdersCss.numbers}
+      style={
+        counter === currentPage
+          ? {
+              color: 'white',
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              fontWeight: 'bold',
+            }
+          : { cursor: 'pointer' }
+      }
+      onClick={() => setcurrentPage(counter)}
+    >
+      {counter}
+    </li>
   )
 }
 export default ListingBox

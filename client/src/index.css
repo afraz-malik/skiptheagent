@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -10,7 +11,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --default-color: #10846c;
-  overflow-x: hidden;
+  /* --toastify-color-success: var(--default-color) !important; */
+  /* --toastify-icon-color-success: var(--default-color) !important; */
+  /* --toastify-color-progress-success: var(--default-color) !importa nt; */
+  /* overflow-x: hidden; */
 }
 
 code {

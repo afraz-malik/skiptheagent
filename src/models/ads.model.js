@@ -27,9 +27,6 @@ const adsSchema = new Schema(
     description: {
       type: String,
     },
-    last_updated: {
-      type: String,
-    },
     selling: {
       transaction_type: {
         type: String,
@@ -106,6 +103,10 @@ const adsSchema = new Schema(
       secondar_phone: {
         type: String,
       },
+    },
+    isDeleted: {
+      type: Boolean,
+      default: false,
     },
   },
   {

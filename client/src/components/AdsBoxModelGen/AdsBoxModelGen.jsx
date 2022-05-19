@@ -12,11 +12,13 @@ const AdsBoxModelGen = ({ product }) => {
         <div className={AdsBoxModelGenCss.cards}>
           <div className={AdsBoxModelGenCss.add_img}>
             <Link to={`/details?productId=${product._id}`}>
-              <img alt="" src="images\honda-city-2016.jpg" />
+              <img alt="" src={product.photos[0]} />
             </Link>
           </div>
           <div className={AdsBoxModelGenCss.add_name}>
-            <Link to={`/details`}>{product.car_info}</Link>
+            <Link to={`/details?productId=${product._id}`}>
+              {product.car_info}
+            </Link>
           </div>
           <div className={AdsBoxModelGenCss.add_price}>
             ${product.selling.price}
@@ -54,18 +56,20 @@ const AdsBoxModelGen = ({ product }) => {
   )
 }
 
-export const AdsGenDashboard = () => {
+export const AdsGenDashboard = ({ product }) => {
   return (
     <div className={AdsBoxModelGenCss.cards1}>
       <div className={AdsBoxModelGenCss.add_img1}>
-        <Link to={`/details`}>
-          <img alt="" src="images\honda-city-2016.jpg" />
+        <Link to={`/details?productId=${product._id}`}>
+          <img alt="" src={product.photos[0]} />
         </Link>
       </div>
       <div className={AdsBoxModelGenCss.add_name1}>
-        <Link to={`/details`}>Honda City 1.3 i-VTEC Prosmatec</Link>
+        <Link to={`/details?productId=${product._id}`}>{product.car_info}</Link>
       </div>
-      <div className={AdsBoxModelGenCss.add_price1}>$76,000</div>
+      <div className={AdsBoxModelGenCss.add_price1}>
+        ${product.selling.price}
+      </div>
     </div>
   )
 }

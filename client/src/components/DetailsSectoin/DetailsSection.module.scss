@@ -22,6 +22,7 @@
 .subimg ul {
   display: flex;
   padding: 0;
+  overflow-y: hidden;
   overflow-x: auto;
 }
 .subimg li {

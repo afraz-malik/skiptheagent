@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
-import RecentAdsBoxModelCss from './RecentAdsBoxModel.module.scss'
+import React from 'react'
+// import RecentAdsBoxModelCss from './RecentAdsBoxModel.module.scss'
 // Components
 import AdsBoxModel from '../AdsBoxModel1/AdsBoxModel1'
-import Button from '../button/button'
+// import Button from '../button/button'
 const RecenAdsBoxModel = () => {
-  const [view, setView] = useState(false)
-  const [viewValue, setViewValue] = useState('VIEW MORE')
+  // const [view, setView] = useState(false)
+  // const [viewValue, setViewValue] = useState('VIEW MORE')
 
-  const channgeView = () => {
-    setView(!view)
-    setViewValue('VIEW LESS')
-    if (view) setViewValue('VIEW MORE')
-  }
+  // const channgeView = () => {
+  //   setView(!view)
+  //   setViewValue('VIEW LESS')
+  //   if (view) setViewValue('VIEW MORE')
+  // }
   return (
     <div>
-      <AdsBoxModel view={view} view2={false} />
+      <AdsBoxModel view={false} view2={false} />
       {/* <div className={RecentAdsBoxModelCss.more}>
         <Button viewmore="true" onClick={() => channgeView()}>
           {`${viewValue}`}

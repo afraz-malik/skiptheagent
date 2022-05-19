@@ -2,7 +2,6 @@ import express from 'express'
 import { errorHandler, notFound } from './middlewares/errorMiddleware.js'
 import bodyParser from 'body-parser'
 import cors from 'cors'
-import path from 'path'
 import dotenv from 'dotenv'
 import router from './routes/router.js'
 dotenv.config()
@@ -31,6 +30,7 @@ app.use((req, res, next) => {
 // }
 app.get('/', (req, res) => res.send('Server is running'))
 app.use('/api', router)
+//For serving images
 // app.use('/api/user', userRouter)
 
 // app.use('/api/ads', adsRouter)

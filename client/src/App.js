@@ -21,6 +21,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 // import OwnerShip from './pages/Ownership/Ownership'
 // import Details from './pages/Details/Details'
 
+import { injectStyle } from 'react-toastify/dist/inject-style'
 //Pages with React Lazy
 const Home = lazy(() => import('./pages/Home/Home'))
 const Listing = lazy(() => import('./pages/Listing/Listing'))
@@ -51,6 +52,7 @@ class App extends React.Component {
     //       : null
     //   })
     // }
+    injectStyle()
 
     this.props.isUserAuthenticated()
   }
@@ -86,6 +88,7 @@ class App extends React.Component {
                   !user ? <Redirect to={`/login`} /> : <Dashboard />
                 }
               />
+              <Route path="/" render={() => <h1>404 Not Found</h1>} />
             </Switch>
           </Suspense>
         </Router>

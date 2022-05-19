@@ -5,13 +5,12 @@ import AdsBoxModelCss from './AdsBoxModel.module.scss'
 import BoxModel from '../boxModel/boxModel'
 import AdsBoxModelGen from '../AdsBoxModelGen/AdsBoxModelGen'
 // import { products as pd } from '../../services/products'
-import { API, fetchGet } from '../../services/config.js'
+import { API, fetchBackend } from '../../services/config.js'
 
 const AdsBoxModel = ({ view, view2 }) => {
   const [products, setProducts] = useState([])
   useEffect(() => {
-    fetchGet(API.getRecentAds).then((res) => {
-      console.log(res)
+    fetchBackend('GET', API.getRecentAds).then((res) => {
       setProducts(res)
     })
   }, [])
@@ -25,10 +24,10 @@ const AdsBoxModel = ({ view, view2 }) => {
     box.scrollLeft -= 500
   }
 
-  let value = 1
-  let value2 = 10
-  if (view) value = 2
-  if (view2) value2 = 4
+  // let value = 1
+  // let value2 = 10
+  // if (view) value = 2
+  // if (view2) value2 = 4
 
   return (
     <div className={`${AdsBoxModelCss.boxmodel} `}>

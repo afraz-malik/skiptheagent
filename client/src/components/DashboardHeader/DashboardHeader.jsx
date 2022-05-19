@@ -90,7 +90,7 @@ const DashboardHeader = ({ match }) => {
             Saved Ads
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link
             to={`${match.path}/alerts`}
             style={
@@ -104,7 +104,7 @@ const DashboardHeader = ({ match }) => {
           >
             My Alert
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link
             to={`${match.path}/postad`}

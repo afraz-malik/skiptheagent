@@ -10,12 +10,12 @@ const NewsBoxModel = () => {
   const scrollLeft = () => {
     const box = document.getElementsByClassName('scroll2')[0]
 
-    console.log(box)
+    // console.log(box)
     box.scrollLeft += 500
   }
   const scrollRight = () => {
     const box = document.getElementsByClassName('scroll2')[0]
-    console.log(box)
+    // console.log(box)
     box.scrollLeft -= 500
   }
   return (

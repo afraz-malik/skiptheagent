@@ -83,21 +83,23 @@ const HomeHeader = ({ url, user }) => {
             </div>
             <div className={HomeHeaderCss.search1}>
               <select name="cars" id="city">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
+                <option value="volvo">Model</option>
+                <option value="volvo">2022</option>
+                <option value="saab">2021</option>
+                <option value="opel">2020</option>
+                <option value="audi">2019</option>
               </select>
             </div>
             <div className={HomeHeaderCss.search1}>
               <select name="cars" id="price">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
+                <option value="volvo">Make</option>
+                <option value="volvo">Suzuki</option>
+                <option value="saab">Fiat</option>
                 <option value="opel">Opel</option>
                 <option value="audi">Audi</option>
               </select>
               <div className={HomeHeaderCss.checkboxes}>
-                <input
+                {/* <input
                   type="checkbox"
                   id={HomeHeaderCss.checkbox1}
                   name="new"
@@ -114,13 +116,15 @@ const HomeHeader = ({ url, user }) => {
                 />
                 <label htmlFor="used" className="label2">
                   USED
-                </label>
+                </label> */}
               </div>
             </div>
             <button type="submit">SEARCH</button>
           </form>
           <div className={HomeHeaderCss.advancesearch}>
-            <p>ADVANCE SEARCH</p>
+            <Link to={'/listing'}>
+              <p>ADVANCE SEARCH</p>
+            </Link>
           </div>
         </div>
       </div>
