@@ -3,10 +3,9 @@ import { store } from '../redux/store'
 import { signOutStart } from '../redux/user/user.actions'
 import axios from 'axios'
 import { io } from 'socket.io-client'
-export const db_url = 'http://localhost:5000/api'
-export const socket_url = 'localhost:5000'
-// export const db_url = "http://localhost:8000/";
-
+let server = 'http://localhost:5000/'
+export const db_url = server + 'api'
+export const socket_url = server
 export const fetchBackend = async (method, url, payload, params) => {
   return axios({
     method,
