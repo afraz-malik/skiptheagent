@@ -65,6 +65,7 @@ export const getUserAds = asyncHandler(async (req, res) => {
       })
     }
   } catch (error) {
+    console.log(error.message)
     res.json(error)
   }
 })

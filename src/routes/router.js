@@ -4,6 +4,7 @@ import express from 'express'
 import { getAd, getAds, getLatestAds } from '../controllers/ads.controller.js'
 import {
   forgetPassword,
+  getUser,
   googleLoginController,
   loginUser,
   registerUser,
@@ -34,6 +35,7 @@ router
   .get('/ads/', getAds)
   .get('/ads/:id', getAd)
   // User Routes
+  .get('/user/getuser/:id', getUser)
   .post('/user/register', registerUser)
   .post('/user/login', loginUser)
   .post('/user/login/google', googleLoginController)

@@ -60,7 +60,7 @@ const userSchema = new Schema(
     imgUrl: {
       type: String,
       required: false,
-      default: '',
+      default: 'http://localhost:5000/api/images/john.png',
     },
     likedAds: {
       type: Array,

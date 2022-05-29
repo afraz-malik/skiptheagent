@@ -15,7 +15,7 @@ const DashboardListing = ({ location }) => {
   const [count, setCount] = useState(0)
   const [filters, setFilters] = useState({
     sortBy: 'recent',
-    removedCount: false,
+    isDeleted: false,
   })
   const handleFilters = (key, val) => {
     setFilters({

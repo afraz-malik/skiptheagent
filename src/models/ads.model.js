@@ -115,5 +115,7 @@ const adsSchema = new Schema(
     default: '',
   }
 )
+// adsSchema.index({ car_info: 'text' })
+adsSchema.index({ description: 'text' })
 
 export default mongoose.model('ads', adsSchema)

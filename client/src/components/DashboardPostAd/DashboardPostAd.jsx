@@ -7,98 +7,140 @@ import { API, fetchBackend } from '../../services/config.js'
 import { toast } from 'react-toastify'
 import { useHistory, withRouter } from 'react-router-dom'
 import { uploadImages } from '../../redux/user/user.actions.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
+import * as yup from 'yup'
+let initialState = {
+  price: '355',
+  exterior_color: 'Whtie',
+  reg_city: 'Lahore',
+  engine_type: 'Any',
+  engine_capacity: '343',
+  transmission: 'Automatic',
+  assembly: '34',
+  body_type: 'Coupe',
+  make: 'Fiat',
+  abs: true,
+  airbags: true,
+  am_fm: true,
+  ac: true,
+  power_mirrors: true,
+  power_steering: true,
+  cd_player: true,
+  cassete: true,
+  immobilizer: true,
+  power_locks: true,
+  nav_system: true,
+  phone: '+92 324 8205435',
+  secondar_phone: '+92 324 8205435',
+  city: 'Lahore',
+  car_info: '2019 Fiat 124 Spider',
+  model: '2019',
+  mileage_km: '20',
+  photos: [],
+  description:
+    "This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum .Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum .Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum .Proin gravida nibh vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum",
+  transaction_type: 'cash',
+}
+let obj = {}
+for (const [key, value] of Object.entries(initialState)) {
+  obj = {
+    ...obj,
+    [key]: yup.string().required('This field is required'),
+  }
+}
+let schema = yup.object().shape({
+  ...obj,
+  photos: yup.array(),
+})
+
 const DashboardPostAd = ({ location }) => {
   const [images, setimages] = useState({ files: [], blobs: [] })
   const history = useHistory()
-  let initialState = {
-    id: '',
-    price: '355',
-    exterior_color: 'Whtie',
-    reg_city: 'Lahore',
-    engine_type: 'Any',
-    engine_capacity: '343',
-    transmission: 'Automatic',
-    assembly: '34',
-    body_type: 'Coupe',
-    make: 'Fiat',
-    abs: true,
-    airbags: true,
-    am_fm: true,
-    ac: true,
-    power_mirrors: true,
-    power_steering: true,
-    cd_player: true,
-    cassete: true,
-    immobilizer: true,
-    power_locks: true,
-    nav_system: true,
-    phone: '+92 324 8205435',
-    secondar_phone: '+92 324 8205435',
-    city: 'Lahore',
-    car_info: '2019 Fiat 124 Spider',
-    model: '2019',
-    mileage_km: '20',
-    photos: [],
-    description:
-      "This is the Photoshop's version of Lorem Ipsum. Proin gravida nibh\n    vel velit auctor aliqut. Aenea solicitun, lorem qus bibendum\n    autos, nisi elit consquatl ipsum.Proin gravida nibh vel velit\n    auctor aliqut. Aenea solicitun, lorem qus bibendum autos, nisi\n    elit consquatl ipsum .Proin gravida nibh vel velit auctor aliqut.\n    Aenea solicitun, lorem qus bibendum autos, nisi elit consquatl\n    ipsum .Proin gravida nibh vel velit auctor aliqut. Aenea\n    solicitun, lorem qus bibendum autos, nisi elit consquatl ipsum\n    .Proin gravida nibh vel velit auctor aliqut. Aenea solicitun,\n    lorem qus bibendum autos, nisi elit consquatl ipsum",
-    transaction_type: 'cash',
-  }
   const [state, setState] = useState(initialState)
   const [edit, setedit] = useState(false)
+  const [errors, seterrors] = useState({})
   const handleSubmit = (e) => {
     e.preventDefault()
-    let payload = {
-      id: state.id,
-      selling: {
-        price: state.price,
-        transaction_type: state.transaction_type,
-      },
-      details: {
-        exterior_color: state.exterior_color,
-        reg_city: state.reg_city,
-        engine_type: state.engine_type,
-        engine_capacity: state.engine_capacity,
-        transmission: state.transmission,
-        assembly: state.assembly,
-        body_type: state.body_type,
-        make: state.make,
-      },
-      features: {
-        abs: state.abs,
-        airbags: state.airbags,
-        am_fm: state.am_fm,
-        ac: state.ac,
-        power_mirrors: state.power_mirrors,
-        power_steering: state.power_steering,
-        cd_player: state.cd_player,
-        cassete: state.cassete,
-        immobilizer: state.immobilizer,
-        power_locks: state.power_locks,
-        nav_system: state.nav_system,
-      },
-      contact_info: {
-        phone: state.phone,
-        secondar_phone: state.secondar_phone,
-      },
-      city: state.city,
-      car_info: state.car_info,
-      model: state.model,
-      mileage_km: state.mileage_km,
-      photos: images.files,
-      description: state.description,
-      photos: state.photos,
-    }
-    uploadImages({ payload: images.files }).then((data) => {
-      fetchBackend(edit ? 'PUT' : 'POST', API.postAd, {
-        ...payload,
-        photos: payload.photos.concat(data),
-      })
-        .then((res) => {
-          toast.success(edit ? 'Edit Successfully' : 'Posted Successfully')
-          history.push('/dashboard/listing')
+    try {
+      schema.validateSync(state, { abortEarly: false })
+      if (images.files.length < 1) {
+        seterrors({
+          images: true,
         })
-        .catch((er) => toast.error(er.message))
-    })
+        document.getElementsByName('images')[0].scrollIntoView({
+          block: 'center',
+        })
+        return
+      }
+      let payload = {
+        id: state.id,
+        selling: {
+          price: state.price,
+          transaction_type: state.transaction_type,
+        },
+        details: {
+          exterior_color: state.exterior_color,
+          reg_city: state.reg_city,
+          engine_type: state.engine_type,
+          engine_capacity: state.engine_capacity,
+          transmission: state.transmission,
+          assembly: state.assembly,
+          body_type: state.body_type,
+          make: state.make,
+        },
+        features: {
+          abs: state.abs,
+          airbags: state.airbags,
+          am_fm: state.am_fm,
+          ac: state.ac,
+          power_mirrors: state.power_mirrors,
+          power_steering: state.power_steering,
+          cd_player: state.cd_player,
+          cassete: state.cassete,
+          immobilizer: state.immobilizer,
+          power_locks: state.power_locks,
+          nav_system: state.nav_system,
+        },
+        contact_info: {
+          phone: state.phone,
+          secondar_phone: state.secondar_phone,
+        },
+        city: state.city,
+        car_info: state.car_info,
+        model: state.model,
+        mileage_km: state.mileage_km,
+        photos: images.files,
+        description: state.description,
+        photos: state.photos,
+      }
+
+      uploadImages({ payload: images.files }).then((data) => {
+        fetchBackend(edit ? 'PUT' : 'POST', API.postAd, {
+          ...payload,
+          photos: payload.photos.concat(data),
+        })
+          .then((res) => {
+            toast.success(edit ? 'Edit Successfully' : 'Posted Successfully')
+            history.push('/dashboard/listing')
+          })
+          .catch((er) => toast.error(er.message))
+      })
+    } catch (error) {
+      if (error && error.name === 'ValidationError') {
+        let obj = {}
+        for (let e of error.inner) {
+          obj = {
+            ...obj,
+            [e.path]: e.message,
+          }
+        }
+        seterrors(obj)
+        document
+          .getElementsByName(Object.keys(obj)[0])[0]
+          .scrollIntoView({ block: 'center' })
+      }
+    }
   }
   useEffect(() => {
     if (location.edit && location.product_id) {
@@ -181,42 +223,55 @@ const DashboardPostAd = ({ location }) => {
               (All feilds marked with <span>*</span> are mandatory)
             </p>
             <div className={DashboardPostAdCss.form}>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.city ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   CITY<span>*</span>
                 </label>
-                {/* <select name="cars" id="city">
-                  <option value="volvo">ANY</option>
-                  <option value="saab">Female</option>
-                  <option value="opel">Other</option>
-                </select> */}
                 <input
                   type="text"
+                  // required
+                  name="city"
                   placeholder="New York"
                   value={state.city}
                   onChange={(e) => setState({ ...state, city: e.target.value })}
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.car_info ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   CAR INFO<span>*</span>
                 </label>
                 <input
+                  // required
                   type="text"
+                  name="car_info"
                   placeholder="Make/Version/Title"
                   value={state.car_info}
                   onChange={(e) =>
                     setState({ ...state, car_info: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.model ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   MODEL <span>*</span>
                 </label>
                 <select
-                  name="cars"
-                  id="city"
+                  name="model"
+                  // required
                   value={state.model}
                   onChange={(e) =>
                     setState({ ...state, model: e.target.value })
@@ -228,39 +283,58 @@ const DashboardPostAd = ({ location }) => {
                   <option value="2019">2019</option>
                   <option value="other">Other</option>
                 </select>
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.mileage_km ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   MILEAGE<span>*</span> (KM)
                 </label>
                 <input
+                  // required
                   type="text"
+                  name="mileage_km"
                   placeholder="New York"
                   value={state.mileage_km}
                   onChange={(e) =>
                     setState({ ...state, mileage_km: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
 
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.description ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   DESCRIPTION<span>*</span>
                 </label>
-                <input
+                <textarea
                   type="textarea"
                   placeholder="Describe your car ...."
+                  // required
+                  name="description"
                   value={state.description}
                   onChange={(e) =>
                     setState({ ...state, description: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
               <hr />
             </div>
             <h3>Expected Selling Price</h3>
             <div className={DashboardPostAdCss.form}>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.transaction_type ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <div className={DashboardPostAdCss.radio}>
                   <label>
                     TRANSACTION TYPE<span>*</span>
@@ -273,6 +347,7 @@ const DashboardPostAd = ({ location }) => {
                       setState({ ...state, transaction_type: 'cash' })
                     }
                   />
+
                   <span>Cash</span>
                   <input
                     type="radio"
@@ -285,48 +360,61 @@ const DashboardPostAd = ({ location }) => {
                   <span>Leased</span>
                 </div>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.price ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   PRICE <span>*</span>($)
                 </label>
                 <input
+                  // required
                   type="text"
-                  placeholder="New York"
+                  name="price"
+                  placeholder="Price will be in USD $"
                   value={state.price}
                   onChange={(e) =>
                     setState({ ...state, price: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
               <hr />
             </div>
             <h3>Upload Photos</h3>
             <div className={DashboardPostAdCss.form}>
               <div
-                className={`${DashboardPostAdCss.row} ${DashboardPostAdCss.uploadrow}`}
+                className={`${`${DashboardPostAdCss.row} ${
+                  errors.images ? DashboardPostAdCss.error : ''
+                }`} ${DashboardPostAdCss.uploadrow}`}
               >
                 <div className={DashboardPostAdCss.upload}>
                   <div className={DashboardPostAdCss.uploadphoto}>
-                    <label for="file-input">
+                    <label for="file-input" name="images">
                       <img alt="" src="images/addphoto.png" />
                     </label>
                     <input
                       id="file-input"
                       type="file"
                       multiple
+                      name="images"
                       // max={2}
                       onChange={(e) => handleImages(e)}
                     />
                     <span> (Max Limit 5MB Per Image)</span>
                   </div>
+                  <address>Please select at least one photo</address>
                   <div className={DashboardPostAdCss.uploadedphotos}>
                     <ul>
                       {images.blobs.map((blob, idx) => (
                         <li>
                           <div className={DashboardPostAdCss.subimg1}>
                             <img alt="" src={blob} />
-                            <i
-                              className="fa fa-close"
+
+                            <FontAwesomeIcon
+                              icon={faClose}
+                              className={DashboardPostAdCss.close}
                               onClick={() => handleImageRemove('blob', idx)}
                             />
                           </div>
@@ -336,23 +424,14 @@ const DashboardPostAd = ({ location }) => {
                         <li>
                           <div className={DashboardPostAdCss.subimg1}>
                             <img alt="" src={photo} />
-                            <i
-                              className="fa fa-close"
+                            <FontAwesomeIcon
+                              className={DashboardPostAdCss.close}
+                              icon={faClose}
                               onClick={() => handleImageRemove('state', idx)}
                             />
                           </div>
                         </li>
                       ))}
-                      {/* <li>
-                        <div className={DashboardPostAdCss.subimg1}>
-                          <img alt="" src="images\subimg2.jpg" />
-                        </div>
-                      </li>
-                      <li>
-                        <div className={DashboardPostAdCss.subimg1}>
-                          <img alt="" src="images\subimg3.jpg" />
-                        </div>
-                      </li> */}
                     </ul>
                   </div>
                   <ul>
@@ -374,109 +453,169 @@ const DashboardPostAd = ({ location }) => {
             </div>
             <h3>Additional Information</h3>
             <div className={DashboardPostAdCss.form}>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.exterior_color ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   EXTERIOR COLOR<span>*</span>
                 </label>
                 <input
+                  // required
                   type="text"
+                  name="exterior_color"
                   placeholder="New York"
                   value={state.exterior_color}
                   onChange={(e) =>
                     setState({ ...state, exterior_color: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.reg_city ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   REGISTRATION CITY<span>*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="New York"
+                  // required
+                  name="reg_city"
                   value={state.reg_city}
                   onChange={(e) =>
                     setState({ ...state, reg_city: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.engine_type ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   ENGINE TYPE<span>*</span>
                 </label>
                 <input
                   type="text"
+                  // required
+                  name="engine_type"
                   placeholder="New York"
                   value={state.engine_type}
                   onChange={(e) =>
                     setState({ ...state, engine_type: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.engine_capacity ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   ENGINE CAPACITY<span>*</span>
                 </label>
                 <input
                   type="text"
+                  // required
+                  name="engine_capacity"
                   placeholder="New York"
                   value={state.engine_capacity}
                   onChange={(e) =>
                     setState({ ...state, engine_capacity: e.target.value })
                   }
                 />{' '}
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.transmission ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   TRANSMISSION<span>*</span>
                 </label>
                 <input
                   type="text"
+                  // required
+                  name="transmission"
                   placeholder="New York"
                   value={state.transmission}
                   onChange={(e) =>
                     setState({ ...state, transmission: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.assembly ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   ASSEMBLY<span>*</span>
                 </label>
                 <input
                   type="text"
+                  // required
+                  name="assembly"
                   placeholder="New York"
                   value={state.assembly}
                   onChange={(e) =>
                     setState({ ...state, assembly: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.body_type ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   Body Type<span>*</span>
                 </label>
                 <input
                   type="text"
+                  // required
+                  name="body_type"
                   placeholder="New York"
                   value={state.body_type}
                   onChange={(e) =>
                     setState({ ...state, body_type: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.make ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <label>
                   Make<span>*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="New York"
+                  name="make"
+                  // required
                   value={state.make}
                   onChange={(e) => setState({ ...state, make: e.target.value })}
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.car_info ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <table>
                   <tr>
                     <td>
@@ -608,7 +747,11 @@ const DashboardPostAd = ({ location }) => {
             </div>
             <h3>Contact Information</h3>
             <div className={DashboardPostAdCss.form}>
-              <div className={DashboardPostAdCss.row}>
+              <div
+                className={`${DashboardPostAdCss.row} ${
+                  errors.phone ? DashboardPostAdCss.error : ''
+                }`}
+              >
                 <p>
                   Enter a gunuine XX digit mobile no. with format <br />
                   XXXXXXXXXXX. All inquires will come on this number.
@@ -624,8 +767,9 @@ const DashboardPostAd = ({ location }) => {
                     setState({ ...state, phone: e.target.value })
                   }
                 />
+                <address>*This field is required</address>
               </div>
-              <div className={DashboardPostAdCss.row}>
+              <div className={`${DashboardPostAdCss.row}`}>
                 <label>SECONDARY MOBILE NUMBER (OPTIONAL) </label>
                 <input
                   type="text"

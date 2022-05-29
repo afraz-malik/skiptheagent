@@ -4,7 +4,7 @@
   /* margin-top: 100px; */
   /* border: 1px solid lightgrey; */
   overflow: hidden;
-  box-shadow: 2px 2px 1px #aaaaaa;
+  /* box-shadow: 2px 2px 1px #aaaaaa; */
 }
 .boxmodel_topbar {
   display: flex;

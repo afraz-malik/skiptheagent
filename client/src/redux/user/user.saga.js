@@ -153,7 +153,7 @@ export function* passwordResetStart({ payload }) {
     let response = yield fetchBackend('POST', API.passwordForgot, payload)
     if (response) {
       yield put(passwordResetSuccess())
-      // console.log(response.url)
+      console.log(response.url)
     }
   } catch (err) {
     yield put(passwordResetFailed(err))

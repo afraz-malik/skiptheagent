@@ -9,6 +9,7 @@ import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
 import { SingleForgetBox } from '../ForgetPasswordBox/ForgetPasswordBox'
 import { db_url } from '../../services/config.js'
+import { toast } from 'react-toastify'
 
 const mapStateToProps = (state) => ({
   user: state.setUser.user,
@@ -51,7 +52,19 @@ const DashboardProfile = ({ user, isLoading }) => {
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(images)
+    toast.dismiss()
+    let err = []
+    let { displayName, email, blob } = usercredentials
+    if (!blob) err.push('You must select a profile picture')
+    if (!displayName) err.push('Name is required')
+    if (!email) err.push('Email is required')
+    if (err.length > 0) {
+      err.forEach((element) => {
+        toast.error(element)
+      })
+      return
+    }
+
     if (images.length > 0) {
       uploadImages({ payload: images }).then((data) => {
         dispatch(
@@ -90,7 +103,9 @@ const DashboardProfile = ({ user, isLoading }) => {
             <form onSubmit={handleSubmit}>
               <div className={DashboardProfileCss.row}>
                 <div className={DashboardProfileCss.column}>
-                  <label>FULL NAME</label>
+                  <label>
+                    FULL NAME <b style={{ color: 'red' }}>*</b>
+                  </label>
                   <input
                     type="text"
                     value={`${usercredentials.displayName}`}
@@ -105,6 +120,7 @@ const DashboardProfile = ({ user, isLoading }) => {
                     value={`${usercredentials.email}`}
                     name="email"
                     onChange={handleChange}
+                    disabled
                   />
                 </div>
               </div>

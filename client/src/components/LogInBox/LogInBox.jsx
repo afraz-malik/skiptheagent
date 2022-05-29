@@ -15,6 +15,7 @@ import { Spinner } from '../spinner/spinner'
 import BoxModel from '../boxModel/boxModel'
 
 import Button from '../button/button'
+import { toast } from 'react-toastify'
 
 const mapStateToProps = (state) => ({
   isLoading: state.setUser.loading,
@@ -31,7 +32,20 @@ const LoginBox = ({ url, isLoading, googleSignIn, setUser }) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault()
+    let err = []
     const { email, password } = userCrendential
+    if (!email) err.push('Email is required')
+    if (!password) err.push('Password is required')
+    if (email && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+      err.push('Email format is invalid')
+    if (password.length < 6)
+      err.push('Password must be at least 6 characters long!')
+    if (err.length > 0) {
+      err.forEach((element) => {
+        toast.error(element)
+      })
+      return
+    }
     setUser({ email, password })
   }
   const handleChange = (event) => {
@@ -51,6 +65,7 @@ const LoginBox = ({ url, isLoading, googleSignIn, setUser }) => {
               name="email"
               placeholder="Email"
               onChange={handleChange}
+              formNoValidate
             />
             <input
               type="password"

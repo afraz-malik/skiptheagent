@@ -6,9 +6,10 @@ import Button from '../button/button'
 
 // import { products } from '../../services/products'
 import { API, fetchBackend } from '../../services/config.js'
-import { withRouter } from 'react-router-dom'
+import { useHistory, withRouter } from 'react-router-dom'
 import { Spinner } from '../spinner/spinner.jsx'
 const DetailsSection = ({ location }) => {
+  const history = useHistory()
   const [state, setState] = useState({
     carfeatures: 'table',
     carfeaturesbg: '#10846c',
@@ -111,7 +112,17 @@ const DetailsSection = ({ location }) => {
                   <p>{product.city}</p>
                 </div>
                 <div className={DetailsSectionCss.buttons}>
-                  <Button> Chat </Button>
+                  <Button
+                    onClick={() =>
+                      history.push({
+                        pathname: '/dashboard/chats',
+                        user_id: product.userId,
+                      })
+                    }
+                  >
+                    {' '}
+                    Chat{' '}
+                  </Button>
                   <Button> Show Phone Number </Button>
                   {/* <button className={DetailsSectionCss.chatbutton}>Chat</button> */}
                   {/* <button className={DetailsSectionCss.showbutton}>Show Phone Number</button> */}

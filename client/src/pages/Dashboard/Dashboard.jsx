@@ -12,6 +12,7 @@ import DashboardSavedAds from '../../components/DashboardSavedAds/DashboardSaved
 import DashboardAlert from '../../components/DashboardAlert/DashboardAlert'
 import DashboardPostAd from '../../components/DashboardPostAd/DashboardPostAd'
 import Footer from '../../components/Footer/Footer'
+import DashboardChats from '../../components/DashboardChats/DashboardChats.jsx'
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -36,6 +37,7 @@ class Dashboard extends Component {
           component={DashboardSavedAds}
         />
         <Route exact path={`${match.path}/alerts`} component={DashboardAlert} />
+        <Route exact path={`${match.path}/chats`} component={DashboardChats} />
         <Route
           exact
           path={`${match.path}/postad`}

@@ -149,7 +149,7 @@ const ListingCards = ({ product, url, logged }) => {
           </div>
           {!product.isDeleted && (
             <>
-              {parseInt(user?._id) === parseInt(product.userId) ? (
+              {user?._id === product.userId ? (
                 <div className={ListingCardsCss['deleteEdit']}>
                   <Button onClick={() => deleteAd()}>DELETE</Button>
                   <Button edit onClick={() => editAd()}>

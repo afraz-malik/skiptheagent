@@ -28,8 +28,9 @@ const DashboardSavedAds = () => {
     <div className={DashboardSavedAdsCss.body}>
       <ListingBoxModel
         products={products}
-        title="MY SAVED ADS"
+        title="Saved ADS"
         filters={filters}
+        logged
         handleFilters={handleFilters}
       />
     </div>

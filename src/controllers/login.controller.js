@@ -177,3 +177,12 @@ export const updateUser = asyncHandler(async (req, res) => {
     throw new Error(error.message)
   }
 })
+
+export const getUser = asyncHandler(async (req, res) => {
+  try {
+    let user = await userModel.findById(req.params.id)
+    res.json(user)
+  } catch (error) {
+    throw new Error(error.message)
+  }
+})

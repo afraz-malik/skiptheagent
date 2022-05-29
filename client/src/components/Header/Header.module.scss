@@ -117,6 +117,24 @@
       width: 18px;
     }
   }
+  .msgs {
+    position: relative;
+    span {
+      top: -10px;
+      z-index: 999;
+      right: -10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      text-decoration: none !important;
+      color: var(--default-color);
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: white;
+    }
+  }
 }
 
 .righttext a {

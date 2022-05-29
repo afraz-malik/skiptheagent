@@ -21,7 +21,7 @@ class Home extends React.Component {
         <BuySellCard />
         <SearchByModel />
         <AdsBoxModel />
-        <NewsBoxModel />
+        {/* <NewsBoxModel /> */}
         <BrandsBoxModel />
         <Banner />
         <Footer />

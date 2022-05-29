@@ -26,7 +26,7 @@ const DashboardOverview = ({ match, signOut, user }) => {
 
   useEffect(() => {
     fetchBackend('get', API.getUserAds + '?isDeleted=false').then((res) =>
-      setOwnAds(res)
+      setOwnAds(res.ads)
     )
     fetchBackend('GET', API.getUserLikedAds).then((res) => {
       if (res.success) {

@@ -13,6 +13,7 @@ import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
 import { Link, withRouter } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const mapStateToProps = (state) => ({
   isLoading: state.setUser.loading,
@@ -56,20 +57,48 @@ const ForgetPasswordBox = ({ isLoading, success, history }) => {
       setBox({ ...box, password: false })
     }
   }
+  if (box.input === false && box.info === false && box.password === false) {
+    setBox({ ...box, input: true })
+  }
   const handleChange = (event) => {
     setEmail(event.target.value)
   }
   const handleSubmit = (event) => {
+    toast.dismiss()
     event.preventDefault()
+    let err = []
+    if (!email) err.push('Email is required')
+    if (err.length > 0) {
+      err.forEach((element) => {
+        toast.error(element)
+      })
+      return
+    }
     dispatch(
       passwordResetAction({ email, path: window.location.origin + '/forget' })
     )
   }
-  if (box.input === false && box.info === false && box.password === false) {
-    setBox({ ...box, input: true })
-  }
   const handleResetPasswordSubmit = (event) => {
     event.preventDefault()
+    toast.dismiss()
+    let err = []
+    if (!email) err.push('Link has been expired kindly request new one')
+    if (!token) err.push('Link has been expired kindly request new one')
+    if (!passwordReset.password) err.push('Password is required')
+    if (passwordReset.password && passwordReset.password.length < 6)
+      err.push('Password must be at least 6 characters long!')
+    if (!passwordReset.confirmPassword) err.push('Confirm password is required')
+    if (
+      passwordReset.confirmPassword &&
+      passwordReset.confirmPassword !== passwordReset.password
+    )
+      err.push("New Password and confirm password does's not match!")
+    if (err.length > 0) {
+      err.forEach((element) => {
+        toast.error(element)
+      })
+      return
+    }
     dispatch(
       passwordForgotAction({
         email,
@@ -99,7 +128,6 @@ const ForgetPasswordBox = ({ isLoading, success, history }) => {
                 type="email"
                 name="email"
                 placeholder="Enter email here"
-                required
                 onChange={handleChange}
               />
               <Button type="submit" name="login" login="login">
@@ -204,21 +232,26 @@ export const SingleForgetBox = ({ close, email }) => {
     event.preventDefault()
     if (password.password === '' || password.confirmPassword === '') {
       setPassword({ ...password, error: 'Field Cannot be empty' })
-    } else if (password.password === password.confirmPassword) {
-      // dispatch(passwordChange(password.password))
-
-      dispatch(
-        passwordForgotAction({
-          token,
-          password: password.password,
-          confirmPassword: password.confirmPassword,
-        })
-      )
-
-      // close()
-    } else {
-      setPassword({ ...password, error: 'Password Not Matched' })
+      return
     }
+    if (password.password.length < 6) {
+      setPassword({
+        ...password,
+        error: 'Password must be at least 6 characters long',
+      })
+      return
+    }
+    if (password.password !== password.confirmPassword) {
+      setPassword({ ...password, error: 'Password Not Matched' })
+      return
+    }
+    dispatch(
+      passwordForgotAction({
+        token,
+        password: password.password,
+        confirmPassword: password.confirmPassword,
+      })
+    )
   }
   return (
     <div className={`${ForgetPasswordCss.forgetPassword}  forgetPassword_Box`}>

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderCss from './Header.module.scss'
 // Router
 import { Link, withRouter } from 'react-router-dom'
 //Redux
 import { signOutStart } from '../../redux/user/user.actions'
 import { connect } from 'react-redux'
-
+import { socket } from '../../services/config.js'
 const mapStateToProps = (state) => ({
   user: state.setUser.user,
 })
@@ -15,6 +15,22 @@ const mapDispatchToProps = (dispatch) => ({
 
 // export const signingOut = signo
 const Header = ({ url, user, signOut }) => {
+  const [count, setcount] = useState(null)
+  useEffect(() => {
+    if (user) {
+      socket.emit('join', user._id, (res) => {
+        socket.emit('getUnreadCount', user._id)
+      })
+    }
+    socket.on('unreadCount', (count) => {
+      console.log('count ' + count)
+      setcount(count)
+    })
+
+    // return () => {
+    //   socket.emit('destroy')
+    // }
+  }, [user])
   const [hidden, sethidden] = useState(true)
   const toggleHidden = () => {
     sethidden(!hidden)
@@ -68,8 +84,11 @@ const Header = ({ url, user, signOut }) => {
                   <img src="images/whitelike.png" alt="" />
                 </Link>
               </span>
-              <Link to={`/dashboard`}>
-                <img src="images/envelope.png" alt="" />
+              <Link to={`/dashboard/chats`}>
+                <div className={HeaderCss.msgs}>
+                  <img src="images/envelope.png" alt="" />
+                  {count !== 0 && count && <span>{count}</span>}{' '}
+                </div>
               </Link>
             </div>
           )}
@@ -120,8 +139,11 @@ const Header = ({ url, user, signOut }) => {
                 <img src="images/greenheart.png" alt="" />
               </Link>
             </span>
-            <Link to={`/dashboard`}>
-              <img src="images/greenenvelope.png" alt="" />
+            <Link to={`/dashboard/chats`}>
+              <div className={HeaderCss.msgs}>
+                <img src="images/greenenvelope.png" alt="" />
+                {count !== 0 && count && <span>{count}</span>}{' '}
+              </div>{' '}
             </Link>
           </div>
         )}
@@ -137,7 +159,7 @@ const Header = ({ url, user, signOut }) => {
         <div className={HeaderCss.rightnav}>
           <ul>
             <li>
-              <Link to={`/login`}>SELL MY CAR</Link>
+              <Link to={`/dashboard/postad`}>SELL MY CAR</Link>
             </li>
             <li>
               <Link to={`/listing`}>SHOP FOR NEW CARS</Link>

@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HomeHeaderCss from './HomeHeader.module.scss'
 //Router
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 //Redux
+
 import { connect } from 'react-redux'
 const mapStateToProps = (state) => ({
   user: state.setUser.user,
 })
-
 const HomeHeader = ({ url, user }) => {
+  const history = useHistory()
+  const [state, setState] = useState({
+    car: '',
+    make: '',
+    model: '',
+  })
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    history.push({
+      pathname: '/listing',
+      filters: state,
+    })
+  }
   return (
     <header className={HomeHeaderCss.header}>
       <img alt="" className={HomeHeaderCss.headimg} src="images\header.jpg" />
@@ -77,26 +90,48 @@ const HomeHeader = ({ url, user }) => {
           </div>
         </div>
         <div className={HomeHeaderCss.headsearch}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className={HomeHeaderCss.search1}>
-              <input type="text" name="model" placeholder="Car/Make/Model" />
+              <input
+                type="text"
+                name="car"
+                placeholder="Car/Make/Model"
+                value={state.car}
+                onChange={(e) =>
+                  setState({ ...state, [e.target.name]: e.target.value })
+                }
+              />
             </div>
             <div className={HomeHeaderCss.search1}>
-              <select name="cars" id="city">
-                <option value="volvo">Model</option>
-                <option value="volvo">2022</option>
-                <option value="saab">2021</option>
-                <option value="opel">2020</option>
-                <option value="audi">2019</option>
+              <select
+                name="model"
+                id="city"
+                value={state.model}
+                onChange={(e) =>
+                  setState({ ...state, [e.target.name]: e.target.value })
+                }
+              >
+                <option value="">Model</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
               </select>
             </div>
             <div className={HomeHeaderCss.search1}>
-              <select name="cars" id="price">
-                <option value="volvo">Make</option>
-                <option value="volvo">Suzuki</option>
-                <option value="saab">Fiat</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
+              <select
+                name="make"
+                id="price"
+                value={state.make}
+                onChange={(e) =>
+                  setState({ ...state, [e.target.name]: e.target.value })
+                }
+              >
+                <option value="">Make</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Opel">Opel</option>
+                <option value="Audi">Audi</option>
               </select>
               <div className={HomeHeaderCss.checkboxes}>
                 {/* <input

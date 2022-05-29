@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import DashboardHeaderCss from './DashboardHeader.module.scss'
 
 // Router
@@ -12,6 +12,7 @@ const DashboardHeader = ({ match }) => {
   let profile = false
   let listing = false
   let savedads = false
+  let chats = false
   let alert = false
   let postad = false
   if (window.location.href.indexOf('profile') > -1) {
@@ -22,6 +23,8 @@ const DashboardHeader = ({ match }) => {
     savedads = true
   } else if (window.location.href.indexOf('alert') > -1) {
     alert = true
+  } else if (window.location.href.indexOf('chats') > -1) {
+    chats = true
   } else if (window.location.href.indexOf('postad') > -1) {
     postad = true
   } else if (window.location.href.indexOf('dashboard') > -1) {
@@ -105,6 +108,21 @@ const DashboardHeader = ({ match }) => {
             My Alert
           </Link>
         </li> */}
+        <li>
+          <Link
+            to={`${match.path}/chats`}
+            style={
+              chats
+                ? {
+                    color: 'var(--default-color)',
+                    borderBottom: '5px solid var(--default-color)',
+                  }
+                : null
+            }
+          >
+            Chats
+          </Link>
+        </li>
         <li>
           <Link
             to={`${match.path}/postad`}

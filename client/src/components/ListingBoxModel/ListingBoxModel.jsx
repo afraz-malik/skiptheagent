@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import ListingBoxModelCss from './ListingBoxModel.module.css'
 // Router
 // import { Link } from 'react-router-dom'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@fortawesome/free-solid-svg-icons'
 // Components
 import ListingCards from '../ListingCards/listingcards'
 import BoxModel from '../boxModel/boxModel.jsx'
 
 const ListingBox = ({ filters, handleFilters, logged, products, title }) => {
-  console.log(products)
   const [currentPage, setcurrentPage] = useState(1)
   const paginate = (array, page_size, page_number) => {
     return array.slice((page_number - 1) * page_size, page_number * page_size)
@@ -42,6 +42,44 @@ const ListingBox = ({ filters, handleFilters, logged, products, title }) => {
         filters={filters}
         handleFilters={handleFilters}
       >
+        {!logged && (
+          <div
+            className={`${ListingBoxModelCss.leftsectioncard} ${ListingBoxModelCss.first}`}
+            style={{
+              alignItems: 'start',
+              gap: '10px',
+              flexWrap: 'wrap',
+              height: 'auto',
+
+              alignItems: 'center',
+            }}
+          >
+            {Object.keys(filters).filter((key) => filters[key]).length !== 0 ? (
+              <>
+                <b style={{ fontSize: '12px' }}>Showing Results:</b>
+                {Object.keys(filters)
+                  .filter((key) => filters[key])
+                  .map((key, idx) => (
+                    <span>
+                      {filters[key]}
+                      {/* <i
+                
+                  className="fa fa-close"
+                  onClick={() => handleFilters(key, '')}
+                ></i> */}
+                      <FontAwesomeIcon
+                        icon={faClose}
+                        className={ListingBoxModelCss.close}
+                        onClick={() => handleFilters(key, '')}
+                      />
+                    </span>
+                  ))}
+              </>
+            ) : (
+              <b style={{ fontSize: '12px' }}>Showing All Results</b>
+            )}
+          </div>
+        )}
         <div className={ListingBoxModelCss.boxmodel_body}>
           {products.length === 0 && (
             <h5>

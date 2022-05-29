@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { Spinner } from '../spinner/spinner'
+import { toast } from 'react-toastify'
 
 const mapStateToProps = (state) => ({
   isLoading: state.setUser.loading,
@@ -27,11 +28,24 @@ const SignUpBox = ({ url, setUser, isLoading }) => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault()
-    if (userCrendential.confirmpassword === userCrendential.password) {
-      setUser(userCrendential)
-    } else {
-      alert('password not matched')
+    toast.dismiss()
+    let err = []
+    let { displayName, email, password, confirmpassword } = userCrendential
+    if (!displayName) err.push('Name is required')
+    if (!email) err.push('Email is required')
+    if (!password) err.push('Password is required')
+    if (!confirmpassword) err.push('Confirm password is required')
+    if (password && password.length < 6)
+      err.push('Password must be at least 6 characters long!')
+    if (confirmpassword !== password)
+      err.push("New Password and confirm password does's not match!")
+    if (err.length > 0) {
+      err.forEach((element) => {
+        toast.error(element)
+      })
+      return
     }
+    setUser(userCrendential)
   }
   const handleChange = (event) => {
     setUserCrendential({
@@ -49,28 +63,24 @@ const SignUpBox = ({ url, setUser, isLoading }) => {
               name="displayName"
               placeholder="Full Name"
               onChange={handleChange}
-              required
             />
             <input
               type="email"
               name="email"
               placeholder="Email"
               onChange={handleChange}
-              required
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
               onChange={handleChange}
-              required
             />
             <input
               type="password"
               name="confirmpassword"
               placeholder="Confirm Password"
               onChange={handleChange}
-              required
             />
             <div className={SignUpBoxCss.checkbox}>
               <input

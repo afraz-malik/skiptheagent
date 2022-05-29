@@ -30,6 +30,9 @@
         width: 80%;
         flex-direction: column;
         margin: 10px 0px;
+        address {
+          display: none !important;
+        }
         button {
           margin: 30px 0 0 0;
           height: 35px;
@@ -58,7 +61,7 @@
           font-family: 'Open Sans', sans-serif;
         }
         input[type='text'],
-        input[type='textarea'],
+        textarea,
         select {
           height: 35px;
           width: 100%;
@@ -67,17 +70,19 @@
           border: 1px solid lightgrey;
           box-shadow: 1px 1px 1px #aaaaaa;
           //   text-align: center;
-          color: grey;
+          color: black;
           font-weight: 600;
           font-size: 11px;
           font-family: 'Open Sans', sans-serif;
           text-align-last: center;
-          //   text-align: center;
           padding-left: 10px;
-          //   -ms-text-align-last: center;
-          //   -moz-text-align-last: center;
         }
-        input[type='textarea'] {
+        ::placeholder {
+          color: grey !important;
+          // font-weight: 400;
+        }
+        textarea {
+          resize: none;
           height: 100px;
           //   line-height: 100px;
           text-align-last: unset;
@@ -118,6 +123,27 @@
           }
         }
       }
+      .error {
+        .uploadphoto {
+          border: 1px solid red !important;
+        }
+        address {
+          display: block !important;
+          font-style: normal;
+          font-size: 12px;
+          color: red;
+        }
+        input,
+        select,
+        textarea {
+          color: red !important;
+          border: 1px solid red !important;
+          box-shadow: none !important;
+        }
+        label {
+          color: red !important;
+        }
+      }
       .uploadrow {
         width: 100%;
         display: flex;
@@ -156,21 +182,25 @@
           }
           .uploadedphotos {
             margin: 20px 0;
+            overflow-x: auto;
+            width: 100%;
             ul {
               display: flex;
               padding: 0;
-              overflow-x: auto;
+              // overflow-x: auto;
               // overflow-y: hidden;
               li {
                 list-style-type: none;
                 margin-right: 10px;
                 width: 90px;
+                border: 1px solid lightgrey;
                 .subimg1 {
                   position: relative;
                   width: 90px;
                   height: 80px;
+
                   &:hover {
-                    i {
+                    .close {
                       display: block !important;
                     }
                   }
@@ -179,7 +209,7 @@
                     height: 100%;
                   }
 
-                  i {
+                  .close {
                     display: none;
                     position: absolute;
                     right: -5px;
