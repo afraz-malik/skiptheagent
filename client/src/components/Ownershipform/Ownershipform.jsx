@@ -6,6 +6,7 @@ import Background2 from './2.png'
 import Background3 from './3.png'
 // Components
 import Button from '../button/button'
+import { toast } from 'react-toastify'
 
 const Ownershipform = () => {
   const [display, setDisplay] = useState('none')
@@ -70,7 +71,17 @@ const Ownershipform = () => {
       >
         <div className={OwnershipformCss.boxmodel_body}>
           <h3>Fill the Form</h3>
-          <form className={OwnershipformCss.signUpForm}>
+          <form
+            className={OwnershipformCss.signUpForm}
+            onSubmit={(e) => {
+              e.preventDefault()
+              setDisplay('none')
+              window.scrollTo(0, 0)
+              toast.success(
+                'Form Submitted Successfully, we will reach you soon'
+              )
+            }}
+          >
             <input type="text" name="name" placeholder="Email" />
             <input type="email" name="email" placeholder="Country" />
             <input type="password" name="password" placeholder="City" />
