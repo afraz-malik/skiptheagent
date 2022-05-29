@@ -22,7 +22,7 @@ export const getChannals = async (userid) => {
     },
     {
       $sort: {
-        updatedAt: -1,
+        lastMessageTime: -1,
       },
     },
   ])
@@ -100,6 +100,7 @@ export const sendMessage = async (payload) => {
     {
       users: [senderId, receiverId],
       lastMessage: payload.body,
+      lastMessageTime: new Date(),
       $inc: {
         [count]: 1,
       },
@@ -146,7 +147,6 @@ export const deleteChannal = async (id) => {
 }
 export const seenMessages = async ({ channalId, authUser }) => {
   let count = `unreadCount.${authUser}`
-  console.log(count, channalId)
   let channalResponse = await channalModel.updateOne(
     { _id: channalId },
     {

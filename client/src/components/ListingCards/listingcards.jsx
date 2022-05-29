@@ -168,7 +168,9 @@ const ListingCards = ({ product, url, logged }) => {
                   </div>
                   <div className={ListingCardsCss['showbutton']}>
                     {/* <button>Show Phone Number</button> */}
-                    <Button onClick={() => alert('+92 324 8205435')}>
+                    <Button
+                      onClick={() => toast.success(product.contact_info.phone)}
+                    >
                       Show Phone Number
                     </Button>
                   </div>

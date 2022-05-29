@@ -8,6 +8,7 @@ import Button from '../button/button'
 import { API, fetchBackend } from '../../services/config.js'
 import { useHistory, withRouter } from 'react-router-dom'
 import { Spinner } from '../spinner/spinner.jsx'
+import { toast } from 'react-toastify'
 const DetailsSection = ({ location }) => {
   const history = useHistory()
   const [state, setState] = useState({
@@ -123,7 +124,12 @@ const DetailsSection = ({ location }) => {
                     {' '}
                     Chat{' '}
                   </Button>
-                  <Button> Show Phone Number </Button>
+                  <Button
+                    onClick={() => toast.success(product.contact_info.phone)}
+                  >
+                    {' '}
+                    Show Phone Number{' '}
+                  </Button>
                   {/* <button className={DetailsSectionCss.chatbutton}>Chat</button> */}
                   {/* <button className={DetailsSectionCss.showbutton}>Show Phone Number</button> */}
                 </div>

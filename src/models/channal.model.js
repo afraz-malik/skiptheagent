@@ -6,6 +6,7 @@ const channelSchema = new Schema(
     users: { type: [Schema.Types.ObjectId], required: true },
     lastMessage: { type: String },
     unreadCount: Object,
+    lastMessageTime: Date,
   },
   {
     timestamps: true,

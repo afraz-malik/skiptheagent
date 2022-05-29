@@ -18,9 +18,7 @@ const Header = ({ url, user, signOut }) => {
   const [count, setcount] = useState(null)
   useEffect(() => {
     if (user) {
-      socket.emit('join', user._id, (res) => {
-        socket.emit('getUnreadCount', user._id)
-      })
+      socket.emit('getUnreadCount', user._id)
     }
     socket.on('unreadCount', (count) => {
       console.log('count ' + count)

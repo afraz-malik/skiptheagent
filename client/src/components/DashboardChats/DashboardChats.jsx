@@ -22,19 +22,14 @@ const DashboardChats = ({ location }) => {
     _setChannals(data)
   }
   useEffect(() => {
-    // const { name, room } = queryString.parse(location.search)
-
     if (location.user_id) getUser(location.user_id)
     fetchChannals()
 
-    socket.on('connect', (e) => console.log('Connected event: ', socket.id))
     socket.on('message', (message) => {
       setMessages((messages) => [...messages, message])
-      console.log(message.channalId === channalId)
       if (message.channalId === channalId) seenMessage(message.channalId)
       fetchChannals()
     })
-    socket.on('disconnect', (reason) => console.log(reason))
   }, [])
   const runScroll = () => {
     if (chatBoxRef.current)
@@ -172,9 +167,10 @@ const InboxMessages = ({
       className={`${DashboardChatsCss.chat_outside}
       ${selected ? DashboardChatsCss.selected : null}
     `}
+      onClick={() => openChat()}
     >
       <div className={DashboardChatsCss.chat_mini_out}>
-        <div className={DashboardChatsCss.chat} onClick={() => openChat()}>
+        <div className={DashboardChatsCss.chat}>
           <div className={DashboardChatsCss.chat_img}>
             <img src={user?.imgUrl} />
           </div>
@@ -184,21 +180,21 @@ const InboxMessages = ({
           </div>
         </div>
         <div className={DashboardChatsCss.chat}>
-          {!selected &&
-            channal.unreadCount[currentUser._id] &&
-            channal.unreadCount[currentUser._id] !== 0 && (
-              <b>{channal.unreadCount[currentUser._id]}</b>
-            )}
-          <i
+          {/* <i
             className="fa fa-trash"
             onClick={() => deleteChannal()}
             aria-hidden="true"
-          >
-            Delete
-          </i>
+          ></i> */}
+          {!selected && channal.unreadCount[currentUser._id] ? (
+            <b>
+              {channal.unreadCount[currentUser._id] == 0
+                ? null
+                : channal.unreadCount[currentUser._id]}
+            </b>
+          ) : null}
         </div>
       </div>
-      <span>{moment(channal.updatedAt).format('D MMMM, hh:mm A')}</span>
+      <span>{moment(channal.lastMessageTime).fromNow()}</span>
     </div>
   )
 }
@@ -258,6 +254,9 @@ const ChatBox = ({
             cols={5}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') sendMessage()
+            }}
           />
           <Button type="button" onClick={() => sendMessage()}>
             {' '}
@@ -289,7 +288,9 @@ const ChatBubble = ({ side, message, currentUser, selectedUser }) => {
         <p>{message.body}</p>
         <div className={DashboardChatsCss.messageInfo}>
           {side === 'own' && <i className={`fa-solid fa-check-double`}></i>}
-          <span>{moment(message.updatedAt).format('D MMMM, hh:mm A')}</span>
+          <span>
+            {moment(message.lastMessageTime).format('D MMMM, hh:mm A')}
+          </span>
         </div>
       </div>
     </div>

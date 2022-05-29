@@ -11,7 +11,7 @@ import BoxModel from '../boxModel/boxModel'
 import Button from '../button/button'
 import { AdsGenDashboard } from '../AdsBoxModelGen/AdsBoxModelGen'
 import Inbox from '../inbox/Inbox'
-import { API, db_url, fetchBackend } from '../../services/config.js'
+import { API, db_url, fetchBackend, socket } from '../../services/config.js'
 
 const mapStateToProps = (state) => ({
   user: state.setUser.user,
@@ -23,6 +23,7 @@ const DashboardOverview = ({ match, signOut, user }) => {
   // const currentUser = useSelector((state) => state.setUser)
   const [savedAds, setSavedAds] = useState([])
   const [ownAds, setOwnAds] = useState([])
+  const [channals, setChannals] = useState([])
 
   useEffect(() => {
     fetchBackend('get', API.getUserAds + '?isDeleted=false').then((res) =>
@@ -32,8 +33,17 @@ const DashboardOverview = ({ match, signOut, user }) => {
       if (res.success) {
         setSavedAds(res.ads)
       }
+      socket.emit('fetchChannals', user._id, ({ error, channals }) => {
+        if (error) {
+          alert(error)
+        } else {
+          console.log(channals)
+          setChannals(channals)
+        }
+      })
     })
   }, [])
+  console.log(channals)
   return (
     <div className={DashboardOverviewCss.container}>
       <BoxModel title="Profile">
@@ -65,12 +75,19 @@ const DashboardOverview = ({ match, signOut, user }) => {
       <BoxModel title="INBOX">
         <div className={DashboardOverviewCss.body}>
           <div className={DashboardOverviewCss.top3}>
-            {[...Array(10)].map((i, j) => (
-              <Inbox key={j} />
+            {channals.map((channal, j) => (
+              <Inbox key={j} channal={channal} currentUser={user} />
             ))}
           </div>
           <hr />
-          <div className={DashboardOverviewCss.link}>VIEW ALL</div>
+          <Link
+            to={{
+              pathname: `${match.path}/chats`,
+            }}
+            className={DashboardOverviewCss.link}
+          >
+            VIEW PROFILE
+          </Link>{' '}
         </div>
       </BoxModel>
 
