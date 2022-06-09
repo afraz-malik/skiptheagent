@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 // Components
 import Button from '../button/button'
+import { useSelector } from 'react-redux'
 
 const DashboardHeader = ({ match }) => {
+  const userRole = useSelector((state) => state.setUser.user.role)
   let overview = false
   let profile = false
   let listing = false
@@ -15,6 +17,7 @@ const DashboardHeader = ({ match }) => {
   let chats = false
   let alert = false
   let postad = false
+  let users = false
   if (window.location.href.indexOf('profile') > -1) {
     profile = true
   } else if (window.location.href.indexOf('listing') > -1) {
@@ -27,6 +30,8 @@ const DashboardHeader = ({ match }) => {
     chats = true
   } else if (window.location.href.indexOf('postad') > -1) {
     postad = true
+  } else if (window.location.href.indexOf('users') > -1) {
+    users = true
   } else if (window.location.href.indexOf('dashboard') > -1) {
     overview = true
   }
@@ -75,25 +80,44 @@ const DashboardHeader = ({ match }) => {
                 : null
             }
           >
-            Listing
+            {userRole === 'User' ? 'Listing' : 'Manage Ads'}
           </Link>
         </li>
-        <li>
-          <Link
-            to={`${match.path}/saved`}
-            style={
-              savedads
-                ? {
-                    color: 'var(--default-color)',
-                    borderBottom: '5px solid var(--default-color)',
-                  }
-                : null
-            }
-          >
-            Saved Ads
-          </Link>
-        </li>
-        {/* <li>
+        {userRole === 'Admin' && (
+          <li>
+            <Link
+              to={`${match.path}/users`}
+              style={
+                users
+                  ? {
+                      color: 'var(--default-color)',
+                      borderBottom: '5px solid var(--default-color)',
+                    }
+                  : null
+              }
+            >
+              Manage Users
+            </Link>
+          </li>
+        )}
+        {userRole !== 'Admin' && (
+          <>
+            <li>
+              <Link
+                to={`${match.path}/saved`}
+                style={
+                  savedads
+                    ? {
+                        color: 'var(--default-color)',
+                        borderBottom: '5px solid var(--default-color)',
+                      }
+                    : null
+                }
+              >
+                Saved Ads
+              </Link>
+            </li>
+            {/* <li>
           <Link
             to={`${match.path}/alerts`}
             style={
@@ -108,36 +132,38 @@ const DashboardHeader = ({ match }) => {
             My Alert
           </Link>
         </li> */}
-        <li>
-          <Link
-            to={`${match.path}/chats`}
-            style={
-              chats
-                ? {
-                    color: 'var(--default-color)',
-                    borderBottom: '5px solid var(--default-color)',
-                  }
-                : null
-            }
-          >
-            Chats
-          </Link>
-        </li>
-        <li>
-          <Link
-            to={`${match.path}/postad`}
-            style={
-              postad
-                ? {
-                    color: 'var(--default-color)',
-                    borderBottom: '5px solid var(--default-color)',
-                  }
-                : null
-            }
-          >
-            <Button> POST AD</Button>
-          </Link>
-        </li>
+            <li>
+              <Link
+                to={`${match.path}/chats`}
+                style={
+                  chats
+                    ? {
+                        color: 'var(--default-color)',
+                        borderBottom: '5px solid var(--default-color)',
+                      }
+                    : null
+                }
+              >
+                Chats
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={`${match.path}/postad`}
+                style={
+                  postad
+                    ? {
+                        color: 'var(--default-color)',
+                        borderBottom: '5px solid var(--default-color)',
+                      }
+                    : null
+                }
+              >
+                <Button> POST AD</Button>
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
     </div>
   )

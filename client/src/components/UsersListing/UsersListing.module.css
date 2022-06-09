@@ -1,0 +1,249 @@
+.leftsectioncard {
+  display: flex;
+  background-color: white;
+  height: 50px;
+  align-items: center;
+  padding: 10px 0 0 5px;
+  width: 100%;
+  cursor: pointer;
+}
+.leftsectioncard span {
+  background-color: var(--default-color);
+  /* border: 2px solid black; */
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  position: relative;
+  font-size: 12px;
+}
+.leftsectioncard span:hover .close {
+  display: block !important;
+}
+.leftsectioncard span .close {
+  display: none;
+  position: absolute;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 12px;
+  right: -8px;
+  top: -8px;
+}
+/*  */
+.outSideboxmodel {
+}
+
+.boxmodel {
+  overflow: hidden;
+  width: 70%;
+  /* margin: 0px; */
+  margin: 0 auto;
+  /* margin-left: auto; */
+  border: none;
+}
+.boxmodel_topbar {
+  display: flex;
+  background-color: #f0ecec;
+  /*align-items: center;*/
+}
+.boxmodel_title {
+  margin: 0;
+  background-color: var(--default-color);
+  transform: skewX(-24deg);
+  width: 300px;
+  padding: 5px 5px 5px 30px;
+  position: relative;
+  right: 12px;
+
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.boxmodel_title > * {
+  transform: skewX(24deg);
+}
+.boxmodel_title p {
+  margin: 0;
+  margin-left: 10px;
+  font-family: 'Bebas Neue', 'Serif';
+  font-size: 25px;
+  color: rgba(248, 248, 248, 255);
+}
+.extra {
+  width: 5px;
+  background-color: var(--default-color);
+  transform: skewX(-24deg);
+  position: relative;
+  right: 12px;
+  margin-left: 5px;
+}
+
+.boxtext {
+  margin: auto;
+}
+.boxtext p {
+  margin: 0;
+}
+.boximg {
+  width: 25px;
+  position: absolute;
+  right: 0;
+}
+.boxmodel_bottombar {
+  height: 50px;
+  margin-left: auto;
+  left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.boxmodel_bottombar ul {
+  list-style-type: none;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+}
+.boxmodel_bottombar li {
+  margin-left: 5px;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+}
+.boxmodel_bottombar li:hover {
+  /* margin-left: 5px; */
+  /* font-size: 12px; */
+  /* color: white; */
+  /* cursor: pointer; */
+  text-decoration: underline;
+}
+.boxmodel_bottombar a {
+  text-decoration: none;
+  color: white;
+}
+.boxmodel_bottombar a:hover {
+  text-decoration: underline;
+}
+.boxmodel_body h5 {
+  text-align: center;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .boxmodel {
+    width: 74%;
+  }
+  .boxmodel_title {
+    width: 250px;
+  }
+  .boxmodel_title p {
+    font-size: 20px;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .boxmodel {
+    width: 74%;
+  }
+  .boxmodel_title {
+    width: 250px;
+  }
+  .boxmodel_title p {
+    font-size: 20px;
+  }
+  .boxmodel {
+    /* width: 100%; */
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .boxmodel {
+    width: 100%;
+  }
+  .boxmodel_title {
+    width: 250px;
+  }
+  .boxmodel_title p {
+    font-size: 20px;
+  }
+  .sortby_box {
+    width: 100px;
+  }
+  .sortby_box p span {
+    display: none;
+  }
+  .sortby_box p {
+    text-align: left;
+  }
+  .sortby_box select {
+    padding-left: 0px;
+  }
+  .boxmodel_title {
+    font-size: 10px;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .boxmodel {
+    width: 100%;
+  }
+  .boxmodel_title {
+    width: 250px;
+  }
+  .boxmodel_title p {
+    font-size: 18px;
+  }
+  .sortby_box {
+    width: 110px;
+  }
+  .sortby_box p span {
+    display: none;
+  }
+  .sortby_box p {
+    text-align: left;
+  }
+  .sortby_text {
+    display: none;
+  }
+  .boxmodel_bottombar {
+    width: 300px;
+  }
+  .boxmodel_title {
+    font-size: 10px;
+  }
+}

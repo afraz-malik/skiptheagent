@@ -13,6 +13,7 @@ import DashboardAlert from '../../components/DashboardAlert/DashboardAlert'
 import DashboardPostAd from '../../components/DashboardPostAd/DashboardPostAd'
 import Footer from '../../components/Footer/Footer'
 import DashboardChats from '../../components/DashboardChats/DashboardChats.jsx'
+import DashboardManageUsers from '../../components/DashboardManageUsers/DashboardManageUsers.jsx'
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -30,6 +31,11 @@ class Dashboard extends Component {
           exact
           path={`${match.path}/listing`}
           component={DashboardListing}
+        />
+        <Route
+          exact
+          path={`${match.path}/users`}
+          component={DashboardManageUsers}
         />
         <Route
           exact

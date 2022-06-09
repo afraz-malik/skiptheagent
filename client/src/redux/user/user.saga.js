@@ -89,6 +89,11 @@ export function* signInWithEmail({ payload }) {
     // }
     let response = yield fetchBackend('POST', API.login, payload)
     // console.log(response)
+    if (response.user.isBanned) {
+      throw new Error(
+        'Your account has been banned by the administrator, you cannot use this system anymore'
+      )
+    }
     if (response.success && response.user) {
       localStorage.setItem('user', JSON.stringify(response.user))
       localStorage.setItem('skipToken', response.user.token)

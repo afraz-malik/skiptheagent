@@ -4,11 +4,20 @@ import userModel from '../models/user.model.js'
 import { validateToken } from './jwt.js'
 const __dirname = path.resolve()
 import fs from 'fs'
+import loginModel from '../models/login.model.js'
+import adminModel from '../models/admin.model.js'
 
 const storage = multer.diskStorage({
   destination: async function (req, file, cb) {
     let loginId = validateToken(req.headers.authorization)
-    let user = await userModel.findOne({ loginId })
+    let loginEntry = await loginModel.findById(loginId)
+    let user
+    if (loginEntry.role === 'Admin') {
+      user = await adminModel.findOne({ loginId })
+    } else {
+      user = await userModel.findOne({ loginId })
+    }
+    console.log(loginEntry)
     var dir = `public/images/${user._id}/`
     console.log(user)
     if (!fs.existsSync(dir)) {

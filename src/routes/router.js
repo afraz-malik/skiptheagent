@@ -14,11 +14,13 @@ import {
 import expressAsyncHandler from 'express-async-handler'
 import { validateToken } from '../services/jwt.js'
 import {
+  banUser,
   createAd,
   deleteAd,
   editAd,
   getUserAds,
   getUserLikedAds,
+  getUsrsForAdmin,
 } from '../controllers/userAds.controller.js'
 import path from 'path'
 import { uploadImages } from '../controllers/misc.controller.js'
@@ -54,6 +56,9 @@ router.use(
 )
 
 router
+  //Admin Routes
+  .get('/get_users_for_admin', getUsrsForAdmin)
+  .delete('/ban_user/:id', banUser)
   //Upload Images and get link
   .post('/upload', upload.array('photo'), uploadImages)
   .get('/user/ads/', getUserAds)

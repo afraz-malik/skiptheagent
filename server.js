@@ -11,11 +11,12 @@ import {
   seenMessages,
   sendMessage,
 } from './src/controllers/chat.controller.js'
+import { startSeeder } from './src/seeders/seeders.js'
 const server = http.createServer(app)
 
 export const io = new Server(server, {
   cors: {
-    origin: 'http://15.206.84.143:5000',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
   },
 })
@@ -94,6 +95,7 @@ io.on('connection', (socket) => {
 })
 async function startServer() {
   await mongoConnect()
+  startSeeder()
   server.listen(5000, () => console.log('Sever is running on port 5000'))
 }
 startServer()

@@ -12,32 +12,6 @@ export const getAds = asyncHandler(async (req, res) => {
     //   _id: 0,
     //   description: 1,
     // }
-    console.log({
-      ...(req.query.keywords && {
-        $text: { $search: `"${req.query.keywords}"` },
-      }),
-      ...(req.query.make && { 'details.make': req.query.make }),
-
-      ...(req.query.model && { model: req.query.model }),
-      ...(req.query.price && { 'selling.price': req.query.price }),
-      ...(req.query.body_type && {
-        'details.body_type': req.query.body_type,
-      }),
-      ...(req.query.mileage && { 'details.mileage': req.query.mileage }),
-      ...(req.query.engine_type && {
-        'details.engine_type': req.query.engine_type,
-      }),
-      ...(req.query.exterior_color && {
-        'details.exterior_color': req.query.exterior_color,
-      }),
-      ...(req.query.transmission && {
-        'details.transmission': req.query.transmission,
-      }),
-      ...(req.query.engine_capacity && {
-        'details.engine_capacity': req.query.engine_capacity,
-      }),
-      isDeleted: false,
-    })
     let ads = await adsModel
       // .aggregate([
       //   {

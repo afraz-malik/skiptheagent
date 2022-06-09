@@ -18,7 +18,11 @@ const ListingCards = ({ product, url, logged }) => {
   const user = useSelector((state) => state.setUser.user)
   const history = useHistory()
   const likedByMe = () => {
-    if (user && user.likedAds.indexOf(product._id) !== -1) {
+    if (
+      user &&
+      user.role === 'User' &&
+      user.likedAds.indexOf(product._id) !== -1
+    ) {
       return true
     }
     return false
@@ -149,12 +153,16 @@ const ListingCards = ({ product, url, logged }) => {
           </div>
           {!product.isDeleted && (
             <>
-              {user?._id === product.userId ? (
+              {user?._id === product.userId || user?.role === 'Admin' ? (
                 <div className={ListingCardsCss['deleteEdit']}>
-                  <Button onClick={() => deleteAd()}>DELETE</Button>
-                  <Button edit onClick={() => editAd()}>
-                    EDIT
+                  <Button onClick={() => deleteAd()}>
+                    {user.role === 'User' ? 'DELETE' : 'Disable'}
                   </Button>
+                  {user.role === 'User' && (
+                    <Button edit onClick={() => editAd()}>
+                      EDIT
+                    </Button>
+                  )}
                 </div>
               ) : (
                 <div className={ListingCardsCss['likenumber']}>

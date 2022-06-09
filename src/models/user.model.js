@@ -9,6 +9,10 @@ const userSchema = new Schema(
       ref: 'logins',
       required: [true, 'loginId. id is a required field'],
     },
+    isBanned: {
+      type: Boolean,
+      default: false,
+    },
     email: {
       type: String,
       required: [true, 'Email. id is a required field'],

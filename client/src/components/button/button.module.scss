@@ -11,6 +11,10 @@
   border: none;
   text-align: center;
   font-size: 12px;
+  &:disabled {
+    background-color: darkgray;
+    cursor: not-allowed;
+  }
 }
 .login {
   height: 40px;

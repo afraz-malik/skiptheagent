@@ -4,34 +4,34 @@ import loginModel from '../models/login.model.js'
 import userModel from '../models/user.model.js'
 import { getToken, validateToken } from '../services/jwt.js'
 
-export const registerAdmin = asyncHandler(async (req, res) => {
-  try {
-    const user = await loginModel.findOne({ email: req.body.email })
-    if (!user) {
-      const loginModelEntery = await loginModel.create({
-        ...req.body,
-        role: 'Admin',
-      })
-      const userModelEntry = await adminModel.create({
-        ...req.body,
-        loginId: loginModelEntery._id,
-      })
-      // let modifiedUser = await getUser(registeredUser.id)
-      res.status(200).json({
-        success: 'ok',
-        user: {
-          ...userModelEntry._doc,
-          token: getToken(loginModelEntery.id),
-        },
-      })
-    } else {
-      throw new Error('Admin Already Exists. Try different email')
-    }
-  } catch (error) {
-    res.status(400)
-    throw new Error(error.message)
-  }
-})
+// export const registerAdmin = asyncHandler(async (req, res) => {
+//   try {
+//     const user = await loginModel.findOne({ email: req.body.email })
+//     if (!user) {
+//       const loginModelEntery = await loginModel.create({
+//         ...req.body,
+//         role: 'Admin',
+//       })
+//       const userModelEntry = await adminModel.create({
+//         ...req.body,
+//         loginId: loginModelEntery._id,
+//       })
+//       // let modifiedUser = await getUser(registeredUser.id)
+//       res.status(200).json({
+//         success: 'ok',
+//         user: {
+//           ...userModelEntry._doc,
+//           token: getToken(loginModelEntery.id),
+//         },
+//       })
+//     } else {
+//       throw new Error('Admin Already Exists. Try different email')
+//     }
+//   } catch (error) {
+//     res.status(400)
+//     throw new Error(error.message)
+//   }
+// })
 export const registerUser = asyncHandler(async (req, res) => {
   // return registerAdmin(req, res)
 
@@ -68,6 +68,7 @@ export const loginUser = asyncHandler(async (req, res) => {
     const loginEntry = await loginModel.findOne({ email })
     if (loginEntry && (await loginEntry.matchPassword(password))) {
       // let modifiedUser = await getUser(user.id)
+      console.log(loginEntry)
       if (loginEntry.role === 'Admin') {
         let userInfo = await adminModel.findOne(
           { loginId: loginEntry._id },
@@ -79,6 +80,8 @@ export const loginUser = asyncHandler(async (req, res) => {
           user: {
             ...userInfo._doc,
             token: getToken(loginEntry.id),
+            email: loginEntry.email,
+            role: loginEntry.role,
           },
         })
       } else {
@@ -93,6 +96,7 @@ export const loginUser = asyncHandler(async (req, res) => {
             ...userInfo._doc,
             token: getToken(loginEntry.id),
             email: loginEntry.email,
+            role: loginEntry.role,
           },
         })
       }

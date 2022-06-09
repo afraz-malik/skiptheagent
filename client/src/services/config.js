@@ -3,7 +3,8 @@ import { store } from '../redux/store'
 import { signOutStart } from '../redux/user/user.actions'
 import axios from 'axios'
 import { io } from 'socket.io-client'
-let server = 'http://15.206.84.143:5000/'
+let server = 'http://localhost:5000/'
+// let server = 'http://15.206.84.143:5000/'
 export const db_url = server + 'api'
 export const socket_url = server
 export const fetchBackend = async (method, url, payload, params) => {
@@ -53,6 +54,9 @@ export const API = {
   getUserAds: '/user/ads',
   getUserLikedAds: '/user/ads/liked',
   deleteAd: '/user/ads', //Delete
+  // Admin routes
+  getUsersForAdmin: '/get_users_for_admin',
+  banUser: '/ban_user/',
   // Public Ads
   getRecentAds: '/ads/latest',
   getAd: '/ads/',
