@@ -1,0 +1,209 @@
+/*============================	Main Box Model		============================*/
+
+.leftsection {
+  height: 100%;
+  width: 29%;
+  border: 1px solid lightgrey;
+  box-shadow: 1px 1px 1px #aaaaaa;
+}
+/*.outside_leftsectioncard{
+	display: block;
+}*/
+.leftsectioncard {
+  display: flex;
+  background-color: white;
+  height: 50px;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  span {
+    background-color: var(--default-color);
+    // border: 2px solid black;
+    color: white;
+    padding: 5px;
+    position: relative;
+    &:hover {
+      i {
+        display: block !important;
+      }
+    }
+    i {
+      display: none;
+      position: absolute;
+      background-color: black;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 5px;
+      font-size: 12px;
+      right: -8px;
+      top: -8px;
+    }
+  }
+}
+.arrow {
+  margin-left: auto;
+  margin-right: 10px;
+  width: 10px;
+  transform: rotate(-90deg);
+}
+
+.firstarrow {
+  display: block;
+  margin-left: auto;
+  margin-right: 10px;
+  width: 10px;
+}
+.leftsectioncard p {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: rgba(93, 93, 93, 255);
+  font-size: 12px;
+  /*margin-left: 10px;*/
+}
+.first {
+  background-color: #f0ecec;
+}
+.insidesecond {
+  display: none;
+  justify-content: center;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+.insidesecond form {
+  display: flex;
+  border: 1px solid lightgrey;
+  width: 100%;
+}
+.insidesecond form input[type='text'],
+.insidesecond form select {
+  width: 100%;
+  border: 0;
+  height: 35px;
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: rgba(93, 93, 93, 255);
+  padding-left: 10px;
+}
+.insidesecond form input[type='text']:focus {
+  outline: none;
+}
+.insidesecond form button {
+  width: 40px;
+  border: 1px solid lightgrey;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--default-color);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: white;
+  cursor: pointer;
+}
+.current {
+  font-weight: bold;
+  text-decoration: underline;
+}
+@media (min-width: 1281px) {
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .leftsection {
+    width: 25%;
+    margin-right: 5px;
+  }
+  .insidesecond form input[type='text'] {
+    // width: 100px;
+    // padding-left: 0;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .leftsection {
+    width: 25%;
+    margin-right: 5px;
+  }
+  .insidesecond form input[type='text'] {
+    // width: 100px;
+    // padding-left: 0;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .leftsection {
+    width: 100%;
+    margin-right: 5px;
+    /*display: none;*/
+    box-shadow: none;
+    margin-bottom: 20px;
+  }
+  .outside_leftsectioncard {
+    display: none;
+  }
+  .firstarrow {
+    display: block;
+    transform: rotate(-90deg);
+  }
+  .insidesecond form input[type='text'] {
+    // width: 300px;
+    // padding-left: 0;
+  }
+  .insidesecond form input[type='text'] {
+    // width: 100px;
+    // padding-left: 0;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .leftsection {
+    width: 100%;
+    margin-right: 5px;
+    /*display: none;*/
+    box-shadow: none;
+    margin-bottom: 20px;
+  }
+  .outside_leftsectioncard {
+    display: none;
+  }
+  .firstarrow {
+    display: block;
+    transform: rotate(-90deg);
+  }
+  .insidesecond form input[type='text'] {
+    // width: 300px;
+    // padding-left: 0;
+  }
+  .insidesecond form input[type='text'] {
+    // width: 100px;
+    // padding-left: 0;
+  }
+}

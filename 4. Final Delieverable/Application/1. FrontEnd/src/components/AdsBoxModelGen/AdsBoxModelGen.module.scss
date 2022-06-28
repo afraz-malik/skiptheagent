@@ -1,0 +1,174 @@
+.ul {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+  padding: 0 20px;
+  /* margin-right:50px */
+}
+.cards {
+  width: 150px;
+  /* margin-right: 50px; */
+}
+.vhr {
+  border-right: 1px solid lightgrey;
+}
+.add_img img {
+  width: 100%;
+  height: 125px;
+}
+.add_name {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: rgba(93, 93, 93, 255);
+}
+.add_name a {
+  text-decoration: none;
+  color: rgba(93, 93, 93, 255);
+}
+.add_price {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px 0px;
+  color: rgba(178, 2, 2, 255);
+  font-weight: bold;
+}
+.cards > hr {
+  border-top: 1px solid grey;
+}
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.options img {
+  width: 10px;
+  margin-right: 5px;
+}
+.class1 {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(93, 93, 93, 255);
+  font-size: 9px;
+  justify-content: space-between;
+}
+.class2 {
+  display: flex;
+  justify-content: space-between;
+}
+.class3 p {
+  margin: 0;
+}
+
+.cards1 {
+  width: 125px;
+  height: 125px;
+  /* border-right: 1px solid black; */
+  /* margin: 10px; */
+  /* margin-right: 50px; */
+}
+
+.add_img1 img {
+  width: 100%;
+  height: 115px;
+}
+.add_name1 {
+  text-align: center;
+  margin: 0px;
+  font-size: 7px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  color: rgba(93, 93, 93, 255);
+}
+.add_name1 a {
+  text-decoration: none;
+  color: rgba(93, 93, 93, 255);
+}
+.add_price1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 8px;
+  text-align: center;
+  margin: 0px 0px;
+  color: rgba(178, 2, 2, 255);
+  font-weight: bold;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+  */
+
+@media (min-width: 1281px) {
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .cards {
+    width: 150px;
+  }
+  /* .ul{
+
+		margin-right:30px
+	} */
+  .cards img {
+    height: 90px;
+  }
+  .class1 {
+    display: none;
+  }
+}
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .cards {
+    width: 100px;
+  }
+  .ul {
+    /* margin-right:10px */
+  }
+  .cards img {
+    height: 90px;
+  }
+  .class1 {
+    display: none;
+  }
+}
