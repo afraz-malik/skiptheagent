@@ -1,0 +1,173 @@
+/*============================	Main Box Model	updated	============================*/
+.boxmodel {
+  width: 70%;
+  margin: auto;
+  margin-top: 100px;
+  border: 1px solid lightgrey;
+  overflow: hidden;
+  box-shadow: 2px 2px 1px #aaaaaa;
+}
+.boxmodel_topbar {
+  display: flex;
+  background-color: #f0ecec;
+}
+.boxmodel_title {
+  margin: 0;
+  background-color: var(--default-color);
+  transform: skewX(-24deg);
+  width: 400px;
+  padding: 5px 5px 5px 30px;
+  position: relative;
+  right: 12px;
+}
+
+.boxmodel_title > * {
+  transform: skewX(24deg);
+}
+.boxmodel_title p {
+  margin: 0;
+  margin-left: 10px;
+  font-family: 'Bebas Neue', 'Serif';
+  font-size: 25px;
+  color: rgba(248, 248, 248, 255);
+}
+.extra {
+  width: 5px;
+  background-color: var(--default-color);
+  transform: skewX(-24deg);
+  position: relative;
+  right: 12px;
+  margin-left: 5px;
+}
+.boxmodel_body {
+  padding: 30px 50px;
+  background-color: #f8f4f4;
+}
+/*============================	Main Box Model		============================*/
+
+.add_cards {
+  display: flex;
+  justify-content: space-between;
+  /*padding: 30px 50px;*/
+  /*background-color: #f8f4f4;*/
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.more a {
+  padding: 10px 20px;
+  border: 2px solid var(--default-color);
+  text-decoration: none;
+  color: rgba(13, 135, 105, 255);
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  border-radius: 5px;
+  align-self: center;
+}
+.more a:hover {
+  background-color: var(--default-color);
+  color: white;
+}
+.less {
+  display: none;
+}
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+  */
+
+@media (min-width: 1281px) {
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .boxmodel {
+    width: 80%;
+  }
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .boxmodel {
+    width: 95%;
+  }
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .boxmodel {
+    width: 100%;
+  }
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .boxmodel {
+    width: 100%;
+  }
+  .boxmodel_title {
+    width: 300px;
+  }
+  .boxmodel_body {
+    padding: 20px;
+  }
+  .add_cards {
+    padding: 5px;
+  }
+}
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .boxmodel {
+    width: 100%;
+  }
+  .boxmodel_title {
+    width: 250px;
+    font-size: 10px;
+  }
+  .relatedads_boxmodel {
+    margin-top: 0;
+  }
+  .boxmodel_body {
+    padding: 20px;
+  }
+  .vhr {
+    display: none;
+  }
+  .add_cards {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 110px 110px 110px 110px;
+    grid-gap: 10px;
+    overflow-x: auto;
+  }
+  .more a {
+    font-size: 12px;
+  }
+}
